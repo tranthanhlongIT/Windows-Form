@@ -33,5 +33,16 @@ namespace Project2.Properties {
                 return ((string)(this["longtt_ptpmudConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sql.bsite.net\\MSSQL2016;Initial Catalog=longtt_ptpmud;Persist Securit" +
+            "y Info=True;User ID=longtt_ptpmud")]
+        public string longtt_ptpmudConnectionString1 {
+            get {
+                return ((string)(this["longtt_ptpmudConnectionString1"]));
+            }
+        }
     }
 }

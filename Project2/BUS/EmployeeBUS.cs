@@ -8,16 +8,18 @@ namespace Project2.BUS
 {
     class EmployeeBUS
     {
+        private EmployeeDAO empDAO = new EmployeeDAO();
+
         public bool AddNew(Employee newEmployee)
         {
             newEmployee.password = EncodePasswordToBase64(newEmployee.password);
-            bool result = new EmployeeDAO().Insert(newEmployee);
+            bool result = empDAO.Insert(newEmployee);
             return result;
         }
 
         public bool CheckEmployeePassword(Employee employee)
         {
-            string getPassword = new EmployeeDAO().SelectPassword(employee.email);
+            string getPassword = empDAO.SelectPassword(employee.email);
             string password = DecodeFrom64(getPassword);
             if (employee.password == password)
                 return true;
@@ -26,7 +28,7 @@ namespace Project2.BUS
 
         public bool ValidateEmail(string email)
         {
-            bool result = new EmployeeDAO().IsExistEmail(email);
+            bool result = empDAO.IsExistEmail(email);
             return result;
         }
 

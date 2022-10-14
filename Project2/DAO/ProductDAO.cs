@@ -23,5 +23,18 @@ namespace Project2.DAO
                 return null;
             }
         }  
+
+        public List<Product> SelectWithCategoryID(int categoryID)
+        {
+            try
+            {
+                List<Product> products = db.Products.Where(p => p.category_id == categoryID).ToList();
+                return products;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

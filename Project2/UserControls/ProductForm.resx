@@ -132,6 +132,30 @@
         C8wTgcAnVhHKfu7GfqMAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="price.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="discount.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="quantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="category_name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chAvailable.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="longtt_ptpmudDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -141,4 +165,33 @@
   <metadata name="productsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>444, 17</value>
   </metadata>
+  <metadata name="bsProduct.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>617, 17</value>
+  </metadata>
+  <metadata name="bnProduct.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>724, 17</value>
+  </metadata>
+  <data name="bindingNavigatorMovePreviousItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAV1JREFUSEvt
+        ljFKA0EUhhdBrOwEwcoiB9DsDApiZWWrjd5BPYNgvICiM7MiegUPoNgIKulNZjYBBSuxE0EiGd/Irzw1
+        7TMK+WCK5Qt8sJl5O9mAf8HcYWNU2XBFK2KdQQmyGYeUCycsGrULdVg5lAnbPErrsbpXVqBlUMYvU6jL
+        oh1tWwvQMujCT1HoiUWjMuUatAwzB+1xCt3xaG7LI2gZclcfpv/1nEfp+aKyE0bwExmU9e5L1Ibb9Aag
+        Zcid3/gWfdZFS0PLkHYrhTos2qXNtAItw6y5maTQA4tGbcstaDnovF7zaJpUaWJBy0ExPod/L9zrVSvn
+        a9CyVPeb8xR8YXEalX4VWhaaTussnJb8cfrgxwAx4X56tzEBLUffRmYid80xCrZ5XBt/DC1Lr89i2gPQ
+        smjrlyjILwKvqigXoWVJ55mF05K/+rzTr8teAtfby8+wDadQA/4KWfYG/ZdYX1yfcIIAAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="bindingNavigatorMoveNextItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAVRJREFUSEvt
+        lrFKAzEYxw9BnNwEwcmhD6C9RAVxcnLVRd9BfQZBfQFFk5yIvoIPoLgIFrrbJrmCBSdxk4JUen6BD0nP
+        bvL3HPqDTL+DH3d8ySUZ868Q2t3RKng1Vi9b06ywSOOaUbgQxt0kB8UEaxwr6mmegq/DcXvEGkv9vL1G
+        wY8oPhDa7rDGkmq/F4XD6sksl6yx0FuaobhyL4unrTnWOFLTnKTYfSn+UDtxU/wIjtS0ZyjYieNS2WvW
+        WGRmFyj4HsfDDLDGIrXdpCBN93f8U2R+gzWWsJ+jcFhv9TNfYw2ETrBwkpXiDbZAqgrTVjouRfGfWii7
+        RaF4uPpS5+usMYzaTkL5XdYYli86sxTqxlHaw1esMVR2ZP74SWj3HL4AawypsfulaG9J54I1hjCtFOpH
+        0QEN0zZrDKOuPlL7Q9Y4KrvsSe1uo/Djn11vx/yeJPkCd4ZYXhIwwPQAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

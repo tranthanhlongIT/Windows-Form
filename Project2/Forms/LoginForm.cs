@@ -16,6 +16,7 @@ namespace Project2
     {
         private bool mouseDown;
         private Point lastLocation;
+        private EmployeeBUS empBUS = new EmployeeBUS();
 
         public LoginForm()
         {
@@ -83,7 +84,7 @@ namespace Project2
                     email = txtEmail.Text.Trim(),
                     password = txtPassword.Text.Trim()
                 };
-                bool result = new EmployeeBUS().CheckEmployeePassword(employee);
+                bool result = empBUS.CheckEmployeePassword(employee);
                 if (result)
                 {
                     this.Hide();
@@ -120,7 +121,6 @@ namespace Project2
 
         public bool ValidateLogin()
         {
-            EmployeeBUS empBUS = new EmployeeBUS();
             if (txtEmail.Text.Trim() == "" || txtEmail.Text.Length < 1)
             {
                 MessageBox.Show("Email field is empty", "Login Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);

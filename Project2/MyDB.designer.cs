@@ -51,7 +51,7 @@ namespace Project2
     #endregion
 		
 		public MyDBDataContext() : 
-				base(global::Project2.Properties.Settings.Default.longtt_ptpmudConnectionString, mappingSource)
+				base(global::Project2.Properties.Settings.Default.longtt_ptpmudConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -139,6 +139,10 @@ namespace Project2
 		
 		private string _name;
 		
+		private string _description;
+		
+		private System.Nullable<int> _parent_id;
+		
 		private EntitySet<Product> _Products;
 		
     #region Extensibility Method Definitions
@@ -149,6 +153,10 @@ namespace Project2
     partial void OnidChanged();
     partial void OnnameChanging(string value);
     partial void OnnameChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void Onparent_idChanging(System.Nullable<int> value);
+    partial void Onparent_idChanged();
     #endregion
 		
 		public Category()
@@ -193,6 +201,46 @@ namespace Project2
 					this._name = value;
 					this.SendPropertyChanged("name");
 					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(500)")]
+		public string description
+		{
+			get
+			{
+				return this._description;
+			}
+			set
+			{
+				if ((this._description != value))
+				{
+					this.OndescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._description = value;
+					this.SendPropertyChanged("description");
+					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_parent_id", DbType="Int")]
+		public System.Nullable<int> parent_id
+		{
+			get
+			{
+				return this._parent_id;
+			}
+			set
+			{
+				if ((this._parent_id != value))
+				{
+					this.Onparent_idChanging(value);
+					this.SendPropertyChanging();
+					this._parent_id = value;
+					this.SendPropertyChanged("parent_id");
+					this.Onparent_idChanged();
 				}
 			}
 		}
@@ -1233,9 +1281,11 @@ namespace Project2
 		
 		private System.Nullable<double> _price;
 		
+		private System.Nullable<double> _discount;
+		
 		private System.Nullable<int> _quantity;
 		
-		private System.Nullable<bool> _available;
+		private string _available;
 		
 		private string _image;
 		
@@ -1261,9 +1311,11 @@ namespace Project2
     partial void OndescriptionChanged();
     partial void OnpriceChanging(System.Nullable<double> value);
     partial void OnpriceChanged();
+    partial void OndiscountChanging(System.Nullable<double> value);
+    partial void OndiscountChanged();
     partial void OnquantityChanging(System.Nullable<int> value);
     partial void OnquantityChanged();
-    partial void OnavailableChanging(System.Nullable<bool> value);
+    partial void OnavailableChanging(string value);
     partial void OnavailableChanged();
     partial void OnimageChanging(string value);
     partial void OnimageChanged();
@@ -1362,6 +1414,26 @@ namespace Project2
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
+		public System.Nullable<double> discount
+		{
+			get
+			{
+				return this._discount;
+			}
+			set
+			{
+				if ((this._discount != value))
+				{
+					this.OndiscountChanging(value);
+					this.SendPropertyChanging();
+					this._discount = value;
+					this.SendPropertyChanged("discount");
+					this.OndiscountChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
 		public System.Nullable<int> quantity
 		{
@@ -1382,8 +1454,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Bit")]
-		public System.Nullable<bool> available
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Char(10)")]
+		public string available
 		{
 			get
 			{

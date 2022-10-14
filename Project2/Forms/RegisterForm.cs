@@ -17,6 +17,7 @@ namespace Project2
     {
         private bool mouseDown;
         private Point lastLocation;
+        private EmployeeBUS empBUS = new EmployeeBUS();
 
         public RegisterForm()
         {
@@ -144,7 +145,6 @@ namespace Project2
 
         private bool ValidateRegister()
         {
-            EmployeeBUS empBUS = new EmployeeBUS();
             if (txtUsername.Text.Trim() == "" || txtUsername.Text.Length < 1)
             {
                 MessageBox.Show("Username field is empty", "Register Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -209,21 +209,6 @@ namespace Project2
         {
             txtPassword.Text = "";
             txtConfirmPassword.Text = "";
-        }
-
-        public static string EncodePasswordToBase64(string password)
-        {
-            try
-            {
-                byte[] encData_byte = new byte[password.Length];
-                encData_byte = System.Text.Encoding.UTF8.GetBytes(password);
-                string encodedData = Convert.ToBase64String(encData_byte);
-                return encodedData;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error in base64Encode" + ex.Message);
-            }
         }
     }
 }

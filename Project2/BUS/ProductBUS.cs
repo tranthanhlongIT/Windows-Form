@@ -9,24 +9,18 @@ namespace Project2.BUS
 {
     class ProductBUS
     {
+        private ProductDAO prodDAO = new ProductDAO();
+
         public List<Product> GetAll()
         {
-            List<Product> products = new ProductDAO().SelectAll();
+            List<Product> products = prodDAO.SelectAll();
             return products;
         }
 
-        //public List<object> GetAllWithCategory()
-        //{
-        //    List<Product> listProduct = GetAll();
-        //    List<object> listObj = new List<object>();
-        //    foreach (var product in listProduct)
-        //    {
-        //        listObj.Add(new { id = product.id,
-        //            name = product.name,
-        //            description = product.description,
-
-        //            category_name = product.Category.name });
-        //    }
-        //}
+        public List<Product> GetProductByCategoryID(int categoryID)
+        {
+            List<Product> products = prodDAO.SelectWithCategoryID(categoryID);
+            return products;
+        }
     }
 }

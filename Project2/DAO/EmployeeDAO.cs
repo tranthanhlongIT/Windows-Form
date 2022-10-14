@@ -13,8 +13,15 @@ namespace Project2.DAO
 
         public List<Employee> SelectAll()
         {
-            List<Employee> employees = db.Employees.ToList();
-            return employees;
+            try 
+            {
+                List<Employee> employees = db.Employees.ToList();
+                return employees;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public string SelectPassword(string email)
