@@ -88,7 +88,8 @@ namespace Project2
                 if (result)
                 {
                     this.Hide();
-                    new ManagementForm(employee).Show();
+                    //new ManagementForm(employee).Show();
+                    new ManagementForm().Show();
                 }
                 else
                 {

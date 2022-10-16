@@ -25,74 +25,66 @@ namespace Project2
 
         private void ManagementForm_Load(object sender, EventArgs e)
         {
-            activeBtn = 1;
             SlidePanel(btnDashboard);
-            ChangeButtonTextColor(btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory });
+            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory });
         }
 
-        private void ManagementForm_MouseDown(object sender, MouseEventArgs e)
+        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
             lastLocation = e.Location;
         }
-
-        private void ManagementForm_MouseMove(object sender, MouseEventArgs e)
+        private void pnlTop_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
                 this.Location = new Point(
-                    (this.Location.X - lastLocation.X) 
-                    + e.X, (this.Location.Y - lastLocation.Y) 
+                    (this.Location.X - lastLocation.X)
+                    + e.X, (this.Location.Y - lastLocation.Y)
                     + e.Y);
                 this.Update();
             }
         }
 
-        private void ManagementForm_MouseUp(object sender, MouseEventArgs e)
+        private void pnlTop_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            activeBtn = 1;
             SlidePanel(btnDashboard);
-            ChangeButtonTextColor(btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory});
+            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory});
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            activeBtn = 2;
             SlidePanel(btnProduct);
-            ChangeButtonTextColor(btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSell, btnHistory });
+            ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSell, btnHistory });
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            activeBtn = 3;
             SlidePanel(btnEmployee);
-            ChangeButtonTextColor(btnEmployee, new List<Button> { btnDashboard, btnProduct, btnCategory, btnSell, btnHistory });
+            ChangeButtonTextColor(3, btnEmployee, new List<Button> { btnDashboard, btnProduct, btnCategory, btnSell, btnHistory });
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            activeBtn = 4;
             SlidePanel(btnCategory);
-            ChangeButtonTextColor(btnCategory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSell, btnHistory });
+            ChangeButtonTextColor(4, btnCategory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSell, btnHistory });
         }
 
         private void btnSell_Click(object sender, EventArgs e)
         {
-            activeBtn = 5;
             SlidePanel(btnSell);
-            ChangeButtonTextColor(btnSell, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnHistory });
+            ChangeButtonTextColor(5, btnSell, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnHistory });
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            activeBtn = 6;
             SlidePanel(btnHistory);
-            ChangeButtonTextColor(btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSell });
+            ChangeButtonTextColor(6, btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSell });
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -100,12 +92,14 @@ namespace Project2
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnRestoreDown_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else this.WindowState = FormWindowState.Maximized;
-        }
+        //private void btnRestoreDown_Click(object sender, EventArgs e)
+        //{
+        //    if (this.WindowState == FormWindowState.Maximized)
+        //    {
+        //        this.WindowState = FormWindowState.Normal;
+        //    }
+        //    else this.WindowState = FormWindowState.Maximized;
+        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -183,8 +177,9 @@ namespace Project2
             pnlLineActive.Left = btn.Left;
         }
 
-        private void ChangeButtonTextColor(Button btnActive, List<Button> listBtn)
+        private void ChangeButtonTextColor(int btnIndex, Button btnActive, List<Button> listBtn)
         {
+            activeBtn = btnIndex;
             btnActive.ForeColor = Color.SteelBlue;
             foreach (Button btn in listBtn)
             {

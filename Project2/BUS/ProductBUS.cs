@@ -17,10 +17,27 @@ namespace Project2.BUS
             return products;
         }
 
-        public List<Product> GetProductByCategoryID(int categoryID)
+        public List<Product> GetProductByCategoryID(int categoryId)
         {
-            List<Product> products = prodDAO.SelectWithCategoryID(categoryID);
+            List<Product> products = prodDAO.SelectWithCategoryID(categoryId);
             return products;
+        }
+
+        public List<Product> GetProductByMainCategory(int categoryId)
+        {
+            List<Product> products = prodDAO.SelectWithMainCategory(categoryId);
+            return products;
+        }
+
+        public List<Product> GetProductByTreeLevel(int level, int categoryId)
+        {
+            switch (level)
+            {
+                case 0: return GetAll();
+                case 1: return GetProductByMainCategory(categoryId);
+                case 2: return GetProductByCategoryID(categoryId);
+                default: return null;
+            }
         }
     }
 }

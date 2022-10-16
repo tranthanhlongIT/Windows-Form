@@ -44,9 +44,9 @@ namespace Project2
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
-            this.lblEmployeeName = new System.Windows.Forms.Label();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.productForm = new Project2.UserControls.ProductForm();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.ProductForm = new Project2.UserControls.ProductForm();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
@@ -67,6 +67,9 @@ namespace Project2
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1280, 40);
             this.pnlTop.TabIndex = 21;
+            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
+            this.pnlTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseMove);
+            this.pnlTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseUp);
             // 
             // btnRestoreDown
             // 
@@ -85,7 +88,7 @@ namespace Project2
             this.btnRestoreDown.TabIndex = 24;
             this.btnRestoreDown.TabStop = false;
             this.btnRestoreDown.UseVisualStyleBackColor = false;
-            this.btnRestoreDown.Click += new System.EventHandler(this.btnRestoreDown_Click);
+            this.btnRestoreDown.Visible = false;
             // 
             // btnMinimize
             // 
@@ -97,7 +100,7 @@ namespace Project2
             this.btnMinimize.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(1145, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(1190, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(45, 35);
@@ -132,7 +135,7 @@ namespace Project2
             this.lblLogo.ForeColor = System.Drawing.Color.White;
             this.lblLogo.Location = new System.Drawing.Point(70, 10);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(306, 25);
+            this.lblLogo.Size = new System.Drawing.Size(233, 21);
             this.lblLogo.TabIndex = 3;
             this.lblLogo.Text = "Shop Management System";
             // 
@@ -294,15 +297,6 @@ namespace Project2
             this.btnProduct.MouseEnter += new System.EventHandler(this.btnProduct_MouseEnter);
             this.btnProduct.MouseLeave += new System.EventHandler(this.btnProduct_MouseLeave);
             // 
-            // lblEmployeeName
-            // 
-            this.lblEmployeeName.AutoSize = true;
-            this.lblEmployeeName.Location = new System.Drawing.Point(1157, 14);
-            this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(72, 23);
-            this.lblEmployeeName.TabIndex = 5;
-            this.lblEmployeeName.Text = "label2";
-            // 
             // btnDashboard
             // 
             this.btnDashboard.BackColor = System.Drawing.SystemColors.Control;
@@ -323,24 +317,31 @@ namespace Project2
             this.btnDashboard.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
             this.btnDashboard.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
-            // productForm
+            // lblEmployeeName
             // 
-            this.productForm.BackColor = System.Drawing.SystemColors.Control;
-            this.productForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.productForm.Location = new System.Drawing.Point(0, 90);
-            this.productForm.Margin = new System.Windows.Forms.Padding(0);
-            this.productForm.Name = "productForm";
-            this.productForm.Size = new System.Drawing.Size(1280, 630);
-            this.productForm.TabIndex = 24;
+            this.lblEmployeeName.AutoSize = true;
+            this.lblEmployeeName.Location = new System.Drawing.Point(1157, 14);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(57, 21);
+            this.lblEmployeeName.TabIndex = 5;
+            this.lblEmployeeName.Text = "label2";
+            // 
+            // ProductForm
+            // 
+            this.ProductForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductForm.Location = new System.Drawing.Point(0, 90);
+            this.ProductForm.Margin = new System.Windows.Forms.Padding(0);
+            this.ProductForm.Name = "ProductForm";
+            this.ProductForm.Size = new System.Drawing.Size(1280, 630);
+            this.ProductForm.TabIndex = 23;
+            this.ProductForm.TabStop = false;
             // 
             // ManagementForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.productForm);
+            this.Controls.Add(this.ProductForm);
             this.Controls.Add(this.pnlNavigation);
             this.Controls.Add(this.pnlTop);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,9 +351,6 @@ namespace Project2
             this.Text = "ManagementForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManagementForm_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ManagementForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ManagementForm_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ManagementForm_MouseUp);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
@@ -379,7 +377,7 @@ namespace Project2
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Panel pnlLineActive;
         private System.Windows.Forms.Button btnRestoreDown;
-        private UserControls.ProductForm productForm;
         private System.Windows.Forms.Panel pnlLine;
+        private UserControls.ProductForm ProductForm;
     }
 }

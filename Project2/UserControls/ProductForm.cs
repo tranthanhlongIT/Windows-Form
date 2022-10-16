@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project2.BUS;
-using Project2.Utils;
+using Project2.Forms.Components;
 
 namespace Project2.UserControls
 {
@@ -16,8 +16,6 @@ namespace Project2.UserControls
     {
         private ProductBUS prodBUS = new ProductBUS();
         private CategoryBUS cateBUS = new CategoryBUS();
-
-        private const int pageSize = 10;
 
         public ProductForm()
         {
@@ -48,27 +46,60 @@ namespace Project2.UserControls
             }
         }
 
-        private void dgvProduct_SelectionChanged(object sender, EventArgs e)
+        private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            //    if (dgvProduct.SelectedRows.Count > 0)
-            //    {
-            //        int id = int.Parse(dgvProduct.SelectedRows[0].Cells["id"].Value.ToString());
-            //        Product Product = new ProductBUS().GetDetails(id);
-            //        if (Product != null)
-            //        {
-            //            txtId.Text = Product.id.ToString();
-            //            txtName.Text = Product.name;
-            //            txtDescription.Text = Product.description;
-            //            txtQuantity.Text = Product.quantity.ToString();
-            //            txtPrice.Text = Product.price.ToString();
-            //        }
-            //    }
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch.PerformClick();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            String keyword = txtSearch.Text.Trim().ToLower();
+            List<Product> products = GetProductList();
+            products = products.FindAll(p => p.name.ToLower().Contains(keyword));
+            LoadDataGridView(products);
         }
 
         private void LoadSearchTextBox()
         {
             txtSearch.Text = "Search by car name";
             txtSearch.ForeColor = Color.Silver;
+        }
+
+        private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            tvCategory.SelectedNode.SelectedImageIndex = tvCategory.SelectedNode.ImageIndex;
+            List<Product> products = GetProductList();
+            LoadDataGridView(products);
+        }
+
+        private void LoadTreeView()
+        {
+            CreateParentNode(0);
+            tvCategory.SelectedNode = tvCategory.Nodes[0].FirstNode.FirstNode;
+            tvCategory.SelectedNode.Expand();
+            tvCategory.Focus();
+        }
+
+        public void LoadDataGridView(List<Product> products)
+        {
+            dgvProduct.Rows.Clear();
+            if (products.Count > 0)
+            {
+                foreach (var product in products)
+                {
+                    dgvProduct.Rows.Add(product.id,
+                                        product.name,
+                                        product.price,
+                                        product.discount,
+                                        product.quantity,
+                                        product.Category.name,
+                                        product.available);
+                }
+            }   
         }
 
         private void CreateParentNode(int parentId)
@@ -79,6 +110,7 @@ namespace Project2.UserControls
                 TreeNode node = new TreeNode();
                 node.Text = category.name;
                 node.Tag = category.id;
+                node.ImageIndex = 0;
                 CreateChildNode(node, category.id);
                 tvCategory.Nodes.Add(node);
             }
@@ -87,136 +119,75 @@ namespace Project2.UserControls
         private void CreateChildNode(TreeNode parentNode, int parentId)
         {
             List<Category> categories = cateBUS.GetCategoryByParentID(parentId);
-            foreach (var category in categories)
+            if (categories.Count > 0)
             {
-                TreeNode childNode = new TreeNode();
-                childNode.Text = category.name;
-                childNode.Tag = category.id;
-                parentNode.Nodes.Add(childNode);
-                CreateChildNode(childNode, category.id);
+                foreach (var category in categories)
+                {
+                    TreeNode childNode = new TreeNode();
+                    childNode.Text = category.name;
+                    childNode.Tag = category.id;
+                    childNode.ImageIndex = SetIcon(category.name);
+                    parentNode.Nodes.Add(childNode);
+                    CreateChildNode(childNode, category.id);
+                }
             }
         }
 
-        private void LoadTreeView()
+        public List<Product> GetProductList()
         {
-            CreateParentNode(0);
-            tvCategory.SelectedNode = tvCategory.Nodes[0].Nodes[0].Nodes[0];
-            tvCategory.SelectedNode.Expand();
-        }
-
-        private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
-        {
+            int level = tvCategory.SelectedNode.Level;
             int categoryId = (int)tvCategory.SelectedNode.Tag;
-            LoadPagination(categoryId);
+            return prodBUS.GetProductByTreeLevel(level, categoryId);
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private int SetIcon(string name)
         {
-            //if (listView1.SelectedItems.Count > 0)
-            //{
-            //    ListViewItem item = listView1.SelectedItems[0];
-            //    txtProductID.Text = item.SubItems["ProductID"].Text;
-            //    txtProductName.Text = item.SubItems["Name"].Text;
-            //    txtCategoyID.Text = item.SubItems["CategoryID"].Text;
-            //}
-        }
-
-        public void LoadPagination(int categoryId)
-        {
-            int totalItem = prodBUS.GetProductByCategoryID(categoryId).Count();
-            bnProduct.BindingSource = bsProduct;
-            bsProduct.CurrentChanged += new System.EventHandler(bsProduct_CurrentChanged);
-            bsProduct.DataSource = new PageOffsetList(totalItem, pageSize);
-        }
-
-        private void bsProduct_CurrentChanged(object sender, EventArgs e)
-        {
-            //    The desired page has changed, so fetch the page of products using the "Current" offset
-            int categoryId = (int)tvCategory.SelectedNode.Tag;
-            int offset = (int)bsProduct.Current;
-            List<Product> products = new List<Product>();
-            List<Product> list = prodBUS.GetProductByCategoryID(categoryId);
-            for (int i = offset; i < offset + pageSize && i < list.Count(); i++)
+            switch (name)
             {
-                products.Add(list[i]);
+                case "Sedan": return 1;
+                case "SUV": return 2;
+                case "Hatchback": return 3;
+                case "Sportcar": return 4;
+                case "Subaru": return 5;
+                case "Toyota": return 6;
+                case "Lexus": return 7;
+                case "BMW": return 8;
+                case "Mercedes Benz": return 9;
+                default: return 0;
             }
-            dgvProduct.DataSource = products;
-            LoadDataGridView();
         }
 
-
-        public void LoadDataGridView()
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            dgvProduct.Columns["id"].HeaderText = "ID";
-            dgvProduct.Columns["name"].HeaderText = "Name";
-            dgvProduct.Columns["price"].HeaderText = "Price";
-            dgvProduct.Columns["discount"].HeaderText = "Discount";
-            dgvProduct.Columns["quantity"].HeaderText = "Quantity";
-            dgvProduct.Columns["available"].HeaderText = "Available";
+            Form formBackground = new Form();
+            try
+            {
+                using (ModalForm uu = new ModalForm())
+                {
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .70d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Maximized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
 
-            dgvProduct.Columns["description"].Visible = false;
-            dgvProduct.Columns["image"].Visible = false;
-            dgvProduct.Columns["created_at"].Visible = false;
-            dgvProduct.Columns["updated_at"].Visible = false;
-            dgvProduct.Columns["description"].Visible = false;
-            dgvProduct.Columns["category_id"].Visible = false;
-            dgvProduct.Columns["Category"].Visible = false;
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
         }
-
-        //private void bsProduct_CurrentChanged(object sender, EventArgs e)
-        //{
-        //    The desired page has changed, so fetch the page of records using the "Current" offset
-        //    int categoryId = (int)tvCategory.SelectedNode.Tag;
-        //    var list = prodBUS.GetProductByCategoryID(categoryId);
-        //    int offset = (int)bsProduct.Current;
-        //    var products = new List<Product>();
-        //    for (int i = offset; i < offset + pageSize && i < totalItem; i++)
-        //        products.Add(new Product
-        //        {
-        //            id = list[i].id,
-        //            name = list[i].name,
-        //            price = list[i].price,
-        //            discount = list[i].discount,
-        //            quantity = list[i].quantity,
-        //            Category = list[i].Category,
-        //            available = list[i].available
-        //        });
-        //    dgvProduct.DataSource = products;
-
-        //    int categoryId = (int)tvCategory.SelectedNode.Tag;
-        //    int offset = (int)bsProduct.Current;
-        //    List<Product> products = new List<Product>();
-        //    List<Product> list = prodBUS.GetProductByCategoryID(categoryId);
-        //    for (int i = offset; i < offset + pageSize && i < totalItem; i++)
-        //    {
-        //        products.Add(new Product
-        //        {
-        //            id = list[i].id,
-        //            name = list[i].name,
-        //            price = list[i].price,
-        //            discount = list[i].discount,
-        //            quantity = list[i].quantity,
-        //            Category = list[i].Category,
-        //            available = list[i].available
-        //        });
-        //    }
-        //    dgvProduct.DataSource = products;
-        //}
-
-        //private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
-        //{
-        //    dgvProduct.Rows.Clear();
-        //    int categoryId = Int32.Parse(tvCategory.SelectedNode.Tag.ToString());
-        //    List<Product> products = prodBUS.GetProductByCategoryID(categoryId);
-        //    foreach (var product in products)
-        //    {
-        //        dgvProduct.Rows.Add(product.id,
-        //                            product.name,
-        //                            String.Format("{0:n0}", product.price),
-        //                            String.Format("{0:n0}", product.discount),
-        //                            product.quantity,
-        //                            product.Category.name);
-        //    }
-        //}
     }
 }

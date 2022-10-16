@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project2.Forms.Components;
 
 namespace Project2
 {
@@ -18,6 +19,7 @@ namespace Project2
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ManagementForm());
             //Application.Run(new LoginForm());
+            //Application.Run(new ModalForm());
         }
     }
 }

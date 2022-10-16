@@ -79,6 +79,12 @@
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="Forms\Components\ModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Components\ModalForm.Designer.cs">
+      <DependentUpon>ModalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +102,6 @@
     </Compile>
     <Compile Include="Forms\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="longtt_ptpmudDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>longtt_ptpmudDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="MyDB.designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,7 +146,21 @@
     <Compile Include="UserControls\SellForm.Designer.cs">
       <DependentUpon>SellForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\PageOffsetList.cs" />
+    <Compile Include="Utils\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\RoundedComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\RoundedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Utils\RoundedTextBox.Designer.cs">
+      <DependentUpon>RoundedTextBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Components\ModalForm.resx">
+      <DependentUpon>ModalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,17 +191,9 @@
     <EmbeddedResource Include="UserControls\SellForm.resx">
       <DependentUpon>SellForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="longtt_ptpmudDataSet.xsc">
-      <DependentUpon>longtt_ptpmudDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="longtt_ptpmudDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>longtt_ptpmudDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="longtt_ptpmudDataSet.xss">
-      <DependentUpon>longtt_ptpmudDataSet.xsd</DependentUpon>
-    </None>
+    <EmbeddedResource Include="Utils\RoundedTextBox.resx">
+      <DependentUpon>RoundedTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="MyDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>MyDB.designer.cs</LastGenOutput>

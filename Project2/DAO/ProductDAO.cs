@@ -24,11 +24,26 @@ namespace Project2.DAO
             }
         }  
 
-        public List<Product> SelectWithCategoryID(int categoryID)
+        public List<Product> SelectWithCategoryID(int categoryId)
         {
             try
             {
-                List<Product> products = db.Products.Where(p => p.category_id == categoryID).ToList();
+                List<Product> products = db.Products.Where(p => p.category_id == categoryId).ToList();
+                return products;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public List<Product> SelectWithMainCategory(int categoryId)
+        {
+            try
+            {
+                var mainCategoryList = db.Categories.Where(c => c.parent_id == categoryId).Select(c => c.id).ToList();
+                var subCategoryList = db.Categories.Where(c => mainCategoryList.Contains(c.id)).Select(c => c.id).ToList();
+                List<Product> products = db.Products.Where(p => subCategoryList.Contains((int)p.category_id)).ToList();
                 return products;
             }
             catch
