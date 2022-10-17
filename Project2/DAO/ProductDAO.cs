@@ -24,6 +24,19 @@ namespace Project2.DAO
             }
         }  
 
+        public Product SelectAllByID(int id)
+        {
+            try
+            {
+                Product product = db.Products.SingleOrDefault(p => p.id == id);
+                return product;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public List<Product> SelectAllByTypeID(int typeId)
         {
             try
@@ -102,6 +115,25 @@ namespace Project2.DAO
                     dbProduct.updated_at = newProduct.updated_at;
                     dbProduct.type_id = newProduct.type_id;
                     dbProduct.brand_id = newProduct.brand_id;
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public bool Delete(int id)
+        {
+            Product dbProduct = db.Products.SingleOrDefault(c => c.id == id);
+            if (dbProduct != null)
+            {
+                try
+                {
+                    db.Products.DeleteOnSubmit(dbProduct);
                     db.SubmitChanges();
                     return true;
                 }

@@ -41,6 +41,12 @@ namespace Project2.BUS
             return brand;
         }
 
+        public Product GetProductByID(int id)
+        {
+            Product product = prodDAO.SelectAllByID(id);
+            return product;
+        }
+
         public List<Product> GetProductByBrandID(int categoryId)
         {
             List<Product> products = prodDAO.SelectAllByBrandID(categoryId);
@@ -62,6 +68,12 @@ namespace Project2.BUS
                 case 2: return GetProductByBrandID(categoryId);
                 default: return null;
             }
+        }
+
+        public bool Delete(int id)
+        {
+            bool result = prodDAO.Delete(id);
+            return result;
         }
     }
 }

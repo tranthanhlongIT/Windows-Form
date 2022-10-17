@@ -43,7 +43,7 @@ namespace Project2.Forms.Components
             else if (action == "upd" || action == "det")
             {
                 lblTitle.Text = "Update Product";
-                this.product = GetProductByID(id);
+                this.product = prodBUS.GetProductByID(id);
                 SetField();
             }
         }
@@ -118,7 +118,6 @@ namespace Project2.Forms.Components
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             BeginAction();
-            SetForm(action, product);
         }
 
         public void CreateProduct()

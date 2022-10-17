@@ -72,7 +72,7 @@ namespace Project2.UserControls
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            OpenModal("add");
+            OpenModal("add", -99);
         }
 
         private void LoadSearchTextBox()
@@ -165,12 +165,12 @@ namespace Project2.UserControls
             }
         }
 
-        private void OpenModal(string action)
+        private void OpenModal(string action, int id)
         {
             Form formBackground = new Form();
             try
             {
-                using (ModalForm uu = new ModalForm(action, null))
+                using (ModalForm uu = new ModalForm(action, id))
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;
