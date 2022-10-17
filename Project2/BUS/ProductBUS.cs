@@ -17,15 +17,39 @@ namespace Project2.BUS
             return products;
         }
 
-        public List<Product> GetProductByCategoryID(int categoryId)
+        public bool AddNew(Product newProduct)
         {
-            List<Product> products = prodDAO.SelectWithCategoryID(categoryId);
+            bool result = prodDAO.Insert(newProduct);
+            return true;
+        }
+
+        public bool Update(Product newProduct)
+        {
+            bool result = prodDAO.Update(newProduct);
+            return result;
+        }
+
+        public string GetProductType(int id)
+        {
+            string type = prodDAO.SelectTypeByID(id);
+            return type;
+        }
+
+        public string GetProductBrand(int id)
+        {
+            string brand = prodDAO.SelectBrandByID(id);
+            return brand;
+        }
+
+        public List<Product> GetProductByBrandID(int categoryId)
+        {
+            List<Product> products = prodDAO.SelectAllByBrandID(categoryId);
             return products;
         }
 
-        public List<Product> GetProductByMainCategory(int categoryId)
+        public List<Product> GetProductByTypeID(int categoryId)
         {
-            List<Product> products = prodDAO.SelectWithMainCategory(categoryId);
+            List<Product> products = prodDAO.SelectAllByTypeID(categoryId);
             return products;
         }
 
@@ -34,8 +58,8 @@ namespace Project2.BUS
             switch (level)
             {
                 case 0: return GetAll();
-                case 1: return GetProductByMainCategory(categoryId);
-                case 2: return GetProductByCategoryID(categoryId);
+                case 1: return GetProductByTypeID(categoryId);
+                case 2: return GetProductByBrandID(categoryId);
                 default: return null;
             }
         }

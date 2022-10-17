@@ -6,7 +6,27 @@
       <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="parent_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Category_Product" Member="Products" ThisKey="id" OtherKey="category_id" Type="Product" />
+      <Association Name="Category_Product" Member="Products" ThisKey="id" OtherKey="type_id" Type="Product" />
+      <Association Name="Category_Product1" Member="Products1" ThisKey="id" OtherKey="brand_id" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="available" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="created_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="updated_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="brand_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="product_id" Type="OrderDetail" />
+      <Association Name="Category_Product" Member="Category" ThisKey="type_id" OtherKey="id" Type="Category" IsForeignKey="true" />
+      <Association Name="Category_Product1" Member="Category1" ThisKey="brand_id" OtherKey="id" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customers" Member="Customers">
@@ -39,8 +59,8 @@
       <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="subtotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Order_OrderDetail" Member="Order" ThisKey="order_id" OtherKey="id" Type="Order" IsForeignKey="true" />
       <Association Name="Product_OrderDetail" Member="Product" ThisKey="product_id" OtherKey="id" Type="Product" IsForeignKey="true" />
+      <Association Name="Order_OrderDetail" Member="Order" ThisKey="order_id" OtherKey="id" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Orders" Member="Orders">
@@ -54,23 +74,6 @@
       <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="order_id" Type="OrderDetail" />
       <Association Name="Customer_Order" Member="Customer" ThisKey="customer_id" OtherKey="id" Type="Customer" IsForeignKey="true" />
       <Association Name="Employee_Order" Member="Employee" ThisKey="employee_id" OtherKey="id" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Products" Member="Products">
-    <Type Name="Product">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="available" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Column Name="image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="created_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="updated_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Product_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="product_id" Type="OrderDetail" />
-      <Association Name="Category_Product" Member="Category" ThisKey="category_id" OtherKey="id" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -63,17 +63,22 @@ namespace Project2.UserControls
             LoadDataGridView(products);
         }
 
-        private void LoadSearchTextBox()
-        {
-            txtSearch.Text = "Search by car name";
-            txtSearch.ForeColor = Color.Silver;
-        }
-
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tvCategory.SelectedNode.SelectedImageIndex = tvCategory.SelectedNode.ImageIndex;
             List<Product> products = GetProductList();
             LoadDataGridView(products);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            OpenModal("add");
+        }
+
+        private void LoadSearchTextBox()
+        {
+            txtSearch.Text = "Search by car name";
+            txtSearch.ForeColor = Color.Silver;
         }
 
         private void LoadTreeView()
@@ -91,12 +96,15 @@ namespace Project2.UserControls
             {
                 foreach (var product in products)
                 {
+                    string type = prodBUS.GetProductType(product.id);
+                    string brand = prodBUS.GetProductBrand(product.id);
                     dgvProduct.Rows.Add(product.id,
                                         product.name,
                                         product.price,
                                         product.discount,
                                         product.quantity,
-                                        product.Category.name,
+                                        type,
+                                        brand,
                                         product.available);
                 }
             }   
@@ -157,12 +165,12 @@ namespace Project2.UserControls
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void OpenModal(string action)
         {
             Form formBackground = new Form();
             try
             {
-                using (ModalForm uu = new ModalForm())
+                using (ModalForm uu = new ModalForm(action, null))
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;
@@ -186,8 +194,44 @@ namespace Project2.UserControls
             }
             finally
             {
+                
                 formBackground.Dispose();
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+            OpenModal("update", id);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+                bool result = new ProductBUS().Delete(id);
+                if (result)
+                {
+                    RefreshDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("SORRY BABY!");
+                }
+            }
+        }
+
+        public void RefreshDataGridView()
+        {
+            List<Product> products = GetProductList();
+            LoadDataGridView(products);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
         }
     }
 }

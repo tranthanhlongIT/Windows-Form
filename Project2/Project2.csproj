@@ -110,6 +110,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CategoryForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,17 +151,20 @@
     <Compile Include="UserControls\SellForm.Designer.cs">
       <DependentUpon>SellForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\RoundedButton.cs">
+    <Compile Include="Forms\Components\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\RoundedComboBox.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\Components\FlatComboBox.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\RoundedTextBox.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\Components\FlatTextBox.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\RoundedTextBox.Designer.cs">
-      <DependentUpon>RoundedTextBox.cs</DependentUpon>
+    <Compile Include="Utils\Form_Alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\Form_Alert.Designer.cs">
+      <DependentUpon>Form_Alert.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\Components\ModalForm.resx">
       <DependentUpon>ModalForm.cs</DependentUpon>
@@ -172,13 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="UserControls\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,9 +194,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SellForm.resx">
       <DependentUpon>SellForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Utils\RoundedTextBox.resx">
-      <DependentUpon>RoundedTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="MyDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -219,7 +220,24 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_cancel_25px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
