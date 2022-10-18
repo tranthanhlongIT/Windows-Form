@@ -66,13 +66,60 @@ namespace Project2.UserControls
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tvCategory.SelectedNode.SelectedImageIndex = tvCategory.SelectedNode.ImageIndex;
-            List<Product> products = GetProductList();
-            LoadDataGridView(products);
+            RefreshDataGridView();
+        }
+
+        private void tvCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             OpenModal("add", -99);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+            OpenModal("upd", id);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+                bool result = new ProductBUS().Delete(id);
+                if (result)
+                {
+                    RefreshDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("SORRY BABY!");
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
+        }
+
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+                OpenModal("det", id);
+            }
         }
 
         private void LoadSearchTextBox()
@@ -96,18 +143,29 @@ namespace Project2.UserControls
             {
                 foreach (var product in products)
                 {
-                    string type = prodBUS.GetProductType(product.id);
-                    string brand = prodBUS.GetProductBrand(product.id);
                     dgvProduct.Rows.Add(product.id,
                                         product.name,
                                         product.price,
                                         product.discount,
                                         product.quantity,
-                                        type,
-                                        brand,
+                                        product.Category.name,
+                                        product.Category1.name,
                                         product.available);
                 }
             }   
+        }
+
+        public List<Product> GetProductList()
+        {
+            int level = tvCategory.SelectedNode.Level;
+            int categoryId = (int)tvCategory.SelectedNode.Tag;
+            return prodBUS.GetProductByTreeLevel(level, categoryId);
+        }
+
+        public void RefreshDataGridView()
+        {
+            List<Product> products = GetProductList();
+            LoadDataGridView(products);
         }
 
         private void CreateParentNode(int parentId)
@@ -141,30 +199,6 @@ namespace Project2.UserControls
             }
         }
 
-        public List<Product> GetProductList()
-        {
-            int level = tvCategory.SelectedNode.Level;
-            int categoryId = (int)tvCategory.SelectedNode.Tag;
-            return prodBUS.GetProductByTreeLevel(level, categoryId);
-        }
-
-        private int SetIcon(string name)
-        {
-            switch (name)
-            {
-                case "Sedan": return 1;
-                case "SUV": return 2;
-                case "Hatchback": return 3;
-                case "Sportcar": return 4;
-                case "Subaru": return 5;
-                case "Toyota": return 6;
-                case "Lexus": return 7;
-                case "BMW": return 8;
-                case "Mercedes Benz": return 9;
-                default: return 0;
-            }
-        }
-
         private void OpenModal(string action, int id)
         {
             Form formBackground = new Form();
@@ -184,7 +218,6 @@ namespace Project2.UserControls
 
                     uu.Owner = formBackground;
                     uu.ShowDialog();
-
                     formBackground.Dispose();
                 }
             }
@@ -194,44 +227,26 @@ namespace Project2.UserControls
             }
             finally
             {
-                
+                RefreshDataGridView();
                 formBackground.Dispose();
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private int SetIcon(string name)
         {
-            int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
-            OpenModal("update", id);
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            switch (name)
             {
-                int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
-                bool result = new ProductBUS().Delete(id);
-                if (result)
-                {
-                    RefreshDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("SORRY BABY!");
-                }
+                case "Sedan": return 1;
+                case "SUV": return 2;
+                case "Hatchback": return 3;
+                case "Sportcar": return 4;
+                case "Subaru": return 5;
+                case "Toyota": return 6;
+                case "Lexus": return 7;
+                case "BMW": return 8;
+                case "Mercedes Benz": return 9;
+                default: return 0;
             }
-        }
-
-        public void RefreshDataGridView()
-        {
-            List<Product> products = GetProductList();
-            LoadDataGridView(products);
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            RefreshDataGridView();
         }
     }
 }

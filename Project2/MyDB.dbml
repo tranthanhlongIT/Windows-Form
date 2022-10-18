@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="longtt_ptpmud" Class="MyDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=longtt_ptpmud;Persist Security Info=True;User ID=longtt_ptpmud" SettingsObjectName="Project2.Properties.Settings" SettingsPropertyName="longtt_ptpmudConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=sql.bsite.net\MSSQL2016;Initial Catalog=longtt_ptpmud;User ID=longtt_ptpmud" SettingsObjectName="Project2.Properties.Settings" SettingsPropertyName="longtt_ptpmudConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Categories" Member="Categories">
     <Type Name="Category">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -18,7 +18,7 @@
       <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="discount" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="available" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="available" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
       <Column Name="image" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="created_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="updated_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />

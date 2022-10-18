@@ -51,7 +51,7 @@ namespace Project2
     #endregion
 		
 		public MyDBDataContext() : 
-				base(global::Project2.Properties.Settings.Default.longtt_ptpmudConnectionString1, mappingSource)
+				base(global::Project2.Properties.Settings.Default.longtt_ptpmudConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -513,7 +513,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Char(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="NVarChar(3)")]
 		public string available
 		{
 			get

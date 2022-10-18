@@ -12,8 +12,9 @@ namespace Project2.Forms.Components
     {
         private CategoryBUS cateBUS = new CategoryBUS();
         private ProductBUS prodBUS = new ProductBUS();
-        private Product product = new Product();
+        private Product product;
         private string action;
+        private int id;
 
         public ModalForm()
         {
@@ -23,85 +24,19 @@ namespace Project2.Forms.Components
         public ModalForm(string action, int id)
         {
             InitializeComponent();
-            SetForm(action, id);
+            this.action = action;
+            this.id = id;
         }
 
         private void ModalForm_Load(object sender, EventArgs e)
         {
-            LoadTypeComboBox();
-            LoadAvailableComboBox();
-        }
-
-        public void SetForm(string action, int id)
-        {
-            this.action = action;
-            if (action == "add")
-            {
-                lblTitle.Text = "Add Product";
-                pbUploadImage.Image = pbUploadImage.InitialImage;
-            }
-            else if (action == "upd" || action == "det")
-            {
-                lblTitle.Text = "Update Product";
-                this.product = prodBUS.GetProductByID(id);
-                SetField();
-            }
-        }
-
-        public void SetField()
-        {
-            txtId.Text = product.id.ToString();
-            txtName.Text = product.name;
-            txtDescription.Text = product.description;
-            cbType.SelectedValue = product.type_id;
-            cbBrand.SelectedValue = product.brand_id;
-            cbAvailable.SelectedValue = product.available;
-            txtPrice.Text = product.price.ToString();
-            txtDiscount.Text = product.discount.ToString();
-            txtQuantity.Text = product.quantity.ToString();
-            txtCreatedAt.Text = product.created_at;
-            txtUpdatedAt.Text = product.updated_at;
-            if (product.image != null)
-                pbUploadImage.Image = Image.FromFile(product.image);
-            else pbUploadImage.Image = pbUploadImage.InitialImage;
-        }
-
-        public void Alert(string msg, Form_Alert.enmType type)
-        {
-            Form_Alert frm = new Form_Alert();
-            frm.showAlert(msg, type);
-        }
-
-        public void LoadTypeComboBox()
-        {
-            List<Category> categories = cateBUS.GetCategoryByParentID(24);
-            cbType.DataSource = categories;
-            cbType.DisplayMember = "name";
-            cbType.ValueMember = "id";
-        }
-
-        public void LoadBrandComboBox(List<Category> categories)
-        {
-            cbBrand.DataSource = categories;
-            cbBrand.DisplayMember = "name";
-            cbBrand.ValueMember = "id";
-        }
-
-        public void LoadAvailableComboBox()
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("Yes", "O");
-            dict.Add("No", "X");
-            cbAvailable.DataSource = new BindingSource(dict, null);
-            cbAvailable.DisplayMember = "Key";
-            cbAvailable.ValueMember = "Value";
+            SetForm();
         }
 
         private void cbType_SelectionChangeCommitted(object sender, EventArgs e)
         {
             cbBrand.Enabled = true;
-            List<Category> categories = cateBUS.GetCategoryByParentID((int)cbType.SelectedValue);
-            LoadBrandComboBox(categories);
+            LoadBrandComboBox((int)cbType.SelectedValue);
         }
 
         private void btnUploadImage_Click(object sender, EventArgs e)
@@ -117,17 +52,165 @@ namespace Project2.Forms.Components
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            BeginAction();
+            if (action == "add")
+            {
+                CreateProduct();
+                BeginAdd();
+            }
+            else if (action == "upd")
+            {
+                BeginUpdate();
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        public void Alert(string msg, Form_Alert.enmType type)
+        {
+            Form_Alert frm = new Form_Alert();
+            frm.showAlert(msg, type);
+        }
+
+        public void SetForm()
+        {
+            if (action == "add")
+            {
+                lblTitle.Text = "Add Product";
+                pbUploadImage.Image = pbUploadImage.InitialImage;
+                LoadTypeComboBox();
+                LoadAvailableComboBox();
+                cbType.Text = "";
+                cbBrand.Enabled = false;
+            }
+            else if (action == "upd")
+            {
+                lblTitle.Text = "Update Product";
+                product = prodBUS.GetProductByID(id);
+                LoadTypeComboBox();
+                LoadBrandComboBox(product.type_id ?? default(int));
+                LoadAvailableComboBox();
+                SetField();
+                SetVisibleForCreatedAtAndUpdatedAt();
+            }
+            else if (action == "det")
+            {
+                lblTitle.Text = "View Product";
+                product = prodBUS.GetProductByID(id);
+                LoadTypeComboBox();
+                LoadBrandComboBox(product.type_id ?? default(int));
+                LoadAvailableComboBox();
+                SetField();
+                DisableField();
+                SetVisibleForCreatedAtAndUpdatedAt();
+            }
+        }
+
+        public void SetField()
+        {
+            txtId.Text = product.id.ToString();
+            txtName.Text = product.name;
+            txtDescription.Text = product.description;
+            cbType.SelectedValue = product.type_id;
+            cbBrand.SelectedValue = product.brand_id;
+            cbAvailable.SelectedIndex = cbAvailable.FindStringExact(product.available);
+            txtPrice.Text = product.price.ToString();
+            txtDiscount.Text = product.discount.ToString();
+            txtQuantity.Text = product.quantity.ToString();
+            txtCreatedAt.Text = product.created_at;
+            txtUpdatedAt.Text = product.updated_at;
+            if (product.image != null)
+                pbUploadImage.Image = Image.FromFile(product.image);
+            else pbUploadImage.Image = pbUploadImage.InitialImage;
+        }
+
+        public void ResetField()
+        {
+            txtId.Text = "";
+            txtName.Text = "";
+            txtDescription.Text = "";
+            cbType.Text = "";
+            cbBrand.Text = "";
+            cbBrand.Enabled = false;
+            cbAvailable.SelectedIndex = 0;
+            txtPrice.Text = "";
+            txtDiscount.Text = "";
+            txtQuantity.Text = "";
+            txtCreatedAt.Text = "";
+            txtUpdatedAt.Text = "";
+            pbUploadImage.Image = pbUploadImage.InitialImage;
+        }
+
+        public void DisableField()
+        {
+            txtName.Enabled = false;
+            txtDescription.Enabled = false;
+            cbType.Enabled = false;
+            cbBrand.Enabled = false;
+            cbAvailable.Enabled = false;
+            txtPrice.Enabled = false;
+            txtDiscount.Enabled = false;
+            txtQuantity.Enabled = false;
+            txtCreatedAt.Enabled = false;
+            txtUpdatedAt.Enabled = false;
+            btnConfirm.Visible = false;
+            btnUploadImage.Visible = false;
+        }
+
+        public void SetVisibleForCreatedAtAndUpdatedAt()
+        {
+            lblCreatedAt.Visible = true;
+            lblUpdateAt.Visible = true;
+            txtCreatedAt.Visible = true;
+            txtUpdatedAt.Visible = true;
+        }
+
+        public void LoadTypeComboBox()
+        {
+            List<Category> categories = cateBUS.GetCategoryByParentID(24);
+            cbType.DataSource = categories;
+            cbType.DisplayMember = "name";
+            cbType.ValueMember = "id";
+        }
+
+        public void LoadBrandComboBox(int parentId)
+        {
+            List<Category> categories = cateBUS.GetCategoryByParentID(parentId);
+            cbBrand.DataSource = categories;
+            cbBrand.DisplayMember = "name";
+            cbBrand.ValueMember = "id";
+        }
+
+        public void LoadAvailableComboBox()
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            dict.Add("Yes", "Yes");
+            dict.Add("No", "No");
+            cbAvailable.DataSource = new BindingSource(dict, null);
+            cbAvailable.DisplayMember = "Key";
+            cbAvailable.ValueMember = "Value";
         }
 
         public void CreateProduct()
         {
+            this.product = new Product();
+        }
+
+        public void SetProduct()
+        {
             product.name = txtName.Text.Trim();
-            product.description = txtId.Text.Trim();
+            product.description = txtDescription.Text.Trim();
             product.price = Double.Parse(txtPrice.Text.Trim());
             product.discount = Double.Parse(txtDiscount.Text.Trim());
             product.quantity = Int32.Parse(txtQuantity.Text.Trim());
-            product.available = cbAvailable.SelectedValue.ToString();
+            product.available = cbAvailable.SelectedValue.ToString().Trim();
             product.image = SetImagePath();
             product.created_at = SetCreatedAt();
             product.updated_at = SetUpdatedAt();
@@ -135,41 +218,40 @@ namespace Project2.Forms.Components
             product.brand_id = Int32.Parse(cbBrand.SelectedValue.ToString());
         }
 
-        public void BeginAction()
+        public void BeginAdd()
         {
-            if (action == "add")
+            if (ValidateForm())
             {
-                if (ValidateForm())
+                SetProduct();
+                bool result = prodBUS.AddNew(product);
+                if (result)
                 {
+                    CopyImageToFolder();
                     CreateProduct();
-                    bool result = prodBUS.AddNew(product);
-                    if (result)
-                    {
-                        CopyImageToFolder();
-                        SetField();
-                        this.Alert("Add Successful", Form_Alert.enmType.Success);
-                    }
-                    else
-                    {
-                        this.Alert("Add Failed", Form_Alert.enmType.Error);
-                    }
+                    ResetField();
+                    this.Alert("Add Successful", Form_Alert.enmType.Success);
+                }
+                else
+                {
+                    this.Alert("Add Failed", Form_Alert.enmType.Error);
                 }
             }
-            else if (action == "update")
+        }
+
+        public void BeginUpdate()
+        {
+            if (ValidateForm())
             {
-                if (ValidateForm())
+                SetProduct();
+                bool result = prodBUS.Update(product);
+                if (result)
                 {
-                    CreateProduct();
-                    bool result = prodBUS.Update(product);
-                    if (result)
-                    {
-                        CopyImageToFolder();
-                        this.Alert("Update Successful", Form_Alert.enmType.Success);
-                    }
-                    else
-                    {
-                        this.Alert("Update Failed", Form_Alert.enmType.Error);
-                    }
+                    CopyImageToFolder();
+                    this.Alert("Update Successful", Form_Alert.enmType.Success);
+                }
+                else
+                {
+                    this.Alert("Update Failed", Form_Alert.enmType.Error);
                 }
             }
         }
@@ -205,7 +287,7 @@ namespace Project2.Forms.Components
                 File.Copy(txtImagePath.Text.Trim(),
                         Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
                         Path.GetFileName(txtImagePath.Text)),
-                        true);
+                        false);
             }
         }
 
@@ -257,11 +339,6 @@ namespace Project2.Forms.Components
                 return false;
             }
             return true;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

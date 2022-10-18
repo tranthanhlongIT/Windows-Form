@@ -63,25 +63,25 @@ namespace Project2.DAO
             }
         }
 
-        public string SelectTypeByID(int id)
-        {
-            string type = (from p in db.Products
-                           join c in db.Categories
-                           on p.type_id equals c.id
-                           where p.id == id
-                           select c.name).SingleOrDefault();
-            return type;
-        }
+        //public string SelectTypeByID(int id)
+        //{
+        //    string type = (from p in db.Products
+        //                   join c in db.Categories
+        //                   on p.type_id equals c.id
+        //                   where p.id == id
+        //                   select c.name).SingleOrDefault();
+        //    return type;
+        //}
 
-        public string SelectBrandByID(int id)
-        {
-            string brand = (from p in db.Products
-                            join c in db.Categories
-                            on p.brand_id equals c.id
-                            where p.id == id
-                            select c.name).SingleOrDefault();
-            return brand;
-        }
+        //public string SelectBrandByID(int id)
+        //{
+        //    string brand = (from p in db.Products
+        //                    join c in db.Categories
+        //                    on p.brand_id equals c.id
+        //                    where p.id == id
+        //                    select c.name).SingleOrDefault();
+        //    return brand;
+        //}
 
         public bool Insert(Product newProduct)
         {

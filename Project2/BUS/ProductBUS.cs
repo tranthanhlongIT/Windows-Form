@@ -20,7 +20,7 @@ namespace Project2.BUS
         public bool AddNew(Product newProduct)
         {
             bool result = prodDAO.Insert(newProduct);
-            return true;
+            return result;
         }
 
         public bool Update(Product newProduct)
@@ -29,17 +29,17 @@ namespace Project2.BUS
             return result;
         }
 
-        public string GetProductType(int id)
-        {
-            string type = prodDAO.SelectTypeByID(id);
-            return type;
-        }
+        //public string GetProductType(int id)
+        //{
+        //    string type = prodDAO.SelectTypeByID(id);
+        //    return type;
+        //}
 
-        public string GetProductBrand(int id)
-        {
-            string brand = prodDAO.SelectBrandByID(id);
-            return brand;
-        }
+        //public string GetProductBrand(int id)
+        //{
+        //    string brand = prodDAO.SelectBrandByID(id);
+        //    return brand;
+        //}
 
         public Product GetProductByID(int id)
         {
