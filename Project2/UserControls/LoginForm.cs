@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
 using Project2.BUS;
 
-namespace Project2
+namespace Project2.UserControls
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : UserControl
     {
-        private bool mouseDown;
-        private Point lastLocation;
-        private EmployeeBUS empBUS = new EmployeeBUS();
+        private EmployeeBUS empBUS;
 
         public LoginForm()
         {
@@ -25,30 +15,16 @@ namespace Project2
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            txtEmail.Focus();
-        }
-
-        private void LoginForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void LoginForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
+            if (!this.DesignMode)
             {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X)
-                    + e.X, (this.Location.Y - lastLocation.Y)
-                    + e.Y);
-                this.Update();
+                txtEmail.Focus();
+                InitializeBUS();
             }
         }
 
-        private void LoginForm_MouseUp(object sender, MouseEventArgs e)
+        public void InitializeBUS()
         {
-            mouseDown = false;
+            empBUS = new EmployeeBUS();
         }
 
         private void txtEmail_KeyDown(object sender, KeyEventArgs e)
@@ -82,14 +58,13 @@ namespace Project2
                 Employee employee = new Employee()
                 {
                     email = txtEmail.Text.Trim(),
-                    password = txtPassword.Text.Trim()
+                    password = txtPassword.Text
                 };
-                bool result = empBUS.CheckEmployeePassword(employee);
+                bool result = empBUS.CheckEmployeeCredential(employee);
                 if (result)
                 {
-                    this.Hide();
-                    //new ManagementForm(employee).Show();
-                    new ManagementForm().Show();
+                    employee = empBUS.GetEmployeeByEmail(txtEmail.Text.Trim());
+                    new ManagementForm(employee).Show();                    
                 }
                 else
                 {
@@ -97,27 +72,6 @@ namespace Project2
                     MessageBox.Show("Login Failed", "Login Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void lbCreateAccount_MouseEnter(object sender, EventArgs e)
-        {
-            lblCreateAccount.ForeColor = Color.LightSkyBlue;
-        }
-
-        private void lbCreateAccount_MouseLeave(object sender, EventArgs e)
-        {
-            lblCreateAccount.ForeColor = Color.SteelBlue;
-        }
-
-        private void lbCreateAccount_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new RegisterForm().Show();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         public bool ValidateLogin()

@@ -24,10 +24,40 @@ namespace Project2.DAO
             }
         }
 
-        public string SelectPassword(string email)
+        public string SelectPasswordByEmail(string email)
         {
-            Employee employee = db.Employees.SingleOrDefault(em => em.email == email);
-            return employee.password;
+            try
+            {
+                string password = db.Employees.Where(e => e.email == email).Select(e => e.password).SingleOrDefault();
+                return password;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public bool SelectIsActiveByEmail(string email)
+        {
+            bool result = (bool)db.Employees.Where(e => e.email == email).Select(e => e.is_active).SingleOrDefault();
+            if (result)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Employee SelectAllByEmail(string email)
+        {
+            try
+            {
+                Employee employee = db.Employees.SingleOrDefault(em => em.email == email);
+                return employee;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public bool Insert(Employee newEmployee)
@@ -53,6 +83,5 @@ namespace Project2.DAO
             }
             else return false;
         }
-
     }
 }

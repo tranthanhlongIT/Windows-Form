@@ -31,12 +31,12 @@ namespace Project2
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagementForm));
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.btnRestoreDown = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblLogo = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlNavigation = new System.Windows.Forms.Panel();
+            this.lblRole = new System.Windows.Forms.Label();
             this.pnlLineActive = new System.Windows.Forms.Panel();
             this.pnlLine = new System.Windows.Forms.Panel();
             this.btnHistory = new System.Windows.Forms.Button();
@@ -45,17 +45,19 @@ namespace Project2
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.lblEmployeeName = new System.Windows.Forms.Label();
-            this.ProductForm = new Project2.UserControls.ProductForm();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.productForm = new Project2.UserControls.ProductForm();
+            this.loginForm = new Project2.UserControls.LoginForm();
+            this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
-            this.pnlTop.Controls.Add(this.btnRestoreDown);
             this.pnlTop.Controls.Add(this.btnMinimize);
             this.pnlTop.Controls.Add(this.btnClose);
             this.pnlTop.Controls.Add(this.lblLogo);
@@ -67,28 +69,6 @@ namespace Project2
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1280, 40);
             this.pnlTop.TabIndex = 21;
-            this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
-            this.pnlTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseMove);
-            this.pnlTop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseUp);
-            // 
-            // btnRestoreDown
-            // 
-            this.btnRestoreDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestoreDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
-            this.btnRestoreDown.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))));
-            this.btnRestoreDown.FlatAppearance.BorderSize = 0;
-            this.btnRestoreDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestoreDown.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRestoreDown.ForeColor = System.Drawing.Color.White;
-            this.btnRestoreDown.Image = ((System.Drawing.Image)(resources.GetObject("btnRestoreDown.Image")));
-            this.btnRestoreDown.Location = new System.Drawing.Point(1190, 0);
-            this.btnRestoreDown.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRestoreDown.Name = "btnRestoreDown";
-            this.btnRestoreDown.Size = new System.Drawing.Size(45, 35);
-            this.btnRestoreDown.TabIndex = 24;
-            this.btnRestoreDown.TabStop = false;
-            this.btnRestoreDown.UseVisualStyleBackColor = false;
-            this.btnRestoreDown.Visible = false;
             // 
             // btnMinimize
             // 
@@ -153,6 +133,8 @@ namespace Project2
             // pnlNavigation
             // 
             this.pnlNavigation.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlNavigation.Controls.Add(this.lblRole);
+            this.pnlNavigation.Controls.Add(this.pbUser);
             this.pnlNavigation.Controls.Add(this.pnlLineActive);
             this.pnlNavigation.Controls.Add(this.pnlLine);
             this.pnlNavigation.Controls.Add(this.btnHistory);
@@ -161,7 +143,7 @@ namespace Project2
             this.pnlNavigation.Controls.Add(this.btnEmployee);
             this.pnlNavigation.Controls.Add(this.btnProduct);
             this.pnlNavigation.Controls.Add(this.btnDashboard);
-            this.pnlNavigation.Controls.Add(this.lblEmployeeName);
+            this.pnlNavigation.Controls.Add(this.lblUsername);
             this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlNavigation.Location = new System.Drawing.Point(0, 40);
             this.pnlNavigation.Margin = new System.Windows.Forms.Padding(0);
@@ -169,10 +151,21 @@ namespace Project2
             this.pnlNavigation.Size = new System.Drawing.Size(1280, 50);
             this.pnlNavigation.TabIndex = 22;
             // 
+            // lblRole
+            // 
+            this.lblRole.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRole.AutoSize = true;
+            this.lblRole.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblRole.Location = new System.Drawing.Point(1095, 25);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(39, 19);
+            this.lblRole.TabIndex = 12;
+            this.lblRole.Text = "Role";
+            // 
             // pnlLineActive
             // 
-            this.pnlLineActive.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlLineActive.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pnlLineActive.BackColor = System.Drawing.Color.SteelBlue;
             this.pnlLineActive.Location = new System.Drawing.Point(0, 47);
             this.pnlLineActive.Margin = new System.Windows.Forms.Padding(0);
@@ -195,6 +188,7 @@ namespace Project2
             // 
             this.btnHistory.BackColor = System.Drawing.SystemColors.Control;
             this.btnHistory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnHistory.Enabled = false;
             this.btnHistory.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnHistory.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.btnHistory.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
@@ -216,6 +210,7 @@ namespace Project2
             // 
             this.btnSell.BackColor = System.Drawing.SystemColors.Control;
             this.btnSell.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSell.Enabled = false;
             this.btnSell.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnSell.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.btnSell.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
@@ -237,6 +232,7 @@ namespace Project2
             // 
             this.btnCategory.BackColor = System.Drawing.SystemColors.Control;
             this.btnCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCategory.Enabled = false;
             this.btnCategory.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnCategory.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.btnCategory.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
@@ -258,6 +254,7 @@ namespace Project2
             // 
             this.btnEmployee.BackColor = System.Drawing.SystemColors.Control;
             this.btnEmployee.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnEmployee.Enabled = false;
             this.btnEmployee.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnEmployee.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.btnEmployee.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
@@ -279,6 +276,7 @@ namespace Project2
             // 
             this.btnProduct.BackColor = System.Drawing.SystemColors.Control;
             this.btnProduct.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnProduct.Enabled = false;
             this.btnProduct.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnProduct.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
             this.btnProduct.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
@@ -301,6 +299,7 @@ namespace Project2
             // 
             this.btnDashboard.BackColor = System.Drawing.SystemColors.Control;
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDashboard.Enabled = false;
             this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
@@ -317,31 +316,64 @@ namespace Project2
             this.btnDashboard.MouseEnter += new System.EventHandler(this.btnDashboard_MouseEnter);
             this.btnDashboard.MouseLeave += new System.EventHandler(this.btnDashboard_MouseLeave);
             // 
-            // lblEmployeeName
+            // lblUsername
             // 
-            this.lblEmployeeName.AutoSize = true;
-            this.lblEmployeeName.Location = new System.Drawing.Point(1157, 14);
-            this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(57, 21);
-            this.lblEmployeeName.TabIndex = 5;
-            this.lblEmployeeName.Text = "label2";
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblUsername.Location = new System.Drawing.Point(1095, 5);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(77, 19);
+            this.lblUsername.TabIndex = 5;
+            this.lblUsername.Text = "Username";
             // 
-            // ProductForm
+            // productForm
             // 
-            this.ProductForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductForm.Location = new System.Drawing.Point(0, 90);
-            this.ProductForm.Margin = new System.Windows.Forms.Padding(0);
-            this.ProductForm.Name = "ProductForm";
-            this.ProductForm.Size = new System.Drawing.Size(1280, 630);
-            this.ProductForm.TabIndex = 23;
-            this.ProductForm.TabStop = false;
+            this.productForm.BackColor = System.Drawing.SystemColors.Control;
+            this.productForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.productForm.Location = new System.Drawing.Point(0, 90);
+            this.productForm.Margin = new System.Windows.Forms.Padding(0);
+            this.productForm.Name = "productForm";
+            this.productForm.Size = new System.Drawing.Size(1280, 630);
+            this.productForm.TabIndex = 24;
+            this.productForm.TabStop = false;
+            // 
+            // loginForm
+            // 
+            this.loginForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginForm.Location = new System.Drawing.Point(0, 40);
+            this.loginForm.Margin = new System.Windows.Forms.Padding(0);
+            this.loginForm.Name = "loginForm";
+            this.loginForm.Size = new System.Drawing.Size(1280, 680);
+            this.loginForm.TabIndex = 23;
+            this.loginForm.TabStop = false;
+            // 
+            // pbUser
+            // 
+            this.pbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbUser.BackColor = System.Drawing.Color.White;
+            this.pbUser.InitialImage = global::Project2.Properties.Resources.user_icon_default;
+            this.pbUser.Location = new System.Drawing.Point(1050, 5);
+            this.pbUser.Margin = new System.Windows.Forms.Padding(0);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(40, 40);
+            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbUser.TabIndex = 11;
+            this.pbUser.TabStop = false;
             // 
             // ManagementForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.ProductForm);
+            this.Controls.Add(this.productForm);
+            this.Controls.Add(this.loginForm);
             this.Controls.Add(this.pnlNavigation);
             this.Controls.Add(this.pnlTop);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -356,6 +388,7 @@ namespace Project2
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlNavigation.ResumeLayout(false);
             this.pnlNavigation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,15 +402,17 @@ namespace Project2
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Panel pnlNavigation;
         private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Label lblEmployeeName;
+        private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnSell;
         private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Panel pnlLineActive;
-        private System.Windows.Forms.Button btnRestoreDown;
         private System.Windows.Forms.Panel pnlLine;
-        private UserControls.ProductForm ProductForm;
+        private Forms.Components.RoundedPictureBox pbUser;
+        private System.Windows.Forms.Label lblRole;
+        private UserControls.LoginForm loginForm;
+        private UserControls.ProductForm productForm;
     }
 }

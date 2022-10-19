@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project2.BUS;
 using Project2.Forms.Components;
@@ -14,8 +9,8 @@ namespace Project2.UserControls
 {
     public partial class ProductForm : UserControl
     {
-        private ProductBUS prodBUS = new ProductBUS();
-        private CategoryBUS cateBUS = new CategoryBUS();
+        private ProductBUS prodBUS;
+        private CategoryBUS cateBUS;
 
         public ProductForm()
         {
@@ -24,8 +19,18 @@ namespace Project2.UserControls
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
-            LoadTreeView();
-            LoadSearchTextBox();
+            if (!this.DesignMode)
+            {
+                InitializeBUS();
+                LoadTreeView();
+                LoadSearchTextBox();
+            }
+        }
+
+        public void InitializeBUS()
+        {
+            prodBUS = new ProductBUS();
+            cateBUS = new CategoryBUS();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -171,14 +176,17 @@ namespace Project2.UserControls
         private void CreateParentNode(int parentId)
         {
             List<Category> categories = cateBUS.GetCategoryByParentID(parentId);
-            foreach (var category in categories)
+            if (categories.Count > 0)
             {
-                TreeNode node = new TreeNode();
-                node.Text = category.name;
-                node.Tag = category.id;
-                node.ImageIndex = 0;
-                CreateChildNode(node, category.id);
-                tvCategory.Nodes.Add(node);
+                foreach (var category in categories)
+                {
+                    TreeNode node = new TreeNode();
+                    node.Text = category.name;
+                    node.Tag = category.id;
+                    node.ImageIndex = 0;
+                    CreateChildNode(node, category.id);
+                    tvCategory.Nodes.Add(node);
+                }
             }
         }
 
@@ -227,7 +235,10 @@ namespace Project2.UserControls
             }
             finally
             {
-                RefreshDataGridView();
+                if (action != "det")
+                {
+                    RefreshDataGridView();
+                }
                 formBackground.Dispose();
             }
         }

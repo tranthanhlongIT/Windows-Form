@@ -17,11 +17,18 @@ namespace Project2.BUS
             return result;
         }
 
-        public bool CheckEmployeePassword(Employee employee)
+        public Employee GetEmployeeByEmail(string email)
         {
-            string getPassword = empDAO.SelectPassword(employee.email);
+            Employee employee = empDAO.SelectAllByEmail(email);
+            return employee;
+        }
+
+        public bool CheckEmployeeCredential(Employee employee)
+        {
+            string getPassword = empDAO.SelectPasswordByEmail(employee.email);
             string password = DecodeFrom64(getPassword);
-            if (employee.password == password)
+            bool status = empDAO.SelectIsActiveByEmail(employee.email);
+            if (employee.password == password && status)
                 return true;
             return false;
         }

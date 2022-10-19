@@ -122,7 +122,7 @@ namespace Project2
         private void lbBackToLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new LoginForm().Show();
+            //new LoginForm().Show();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

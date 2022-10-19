@@ -7,48 +7,31 @@ namespace Project2
 {
     public partial class ManagementForm : Form
     {
-        private bool mouseDown;
-        private Point lastLocation;
         private int activeBtn;
         private Employee employee;
 
         public ManagementForm()
         {
             InitializeComponent();
+            productForm.Dispose();
         }
 
         public ManagementForm(Employee emp)
         {
             InitializeComponent();
-            this.employee = emp;
+            SetUserPrivilege(emp);
+            loginForm.Dispose();
         }
 
         private void ManagementForm_Load(object sender, EventArgs e)
         {
-            SlidePanel(btnDashboard);
-            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory });
-        }
-
-        private void pnlTop_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-        private void pnlTop_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
+            if (employee != null)
             {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X)
-                    + e.X, (this.Location.Y - lastLocation.Y)
-                    + e.Y);
-                this.Update();
-            }
-        }
+                SlidePanel(btnDashboard);
+                ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory });
 
-        private void pnlTop_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
+            }
+            else loginForm.BringToFront();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -59,6 +42,7 @@ namespace Project2
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
+            productForm.BringToFront();
             SlidePanel(btnProduct);
             ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSell, btnHistory });
         }
@@ -91,15 +75,6 @@ namespace Project2
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        //private void btnRestoreDown_Click(object sender, EventArgs e)
-        //{
-        //    if (this.WindowState == FormWindowState.Maximized)
-        //    {
-        //        this.WindowState = FormWindowState.Normal;
-        //    }
-        //    else this.WindowState = FormWindowState.Maximized;
-        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -192,6 +167,45 @@ namespace Project2
             if (activeBtn == btn)
                 return true;
             return false;
+        }
+
+        public void SetUserPrivilege(Employee emp)
+        {
+            this.employee = emp;
+            SetUserDisplay();
+            EnableTabBaseOnRole();
+        }
+
+        public void SetUserDisplay()
+        {
+            lblUsername.Text = employee.username;
+            lblRole.Text = employee.Role.name;
+            if (employee.image != null)
+                pbUser.Image = Image.FromFile(employee.image);
+            else pbUser.Image = pbUser.InitialImage;
+        }
+
+        public void EnableTabBaseOnRole()
+        {
+            if (employee.Role.name == "Manager")
+            {
+                btnDashboard.Enabled = true;
+                btnProduct.Enabled = true;
+                btnEmployee.Enabled = true;
+                btnCategory.Enabled = true;
+                btnSell.Enabled = true;
+                btnHistory.Enabled = true;
+            }
+            else if (employee.Role.name == "Salesman")
+            {
+                btnDashboard.Enabled = true;
+                btnSell.Enabled = true;
+            }
+            else if (employee.Role.name == "Accountant")
+            {
+                btnDashboard.Enabled = true;
+                btnHistory.Enabled = true;
+            }
         }
     }
 }
