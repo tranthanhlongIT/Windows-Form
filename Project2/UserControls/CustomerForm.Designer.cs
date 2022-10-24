@@ -1,7 +1,7 @@
 ﻿
 namespace Project2.UserControls
 {
-    partial class ProductForm
+    partial class CustomerForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,11 +30,11 @@ namespace Project2.UserControls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,25 +42,19 @@ namespace Project2.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlOperation = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
-            this.pnlLeft = new System.Windows.Forms.Panel();
-            this.tvCategory = new System.Windows.Forms.TreeView();
             this.imgListCategory = new System.Windows.Forms.ImageList(this.components);
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
-            this.pnlFilterLine = new System.Windows.Forms.Panel();
-            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.dgvCustomer = new System.Windows.Forms.DataGridView();
             this.chId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chCategory_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chAvailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRefresh = new Project2.Utils.RoundedButton();
             this.btnDelete = new Project2.Utils.RoundedButton();
@@ -68,8 +62,7 @@ namespace Project2.UserControls
             this.btnAdd = new Project2.Utils.RoundedButton();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlOperation.SuspendLayout();
-            this.pnlLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlOperation
@@ -114,41 +107,6 @@ namespace Project2.UserControls
             this.pnlLineSearch.Size = new System.Drawing.Size(325, 1);
             this.pnlLineSearch.TabIndex = 4;
             // 
-            // pnlLeft
-            // 
-            this.pnlLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlLeft.BackColor = System.Drawing.Color.White;
-            this.pnlLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pnlLeft.Controls.Add(this.tvCategory);
-            this.pnlLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnlLeft.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlLeft.Name = "pnlLeft";
-            this.pnlLeft.Size = new System.Drawing.Size(250, 630);
-            this.pnlLeft.TabIndex = 3;
-            // 
-            // tvCategory
-            // 
-            this.tvCategory.BackColor = System.Drawing.Color.White;
-            this.tvCategory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tvCategory.FullRowSelect = true;
-            this.tvCategory.HideSelection = false;
-            this.tvCategory.ImageIndex = 0;
-            this.tvCategory.ImageList = this.imgListCategory;
-            this.tvCategory.Indent = 20;
-            this.tvCategory.ItemHeight = 25;
-            this.tvCategory.Location = new System.Drawing.Point(0, 15);
-            this.tvCategory.Margin = new System.Windows.Forms.Padding(30);
-            this.tvCategory.Name = "tvCategory";
-            this.tvCategory.SelectedImageIndex = 0;
-            this.tvCategory.ShowLines = false;
-            this.tvCategory.ShowRootLines = false;
-            this.tvCategory.Size = new System.Drawing.Size(250, 600);
-            this.tvCategory.TabIndex = 0;
-            this.tvCategory.TabStop = false;
-            this.tvCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvCategory_AfterSelect);
-            this.tvCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tvCategory_KeyDown);
-            // 
             // imgListCategory
             // 
             this.imgListCategory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListCategory.ImageStream")));
@@ -175,23 +133,12 @@ namespace Project2.UserControls
             this.pnlVerticalLine.Size = new System.Drawing.Size(1280, 1);
             this.pnlVerticalLine.TabIndex = 1;
             // 
-            // pnlFilterLine
+            // dgvCustomer
             // 
-            this.pnlFilterLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlFilterLine.BackColor = System.Drawing.Color.Silver;
-            this.pnlFilterLine.Location = new System.Drawing.Point(250, 0);
-            this.pnlFilterLine.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlFilterLine.Name = "pnlFilterLine";
-            this.pnlFilterLine.Size = new System.Drawing.Size(1, 680);
-            this.pnlFilterLine.TabIndex = 2;
-            // 
-            // dgvProduct
-            // 
-            this.dgvProduct.AllowUserToAddRows = false;
-            this.dgvProduct.AllowUserToDeleteRows = false;
-            this.dgvProduct.AllowUserToResizeColumns = false;
-            this.dgvProduct.AllowUserToResizeRows = false;
+            this.dgvCustomer.AllowUserToAddRows = false;
+            this.dgvCustomer.AllowUserToDeleteRows = false;
+            this.dgvCustomer.AllowUserToResizeColumns = false;
+            this.dgvCustomer.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,16 +146,16 @@ namespace Project2.UserControls
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvProduct.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvCustomer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProduct.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvProduct.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProduct.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvProduct.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCustomer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCustomer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCustomer.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCustomer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCustomer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvCustomer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,47 +164,46 @@ namespace Project2.UserControls
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chId,
             this.chName,
-            this.chPrice,
-            this.chDiscount,
-            this.chQuantity,
-            this.chType,
-            this.chCategory_name,
-            this.chAvailable,
+            this.chGender,
+            this.chAddress,
+            this.chPhone,
+            this.chCity,
+            this.chActive,
             this.chButton});
-            this.dgvProduct.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvProduct.EnableHeadersVisualStyles = false;
-            this.dgvProduct.GridColor = System.Drawing.Color.White;
-            this.dgvProduct.Location = new System.Drawing.Point(260, 48);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(10);
-            this.dgvProduct.MultiSelect = false;
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.ReadOnly = true;
-            this.dgvProduct.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProduct.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvProduct.RowHeadersVisible = false;
-            this.dgvProduct.RowHeadersWidth = 50;
-            this.dgvProduct.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvProduct.RowTemplate.Height = 24;
-            this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(1010, 572);
-            this.dgvProduct.TabIndex = 4;
-            this.dgvProduct.TabStop = false;
-            this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
+            this.dgvCustomer.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvCustomer.EnableHeadersVisualStyles = false;
+            this.dgvCustomer.GridColor = System.Drawing.Color.White;
+            this.dgvCustomer.Location = new System.Drawing.Point(10, 48);
+            this.dgvCustomer.Margin = new System.Windows.Forms.Padding(10);
+            this.dgvCustomer.MultiSelect = false;
+            this.dgvCustomer.Name = "dgvCustomer";
+            this.dgvCustomer.ReadOnly = true;
+            this.dgvCustomer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvCustomer.RowHeadersVisible = false;
+            this.dgvCustomer.RowHeadersWidth = 50;
+            this.dgvCustomer.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvCustomer.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dgvCustomer.RowTemplate.Height = 24;
+            this.dgvCustomer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCustomer.Size = new System.Drawing.Size(1260, 572);
+            this.dgvCustomer.TabIndex = 4;
+            this.dgvCustomer.TabStop = false;
+            this.dgvCustomer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomer_CellContentClick);
             // 
             // chId
             // 
@@ -287,130 +233,104 @@ namespace Project2.UserControls
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.chName.DefaultCellStyle = dataGridViewCellStyle4;
-            this.chName.FillWeight = 200F;
+            this.chName.FillWeight = 50F;
             this.chName.HeaderText = "Name";
-            this.chName.MaxInputLength = 50;
-            this.chName.MinimumWidth = 150;
+            this.chName.MaxInputLength = 100;
+            this.chName.MinimumWidth = 200;
             this.chName.Name = "chName";
             this.chName.ReadOnly = true;
             // 
-            // chPrice
+            // chGender
             // 
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Format = "C0";
-            dataGridViewCellStyle5.NullValue = "0";
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.chPrice.DefaultCellStyle = dataGridViewCellStyle5;
-            this.chPrice.FillWeight = 50F;
-            this.chPrice.HeaderText = "Price";
-            this.chPrice.MaxInputLength = 10;
-            this.chPrice.MinimumWidth = 90;
-            this.chPrice.Name = "chPrice";
-            this.chPrice.ReadOnly = true;
-            this.chPrice.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.chGender.DefaultCellStyle = dataGridViewCellStyle5;
+            this.chGender.FillWeight = 50F;
+            this.chGender.HeaderText = "Gender";
+            this.chGender.MaxInputLength = 10;
+            this.chGender.MinimumWidth = 70;
+            this.chGender.Name = "chGender";
+            this.chGender.ReadOnly = true;
+            this.chGender.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // chDiscount
+            // chAddress
             // 
+            this.chAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Format = "C0";
-            dataGridViewCellStyle6.NullValue = "0%";
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.chDiscount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.chDiscount.FillWeight = 50F;
-            this.chDiscount.HeaderText = "Discount";
-            this.chDiscount.MaxInputLength = 10;
-            this.chDiscount.MinimumWidth = 90;
-            this.chDiscount.Name = "chDiscount";
-            this.chDiscount.ReadOnly = true;
+            this.chAddress.DefaultCellStyle = dataGridViewCellStyle6;
+            this.chAddress.FillWeight = 50F;
+            this.chAddress.HeaderText = "Address";
+            this.chAddress.MaxInputLength = 250;
+            this.chAddress.MinimumWidth = 200;
+            this.chAddress.Name = "chAddress";
+            this.chAddress.ReadOnly = true;
             // 
-            // chQuantity
+            // chPhone
             // 
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.Format = "N0";
             dataGridViewCellStyle7.NullValue = null;
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.chQuantity.DefaultCellStyle = dataGridViewCellStyle7;
-            this.chQuantity.FillWeight = 50F;
-            this.chQuantity.HeaderText = "Quantity";
-            this.chQuantity.MaxInputLength = 10;
-            this.chQuantity.MinimumWidth = 90;
-            this.chQuantity.Name = "chQuantity";
-            this.chQuantity.ReadOnly = true;
+            this.chPhone.DefaultCellStyle = dataGridViewCellStyle7;
+            this.chPhone.FillWeight = 50F;
+            this.chPhone.HeaderText = "Phone";
+            this.chPhone.MaxInputLength = 10;
+            this.chPhone.MinimumWidth = 70;
+            this.chPhone.Name = "chPhone";
+            this.chPhone.ReadOnly = true;
             // 
-            // chType
+            // chCity
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.chType.DefaultCellStyle = dataGridViewCellStyle8;
-            this.chType.FillWeight = 50F;
-            this.chType.HeaderText = "Type";
-            this.chType.MaxInputLength = 10;
-            this.chType.MinimumWidth = 100;
-            this.chType.Name = "chType";
-            this.chType.ReadOnly = true;
+            this.chCity.DefaultCellStyle = dataGridViewCellStyle8;
+            this.chCity.FillWeight = 50F;
+            this.chCity.HeaderText = "City";
+            this.chCity.MaxInputLength = 10;
+            this.chCity.MinimumWidth = 100;
+            this.chCity.Name = "chCity";
+            this.chCity.ReadOnly = true;
             // 
-            // chCategory_name
+            // chActive
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.chCategory_name.DefaultCellStyle = dataGridViewCellStyle9;
-            this.chCategory_name.FillWeight = 50F;
-            this.chCategory_name.HeaderText = "Brand";
-            this.chCategory_name.MaxInputLength = 10;
-            this.chCategory_name.MinimumWidth = 100;
-            this.chCategory_name.Name = "chCategory_name";
-            this.chCategory_name.ReadOnly = true;
-            // 
-            // chAvailable
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.chAvailable.DefaultCellStyle = dataGridViewCellStyle10;
-            this.chAvailable.FillWeight = 50F;
-            this.chAvailable.HeaderText = "Available";
-            this.chAvailable.MaxInputLength = 1;
-            this.chAvailable.MinimumWidth = 90;
-            this.chAvailable.Name = "chAvailable";
-            this.chAvailable.ReadOnly = true;
+            this.chActive.DefaultCellStyle = dataGridViewCellStyle9;
+            this.chActive.FillWeight = 50F;
+            this.chActive.HeaderText = "Active";
+            this.chActive.MaxInputLength = 10;
+            this.chActive.MinimumWidth = 70;
+            this.chActive.Name = "chActive";
+            this.chActive.ReadOnly = true;
             // 
             // chButton
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
-            this.chButton.DefaultCellStyle = dataGridViewCellStyle11;
             this.chButton.FillWeight = 20F;
+            this.chButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chButton.HeaderText = "#";
-            this.chButton.MinimumWidth = 20;
+            this.chButton.MinimumWidth = 10;
             this.chButton.Name = "chButton";
             this.chButton.ReadOnly = true;
             // 
@@ -427,7 +347,7 @@ namespace Project2.UserControls
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::Project2.Properties.Resources.refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(526, 8);
+            this.btnRefresh.Location = new System.Drawing.Point(276, 8);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(90, 25);
@@ -450,7 +370,7 @@ namespace Project2.UserControls
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = global::Project2.Properties.Resources.delete_icon;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(434, 8);
+            this.btnDelete.Location = new System.Drawing.Point(184, 8);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 25);
@@ -473,7 +393,7 @@ namespace Project2.UserControls
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::Project2.Properties.Resources.update_icon;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(342, 8);
+            this.btnUpdate.Location = new System.Drawing.Point(92, 8);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(90, 25);
@@ -496,7 +416,7 @@ namespace Project2.UserControls
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::Project2.Properties.Resources.add_icon;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(260, 8);
+            this.btnAdd.Location = new System.Drawing.Point(10, 8);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(0);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 25);
@@ -524,26 +444,23 @@ namespace Project2.UserControls
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // ProductForm
+            // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.dgvProduct);
-            this.Controls.Add(this.pnlFilterLine);
-            this.Controls.Add(this.pnlLeft);
+            this.Controls.Add(this.dgvCustomer);
             this.Controls.Add(this.pnlVerticalLine);
             this.Controls.Add(this.pnlOperation);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "ProductForm";
+            this.Name = "CustomerForm";
             this.Size = new System.Drawing.Size(1280, 630);
-            this.Load += new System.EventHandler(this.ProductForm_Load);
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             this.pnlOperation.ResumeLayout(false);
             this.pnlOperation.PerformLayout();
-            this.pnlLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,12 +469,9 @@ namespace Project2.UserControls
 
         private System.Windows.Forms.Panel pnlOperation;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Panel pnlLeft;
         private System.Windows.Forms.Panel pnlVerticalLine;
         private System.Windows.Forms.Panel pnlLineSearch;
-        private System.Windows.Forms.Panel pnlFilterLine;
-        private System.Windows.Forms.DataGridView dgvProduct;
-        private System.Windows.Forms.TreeView tvCategory;
+        private System.Windows.Forms.DataGridView dgvCustomer;
         private System.Windows.Forms.BindingSource bsProduct;
         private System.Windows.Forms.ImageList imgListCategory;
         private System.Windows.Forms.Button btnSearch;
@@ -567,12 +481,11 @@ namespace Project2.UserControls
         private Utils.RoundedButton btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn chId;
         private System.Windows.Forms.DataGridViewTextBoxColumn chName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chDiscount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chCategory_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chAvailable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chGender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chCity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chActive;
         private System.Windows.Forms.DataGridViewButtonColumn chButton;
     }
 }

@@ -29,18 +29,15 @@ namespace Project2
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagementForm));
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblLogo = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlNavigation = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
             this.pnlLineActive = new System.Windows.Forms.Panel();
             this.pnlLine = new System.Windows.Forms.Panel();
             this.btnHistory = new System.Windows.Forms.Button();
-            this.btnSell = new System.Windows.Forms.Button();
+            this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnSales = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
@@ -48,11 +45,16 @@ namespace Project2
             this.lblUsername = new System.Windows.Forms.Label();
             this.productForm = new Project2.UserControls.ProductForm();
             this.loginForm = new Project2.UserControls.LoginForm();
+            this.salesForm = new Project2.UserControls.SalesForm();
+            this.customerForm = new Project2.UserControls.CustomerForm();
             this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
+            this.btnMinimize = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -70,44 +72,6 @@ namespace Project2
             this.pnlTop.Size = new System.Drawing.Size(1280, 40);
             this.pnlTop.TabIndex = 21;
             // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
-            this.btnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))));
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(1190, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(45, 35);
-            this.btnMinimize.TabIndex = 23;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(1235, 0);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(45, 35);
-            this.btnClose.TabIndex = 22;
-            this.btnClose.TabStop = false;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // lblLogo
             // 
             this.lblLogo.AutoSize = true;
@@ -115,20 +79,9 @@ namespace Project2
             this.lblLogo.ForeColor = System.Drawing.Color.White;
             this.lblLogo.Location = new System.Drawing.Point(70, 10);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(233, 21);
+            this.lblLogo.Size = new System.Drawing.Size(306, 25);
             this.lblLogo.TabIndex = 3;
             this.lblLogo.Text = "Shop Management System";
-            // 
-            // pbLogo
-            // 
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(10, -5);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(50, 50);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLogo.TabIndex = 2;
-            this.pbLogo.TabStop = false;
             // 
             // pnlNavigation
             // 
@@ -138,7 +91,8 @@ namespace Project2
             this.pnlNavigation.Controls.Add(this.pnlLineActive);
             this.pnlNavigation.Controls.Add(this.pnlLine);
             this.pnlNavigation.Controls.Add(this.btnHistory);
-            this.pnlNavigation.Controls.Add(this.btnSell);
+            this.pnlNavigation.Controls.Add(this.btnCustomer);
+            this.pnlNavigation.Controls.Add(this.btnSales);
             this.pnlNavigation.Controls.Add(this.btnCategory);
             this.pnlNavigation.Controls.Add(this.btnEmployee);
             this.pnlNavigation.Controls.Add(this.btnProduct);
@@ -159,7 +113,7 @@ namespace Project2
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblRole.Location = new System.Drawing.Point(1095, 25);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(39, 19);
+            this.lblRole.Size = new System.Drawing.Size(45, 21);
             this.lblRole.TabIndex = 12;
             this.lblRole.Text = "Role";
             // 
@@ -195,7 +149,7 @@ namespace Project2
             this.btnHistory.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistory.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.btnHistory.Location = new System.Drawing.Point(540, 0);
+            this.btnHistory.Location = new System.Drawing.Point(650, 0);
             this.btnHistory.Margin = new System.Windows.Forms.Padding(0);
             this.btnHistory.Name = "btnHistory";
             this.btnHistory.Size = new System.Drawing.Size(100, 50);
@@ -206,27 +160,46 @@ namespace Project2
             this.btnHistory.MouseEnter += new System.EventHandler(this.btnHistory_MouseEnter);
             this.btnHistory.MouseLeave += new System.EventHandler(this.btnHistory_MouseLeave);
             // 
-            // btnSell
+            // btnCustomer
             // 
-            this.btnSell.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSell.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSell.Enabled = false;
-            this.btnSell.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnSell.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
-            this.btnSell.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.btnSell.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
-            this.btnSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSell.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.btnSell.Location = new System.Drawing.Point(460, 0);
-            this.btnSell.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(80, 50);
-            this.btnSell.TabIndex = 9;
-            this.btnSell.Text = "SELL";
-            this.btnSell.UseVisualStyleBackColor = false;
-            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
-            this.btnSell.MouseEnter += new System.EventHandler(this.btnSell_MouseEnter);
-            this.btnSell.MouseLeave += new System.EventHandler(this.btnSell_MouseLeave);
+            this.btnCustomer.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCustomer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCustomer.Enabled = false;
+            this.btnCustomer.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnCustomer.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
+            this.btnCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.btnCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomer.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.btnCustomer.Location = new System.Drawing.Point(540, 0);
+            this.btnCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(110, 50);
+            this.btnCustomer.TabIndex = 13;
+            this.btnCustomer.Text = "CUSTOMERS";
+            this.btnCustomer.UseVisualStyleBackColor = false;
+            // 
+            // btnSales
+            // 
+            this.btnSales.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSales.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSales.Enabled = false;
+            this.btnSales.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnSales.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.Control;
+            this.btnSales.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSales.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.btnSales.Location = new System.Drawing.Point(460, 0);
+            this.btnSales.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSales.Name = "btnSales";
+            this.btnSales.Size = new System.Drawing.Size(80, 50);
+            this.btnSales.TabIndex = 9;
+            this.btnSales.Text = "SALES";
+            this.btnSales.UseVisualStyleBackColor = false;
+            this.btnSales.Click += new System.EventHandler(this.btnSell_Click);
+            this.btnSales.MouseEnter += new System.EventHandler(this.btnSell_MouseEnter);
+            this.btnSales.MouseLeave += new System.EventHandler(this.btnSell_MouseLeave);
             // 
             // btnCategory
             // 
@@ -324,7 +297,7 @@ namespace Project2
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblUsername.Location = new System.Drawing.Point(1095, 5);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(77, 19);
+            this.lblUsername.Size = new System.Drawing.Size(93, 21);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
             // 
@@ -347,12 +320,36 @@ namespace Project2
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loginForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginForm.Location = new System.Drawing.Point(0, 40);
+            this.loginForm.Location = new System.Drawing.Point(0, 90);
             this.loginForm.Margin = new System.Windows.Forms.Padding(0);
             this.loginForm.Name = "loginForm";
-            this.loginForm.Size = new System.Drawing.Size(1280, 680);
+            this.loginForm.Size = new System.Drawing.Size(1280, 630);
             this.loginForm.TabIndex = 23;
             this.loginForm.TabStop = false;
+            // 
+            // salesForm
+            // 
+            this.salesForm.BackColor = System.Drawing.SystemColors.Control;
+            this.salesForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.salesForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.salesForm.Location = new System.Drawing.Point(0, 90);
+            this.salesForm.Margin = new System.Windows.Forms.Padding(0);
+            this.salesForm.Name = "salesForm";
+            this.salesForm.Size = new System.Drawing.Size(1280, 630);
+            this.salesForm.TabIndex = 25;
+            // 
+            // customerForm
+            // 
+            this.customerForm.BackColor = System.Drawing.SystemColors.Control;
+            this.customerForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.customerForm.Location = new System.Drawing.Point(0, 90);
+            this.customerForm.Margin = new System.Windows.Forms.Padding(0);
+            this.customerForm.Name = "customerForm";
+            this.customerForm.Size = new System.Drawing.Size(1280, 630);
+            this.customerForm.TabIndex = 26;
             // 
             // pbUser
             // 
@@ -367,11 +364,62 @@ namespace Project2
             this.pbUser.TabIndex = 11;
             this.pbUser.TabStop = false;
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
+            this.btnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))));
+            this.btnMinimize.FlatAppearance.BorderSize = 0;
+            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimize.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.Image = global::Project2.Properties.Resources.minimize_icon;
+            this.btnMinimize.Location = new System.Drawing.Point(1190, 0);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(45, 35);
+            this.btnMinimize.TabIndex = 23;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(120)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = global::Project2.Properties.Resources.close_icon;
+            this.btnClose.Location = new System.Drawing.Point(1235, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(45, 35);
+            this.btnClose.TabIndex = 22;
+            this.btnClose.TabStop = false;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Image = global::Project2.Properties.Resources.logo_icon;
+            this.pbLogo.Location = new System.Drawing.Point(10, -5);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(50, 50);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 2;
+            this.pbLogo.TabStop = false;
+            // 
             // ManagementForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.customerForm);
+            this.Controls.Add(this.salesForm);
             this.Controls.Add(this.productForm);
             this.Controls.Add(this.loginForm);
             this.Controls.Add(this.pnlNavigation);
@@ -385,10 +433,10 @@ namespace Project2
             this.Load += new System.EventHandler(this.ManagementForm_Load);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlNavigation.ResumeLayout(false);
             this.pnlNavigation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,7 +452,7 @@ namespace Project2
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnHistory;
-        private System.Windows.Forms.Button btnSell;
+        private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button btnProduct;
@@ -414,5 +462,8 @@ namespace Project2
         private System.Windows.Forms.Label lblRole;
         private UserControls.LoginForm loginForm;
         private UserControls.ProductForm productForm;
+        private UserControls.SalesForm salesForm;
+        private System.Windows.Forms.Button btnCustomer;
+        private UserControls.CustomerForm customerForm;
     }
 }

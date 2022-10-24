@@ -29,15 +29,28 @@ namespace Project2.Forms.Components
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModalForm));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.txtUpdatedAt = new Project2.Utils.FlatTextBox();
             this.lblUpdateAt = new System.Windows.Forms.Label();
+            this.txtCreatedAt = new Project2.Utils.FlatTextBox();
             this.lblCreatedAt = new System.Windows.Forms.Label();
             this.txtImagePath = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new Project2.Utils.FlatTextBox();
+            this.txtDiscount = new Project2.Utils.FlatTextBox();
+            this.txtPrice = new Project2.Utils.FlatTextBox();
+            this.txtDescription = new Project2.Utils.FlatTextBox();
+            this.txtName = new Project2.Utils.FlatTextBox();
+            this.txtId = new Project2.Utils.FlatTextBox();
+            this.cbAvailable = new FlatComboBox();
+            this.cbBrand = new FlatComboBox();
+            this.cbType = new FlatComboBox();
+            this.btnUploadImage = new Project2.Utils.RoundedButton();
+            this.btnBack = new Project2.Utils.RoundedButton();
+            this.btnConfirm = new Project2.Utils.RoundedButton();
             this.lblBrand = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblImage = new System.Windows.Forms.Label();
@@ -51,20 +64,6 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
             this.pnlUploadImage = new System.Windows.Forms.Panel();
             this.pbUploadImage = new System.Windows.Forms.PictureBox();
-            this.txtUpdatedAt = new Project2.Utils.FlatTextBox();
-            this.txtCreatedAt = new Project2.Utils.FlatTextBox();
-            this.txtQuantity = new Project2.Utils.FlatTextBox();
-            this.txtDiscount = new Project2.Utils.FlatTextBox();
-            this.txtPrice = new Project2.Utils.FlatTextBox();
-            this.txtDescription = new Project2.Utils.FlatTextBox();
-            this.txtName = new Project2.Utils.FlatTextBox();
-            this.txtId = new Project2.Utils.FlatTextBox();
-            this.cbAvailable = new FlatComboBox();
-            this.cbBrand = new FlatComboBox();
-            this.cbType = new FlatComboBox();
-            this.btnUploadImage = new Project2.Utils.RoundedButton();
-            this.btnBack = new Project2.Utils.RoundedButton();
-            this.btnConfirm = new Project2.Utils.RoundedButton();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -89,7 +88,7 @@ namespace Project2.Forms.Components
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Image = global::Project2.Properties.Resources.close_2_icon;
             this.btnClose.Location = new System.Drawing.Point(670, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 30);
@@ -100,18 +99,18 @@ namespace Project2.Forms.Components
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblTitle.Location = new System.Drawing.Point(38, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(117, 22);
+            this.lblTitle.Size = new System.Drawing.Size(120, 23);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Modal Form";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbIcon
             // 
-            this.pbIcon.Image = ((System.Drawing.Image)(resources.GetObject("pbIcon.Image")));
+            this.pbIcon.Image = global::Project2.Properties.Resources.information_icon;
             this.pbIcon.Location = new System.Drawing.Point(17, 5);
             this.pbIcon.Margin = new System.Windows.Forms.Padding(0);
             this.pbIcon.Name = "pbIcon";
@@ -153,11 +152,26 @@ namespace Project2.Forms.Components
             this.pnlContainer.Controls.Add(this.pnlVerticalLine);
             this.pnlContainer.Controls.Add(this.pnlUploadImage);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlContainer.Location = new System.Drawing.Point(0, 30);
             this.pnlContainer.Margin = new System.Windows.Forms.Padding(0);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(700, 770);
             this.pnlContainer.TabIndex = 1;
+            // 
+            // txtUpdatedAt
+            // 
+            this.txtUpdatedAt.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtUpdatedAt.Enabled = false;
+            this.txtUpdatedAt.Font = new System.Drawing.Font("Century Gothic", 10.5F);
+            this.txtUpdatedAt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUpdatedAt.Location = new System.Drawing.Point(355, 656);
+            this.txtUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
+            this.txtUpdatedAt.Name = "txtUpdatedAt";
+            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 29);
+            this.txtUpdatedAt.TabIndex = 0;
+            this.txtUpdatedAt.TabStop = false;
+            this.txtUpdatedAt.Visible = false;
             // 
             // lblUpdateAt
             // 
@@ -173,6 +187,20 @@ namespace Project2.Forms.Components
             this.lblUpdateAt.TabIndex = 0;
             this.lblUpdateAt.Text = "Updated At";
             this.lblUpdateAt.Visible = false;
+            // 
+            // txtCreatedAt
+            // 
+            this.txtCreatedAt.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtCreatedAt.Enabled = false;
+            this.txtCreatedAt.Font = new System.Drawing.Font("Century Gothic", 10.5F);
+            this.txtCreatedAt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCreatedAt.Location = new System.Drawing.Point(10, 656);
+            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(0);
+            this.txtCreatedAt.Name = "txtCreatedAt";
+            this.txtCreatedAt.Size = new System.Drawing.Size(335, 29);
+            this.txtCreatedAt.TabIndex = 0;
+            this.txtCreatedAt.TabStop = false;
+            this.txtCreatedAt.Visible = false;
             // 
             // lblCreatedAt
             // 
@@ -191,12 +219,191 @@ namespace Project2.Forms.Components
             // 
             // txtImagePath
             // 
+            this.txtImagePath.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtImagePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtImagePath.Location = new System.Drawing.Point(398, 405);
             this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.Size = new System.Drawing.Size(291, 32);
+            this.txtImagePath.Size = new System.Drawing.Size(291, 30);
             this.txtImagePath.TabIndex = 0;
             this.txtImagePath.TabStop = false;
             this.txtImagePath.Visible = false;
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtQuantity.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtQuantity.Location = new System.Drawing.Point(470, 300);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(0);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(220, 30);
+            this.txtQuantity.TabIndex = 8;
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtDiscount.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDiscount.Location = new System.Drawing.Point(240, 300);
+            this.txtDiscount.Margin = new System.Windows.Forms.Padding(0);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(220, 30);
+            this.txtDiscount.TabIndex = 7;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtPrice.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtPrice.Location = new System.Drawing.Point(10, 300);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(220, 30);
+            this.txtPrice.TabIndex = 6;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDescription.Location = new System.Drawing.Point(10, 150);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(0);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(680, 120);
+            this.txtDescription.TabIndex = 5;
+            // 
+            // txtName
+            // 
+            this.txtName.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtName.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtName.Location = new System.Drawing.Point(240, 37);
+            this.txtName.Margin = new System.Windows.Forms.Padding(0);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(450, 30);
+            this.txtName.TabIndex = 1;
+            // 
+            // txtId
+            // 
+            this.txtId.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtId.Location = new System.Drawing.Point(10, 37);
+            this.txtId.Margin = new System.Windows.Forms.Padding(0);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(220, 30);
+            this.txtId.TabIndex = 0;
+            this.txtId.TabStop = false;
+            // 
+            // cbAvailable
+            // 
+            this.cbAvailable.BackColor = System.Drawing.Color.White;
+            this.cbAvailable.BorderColor = System.Drawing.Color.DarkGray;
+            this.cbAvailable.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.cbAvailable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbAvailable.FormattingEnabled = true;
+            this.cbAvailable.Location = new System.Drawing.Point(470, 92);
+            this.cbAvailable.Margin = new System.Windows.Forms.Padding(0);
+            this.cbAvailable.Name = "cbAvailable";
+            this.cbAvailable.Size = new System.Drawing.Size(220, 29);
+            this.cbAvailable.TabIndex = 4;
+            // 
+            // cbBrand
+            // 
+            this.cbBrand.BackColor = System.Drawing.Color.White;
+            this.cbBrand.BorderColor = System.Drawing.Color.DarkGray;
+            this.cbBrand.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.cbBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbBrand.FormattingEnabled = true;
+            this.cbBrand.Location = new System.Drawing.Point(240, 92);
+            this.cbBrand.Margin = new System.Windows.Forms.Padding(0);
+            this.cbBrand.Name = "cbBrand";
+            this.cbBrand.Size = new System.Drawing.Size(220, 29);
+            this.cbBrand.TabIndex = 3;
+            // 
+            // cbType
+            // 
+            this.cbType.BackColor = System.Drawing.Color.White;
+            this.cbType.BorderColor = System.Drawing.Color.DarkGray;
+            this.cbType.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.cbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbType.FormattingEnabled = true;
+            this.cbType.Location = new System.Drawing.Point(10, 92);
+            this.cbType.Margin = new System.Windows.Forms.Padding(0);
+            this.cbType.Name = "cbType";
+            this.cbType.Size = new System.Drawing.Size(220, 29);
+            this.cbType.TabIndex = 2;
+            this.cbType.SelectionChangeCommitted += new System.EventHandler(this.cbType_SelectionChangeCommitted);
+            // 
+            // btnUploadImage
+            // 
+            this.btnUploadImage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUploadImage.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUploadImage.BorderColor = System.Drawing.Color.Silver;
+            this.btnUploadImage.BorderRadius = 4;
+            this.btnUploadImage.BorderSize = 1;
+            this.btnUploadImage.FlatAppearance.BorderSize = 0;
+            this.btnUploadImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadImage.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnUploadImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUploadImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUploadImage.Location = new System.Drawing.Point(398, 355);
+            this.btnUploadImage.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnUploadImage.Name = "btnUploadImage";
+            this.btnUploadImage.Size = new System.Drawing.Size(292, 35);
+            this.btnUploadImage.TabIndex = 9;
+            this.btnUploadImage.Text = "Upload Image";
+            this.btnUploadImage.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUploadImage.UseVisualStyleBackColor = false;
+            this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnBack.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnBack.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnBack.BorderRadius = 4;
+            this.btnBack.BorderSize = 1;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Image = global::Project2.Properties.Resources.back_icon;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(601, 730);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(79, 30);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Text = "      Back";
+            this.btnBack.TextColor = System.Drawing.Color.White;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnConfirm.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.btnConfirm.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnConfirm.BorderRadius = 4;
+            this.btnConfirm.BorderSize = 1;
+            this.btnConfirm.FlatAppearance.BorderSize = 0;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnConfirm.ForeColor = System.Drawing.Color.White;
+            this.btnConfirm.Image = global::Project2.Properties.Resources.confirm_icon;
+            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirm.Location = new System.Drawing.Point(491, 730);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(100, 30);
+            this.btnConfirm.TabIndex = 10;
+            this.btnConfirm.Text = "    Confirm";
+            this.btnConfirm.TextColor = System.Drawing.Color.White;
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // lblBrand
             // 
@@ -363,7 +570,7 @@ namespace Project2.Forms.Components
             // 
             this.pbUploadImage.BackColor = System.Drawing.Color.White;
             this.pbUploadImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbUploadImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbUploadImage.InitialImage")));
+            this.pbUploadImage.InitialImage = global::Project2.Properties.Resources.car_icon;
             this.pbUploadImage.Location = new System.Drawing.Point(1, 1);
             this.pbUploadImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbUploadImage.MaximumSize = new System.Drawing.Size(368, 268);
@@ -373,211 +580,6 @@ namespace Project2.Forms.Components
             this.pbUploadImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUploadImage.TabIndex = 26;
             this.pbUploadImage.TabStop = false;
-            // 
-            // txtUpdatedAt
-            // 
-            this.txtUpdatedAt.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtUpdatedAt.Enabled = false;
-            this.txtUpdatedAt.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtUpdatedAt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUpdatedAt.Location = new System.Drawing.Point(355, 656);
-            this.txtUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
-            this.txtUpdatedAt.Name = "txtUpdatedAt";
-            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 29);
-            this.txtUpdatedAt.TabIndex = 0;
-            this.txtUpdatedAt.TabStop = false;
-            this.txtUpdatedAt.Visible = false;
-            // 
-            // txtCreatedAt
-            // 
-            this.txtCreatedAt.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtCreatedAt.Enabled = false;
-            this.txtCreatedAt.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtCreatedAt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCreatedAt.Location = new System.Drawing.Point(10, 656);
-            this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(0);
-            this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(335, 29);
-            this.txtCreatedAt.TabIndex = 0;
-            this.txtCreatedAt.TabStop = false;
-            this.txtCreatedAt.Visible = false;
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtQuantity.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtQuantity.Location = new System.Drawing.Point(470, 300);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(0);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(220, 29);
-            this.txtQuantity.TabIndex = 8;
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtDiscount.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDiscount.Location = new System.Drawing.Point(240, 300);
-            this.txtDiscount.Margin = new System.Windows.Forms.Padding(0);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(220, 29);
-            this.txtDiscount.TabIndex = 7;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtPrice.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPrice.Location = new System.Drawing.Point(10, 300);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(220, 29);
-            this.txtPrice.TabIndex = 6;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDescription.Location = new System.Drawing.Point(10, 150);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(0);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(680, 120);
-            this.txtDescription.TabIndex = 5;
-            // 
-            // txtName
-            // 
-            this.txtName.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtName.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtName.Location = new System.Drawing.Point(240, 37);
-            this.txtName.Margin = new System.Windows.Forms.Padding(0);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(450, 29);
-            this.txtName.TabIndex = 1;
-            // 
-            // txtId
-            // 
-            this.txtId.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtId.Location = new System.Drawing.Point(10, 37);
-            this.txtId.Margin = new System.Windows.Forms.Padding(0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(220, 30);
-            this.txtId.TabIndex = 0;
-            this.txtId.TabStop = false;
-            // 
-            // cbAvailable
-            // 
-            this.cbAvailable.BackColor = System.Drawing.Color.White;
-            this.cbAvailable.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbAvailable.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAvailable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbAvailable.FormattingEnabled = true;
-            this.cbAvailable.Location = new System.Drawing.Point(470, 92);
-            this.cbAvailable.Margin = new System.Windows.Forms.Padding(0);
-            this.cbAvailable.Name = "cbAvailable";
-            this.cbAvailable.Size = new System.Drawing.Size(220, 30);
-            this.cbAvailable.TabIndex = 4;
-            // 
-            // cbBrand
-            // 
-            this.cbBrand.BackColor = System.Drawing.Color.White;
-            this.cbBrand.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbBrand.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbBrand.FormattingEnabled = true;
-            this.cbBrand.Location = new System.Drawing.Point(240, 92);
-            this.cbBrand.Margin = new System.Windows.Forms.Padding(0);
-            this.cbBrand.Name = "cbBrand";
-            this.cbBrand.Size = new System.Drawing.Size(220, 30);
-            this.cbBrand.TabIndex = 3;
-            // 
-            // cbType
-            // 
-            this.cbType.BackColor = System.Drawing.Color.White;
-            this.cbType.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbType.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.cbType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(10, 92);
-            this.cbType.Margin = new System.Windows.Forms.Padding(0);
-            this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(220, 29);
-            this.cbType.TabIndex = 2;
-            this.cbType.SelectionChangeCommitted += new System.EventHandler(this.cbType_SelectionChangeCommitted);
-            // 
-            // btnUploadImage
-            // 
-            this.btnUploadImage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUploadImage.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUploadImage.BorderColor = System.Drawing.Color.Silver;
-            this.btnUploadImage.BorderRadius = 4;
-            this.btnUploadImage.BorderSize = 1;
-            this.btnUploadImage.FlatAppearance.BorderSize = 0;
-            this.btnUploadImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUploadImage.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnUploadImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnUploadImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUploadImage.Location = new System.Drawing.Point(398, 355);
-            this.btnUploadImage.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnUploadImage.Name = "btnUploadImage";
-            this.btnUploadImage.Size = new System.Drawing.Size(292, 35);
-            this.btnUploadImage.TabIndex = 9;
-            this.btnUploadImage.Text = "Upload Image";
-            this.btnUploadImage.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnUploadImage.UseVisualStyleBackColor = false;
-            this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnBack.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnBack.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnBack.BorderRadius = 4;
-            this.btnBack.BorderSize = 1;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Location = new System.Drawing.Point(601, 730);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(79, 30);
-            this.btnBack.TabIndex = 11;
-            this.btnBack.Text = "      Back";
-            this.btnBack.TextColor = System.Drawing.Color.White;
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnConfirm.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.btnConfirm.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.btnConfirm.BorderRadius = 4;
-            this.btnConfirm.BorderSize = 1;
-            this.btnConfirm.FlatAppearance.BorderSize = 0;
-            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirm.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
-            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(491, 730);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(100, 30);
-            this.btnConfirm.TabIndex = 10;
-            this.btnConfirm.Text = "    Confirm";
-            this.btnConfirm.TextColor = System.Drawing.Color.White;
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // ModalForm
             // 

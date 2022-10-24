@@ -9,14 +9,18 @@ namespace Project2.DAO
 {
     class ProductDAO
     {
-        MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
+        MyDBDataContext db;
+
+        public ProductDAO()
+        {
+            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
+        }
 
         public List<Product> SelectAll()
         {
             try
             {
-                List<Product> products = db.Products.ToList();
-                return products;
+                return db.Products.ToList();
             }
             catch
             {
@@ -28,8 +32,7 @@ namespace Project2.DAO
         {
             try
             {
-                Product product = db.Products.SingleOrDefault(p => p.id == id);
-                return product;
+                return db.Products.SingleOrDefault(p => p.id == id);
             }
             catch
             {
@@ -41,8 +44,7 @@ namespace Project2.DAO
         {
             try
             {
-                List<Product> products = db.Products.Where(p => p.type_id == typeId).ToList();
-                return products;
+                return db.Products.Where(p => p.type_id == typeId).ToList();
             }
             catch
             {
@@ -54,8 +56,7 @@ namespace Project2.DAO
         {
             try
             {
-                List<Product> products = db.Products.Where(p => p.brand_id == brandId).ToList();
-                return products;
+                return db.Products.Where(p => p.brand_id == brandId).ToList();
             }
             catch
             {

@@ -9,18 +9,21 @@ namespace Project2.BUS
 {
     class CategoryBUS
     {
-        private CategoryDAO cateDAO = new CategoryDAO();
+        private CategoryDAO cateDAO;
+
+        public CategoryBUS()
+        {
+            cateDAO = new CategoryDAO();
+        }
 
         public List<Category> GetAll()
         {
-            List<Category> categories = cateDAO.SelectAll();
-            return categories;
+            return cateDAO.SelectAll();
         }
 
         public List<Category> GetCategoryByParentID(int parentId)
         {
-            List<Category> categories = cateDAO.SelectWithParentID(parentId);
-            return categories;
+            return cateDAO.SelectAllByParentID(parentId); ;
         }
     }
 }

@@ -9,24 +9,26 @@ namespace Project2.BUS
 {
     class ProductBUS
     {
-        private ProductDAO prodDAO = new ProductDAO();
+        private ProductDAO prodDAO;
+
+        public ProductBUS()
+        {
+            prodDAO = new ProductDAO();
+        }
 
         public List<Product> GetAll()
         {
-            List<Product> products = prodDAO.SelectAll();
-            return products;
+            return prodDAO.SelectAll();
         }
 
         public bool AddNew(Product newProduct)
         {
-            bool result = prodDAO.Insert(newProduct);
-            return result;
+            return prodDAO.Insert(newProduct);
         }
 
         public bool Update(Product newProduct)
         {
-            bool result = prodDAO.Update(newProduct);
-            return result;
+            return prodDAO.Update(newProduct);
         }
 
         //public string GetProductType(int id)
@@ -43,20 +45,17 @@ namespace Project2.BUS
 
         public Product GetProductByID(int id)
         {
-            Product product = prodDAO.SelectAllByID(id);
-            return product;
+            return prodDAO.SelectAllByID(id);
         }
 
         public List<Product> GetProductByBrandID(int categoryId)
         {
-            List<Product> products = prodDAO.SelectAllByBrandID(categoryId);
-            return products;
+            return prodDAO.SelectAllByBrandID(categoryId);
         }
 
         public List<Product> GetProductByTypeID(int categoryId)
         {
-            List<Product> products = prodDAO.SelectAllByTypeID(categoryId);
-            return products;
+            return prodDAO.SelectAllByTypeID(categoryId);
         }
 
         public List<Product> GetProductByTreeLevel(int level, int categoryId)
@@ -72,8 +71,7 @@ namespace Project2.BUS
 
         public bool Delete(int id)
         {
-            bool result = prodDAO.Delete(id);
-            return result;
+            return prodDAO.Delete(id);
         }
     }
 }

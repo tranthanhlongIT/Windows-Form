@@ -8,19 +8,22 @@ namespace Project2.BUS
 {
     class EmployeeBUS
     {
-        private EmployeeDAO empDAO = new EmployeeDAO();
+        private EmployeeDAO empDAO;
+
+        public EmployeeBUS()
+        {
+            empDAO = new EmployeeDAO();
+        }
 
         public bool AddNew(Employee newEmployee)
         {
             newEmployee.password = EncodePasswordToBase64(newEmployee.password);
-            bool result = empDAO.Insert(newEmployee);
-            return result;
+            return empDAO.Insert(newEmployee);
         }
 
         public Employee GetEmployeeByEmail(string email)
         {
-            Employee employee = empDAO.SelectAllByEmail(email);
-            return employee;
+            return empDAO.SelectAllByEmail(email); ;
         }
 
         public bool CheckEmployeeCredential(Employee employee)
@@ -35,8 +38,7 @@ namespace Project2.BUS
 
         public bool ValidateEmail(string email)
         {
-            bool result = empDAO.IsExistEmail(email);
-            return result;
+            return empDAO.IsEmailExist(email);
         }
 
         //this function Convert to Encord your Password

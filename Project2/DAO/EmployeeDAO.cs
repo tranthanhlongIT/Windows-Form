@@ -9,14 +9,30 @@ namespace Project2.DAO
 {
     class EmployeeDAO
     {
-        MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
+        MyDBDataContext db;
+        
+        public EmployeeDAO()
+        {
+            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
+        }
 
         public List<Employee> SelectAll()
         {
             try 
             {
-                List<Employee> employees = db.Employees.ToList();
-                return employees;
+                return db.Employees.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public Employee SelectAllByEmail(string email)
+        {
+            try
+            {
+                return db.Employees.SingleOrDefault(em => em.email == email);
             }
             catch
             {
@@ -28,8 +44,7 @@ namespace Project2.DAO
         {
             try
             {
-                string password = db.Employees.Where(e => e.email == email).Select(e => e.password).SingleOrDefault();
-                return password;
+                return db.Employees.Where(e => e.email == email).Select(e => e.password).SingleOrDefault();
             }
             catch
             {
@@ -39,25 +54,7 @@ namespace Project2.DAO
 
         public bool SelectIsActiveByEmail(string email)
         {
-            bool result = (bool)db.Employees.Where(e => e.email == email).Select(e => e.is_active).SingleOrDefault();
-            if (result)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public Employee SelectAllByEmail(string email)
-        {
-            try
-            {
-                Employee employee = db.Employees.SingleOrDefault(em => em.email == email);
-                return employee;
-            }
-            catch
-            {
-                return null;
-            }
+            return (bool)db.Employees.Where(e => e.email == email).Select(e => e.is_active).SingleOrDefault();
         }
 
         public bool Insert(Employee newEmployee)
@@ -74,14 +71,9 @@ namespace Project2.DAO
             }
         }
 
-        public bool IsExistEmail(string email)
+        public bool IsEmailExist(string email)
         {
-            bool result = db.Employees.Any(em => em.email == email);
-            if (result)
-            {
-                return true;
-            }
-            else return false;
+            return db.Employees.Any(em => em.email == email);
         }
     }
 }

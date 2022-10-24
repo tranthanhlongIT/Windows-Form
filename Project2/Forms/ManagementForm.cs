@@ -14,6 +14,8 @@ namespace Project2
         {
             InitializeComponent();
             productForm.Dispose();
+            salesForm.Dispose();
+            customerForm.Dispose();
         }
 
         public ManagementForm(Employee emp)
@@ -28,7 +30,7 @@ namespace Project2
             if (employee != null)
             {
                 SlidePanel(btnDashboard);
-                ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory });
+                ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSales, btnHistory });
 
             }
             else loginForm.BringToFront();
@@ -37,38 +39,38 @@ namespace Project2
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             SlidePanel(btnDashboard);
-            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSell, btnHistory});
+            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSales, btnHistory});
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
             productForm.BringToFront();
             SlidePanel(btnProduct);
-            ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSell, btnHistory });
+            ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSales, btnHistory });
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             SlidePanel(btnEmployee);
-            ChangeButtonTextColor(3, btnEmployee, new List<Button> { btnDashboard, btnProduct, btnCategory, btnSell, btnHistory });
+            ChangeButtonTextColor(3, btnEmployee, new List<Button> { btnDashboard, btnProduct, btnCategory, btnSales, btnHistory });
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
             SlidePanel(btnCategory);
-            ChangeButtonTextColor(4, btnCategory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSell, btnHistory });
+            ChangeButtonTextColor(4, btnCategory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSales, btnHistory });
         }
 
         private void btnSell_Click(object sender, EventArgs e)
         {
-            SlidePanel(btnSell);
-            ChangeButtonTextColor(5, btnSell, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnHistory });
+            SlidePanel(btnSales);
+            ChangeButtonTextColor(5, btnSales, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnHistory });
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
             SlidePanel(btnHistory);
-            ChangeButtonTextColor(6, btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSell });
+            ChangeButtonTextColor(6, btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSales });
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -126,13 +128,13 @@ namespace Project2
 
         private void btnSell_MouseEnter(object sender, EventArgs e)
         {
-            btnSell.ForeColor = Color.SteelBlue;
+            btnSales.ForeColor = Color.SteelBlue;
         }
 
         private void btnSell_MouseLeave(object sender, EventArgs e)
         {
             if (!IsButtonActive(activeBtn, 5))
-                btnSell.ForeColor = Color.Black;
+                btnSales.ForeColor = Color.Black;
         }
 
         private void btnHistory_MouseEnter(object sender, EventArgs e)
@@ -193,13 +195,13 @@ namespace Project2
                 btnProduct.Enabled = true;
                 btnEmployee.Enabled = true;
                 btnCategory.Enabled = true;
-                btnSell.Enabled = true;
+                btnSales.Enabled = true;
                 btnHistory.Enabled = true;
             }
             else if (employee.Role.name == "Salesman")
             {
                 btnDashboard.Enabled = true;
-                btnSell.Enabled = true;
+                btnSales.Enabled = true;
             }
             else if (employee.Role.name == "Accountant")
             {

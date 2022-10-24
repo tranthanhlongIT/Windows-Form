@@ -11,6 +11,9 @@ namespace Project2.UserControls
     {
         private ProductBUS prodBUS;
         private CategoryBUS cateBUS;
+        private List<Product> products;
+        private List<Category> categories;
+        private int id;
 
         public ProductForm()
         {
@@ -63,7 +66,7 @@ namespace Project2.UserControls
         private void btnSearch_Click(object sender, EventArgs e)
         {
             String keyword = txtSearch.Text.Trim().ToLower();
-            List<Product> products = GetProductList();
+            products = GetProductList();
             products = products.FindAll(p => p.name.ToLower().Contains(keyword));
             LoadDataGridView(products);
         }
@@ -89,7 +92,7 @@ namespace Project2.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+            id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
             OpenModal("upd", id);
         }
 
@@ -98,8 +101,8 @@ namespace Project2.UserControls
             DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
-                bool result = new ProductBUS().Delete(id);
+                id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+                bool result = prodBUS.Delete(id);
                 if (result)
                 {
                     RefreshDataGridView();
@@ -122,7 +125,7 @@ namespace Project2.UserControls
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                int id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+                id = (int)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
                 OpenModal("det", id);
             }
         }
@@ -169,13 +172,13 @@ namespace Project2.UserControls
 
         public void RefreshDataGridView()
         {
-            List<Product> products = GetProductList();
+            products = GetProductList();
             LoadDataGridView(products);
         }
 
         private void CreateParentNode(int parentId)
         {
-            List<Category> categories = cateBUS.GetCategoryByParentID(parentId);
+            categories = cateBUS.GetCategoryByParentID(parentId);
             if (categories.Count > 0)
             {
                 foreach (var category in categories)
@@ -192,7 +195,7 @@ namespace Project2.UserControls
 
         private void CreateChildNode(TreeNode parentNode, int parentId)
         {
-            List<Category> categories = cateBUS.GetCategoryByParentID(parentId);
+            categories = cateBUS.GetCategoryByParentID(parentId);
             if (categories.Count > 0)
             {
                 foreach (var category in categories)

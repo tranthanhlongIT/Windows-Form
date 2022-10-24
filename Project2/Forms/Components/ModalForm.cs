@@ -10,8 +10,9 @@ namespace Project2.Forms.Components
 {
     public partial class ModalForm : Form
     {
-        private CategoryBUS cateBUS = new CategoryBUS();
-        private ProductBUS prodBUS = new ProductBUS();
+        private ProductBUS prodBUS;
+        private CategoryBUS cateBUS;
+        private List<Category> categories;
         private Product product;
         private string action;
         private int id;
@@ -28,8 +29,15 @@ namespace Project2.Forms.Components
             this.id = id;
         }
 
+        public void InitializeBUS()
+        {
+            prodBUS = new ProductBUS();
+            cateBUS = new CategoryBUS();
+        }
+
         private void ModalForm_Load(object sender, EventArgs e)
         {
+            InitializeBUS();
             SetForm();
         }
 
@@ -174,7 +182,7 @@ namespace Project2.Forms.Components
 
         public void LoadTypeComboBox()
         {
-            List<Category> categories = cateBUS.GetCategoryByParentID(24);
+            categories = cateBUS.GetCategoryByParentID(24);
             cbType.DataSource = categories;
             cbType.DisplayMember = "name";
             cbType.ValueMember = "id";
@@ -182,7 +190,7 @@ namespace Project2.Forms.Components
 
         public void LoadBrandComboBox(int parentId)
         {
-            List<Category> categories = cateBUS.GetCategoryByParentID(parentId);
+            categories = cateBUS.GetCategoryByParentID(parentId);
             cbBrand.DataSource = categories;
             cbBrand.DisplayMember = "name";
             cbBrand.ValueMember = "id";
