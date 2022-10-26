@@ -20,5 +20,25 @@ namespace Project2.BUS
         {
             return custDAO.SelectAll();
         }
+
+        public Customer GetCustomerByID(int id)
+        {
+            return custDAO.SelectAllByID(id);
+        }
+
+        public bool AddNew(Customer newCustomer)
+        {
+            return custDAO.Insert(newCustomer);
+        }
+
+        public bool Update(Customer newCustomer)
+        {
+            return custDAO.Update(newCustomer);
+        }
+
+        public bool Disable(int id)
+        {
+            return custDAO.Disable(id);
+        }
     }
 }

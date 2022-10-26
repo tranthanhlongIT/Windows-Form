@@ -110,19 +110,19 @@ namespace Project2.Utils
             switch (type)
             {
                 case enmType.Success:
-                    this.pictureBox1.Image = Resources.success;
+                    this.pictureBox1.Image = Resources.success_icon;
                     this.BackColor = Color.SeaGreen;
                     break;
                 case enmType.Error:
-                    this.pictureBox1.Image = Resources.error;
+                    this.pictureBox1.Image = Resources.error_icon;
                     this.BackColor = Color.DarkRed;
                     break;
                 case enmType.Info:
-                    this.pictureBox1.Image = Resources.info;
+                    this.pictureBox1.Image = Resources.info_icon;
                     this.BackColor = Color.RoyalBlue;
                     break;
                 case enmType.Warning:
-                    this.pictureBox1.Image = Resources.warning;
+                    this.pictureBox1.Image = Resources.warning_icon;
                     this.BackColor = Color.DarkOrange;
                     break;
             }

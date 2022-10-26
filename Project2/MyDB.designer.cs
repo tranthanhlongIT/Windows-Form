@@ -1957,7 +1957,7 @@ namespace Project2
 		
 		private System.Nullable<int> _quantity;
 		
-		private string _available;
+		private System.Nullable<bool> _available;
 		
 		private string _image;
 		
@@ -1991,7 +1991,7 @@ namespace Project2
     partial void OndiscountChanged();
     partial void OnquantityChanging(System.Nullable<int> value);
     partial void OnquantityChanged();
-    partial void OnavailableChanging(string value);
+    partial void OnavailableChanging(System.Nullable<bool> value);
     partial void OnavailableChanged();
     partial void OnimageChanging(string value);
     partial void OnimageChanged();
@@ -2133,8 +2133,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="NVarChar(3)")]
-		public string available
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Bit")]
+		public System.Nullable<bool> available
 		{
 			get
 			{

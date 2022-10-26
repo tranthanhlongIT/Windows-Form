@@ -76,7 +76,7 @@ namespace Project2.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int id = Int32.Parse(dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value.ToString());
+            int id = (Int32)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
             OpenModal("upd", id);
         }
 
@@ -173,7 +173,7 @@ namespace Project2.UserControls
             Form formBackground = new Form();
             try
             {
-                using (ModalForm uu = new ModalForm(action, id))
+                using (CustomerModalForm uu = new CustomerModalForm(action, id))
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;

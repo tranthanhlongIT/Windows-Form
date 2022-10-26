@@ -225,26 +225,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\CategoryBUS.cs" />
+    <Compile Include="BUS\CityBUS.cs" />
     <Compile Include="BUS\CustomerBUS.cs" />
     <Compile Include="BUS\EmployeeBUS.cs" />
     <Compile Include="BUS\OrderBUS.cs" />
     <Compile Include="BUS\ProductBUS.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\CityDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="Forms\Components\CustomerModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Components\CustomerModalForm.Designer.cs">
+      <DependentUpon>CustomerModalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Components\ListViewNF.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Forms\Components\ModalForm.cs">
+    <Compile Include="Forms\Components\ProductModalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Components\ModalForm.Designer.cs">
-      <DependentUpon>ModalForm.cs</DependentUpon>
+    <Compile Include="Forms\Components\ProductModalForm.Designer.cs">
+      <DependentUpon>ProductModalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Components\RoundedPictureBox.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Components\CheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Components\CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ManagementForm.cs">
       <SubType>Form</SubType>
@@ -294,12 +314,6 @@
     <Compile Include="UserControls\HistoryForm.Designer.cs">
       <DependentUpon>HistoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LoginForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\CustomerForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -333,8 +347,17 @@
     <Compile Include="Utils\Form_Alert.Designer.cs">
       <DependentUpon>Form_Alert.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Components\ModalForm.resx">
-      <DependentUpon>ModalForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Components\CustomerModalForm.resx">
+      <DependentUpon>CustomerModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Components\ProductModalForm.resx">
+      <DependentUpon>ProductModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Components\CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
@@ -352,9 +375,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\EmployeeForm.resx">
       <DependentUpon>EmployeeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
@@ -394,19 +414,7 @@
     <Folder Include="Resources\Images\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\success.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_cancel_25px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\info.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\warning.png" />
+    <None Include="Resources\info_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user_icon_default.png" />
@@ -449,6 +457,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\car_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\success_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disable_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sell_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_sell_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

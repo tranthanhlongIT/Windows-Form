@@ -117,71 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="warning_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="chId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chFName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chLName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chPhone.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="chButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADrSURBVDhP1ZRLEsFAFEVjgL0QS5WioliMzwJMsREMDKg4N/1S6fxIVCZO1SntvddXdT6C/yVJ
+        khku8Yx3U+sFhjb2HYbHuMYXNvHEFY5sWz0MKOyAbdljcyjNTTrWjdi2F6Gha+Yf84FHtyygmnoZOv7U
+        YnIo6mL7aOMAo/SbQ2vVyj8UWUwOxYvrFcgC9Omvy5wsJofi1fUqZEFNYeJqMTkqul6FnwN7P3LvNyVE
+        PQIZXR6bicUUoaHXqStL216F5gh36Vg7tji07fUwoNAY/eOXUU//RJ/DfBieom7CCW+m1nOsv2Z/QBC8
+        AT9tT9cMwFOyAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="car_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\car_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close_2_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_2_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="confirm_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\confirm_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimize_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="success_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\success_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="information_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\information_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\error_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user_icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_icon_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cancel_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logo_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="disable_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disable_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sell_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sell_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="update_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\update_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cancel_sell_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancel_sell_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSell.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAATxJREFUOE/t
+        1L1KA0EUQOFFTBC18gkiQawEGwufIp2BvIBI0NJajEUIgTRCjI2NaLDRSnwAOxUrLQRREBELg0FBxJ/x
+        3MmNLruLegs7D3yQ3bszCcOSIJpz7hiW3lDU5fE6z5hr6PJ4+kC4so58XPfhxk++Mm34gMOQE0Qzbfib
+        /jcMxVDeK2t1XR6PYRENgzrGdfkfxrcMYgZ7OMIOcjr+jHuTOtvGCPLI6tg/kEUN90hqCb0YwireIS/3
+        Mlp4RQXzmJIN7/BTt9jFJqqQs5NOUcK1v3LuUjaUX2dJfqGsWYF8Qbdn5GXDDF7kTkIbWMM6ttQipnGF
+        bgcY01P059j0t+09YQEp3aoTNyZkSueQM7rwV9+3j1HdIh7DAvr1cxqziP7vSY+YQ49faIlFA5DX4Qxt
+        yBkO6zihIPgAP1wkaGS75qkAAAAASUVORK5CYII=
+</value>
   </data>
 </root>

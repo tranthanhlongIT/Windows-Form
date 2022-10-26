@@ -136,7 +136,7 @@ namespace Project2.UserControls
 
                 foreach (var product in products)
                 {
-                    if (product.available == "Yes")
+                    if (product.available ?? default(bool))
                     {
                         ListViewItem item = new ListViewItem(product.name);
                         item.ImageIndex = i;

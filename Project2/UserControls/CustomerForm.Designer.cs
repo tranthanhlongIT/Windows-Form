@@ -57,7 +57,7 @@ namespace Project2.UserControls
             this.chActive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnRefresh = new Project2.Utils.RoundedButton();
-            this.btnDelete = new Project2.Utils.RoundedButton();
+            this.btnDisable = new Project2.Utils.RoundedButton();
             this.btnUpdate = new Project2.Utils.RoundedButton();
             this.btnAdd = new Project2.Utils.RoundedButton();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@ namespace Project2.UserControls
             // 
             this.pnlOperation.BackColor = System.Drawing.Color.White;
             this.pnlOperation.Controls.Add(this.btnRefresh);
-            this.pnlOperation.Controls.Add(this.btnDelete);
+            this.pnlOperation.Controls.Add(this.btnDisable);
             this.pnlOperation.Controls.Add(this.btnUpdate);
             this.pnlOperation.Controls.Add(this.btnAdd);
             this.pnlOperation.Controls.Add(this.btnSearch);
@@ -91,7 +91,7 @@ namespace Project2.UserControls
             this.txtSearch.Location = new System.Drawing.Point(932, 10);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 23);
+            this.txtSearch.Size = new System.Drawing.Size(300, 18);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -357,28 +357,28 @@ namespace Project2.UserControls
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnDelete
+            // btnDisable
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnDelete.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnDelete.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnDelete.BorderRadius = 3;
-            this.btnDelete.BorderSize = 1;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Image = global::Project2.Properties.Resources.delete_icon;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(184, 8);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(90, 25);
-            this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "        Delete";
-            this.btnDelete.TextColor = System.Drawing.Color.White;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDisable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDisable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDisable.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDisable.BorderRadius = 3;
+            this.btnDisable.BorderSize = 1;
+            this.btnDisable.FlatAppearance.BorderSize = 0;
+            this.btnDisable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisable.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDisable.ForeColor = System.Drawing.Color.White;
+            this.btnDisable.Image = global::Project2.Properties.Resources.disable_icon;
+            this.btnDisable.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDisable.Location = new System.Drawing.Point(184, 8);
+            this.btnDisable.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnDisable.Name = "btnDisable";
+            this.btnDisable.Size = new System.Drawing.Size(90, 25);
+            this.btnDisable.TabIndex = 10;
+            this.btnDisable.Text = "        Disable";
+            this.btnDisable.TextColor = System.Drawing.Color.White;
+            this.btnDisable.UseVisualStyleBackColor = false;
+            this.btnDisable.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -446,7 +446,7 @@ namespace Project2.UserControls
             // 
             // CustomerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.dgvCustomer);
@@ -477,7 +477,7 @@ namespace Project2.UserControls
         private System.Windows.Forms.Button btnSearch;
         private Utils.RoundedButton btnAdd;
         private Utils.RoundedButton btnUpdate;
-        private Utils.RoundedButton btnDelete;
+        private Utils.RoundedButton btnDisable;
         private Utils.RoundedButton btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn chId;
         private System.Windows.Forms.DataGridViewTextBoxColumn chName;

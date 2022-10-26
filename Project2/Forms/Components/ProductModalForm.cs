@@ -8,7 +8,7 @@ using Project2.Utils;
 
 namespace Project2.Forms.Components
 {
-    public partial class ModalForm : Form
+    public partial class ProductModalForm : Form
     {
         private ProductBUS prodBUS;
         private CategoryBUS cateBUS;
@@ -17,12 +17,12 @@ namespace Project2.Forms.Components
         private string action;
         private int id;
 
-        public ModalForm()
+        public ProductModalForm()
         {
             InitializeComponent();
         }
 
-        public ModalForm(string action, int id)
+        public ProductModalForm(string action, int id)
         {
             InitializeComponent();
             this.action = action;
@@ -35,7 +35,7 @@ namespace Project2.Forms.Components
             cateBUS = new CategoryBUS();
         }
 
-        private void ModalForm_Load(object sender, EventArgs e)
+        private void ProductModalForm_Load(object sender, EventArgs e)
         {
             InitializeBUS();
             SetForm();
@@ -128,7 +128,7 @@ namespace Project2.Forms.Components
             txtDescription.Text = product.description;
             cbType.SelectedValue = product.type_id;
             cbBrand.SelectedValue = product.brand_id;
-            cbAvailable.SelectedIndex = cbAvailable.FindStringExact(product.available);
+            cbAvailable.SelectedValue = product.available;
             txtPrice.Text = product.price.ToString();
             txtDiscount.Text = product.discount.ToString();
             txtQuantity.Text = product.quantity.ToString();
@@ -147,7 +147,7 @@ namespace Project2.Forms.Components
             cbType.Text = "";
             cbBrand.Text = "";
             cbBrand.Enabled = false;
-            cbAvailable.SelectedIndex = 0;
+            cbAvailable.Text = "";
             txtPrice.Text = "";
             txtDiscount.Text = "";
             txtQuantity.Text = "";
@@ -175,7 +175,7 @@ namespace Project2.Forms.Components
         public void SetVisibleForCreatedAtAndUpdatedAt()
         {
             lblCreatedAt.Visible = true;
-            lblUpdateAt.Visible = true;
+            lblUpdatedAt.Visible = true;
             txtCreatedAt.Visible = true;
             txtUpdatedAt.Visible = true;
         }
@@ -198,9 +198,9 @@ namespace Project2.Forms.Components
 
         public void LoadAvailableComboBox()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("Yes", "Yes");
-            dict.Add("No", "No");
+            Dictionary<string, bool> dict = new Dictionary<string, bool>();
+            dict.Add("Yes", true);
+            dict.Add("No", false);
             cbAvailable.DataSource = new BindingSource(dict, null);
             cbAvailable.DisplayMember = "Key";
             cbAvailable.ValueMember = "Value";
@@ -218,12 +218,12 @@ namespace Project2.Forms.Components
             product.price = Double.Parse(txtPrice.Text.Trim());
             product.discount = Double.Parse(txtDiscount.Text.Trim());
             product.quantity = Int32.Parse(txtQuantity.Text.Trim());
-            product.available = cbAvailable.SelectedValue.ToString().Trim();
+            product.available = (bool?)cbAvailable.SelectedValue;
             product.image = SetImagePath();
             product.created_at = SetCreatedAt();
             product.updated_at = SetUpdatedAt();
-            product.type_id = Int32.Parse(cbType.SelectedValue.ToString());
-            product.brand_id = Int32.Parse(cbBrand.SelectedValue.ToString());
+            product.type_id = (Int32)cbType.SelectedValue;
+            product.brand_id = (Int32)cbBrand.SelectedValue;
         }
 
         public void BeginAdd()

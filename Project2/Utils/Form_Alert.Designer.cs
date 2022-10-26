@@ -50,7 +50,7 @@ namespace Project2.Utils
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Project2.Properties.Resources.success;
+            this.pictureBox1.Image = global::Project2.Properties.Resources.success_icon;
             this.pictureBox1.Location = new System.Drawing.Point(12, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 39);
@@ -64,7 +64,7 @@ namespace Project2.Utils
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Project2.Properties.Resources.icons8_cancel_25px;
+            this.pictureBox2.Image = global::Project2.Properties.Resources.cancel_icon;
             this.pictureBox2.Location = new System.Drawing.Point(298, 22);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(26, 30);

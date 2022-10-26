@@ -92,7 +92,7 @@ namespace Project2.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+            id = (Int32)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
             OpenModal("upd", id);
         }
 
@@ -101,7 +101,7 @@ namespace Project2.UserControls
             DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                id = Int32.Parse(dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value.ToString());
+                id = (Int32)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
                 bool result = prodBUS.Delete(id);
                 if (result)
                 {
@@ -158,7 +158,7 @@ namespace Project2.UserControls
                                         product.quantity,
                                         product.Category.name,
                                         product.Category1.name,
-                                        product.available);
+                                        SetAvailableField(product));
                 }
             }   
         }
@@ -174,6 +174,13 @@ namespace Project2.UserControls
         {
             products = GetProductList();
             LoadDataGridView(products);
+        }
+
+        public string SetAvailableField(Product product)
+        {
+            if (product.available ?? default(bool))
+                return "Yes";
+            else return "No";
         }
 
         private void CreateParentNode(int parentId)
@@ -215,7 +222,7 @@ namespace Project2.UserControls
             Form formBackground = new Form();
             try
             {
-                using (ModalForm uu = new ModalForm(action, id))
+                using (ProductModalForm uu = new ProductModalForm(action, id))
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;

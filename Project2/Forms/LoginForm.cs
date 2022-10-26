@@ -2,9 +2,9 @@
 using System.Windows.Forms;
 using Project2.BUS;
 
-namespace Project2.UserControls
+namespace Project2.Forms
 {
-    public partial class LoginForm : UserControl
+    public partial class LoginForm : Form
     {
         private EmployeeBUS empBUS;
 
@@ -27,6 +27,16 @@ namespace Project2.UserControls
             empBUS = new EmployeeBUS();
         }
 
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void txtEmail_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -47,7 +57,7 @@ namespace Project2.UserControls
             }
             else
             {
-                txtPassword.PasswordChar = '*';
+                txtPassword.PasswordChar = '•';
             }
         }
 
@@ -64,7 +74,8 @@ namespace Project2.UserControls
                 if (result)
                 {
                     employee = empBUS.GetEmployeeByEmail(txtEmail.Text.Trim());
-                    new ManagementForm(employee).Show();                    
+                    new ManagementForm(employee).Show();
+                    this.Hide();
                 }
                 else
                 {
