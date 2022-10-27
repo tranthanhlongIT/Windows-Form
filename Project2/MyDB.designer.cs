@@ -1959,7 +1959,7 @@ namespace Project2
 		
 		private System.Nullable<bool> _available;
 		
-		private string _image;
+		private System.Data.Linq.Binary _image;
 		
 		private string _created_at;
 		
@@ -1993,7 +1993,7 @@ namespace Project2
     partial void OnquantityChanged();
     partial void OnavailableChanging(System.Nullable<bool> value);
     partial void OnavailableChanged();
-    partial void OnimageChanging(string value);
+    partial void OnimageChanging(System.Data.Linq.Binary value);
     partial void OnimageChanged();
     partial void Oncreated_atChanging(string value);
     partial void Oncreated_atChanged();
@@ -2153,8 +2153,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="NVarChar(100)")]
-		public string image
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary image
 		{
 			get
 			{

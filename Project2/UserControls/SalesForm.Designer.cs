@@ -307,6 +307,7 @@ namespace Project2.UserControls
             this.pbImage.Location = new System.Drawing.Point(0, 40);
             this.pbImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbImage.Name = "pbImage";
+            this.pbImage.Padding = new System.Windows.Forms.Padding(10);
             this.pbImage.Size = new System.Drawing.Size(250, 200);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 1;
@@ -452,7 +453,7 @@ namespace Project2.UserControls
             // imgListProduct
             // 
             this.imgListProduct.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imgListProduct.ImageSize = new System.Drawing.Size(250, 230);
+            this.imgListProduct.ImageSize = new System.Drawing.Size(240, 115);
             this.imgListProduct.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // pnlVerticalLine

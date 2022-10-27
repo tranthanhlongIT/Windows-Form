@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
+using Project2.Utils;
 
 namespace Project2.UserControls
 {
@@ -132,6 +133,7 @@ namespace Project2.UserControls
             if (products.Count > 0)
             {
                 int i = 0;
+                lvProducts.LargeImageList = null;
                 lvProducts.LargeImageList = SetImageList(products);
 
                 foreach (var product in products)
@@ -192,7 +194,7 @@ namespace Project2.UserControls
             foreach (var product in products)
             {
                 if (product.image != null)
-                    imgListProduct.Images.Add(Image.FromFile(product.image));
+                    imgListProduct.Images.Add(ConvertImage.ConvertBinaryToImage(product.image.ToArray()));
                 else imgListProduct.Images.Add(pbInitializeImage.Image);
             }
             return imgListProduct;

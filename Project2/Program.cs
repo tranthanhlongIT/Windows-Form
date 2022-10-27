@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Project2.Forms.Components;
+using Project2.Forms;
 
 namespace Project2
 {
@@ -15,8 +15,8 @@ namespace Project2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ManagementForm());
-            //Application.Run(new LoginForm());
-            Application.Run(new CheckoutForm());
+            Application.Run(new LoginForm());
+            //Application.Run(new CheckoutForm());
         }
     }
 }

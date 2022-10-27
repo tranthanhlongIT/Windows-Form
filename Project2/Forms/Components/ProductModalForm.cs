@@ -49,12 +49,11 @@ namespace Project2.Forms.Components
 
         private void btnUploadImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.png;)|*.jpg; *.jpeg; *.png;";
-            if (open.ShowDialog() == DialogResult.OK)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png;)|*.jpg; *.jpeg; *.png;";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                txtImagePath.Text = open.FileName;
-                pbUploadImage.Image = new Bitmap(open.FileName);
+                pbUploadImage.Image = Image.FromFile(openFileDialog.FileName);
             }
         }
 
@@ -135,7 +134,7 @@ namespace Project2.Forms.Components
             txtCreatedAt.Text = product.created_at;
             txtUpdatedAt.Text = product.updated_at;
             if (product.image != null)
-                pbUploadImage.Image = Image.FromFile(product.image);
+                pbUploadImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
             else pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
@@ -219,12 +218,19 @@ namespace Project2.Forms.Components
             product.discount = Double.Parse(txtDiscount.Text.Trim());
             product.quantity = Int32.Parse(txtQuantity.Text.Trim());
             product.available = (bool?)cbAvailable.SelectedValue;
-            product.image = SetImagePath();
+            product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
             product.created_at = SetCreatedAt();
             product.updated_at = SetUpdatedAt();
             product.type_id = (Int32)cbType.SelectedValue;
             product.brand_id = (Int32)cbBrand.SelectedValue;
         }
+
+        //public Image SetImage(Product product)
+        //{
+        //    if (product.image)
+        //        return ConvertImage().ConvertBinaryToImage();
+        //    else return 
+        //}
 
         public void BeginAdd()
         {
@@ -234,7 +240,7 @@ namespace Project2.Forms.Components
                 bool result = prodBUS.AddNew(product);
                 if (result)
                 {
-                    CopyImageToFolder();
+                    //CopyImageToFolder();
                     CreateProduct();
                     ResetField();
                     this.Alert("Add Successful", Form_Alert.enmType.Success);
@@ -254,7 +260,7 @@ namespace Project2.Forms.Components
                 bool result = prodBUS.Update(product);
                 if (result)
                 {
-                    CopyImageToFolder();
+                    //CopyImageToFolder();
                     this.Alert("Update Successful", Form_Alert.enmType.Success);
                 }
                 else
@@ -264,15 +270,7 @@ namespace Project2.Forms.Components
             }
         }
 
-        public string SetImagePath()
-        {
-            if (txtImagePath.Text != "")
-            {
-                return Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
-                                Path.GetFileName(txtImagePath.Text));
-            }
-            else return null;
-        }
+
 
         public string SetCreatedAt()
         {
@@ -286,17 +284,6 @@ namespace Project2.Forms.Components
             if (action == "add")
                 return txtUpdatedAt.Text;
             else return DateTime.Now.ToString();
-        }
-
-        public void CopyImageToFolder()
-        {
-            if (txtImagePath.Text.Trim() != "" || txtImagePath.Text.Length > 0)
-            {
-                File.Copy(txtImagePath.Text.Trim(),
-                        Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
-                        Path.GetFileName(txtImagePath.Text)),
-                        false);
-            }
         }
 
         public bool ValidateForm()

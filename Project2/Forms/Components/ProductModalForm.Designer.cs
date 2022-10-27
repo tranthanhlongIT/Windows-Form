@@ -45,7 +45,6 @@ namespace Project2.Forms.Components
             this.lblUpdatedAt = new System.Windows.Forms.Label();
             this.txtCreatedAt = new Project2.Utils.FlatTextBox();
             this.lblCreatedAt = new System.Windows.Forms.Label();
-            this.txtImagePath = new System.Windows.Forms.TextBox();
             this.txtQuantity = new Project2.Utils.FlatTextBox();
             this.txtDiscount = new Project2.Utils.FlatTextBox();
             this.txtPrice = new Project2.Utils.FlatTextBox();
@@ -140,7 +139,6 @@ namespace Project2.Forms.Components
             this.pnlContainer.Controls.Add(this.lblUpdatedAt);
             this.pnlContainer.Controls.Add(this.txtCreatedAt);
             this.pnlContainer.Controls.Add(this.lblCreatedAt);
-            this.pnlContainer.Controls.Add(this.txtImagePath);
             this.pnlContainer.Controls.Add(this.txtQuantity);
             this.pnlContainer.Controls.Add(this.txtDiscount);
             this.pnlContainer.Controls.Add(this.txtPrice);
@@ -307,18 +305,6 @@ namespace Project2.Forms.Components
             this.lblCreatedAt.TabIndex = 0;
             this.lblCreatedAt.Text = "Created At";
             this.lblCreatedAt.Visible = false;
-            // 
-            // txtImagePath
-            // 
-            this.txtImagePath.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.txtImagePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtImagePath.Location = new System.Drawing.Point(398, 405);
-            this.txtImagePath.MaxLength = 100;
-            this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.Size = new System.Drawing.Size(291, 25);
-            this.txtImagePath.TabIndex = 0;
-            this.txtImagePath.TabStop = false;
-            this.txtImagePath.Visible = false;
             // 
             // txtQuantity
             // 
@@ -738,7 +724,6 @@ namespace Project2.Forms.Components
         private Utils.FlatTextBox txtDescription;
         private Utils.FlatTextBox txtName;
         private Utils.FlatTextBox txtId;
-        private System.Windows.Forms.TextBox txtImagePath;
         private Utils.FlatTextBox txtUpdatedAt;
         private System.Windows.Forms.Label lblUpdatedAt;
         private Utils.FlatTextBox txtCreatedAt;
