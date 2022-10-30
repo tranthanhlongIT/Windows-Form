@@ -36,7 +36,8 @@ namespace Project2
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            productForm.BringToFront();
+            productForm.RefreshForm();
+            productForm.BringToFront();   
             SlidePanel(btnProduct);
             ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory });
         }
@@ -55,6 +56,7 @@ namespace Project2
 
         private void btnSale_Click(object sender, EventArgs e)
         {
+            salesForm.RefreshForm();
             salesForm.BringToFront();
             SlidePanel(btnSale);
             ChangeButtonTextColor(5, btnSale, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnCustomer, btnHistory });
@@ -62,6 +64,7 @@ namespace Project2
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
+            customerForm.RefreshForm();
             customerForm.BringToFront();
             SlidePanel(btnCustomer);
             ChangeButtonTextColor(6, btnCustomer, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });
@@ -182,14 +185,14 @@ namespace Project2
             return false;
         }
 
-        public void SetUserPrivilege(Employee emp)
+        private void SetUserPrivilege(Employee emp)
         {
             this.employee = emp;
             SetUserDisplay();
             EnableTabBaseOnRole();
         }
 
-        public void SetUserDisplay()
+        private void SetUserDisplay()
         {
             lblUsername.Text = employee.username;
             lblRole.Text = employee.Role.name;
@@ -198,7 +201,7 @@ namespace Project2
             else pbUser.Image = pbUser.InitialImage;
         }
 
-        public void EnableTabBaseOnRole()
+        private void EnableTabBaseOnRole()
         {
             if (employee.Role.name == "Manager")
             {

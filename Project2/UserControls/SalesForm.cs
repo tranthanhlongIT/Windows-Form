@@ -10,9 +10,11 @@ namespace Project2.UserControls
 {
     public partial class SalesForm : UserControl
     {
-        ProductBUS prodBUS;
-        CategoryBUS cateBUS;
-        
+        private ProductBUS prodBUS;
+        private CategoryBUS cateBUS;
+        private List<Product> products;
+
+
         public SalesForm()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Project2.UserControls
             }
         }
 
-        public void InitializeBUS()
+        private void InitializeBUS()
         {
             prodBUS = new ProductBUS();
             cateBUS = new CategoryBUS();
@@ -64,8 +66,7 @@ namespace Project2.UserControls
         private void btnSearch_Click(object sender, EventArgs e)
         {
             String keyword = txtSearch.Text.Trim().ToLower();
-            List<Product> products = prodBUS.GetAll();
-            products = products.FindAll(p => p.name.ToLower().Contains(keyword));
+            products = prodBUS.GetAll().FindAll(p => p.name.ToLower().Contains(keyword));
             LoadListView(products);
             ResetDisplayField();
         }
@@ -73,10 +74,9 @@ namespace Project2.UserControls
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblFilter.Text = cbFilter.Text;
-            List<Product> products;
             if (cbFilter.SelectedIndex == 0)
-                products = prodBUS.GetAll();
-            else products = prodBUS.GetProductByTypeID((int)cbFilter.SelectedValue);
+                products = new ProductBUS().GetAll();
+            else products = new ProductBUS().GetProductByTypeID((int)cbFilter.SelectedValue);
             LoadListView(products);
             ResetDisplayField();
         }
@@ -86,27 +86,33 @@ namespace Project2.UserControls
             if (lvProducts.SelectedItems.Count > 0)
             {
                 ListViewItem item = lvProducts.SelectedItems[0];
-                pbImage.Image = imgListProduct.Images[item.ImageIndex];
-                lblName.Text = "Name: " + item.SubItems["Name"].Text;
-                lblType.Text = "Type: " + item.SubItems["Type"].Text;
-                lblBrand.Text = "Brand: " + item.SubItems["Brand"].Text;
-                lblPrice.Text = "Price: " + item.SubItems["Price"].Text;
-                lblDiscount.Text = "Discount: " + item.SubItems["Discount"].Text;
-                lblFinalPrice.Text = "Final Price: " + item.SubItems["FinalPrice"].Text;
-                lblQuantity.Text = "Quantity: " + item.SubItems["Quantity"].Text;
-                btnSell.Visible = true;
+                Product product = prodBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));
+                SetDisplayField(product);
             }
         }
 
-        public void ResetDisplayField()
+        public void SetDisplayField(Product product)
         {
-            pbImage.Image = pbInitializeImage.Image;
+            if (product.image != null)
+                pbImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
+            else pbImage.Image = pbImage.InitialImage;
+            lblName.Text = "Name: " + product.name;
+            lblType.Text = "Type: " + product.Category.name;
+            lblBrand.Text = "Brand: " + product.Category1.name;
+            lblPrice.Text = "Price: " + product.price;
+            lblDiscount.Text = "Discount: " + product.discount;
+            lblQuantity.Text = "Quantity: " + product.quantity;
+            btnSell.Visible = true;
+        }
+
+        private void ResetDisplayField()
+        {
+            pbImage.Image = pbImage.InitialImage;
             lblName.Text = "Name: ";
             lblType.Text = "Type: ";
             lblBrand.Text = "Brand: ";
             lblPrice.Text = "Price: ";
             lblDiscount.Text = "Discount: ";
-            lblFinalPrice.Text = "Final Price: ";
             lblQuantity.Text = "Quantity: ";
             btnSell.Visible = false;
         }
@@ -117,7 +123,7 @@ namespace Project2.UserControls
             txtSearch.ForeColor = Color.Silver;
         }
 
-        public void LoadFilterComboBox()
+        private void LoadFilterComboBox()
         {
             List<Category> categories = cateBUS.GetCategoryByParentID(24);
             categories.Insert(0, new Category() { id = 0, name = "All" });
@@ -133,7 +139,6 @@ namespace Project2.UserControls
             if (products.Count > 0)
             {
                 int i = 0;
-                lvProducts.LargeImageList = null;
                 lvProducts.LargeImageList = SetImageList(products);
 
                 foreach (var product in products)
@@ -143,43 +148,10 @@ namespace Project2.UserControls
                         ListViewItem item = new ListViewItem(product.name);
                         item.ImageIndex = i;
 
-                        ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem();
-                        subItem1.Name = "Name";
-                        subItem1.Text = product.name;
-                        item.SubItems.Add(subItem1);
-
-                        ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem();
-                        subItem2.Name = "Type";
-                        subItem2.Text = product.Category.name;
-                        item.SubItems.Add(subItem2);
-
-                        ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem();
-                        subItem3.Name = "Brand";
-                        subItem3.Text = product.Category1.name;
-                        item.SubItems.Add(subItem3);
-
-                        ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem();
-                        subItem4.Name = "Price";
-                        double price = (double)product.price;
-                        subItem4.Text = price.ToString("c0");
-                        item.SubItems.Add(subItem4);
-
-                        ListViewItem.ListViewSubItem subItem5 = new ListViewItem.ListViewSubItem();
-                        subItem5.Name = "Discount";
-                        double discount = (double)product.discount;
-                        subItem5.Text = discount.ToString("c0");
-                        item.SubItems.Add(subItem5);
-
-                        ListViewItem.ListViewSubItem subItem6 = new ListViewItem.ListViewSubItem();
-                        subItem6.Name = "FinalPrice";
-                        double finalPrice = (double)(product.price - product.discount);
-                        subItem6.Text = finalPrice.ToString("c0");
-                        item.SubItems.Add(subItem6);
-
-                        ListViewItem.ListViewSubItem subItem7 = new ListViewItem.ListViewSubItem();
-                        subItem7.Name = "Quantity";
-                        subItem7.Text = product.quantity.ToString();
-                        item.SubItems.Add(subItem7);
+                        ListViewItem.ListViewSubItem subItemID = new ListViewItem.ListViewSubItem();
+                        subItemID.Name = "ID";
+                        subItemID.Text = product.id.ToString();
+                        item.SubItems.Add(subItemID);
 
                         lvProducts.Items.Add(item);
                         i++;
@@ -188,16 +160,28 @@ namespace Project2.UserControls
             }
         }
 
-        public ImageList SetImageList(List<Product> products)
+        private ImageList SetImageList(List<Product> products)
         {
             imgListProduct.Images.Clear();
             foreach (var product in products)
             {
                 if (product.image != null)
                     imgListProduct.Images.Add(ConvertImage.ConvertBinaryToImage(product.image.ToArray()));
-                else imgListProduct.Images.Add(pbInitializeImage.Image);
+                else imgListProduct.Images.Add(pbImage.InitialImage);
             }
             return imgListProduct;
+        }
+
+        public void RefreshForm()
+        {
+            LoadSearchTextBox();
+            if (cbFilter.SelectedIndex == 0)
+            {
+                products = new ProductBUS().GetAll();
+                LoadListView(products);
+                ResetDisplayField();
+            }
+            else cbFilter.SelectedIndex = 0;
         }
     }
 }

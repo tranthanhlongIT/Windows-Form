@@ -11,6 +11,7 @@ namespace Project2.UserControls
     {
         private CustomerBUS custBUS;
         private List<Customer> customers;
+        private int id;
 
         public CustomerForm()
         {
@@ -22,12 +23,12 @@ namespace Project2.UserControls
             if (!this.DesignMode)
             {
                 InitializeBUS();
-                LoadSearchTextBox();
                 RefreshDataGridView();
+                LoadSearchTextBox();
             }
         }
 
-        public void InitializeBUS()
+        private void InitializeBUS()
         {
             custBUS = new CustomerBUS();
         }
@@ -76,26 +77,26 @@ namespace Project2.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int id = (Int32)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
+            id = (Int32)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
             OpenModal("upd", id);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDisable_Click(object sender, EventArgs e)
         {
-            //DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    int id = Int32.Parse(dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value.ToString());
-            //    bool result = custBUS.Delete(id);
-            //    if (result)
-            //    {
-            //        RefreshDataGridView();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("SORRY BABY!");
-            //    }
-            //}
+            DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                id = Int32.Parse(dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value.ToString());
+                bool result = custBUS.Disable(id);
+                if (result)
+                {
+                    RefreshDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Disable Failed", "Error", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -106,10 +107,9 @@ namespace Project2.UserControls
         private void dgvCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                int id = (int)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
+                id = (int)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
                 OpenModal("det", id);
             }
         }
@@ -120,7 +120,12 @@ namespace Project2.UserControls
             txtSearch.ForeColor = Color.Silver;
         }
 
-        public void LoadDataGridView(List<Customer> customers)
+        private List<Customer> GetCustomerList()
+        {
+            return new CustomerBUS().GetAll();
+        }
+
+        private void LoadDataGridView(List<Customer> customers)
         {
             dgvCustomer.Rows.Clear();
             if (customers.Count > 0)
@@ -138,30 +143,25 @@ namespace Project2.UserControls
             }   
         }
 
-        public List<Customer> GetCustomerList()
-        {
-            return custBUS.GetAll();
-        }
-
-        public void RefreshDataGridView()
+        private void RefreshDataGridView()
         {
             customers = GetCustomerList();
             LoadDataGridView(customers);
         }
 
-        public string SetNameField(Customer customer)
+        private string SetNameField(Customer customer)
         {
             return customer.fname + " " + customer.lname;
         }
 
-        public string SetGenderField(Customer customer)
+        private string SetGenderField(Customer customer)
         {
             if (customer.gender == true)
                 return "Male";
             else return "Female";
         }
 
-        public string SetActiveField(Customer customer)
+        private string SetActiveField(Customer customer)
         {
             if (customer.is_active == true)
                 return "Yes";
@@ -202,6 +202,12 @@ namespace Project2.UserControls
                 }
                 formBackground.Dispose();
             }
+        }
+
+        public void RefreshForm()
+        {
+            LoadSearchTextBox();
+            RefreshDataGridView();
         }
     }
 }

@@ -35,7 +35,6 @@ namespace Project2.UserControls
             this.btnSell = new Project2.Utils.RoundedButton();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.pnlLineFinalPrice = new System.Windows.Forms.Panel();
-            this.lblFinalPrice = new System.Windows.Forms.Label();
             this.pnlLineDiscount = new System.Windows.Forms.Panel();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.pnlPrice = new System.Windows.Forms.Panel();
@@ -54,7 +53,6 @@ namespace Project2.UserControls
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
             this.cbFilter = new FlatComboBox();
-            this.pbInitializeImage = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.lvProducts = new Project2.Forms.Components.ListViewNF();
             this.lblFilter = new System.Windows.Forms.Label();
@@ -63,7 +61,6 @@ namespace Project2.UserControls
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.pnlOperation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInitializeImage)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +82,6 @@ namespace Project2.UserControls
             this.pnlLeft.Controls.Add(this.btnSell);
             this.pnlLeft.Controls.Add(this.lblQuantity);
             this.pnlLeft.Controls.Add(this.pnlLineFinalPrice);
-            this.pnlLeft.Controls.Add(this.lblFinalPrice);
             this.pnlLeft.Controls.Add(this.pnlLineDiscount);
             this.pnlLeft.Controls.Add(this.lblDiscount);
             this.pnlLeft.Controls.Add(this.pnlPrice);
@@ -131,12 +127,12 @@ namespace Project2.UserControls
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblQuantity.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(0, 493);
+            this.lblQuantity.Location = new System.Drawing.Point(0, 462);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.lblQuantity.MaximumSize = new System.Drawing.Size(250, 100);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblQuantity.Size = new System.Drawing.Size(90, 41);
+            this.lblQuantity.Size = new System.Drawing.Size(103, 43);
             this.lblQuantity.TabIndex = 7;
             this.lblQuantity.Text = "Quantity";
             this.lblQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -145,32 +141,17 @@ namespace Project2.UserControls
             // 
             this.pnlLineFinalPrice.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlLineFinalPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLineFinalPrice.Location = new System.Drawing.Point(0, 492);
+            this.pnlLineFinalPrice.Location = new System.Drawing.Point(0, 461);
             this.pnlLineFinalPrice.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLineFinalPrice.Name = "pnlLineFinalPrice";
             this.pnlLineFinalPrice.Size = new System.Drawing.Size(250, 1);
             this.pnlLineFinalPrice.TabIndex = 17;
             // 
-            // lblFinalPrice
-            // 
-            this.lblFinalPrice.AutoSize = true;
-            this.lblFinalPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblFinalPrice.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFinalPrice.Location = new System.Drawing.Point(0, 451);
-            this.lblFinalPrice.Margin = new System.Windows.Forms.Padding(0);
-            this.lblFinalPrice.MaximumSize = new System.Drawing.Size(250, 100);
-            this.lblFinalPrice.Name = "lblFinalPrice";
-            this.lblFinalPrice.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblFinalPrice.Size = new System.Drawing.Size(57, 41);
-            this.lblFinalPrice.TabIndex = 8;
-            this.lblFinalPrice.Text = "Price";
-            this.lblFinalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // pnlLineDiscount
             // 
             this.pnlLineDiscount.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlLineDiscount.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLineDiscount.Location = new System.Drawing.Point(0, 450);
+            this.pnlLineDiscount.Location = new System.Drawing.Point(0, 460);
             this.pnlLineDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLineDiscount.Name = "pnlLineDiscount";
             this.pnlLineDiscount.Size = new System.Drawing.Size(250, 1);
@@ -181,12 +162,12 @@ namespace Project2.UserControls
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDiscount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Location = new System.Drawing.Point(0, 409);
+            this.lblDiscount.Location = new System.Drawing.Point(0, 417);
             this.lblDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.lblDiscount.MaximumSize = new System.Drawing.Size(250, 100);
             this.lblDiscount.Name = "lblDiscount";
             this.lblDiscount.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblDiscount.Size = new System.Drawing.Size(88, 41);
+            this.lblDiscount.Size = new System.Drawing.Size(103, 43);
             this.lblDiscount.TabIndex = 9;
             this.lblDiscount.Text = "Discount";
             this.lblDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -195,7 +176,7 @@ namespace Project2.UserControls
             // 
             this.pnlPrice.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlPrice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlPrice.Location = new System.Drawing.Point(0, 408);
+            this.pnlPrice.Location = new System.Drawing.Point(0, 416);
             this.pnlPrice.Margin = new System.Windows.Forms.Padding(0);
             this.pnlPrice.Name = "pnlPrice";
             this.pnlPrice.Size = new System.Drawing.Size(250, 1);
@@ -206,12 +187,12 @@ namespace Project2.UserControls
             this.lblPrice.AutoSize = true;
             this.lblPrice.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPrice.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(0, 367);
+            this.lblPrice.Location = new System.Drawing.Point(0, 373);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(0);
             this.lblPrice.MaximumSize = new System.Drawing.Size(250, 100);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblPrice.Size = new System.Drawing.Size(57, 41);
+            this.lblPrice.Size = new System.Drawing.Size(67, 43);
             this.lblPrice.TabIndex = 6;
             this.lblPrice.Text = "Price";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -220,7 +201,7 @@ namespace Project2.UserControls
             // 
             this.pnlLineBrand.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlLineBrand.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLineBrand.Location = new System.Drawing.Point(0, 366);
+            this.pnlLineBrand.Location = new System.Drawing.Point(0, 372);
             this.pnlLineBrand.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLineBrand.Name = "pnlLineBrand";
             this.pnlLineBrand.Size = new System.Drawing.Size(250, 1);
@@ -231,12 +212,12 @@ namespace Project2.UserControls
             this.lblBrand.AutoSize = true;
             this.lblBrand.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBrand.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBrand.Location = new System.Drawing.Point(0, 325);
+            this.lblBrand.Location = new System.Drawing.Point(0, 329);
             this.lblBrand.Margin = new System.Windows.Forms.Padding(0);
             this.lblBrand.MaximumSize = new System.Drawing.Size(250, 100);
             this.lblBrand.Name = "lblBrand";
             this.lblBrand.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblBrand.Size = new System.Drawing.Size(66, 41);
+            this.lblBrand.Size = new System.Drawing.Size(77, 43);
             this.lblBrand.TabIndex = 5;
             this.lblBrand.Text = "Brand";
             this.lblBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,7 +226,7 @@ namespace Project2.UserControls
             // 
             this.pnlLineType.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlLineType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLineType.Location = new System.Drawing.Point(0, 324);
+            this.pnlLineType.Location = new System.Drawing.Point(0, 328);
             this.pnlLineType.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLineType.Name = "pnlLineType";
             this.pnlLineType.Size = new System.Drawing.Size(250, 1);
@@ -256,12 +237,12 @@ namespace Project2.UserControls
             this.lblType.AutoSize = true;
             this.lblType.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblType.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(0, 283);
+            this.lblType.Location = new System.Drawing.Point(0, 285);
             this.lblType.Margin = new System.Windows.Forms.Padding(5);
             this.lblType.MaximumSize = new System.Drawing.Size(250, 100);
             this.lblType.Name = "lblType";
             this.lblType.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblType.Size = new System.Drawing.Size(57, 41);
+            this.lblType.Size = new System.Drawing.Size(66, 43);
             this.lblType.TabIndex = 4;
             this.lblType.Text = "Type";
             this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,7 +251,7 @@ namespace Project2.UserControls
             // 
             this.pnlLineName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlLineName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLineName.Location = new System.Drawing.Point(0, 282);
+            this.pnlLineName.Location = new System.Drawing.Point(0, 284);
             this.pnlLineName.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLineName.Name = "pnlLineName";
             this.pnlLineName.Size = new System.Drawing.Size(250, 1);
@@ -286,7 +267,7 @@ namespace Project2.UserControls
             this.lblName.MaximumSize = new System.Drawing.Size(250, 300);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblName.Size = new System.Drawing.Size(68, 41);
+            this.lblName.Size = new System.Drawing.Size(81, 43);
             this.lblName.TabIndex = 3;
             this.lblName.Text = "Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -304,10 +285,11 @@ namespace Project2.UserControls
             // pbImage
             // 
             this.pbImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbImage.InitialImage = global::Project2.Properties.Resources.car_icon;
             this.pbImage.Location = new System.Drawing.Point(0, 40);
             this.pbImage.Margin = new System.Windows.Forms.Padding(0);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Padding = new System.Windows.Forms.Padding(10);
+            this.pbImage.Padding = new System.Windows.Forms.Padding(5);
             this.pbImage.Size = new System.Drawing.Size(250, 200);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbImage.TabIndex = 1;
@@ -331,7 +313,6 @@ namespace Project2.UserControls
             this.pnlOperation.Controls.Add(this.txtSearch);
             this.pnlOperation.Controls.Add(this.pnlLineSearch);
             this.pnlOperation.Controls.Add(this.cbFilter);
-            this.pnlOperation.Controls.Add(this.pbInitializeImage);
             this.pnlOperation.Location = new System.Drawing.Point(0, 0);
             this.pnlOperation.Margin = new System.Windows.Forms.Padding(0);
             this.pnlOperation.Name = "pnlOperation";
@@ -365,7 +346,7 @@ namespace Project2.UserControls
             this.txtSearch.Location = new System.Drawing.Point(932, 10);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 18);
+            this.txtSearch.Size = new System.Drawing.Size(300, 23);
             this.txtSearch.TabIndex = 11;
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -388,24 +369,13 @@ namespace Project2.UserControls
             this.cbFilter.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.cbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.ItemHeight = 20;
+            this.cbFilter.ItemHeight = 21;
             this.cbFilter.Location = new System.Drawing.Point(266, 6);
             this.cbFilter.Margin = new System.Windows.Forms.Padding(0);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(240, 28);
+            this.cbFilter.Size = new System.Drawing.Size(240, 29);
             this.cbFilter.TabIndex = 10;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
-            // 
-            // pbInitializeImage
-            // 
-            this.pbInitializeImage.Image = global::Project2.Properties.Resources.car_icon;
-            this.pbInitializeImage.Location = new System.Drawing.Point(0, 0);
-            this.pbInitializeImage.Name = "pbInitializeImage";
-            this.pbInitializeImage.Size = new System.Drawing.Size(50, 50);
-            this.pbInitializeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbInitializeImage.TabIndex = 0;
-            this.pbInitializeImage.TabStop = false;
-            this.pbInitializeImage.Visible = false;
             // 
             // pnlContainer
             // 
@@ -446,14 +416,14 @@ namespace Project2.UserControls
             this.lblFilter.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblFilter.Location = new System.Drawing.Point(20, 20);
             this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(35, 23);
+            this.lblFilter.Size = new System.Drawing.Size(43, 29);
             this.lblFilter.TabIndex = 0;
             this.lblFilter.Text = "All";
             // 
             // imgListProduct
             // 
             this.imgListProduct.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imgListProduct.ImageSize = new System.Drawing.Size(240, 115);
+            this.imgListProduct.ImageSize = new System.Drawing.Size(250, 200);
             this.imgListProduct.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // pnlVerticalLine
@@ -469,7 +439,7 @@ namespace Project2.UserControls
             // 
             // SalesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.pnlFilterLine);
@@ -488,7 +458,6 @@ namespace Project2.UserControls
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.pnlOperation.ResumeLayout(false);
             this.pnlOperation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInitializeImage)).EndInit();
             this.pnlContainer.ResumeLayout(false);
             this.pnlContainer.PerformLayout();
             this.ResumeLayout(false);
@@ -516,7 +485,6 @@ namespace Project2.UserControls
         private System.Windows.Forms.Label lblBrand;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblFinalPrice;
         private System.Windows.Forms.Label lblDiscount;
         private Forms.Components.ListViewNF lvProducts;
         private System.Windows.Forms.Panel pnlLineImage;
@@ -526,6 +494,5 @@ namespace Project2.UserControls
         private System.Windows.Forms.Panel pnlLineBrand;
         private System.Windows.Forms.Panel pnlLineType;
         private System.Windows.Forms.Panel pnlLineName;
-        private System.Windows.Forms.PictureBox pbInitializeImage;
     }
 }

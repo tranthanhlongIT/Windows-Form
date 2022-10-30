@@ -70,6 +70,7 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
             this.pnlUploadImage = new System.Windows.Forms.Panel();
             this.pbUploadImage = new System.Windows.Forms.PictureBox();
+            this.btnClearImage = new Project2.Utils.RoundedButton();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -109,7 +110,7 @@ namespace Project2.Forms.Components
             this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblTitle.Location = new System.Drawing.Point(38, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(96, 18);
+            this.lblTitle.Size = new System.Drawing.Size(120, 23);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Modal Form";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -128,6 +129,7 @@ namespace Project2.Forms.Components
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
+            this.pnlContainer.Controls.Add(this.btnClearImage);
             this.pnlContainer.Controls.Add(this.label7);
             this.pnlContainer.Controls.Add(this.label6);
             this.pnlContainer.Controls.Add(this.label5);
@@ -178,7 +180,7 @@ namespace Project2.Forms.Components
             this.label7.ForeColor = System.Drawing.Color.Red;
             this.label7.Location = new System.Drawing.Point(534, 278);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 20);
+            this.label7.Size = new System.Drawing.Size(19, 22);
             this.label7.TabIndex = 48;
             this.label7.Text = "*";
             // 
@@ -189,7 +191,7 @@ namespace Project2.Forms.Components
             this.label6.ForeColor = System.Drawing.Color.Red;
             this.label6.Location = new System.Drawing.Point(305, 278);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 20);
+            this.label6.Size = new System.Drawing.Size(19, 22);
             this.label6.TabIndex = 47;
             this.label6.Text = "*";
             // 
@@ -200,7 +202,7 @@ namespace Project2.Forms.Components
             this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(49, 278);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 20);
+            this.label5.Size = new System.Drawing.Size(19, 22);
             this.label5.TabIndex = 46;
             this.label5.Text = "*";
             // 
@@ -211,7 +213,7 @@ namespace Project2.Forms.Components
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(542, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 20);
+            this.label3.Size = new System.Drawing.Size(19, 22);
             this.label3.TabIndex = 45;
             this.label3.Text = "*";
             // 
@@ -222,7 +224,7 @@ namespace Project2.Forms.Components
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(284, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 20);
+            this.label2.Size = new System.Drawing.Size(19, 22);
             this.label2.TabIndex = 44;
             this.label2.Text = "*";
             // 
@@ -233,7 +235,7 @@ namespace Project2.Forms.Components
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(45, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 20);
+            this.label1.Size = new System.Drawing.Size(19, 22);
             this.label1.TabIndex = 43;
             this.label1.Text = "*";
             // 
@@ -244,7 +246,7 @@ namespace Project2.Forms.Components
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(286, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 20);
+            this.label4.Size = new System.Drawing.Size(19, 22);
             this.label4.TabIndex = 42;
             this.label4.Text = "*";
             // 
@@ -257,7 +259,7 @@ namespace Project2.Forms.Components
             this.txtUpdatedAt.Location = new System.Drawing.Point(355, 656);
             this.txtUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.txtUpdatedAt.Name = "txtUpdatedAt";
-            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 25);
+            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 29);
             this.txtUpdatedAt.TabIndex = 0;
             this.txtUpdatedAt.TabStop = false;
             this.txtUpdatedAt.Visible = false;
@@ -272,7 +274,7 @@ namespace Project2.Forms.Components
             this.lblUpdatedAt.Location = new System.Drawing.Point(352, 634);
             this.lblUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.lblUpdatedAt.Name = "lblUpdatedAt";
-            this.lblUpdatedAt.Size = new System.Drawing.Size(95, 20);
+            this.lblUpdatedAt.Size = new System.Drawing.Size(120, 22);
             this.lblUpdatedAt.TabIndex = 0;
             this.lblUpdatedAt.Text = "Updated At";
             this.lblUpdatedAt.Visible = false;
@@ -286,7 +288,7 @@ namespace Project2.Forms.Components
             this.txtCreatedAt.Location = new System.Drawing.Point(10, 656);
             this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(335, 25);
+            this.txtCreatedAt.Size = new System.Drawing.Size(335, 29);
             this.txtCreatedAt.TabIndex = 0;
             this.txtCreatedAt.TabStop = false;
             this.txtCreatedAt.Visible = false;
@@ -301,7 +303,7 @@ namespace Project2.Forms.Components
             this.lblCreatedAt.Location = new System.Drawing.Point(7, 634);
             this.lblCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.lblCreatedAt.Name = "lblCreatedAt";
-            this.lblCreatedAt.Size = new System.Drawing.Size(91, 20);
+            this.lblCreatedAt.Size = new System.Drawing.Size(115, 22);
             this.lblCreatedAt.TabIndex = 0;
             this.lblCreatedAt.Text = "Created At";
             this.lblCreatedAt.Visible = false;
@@ -315,7 +317,7 @@ namespace Project2.Forms.Components
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.txtQuantity.MaxLength = 20;
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(220, 25);
+            this.txtQuantity.Size = new System.Drawing.Size(220, 30);
             this.txtQuantity.TabIndex = 8;
             // 
             // txtDiscount
@@ -327,7 +329,7 @@ namespace Project2.Forms.Components
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.txtDiscount.MaxLength = 20;
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(220, 25);
+            this.txtDiscount.Size = new System.Drawing.Size(220, 30);
             this.txtDiscount.TabIndex = 7;
             // 
             // txtPrice
@@ -339,7 +341,7 @@ namespace Project2.Forms.Components
             this.txtPrice.Margin = new System.Windows.Forms.Padding(0);
             this.txtPrice.MaxLength = 20;
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(220, 25);
+            this.txtPrice.Size = new System.Drawing.Size(220, 30);
             this.txtPrice.TabIndex = 6;
             // 
             // txtDescription
@@ -364,7 +366,7 @@ namespace Project2.Forms.Components
             this.txtName.Margin = new System.Windows.Forms.Padding(0);
             this.txtName.MaxLength = 250;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(450, 25);
+            this.txtName.Size = new System.Drawing.Size(450, 30);
             this.txtName.TabIndex = 1;
             // 
             // txtId
@@ -377,7 +379,7 @@ namespace Project2.Forms.Components
             this.txtId.Margin = new System.Windows.Forms.Padding(0);
             this.txtId.MaxLength = 50;
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(220, 25);
+            this.txtId.Size = new System.Drawing.Size(220, 30);
             this.txtId.TabIndex = 0;
             this.txtId.TabStop = false;
             // 
@@ -391,7 +393,7 @@ namespace Project2.Forms.Components
             this.cbAvailable.Location = new System.Drawing.Point(470, 92);
             this.cbAvailable.Margin = new System.Windows.Forms.Padding(0);
             this.cbAvailable.Name = "cbAvailable";
-            this.cbAvailable.Size = new System.Drawing.Size(220, 28);
+            this.cbAvailable.Size = new System.Drawing.Size(220, 29);
             this.cbAvailable.TabIndex = 4;
             // 
             // cbBrand
@@ -404,7 +406,7 @@ namespace Project2.Forms.Components
             this.cbBrand.Location = new System.Drawing.Point(240, 92);
             this.cbBrand.Margin = new System.Windows.Forms.Padding(0);
             this.cbBrand.Name = "cbBrand";
-            this.cbBrand.Size = new System.Drawing.Size(220, 28);
+            this.cbBrand.Size = new System.Drawing.Size(220, 29);
             this.cbBrand.TabIndex = 3;
             // 
             // cbType
@@ -417,7 +419,7 @@ namespace Project2.Forms.Components
             this.cbType.Location = new System.Drawing.Point(10, 92);
             this.cbType.Margin = new System.Windows.Forms.Padding(0);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(220, 28);
+            this.cbType.Size = new System.Drawing.Size(220, 29);
             this.cbType.TabIndex = 2;
             this.cbType.SelectionChangeCommitted += new System.EventHandler(this.cbType_SelectionChangeCommitted);
             // 
@@ -499,7 +501,7 @@ namespace Project2.Forms.Components
             this.lblBrand.Location = new System.Drawing.Point(237, 70);
             this.lblBrand.Margin = new System.Windows.Forms.Padding(0);
             this.lblBrand.Name = "lblBrand";
-            this.lblBrand.Size = new System.Drawing.Size(52, 20);
+            this.lblBrand.Size = new System.Drawing.Size(65, 22);
             this.lblBrand.TabIndex = 0;
             this.lblBrand.Text = "Brand";
             // 
@@ -513,7 +515,7 @@ namespace Project2.Forms.Components
             this.lblType.Location = new System.Drawing.Point(7, 70);
             this.lblType.Margin = new System.Windows.Forms.Padding(0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(42, 20);
+            this.lblType.Size = new System.Drawing.Size(54, 22);
             this.lblType.TabIndex = 0;
             this.lblType.Text = "Type";
             // 
@@ -527,7 +529,7 @@ namespace Project2.Forms.Components
             this.lblImage.Location = new System.Drawing.Point(7, 333);
             this.lblImage.Margin = new System.Windows.Forms.Padding(0);
             this.lblImage.Name = "lblImage";
-            this.lblImage.Size = new System.Drawing.Size(57, 20);
+            this.lblImage.Size = new System.Drawing.Size(70, 22);
             this.lblImage.TabIndex = 0;
             this.lblImage.Text = "Image";
             // 
@@ -541,7 +543,7 @@ namespace Project2.Forms.Components
             this.lblAvailable.Location = new System.Drawing.Point(467, 70);
             this.lblAvailable.Margin = new System.Windows.Forms.Padding(0);
             this.lblAvailable.Name = "lblAvailable";
-            this.lblAvailable.Size = new System.Drawing.Size(79, 20);
+            this.lblAvailable.Size = new System.Drawing.Size(98, 22);
             this.lblAvailable.TabIndex = 0;
             this.lblAvailable.Text = "Available";
             // 
@@ -555,7 +557,7 @@ namespace Project2.Forms.Components
             this.lblQuantity.Location = new System.Drawing.Point(467, 278);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(71, 20);
+            this.lblQuantity.Size = new System.Drawing.Size(92, 22);
             this.lblQuantity.TabIndex = 0;
             this.lblQuantity.Text = "Quantity";
             // 
@@ -569,7 +571,7 @@ namespace Project2.Forms.Components
             this.lblDiscount.Location = new System.Drawing.Point(237, 278);
             this.lblDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(72, 20);
+            this.lblDiscount.Size = new System.Drawing.Size(89, 22);
             this.lblDiscount.TabIndex = 0;
             this.lblDiscount.Text = "Discount";
             // 
@@ -583,7 +585,7 @@ namespace Project2.Forms.Components
             this.lblPrice.Location = new System.Drawing.Point(7, 278);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(46, 20);
+            this.lblPrice.Size = new System.Drawing.Size(54, 22);
             this.lblPrice.TabIndex = 0;
             this.lblPrice.Text = "Price";
             // 
@@ -597,7 +599,7 @@ namespace Project2.Forms.Components
             this.lblDescription.Location = new System.Drawing.Point(7, 128);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(91, 20);
+            this.lblDescription.Size = new System.Drawing.Size(111, 22);
             this.lblDescription.TabIndex = 16;
             this.lblDescription.Text = "Description";
             // 
@@ -611,7 +613,7 @@ namespace Project2.Forms.Components
             this.lblName.Location = new System.Drawing.Point(237, 15);
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(53, 20);
+            this.lblName.Size = new System.Drawing.Size(66, 22);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             // 
@@ -625,7 +627,7 @@ namespace Project2.Forms.Components
             this.lblId.Location = new System.Drawing.Point(7, 15);
             this.lblId.Margin = new System.Windows.Forms.Padding(0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(25, 20);
+            this.lblId.Size = new System.Drawing.Size(29, 22);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "ID";
             // 
@@ -665,9 +667,31 @@ namespace Project2.Forms.Components
             this.pbUploadImage.TabIndex = 26;
             this.pbUploadImage.TabStop = false;
             // 
+            // btnClearImage
+            // 
+            this.btnClearImage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClearImage.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClearImage.BorderColor = System.Drawing.Color.Silver;
+            this.btnClearImage.BorderRadius = 4;
+            this.btnClearImage.BorderSize = 1;
+            this.btnClearImage.FlatAppearance.BorderSize = 0;
+            this.btnClearImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearImage.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClearImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClearImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClearImage.Location = new System.Drawing.Point(398, 409);
+            this.btnClearImage.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnClearImage.Name = "btnClearImage";
+            this.btnClearImage.Size = new System.Drawing.Size(292, 35);
+            this.btnClearImage.TabIndex = 49;
+            this.btnClearImage.Text = "Clear Image";
+            this.btnClearImage.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClearImage.UseVisualStyleBackColor = false;
+            this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
+            // 
             // ProductModalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 800);
             this.Controls.Add(this.pnlContainer);
@@ -735,5 +759,6 @@ namespace Project2.Forms.Components
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Utils.RoundedButton btnClearImage;
     }
 }

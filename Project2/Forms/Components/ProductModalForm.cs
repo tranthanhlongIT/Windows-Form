@@ -57,6 +57,11 @@ namespace Project2.Forms.Components
             }
         }
 
+        private void btnClearImage_Click(object sender, EventArgs e)
+        {
+            pbUploadImage.Image = pbUploadImage.InitialImage;
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (action == "add")
@@ -225,13 +230,6 @@ namespace Project2.Forms.Components
             product.brand_id = (Int32)cbBrand.SelectedValue;
         }
 
-        //public Image SetImage(Product product)
-        //{
-        //    if (product.image)
-        //        return ConvertImage().ConvertBinaryToImage();
-        //    else return 
-        //}
-
         public void BeginAdd()
         {
             if (ValidateForm())
@@ -240,7 +238,6 @@ namespace Project2.Forms.Components
                 bool result = prodBUS.AddNew(product);
                 if (result)
                 {
-                    //CopyImageToFolder();
                     CreateProduct();
                     ResetField();
                     this.Alert("Add Successful", Form_Alert.enmType.Success);
@@ -260,7 +257,6 @@ namespace Project2.Forms.Components
                 bool result = prodBUS.Update(product);
                 if (result)
                 {
-                    //CopyImageToFolder();
                     this.Alert("Update Successful", Form_Alert.enmType.Success);
                 }
                 else
@@ -269,8 +265,6 @@ namespace Project2.Forms.Components
                 }
             }
         }
-
-
 
         public string SetCreatedAt()
         {

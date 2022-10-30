@@ -36,7 +36,6 @@ namespace Project2
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlNavigation = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
-            this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
             this.pnlLineActive = new System.Windows.Forms.Panel();
             this.pnlLine = new System.Windows.Forms.Panel();
             this.btnHistory = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@ namespace Project2
             this.customerForm = new Project2.UserControls.CustomerForm();
             this.salesForm = new Project2.UserControls.SalesForm();
             this.productForm = new Project2.UserControls.ProductForm();
+            this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
@@ -116,7 +116,7 @@ namespace Project2
             this.lblLogo.ForeColor = System.Drawing.Color.White;
             this.lblLogo.Location = new System.Drawing.Point(70, 10);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(233, 21);
+            this.lblLogo.Size = new System.Drawing.Size(306, 25);
             this.lblLogo.TabIndex = 3;
             this.lblLogo.Text = "Shop Management System";
             // 
@@ -161,22 +161,9 @@ namespace Project2
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblRole.Location = new System.Drawing.Point(1095, 25);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(39, 19);
+            this.lblRole.Size = new System.Drawing.Size(45, 21);
             this.lblRole.TabIndex = 12;
             this.lblRole.Text = "Role";
-            // 
-            // pbUser
-            // 
-            this.pbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbUser.BackColor = System.Drawing.Color.White;
-            this.pbUser.InitialImage = global::Project2.Properties.Resources.user_icon_default;
-            this.pbUser.Location = new System.Drawing.Point(1050, 5);
-            this.pbUser.Margin = new System.Windows.Forms.Padding(0);
-            this.pbUser.Name = "pbUser";
-            this.pbUser.Size = new System.Drawing.Size(40, 40);
-            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbUser.TabIndex = 11;
-            this.pbUser.TabStop = false;
             // 
             // pnlLineActive
             // 
@@ -368,7 +355,7 @@ namespace Project2
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblUsername.Location = new System.Drawing.Point(1095, 5);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(77, 19);
+            this.lblUsername.Size = new System.Drawing.Size(93, 21);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
             // 
@@ -382,7 +369,8 @@ namespace Project2
             this.customerForm.Margin = new System.Windows.Forms.Padding(0);
             this.customerForm.Name = "customerForm";
             this.customerForm.Size = new System.Drawing.Size(1280, 630);
-            this.customerForm.TabIndex = 26;
+            this.customerForm.TabIndex = 3;
+            this.customerForm.TabStop = false;
             // 
             // salesForm
             // 
@@ -394,7 +382,8 @@ namespace Project2
             this.salesForm.Margin = new System.Windows.Forms.Padding(0);
             this.salesForm.Name = "salesForm";
             this.salesForm.Size = new System.Drawing.Size(1280, 630);
-            this.salesForm.TabIndex = 25;
+            this.salesForm.TabIndex = 2;
+            this.salesForm.TabStop = false;
             // 
             // productForm
             // 
@@ -406,8 +395,21 @@ namespace Project2
             this.productForm.Margin = new System.Windows.Forms.Padding(0);
             this.productForm.Name = "productForm";
             this.productForm.Size = new System.Drawing.Size(1280, 630);
-            this.productForm.TabIndex = 24;
+            this.productForm.TabIndex = 1;
             this.productForm.TabStop = false;
+            // 
+            // pbUser
+            // 
+            this.pbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbUser.BackColor = System.Drawing.Color.White;
+            this.pbUser.InitialImage = global::Project2.Properties.Resources.user_icon_default;
+            this.pbUser.Location = new System.Drawing.Point(1050, 5);
+            this.pbUser.Margin = new System.Windows.Forms.Padding(0);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(40, 40);
+            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbUser.TabIndex = 11;
+            this.pbUser.TabStop = false;
             // 
             // ManagementForm
             // 

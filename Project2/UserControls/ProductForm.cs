@@ -30,7 +30,7 @@ namespace Project2.UserControls
             }
         }
 
-        public void InitializeBUS()
+        private void InitializeBUS()
         {
             prodBUS = new ProductBUS();
             cateBUS = new CategoryBUS();
@@ -109,7 +109,7 @@ namespace Project2.UserControls
                 }
                 else
                 {
-                    MessageBox.Show("SORRY BABY!");
+                    MessageBox.Show("Delete Failed", "Error", MessageBoxButtons.OK);
                 }
             }
         }
@@ -122,8 +122,7 @@ namespace Project2.UserControls
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 id = (int)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
                 OpenModal("det", id);
@@ -144,7 +143,14 @@ namespace Project2.UserControls
             tvCategory.Focus();
         }
 
-        public void LoadDataGridView(List<Product> products)
+        private List<Product> GetProductList()
+        {
+            int level = tvCategory.SelectedNode.Level;
+            int categoryId = (int)tvCategory.SelectedNode.Tag;
+            return new ProductBUS().GetProductByTreeLevel(level, categoryId);
+        }
+
+        private void LoadDataGridView(List<Product> products)
         {
             dgvProduct.Rows.Clear();
             if (products.Count > 0)
@@ -163,20 +169,13 @@ namespace Project2.UserControls
             }   
         }
 
-        public List<Product> GetProductList()
-        {
-            int level = tvCategory.SelectedNode.Level;
-            int categoryId = (int)tvCategory.SelectedNode.Tag;
-            return prodBUS.GetProductByTreeLevel(level, categoryId);
-        }
-
-        public void RefreshDataGridView()
+        private void RefreshDataGridView()
         {
             products = GetProductList();
             LoadDataGridView(products);
         }
 
-        public string SetAvailableField(Product product)
+        private string SetAvailableField(Product product)
         {
             if (product.available ?? default(bool))
                 return "Yes";
@@ -268,6 +267,19 @@ namespace Project2.UserControls
                 case "Mercedes Benz": return 9;
                 default: return 0;
             }
+        }
+
+        public void RefreshForm()
+        {
+            LoadSearchTextBox();
+            ResetTreeView();
+        }
+
+        private void ResetTreeView()
+        {
+            tvCategory.SelectedNode = tvCategory.Nodes[0].FirstNode.FirstNode;
+            tvCategory.SelectedNode.Expand();
+            tvCategory.Focus();
         }
     }
 }

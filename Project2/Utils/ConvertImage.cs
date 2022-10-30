@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Project2.Utils
 {
@@ -14,7 +10,8 @@ namespace Project2.Utils
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                img.Save(ms, GetImageFormat(img));
+                img.Dispose();
                 return ms.ToArray();
             }
         }
@@ -25,6 +22,19 @@ namespace Project2.Utils
             {
                 return Image.FromStream(ms);
             }
+        }
+
+        public static ImageFormat GetImageFormat(Image img)
+        {
+            if (ImageFormat.Jpeg.Equals(img.RawFormat))
+            {
+                return ImageFormat.Jpeg;
+            }
+            else if (ImageFormat.Png.Equals(img.RawFormat))
+            {
+                return ImageFormat.Png;
+            }
+            return null;
         }
 
         //public string SetImagePath()

@@ -22,7 +22,7 @@ namespace Project2.Forms
             }
         }
 
-        public void InitializeBUS()
+        private void InitializeBUS()
         {
             empBUS = new EmployeeBUS();
         }
@@ -85,7 +85,7 @@ namespace Project2.Forms
             }
         }
 
-        public bool ValidateLogin()
+        private bool ValidateLogin()
         {
             if (txtEmail.Text.Trim() == "" || txtEmail.Text.Length < 1)
             {
