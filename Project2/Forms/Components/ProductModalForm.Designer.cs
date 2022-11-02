@@ -34,6 +34,7 @@ namespace Project2.Forms.Components
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.btnClearImage = new Project2.Utils.RoundedButton();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
             this.pnlUploadImage = new System.Windows.Forms.Panel();
             this.pbUploadImage = new System.Windows.Forms.PictureBox();
-            this.btnClearImage = new Project2.Utils.RoundedButton();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -172,6 +172,28 @@ namespace Project2.Forms.Components
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(700, 770);
             this.pnlContainer.TabIndex = 1;
+            // 
+            // btnClearImage
+            // 
+            this.btnClearImage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClearImage.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClearImage.BorderColor = System.Drawing.Color.Silver;
+            this.btnClearImage.BorderRadius = 4;
+            this.btnClearImage.BorderSize = 1;
+            this.btnClearImage.FlatAppearance.BorderSize = 0;
+            this.btnClearImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearImage.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClearImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClearImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClearImage.Location = new System.Drawing.Point(398, 409);
+            this.btnClearImage.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnClearImage.Name = "btnClearImage";
+            this.btnClearImage.Size = new System.Drawing.Size(292, 35);
+            this.btnClearImage.TabIndex = 49;
+            this.btnClearImage.Text = "Clear Image";
+            this.btnClearImage.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClearImage.UseVisualStyleBackColor = false;
+            this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
             // 
             // label7
             // 
@@ -666,28 +688,6 @@ namespace Project2.Forms.Components
             this.pbUploadImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUploadImage.TabIndex = 26;
             this.pbUploadImage.TabStop = false;
-            // 
-            // btnClearImage
-            // 
-            this.btnClearImage.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClearImage.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClearImage.BorderColor = System.Drawing.Color.Silver;
-            this.btnClearImage.BorderRadius = 4;
-            this.btnClearImage.BorderSize = 1;
-            this.btnClearImage.FlatAppearance.BorderSize = 0;
-            this.btnClearImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearImage.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClearImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnClearImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClearImage.Location = new System.Drawing.Point(398, 409);
-            this.btnClearImage.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnClearImage.Name = "btnClearImage";
-            this.btnClearImage.Size = new System.Drawing.Size(292, 35);
-            this.btnClearImage.TabIndex = 49;
-            this.btnClearImage.Text = "Clear Image";
-            this.btnClearImage.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnClearImage.UseVisualStyleBackColor = false;
-            this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
             // 
             // ProductModalForm
             // 

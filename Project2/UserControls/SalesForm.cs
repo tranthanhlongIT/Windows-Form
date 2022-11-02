@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -66,17 +65,27 @@ namespace Project2.UserControls
         private void btnSearch_Click(object sender, EventArgs e)
         {
             String keyword = txtSearch.Text.Trim().ToLower();
-            products = prodBUS.GetAll().FindAll(p => p.name.ToLower().Contains(keyword));
+            products = GetProductList();
+            products = products.FindAll(p => p.name.ToLower().Contains(keyword));
             LoadListView(products);
             ResetDisplayField();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            if (cbFilter.SelectedIndex == 0)
+            {
+                products = new ProductBUS().GetAll();
+                LoadListView(products);
+                ResetDisplayField();
+            }
+            else cbFilter.SelectedIndex = 0;
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblFilter.Text = cbFilter.Text;
-            if (cbFilter.SelectedIndex == 0)
-                products = new ProductBUS().GetAll();
-            else products = new ProductBUS().GetProductByTypeID((int)cbFilter.SelectedValue);
+            products = GetProductList();
             LoadListView(products);
             ResetDisplayField();
         }
@@ -89,6 +98,13 @@ namespace Project2.UserControls
                 Product product = prodBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));
                 SetDisplayField(product);
             }
+        }
+
+        private List<Product> GetProductList()
+        {
+            if (cbFilter.SelectedIndex == 0)
+                return new ProductBUS().GetAll();
+            else return new ProductBUS().GetProductByTypeID((int)cbFilter.SelectedValue);
         }
 
         public void SetDisplayField(Product product)
@@ -139,8 +155,8 @@ namespace Project2.UserControls
             if (products.Count > 0)
             {
                 int i = 0;
+                lvProducts.BeginUpdate();
                 lvProducts.LargeImageList = SetImageList(products);
-
                 foreach (var product in products)
                 {
                     if (product.available ?? default(bool))
@@ -157,6 +173,7 @@ namespace Project2.UserControls
                         i++;
                     }
                 }
+                lvProducts.EndUpdate();
             }
         }
 
@@ -170,18 +187,6 @@ namespace Project2.UserControls
                 else imgListProduct.Images.Add(pbImage.InitialImage);
             }
             return imgListProduct;
-        }
-
-        public void RefreshForm()
-        {
-            LoadSearchTextBox();
-            if (cbFilter.SelectedIndex == 0)
-            {
-                products = new ProductBUS().GetAll();
-                LoadListView(products);
-                ResetDisplayField();
-            }
-            else cbFilter.SelectedIndex = 0;
         }
     }
 }

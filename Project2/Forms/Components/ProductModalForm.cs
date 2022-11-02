@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.IO;
 using Project2.BUS;
 using Project2.Utils;
 
@@ -186,28 +185,28 @@ namespace Project2.Forms.Components
 
         public void LoadTypeComboBox()
         {
-            categories = cateBUS.GetCategoryByParentID(24);
-            cbType.DataSource = categories;
             cbType.DisplayMember = "name";
             cbType.ValueMember = "id";
+            categories = cateBUS.GetCategoryByParentID(24);
+            cbType.DataSource = categories;
         }
 
         public void LoadBrandComboBox(int parentId)
         {
-            categories = cateBUS.GetCategoryByParentID(parentId);
-            cbBrand.DataSource = categories;
             cbBrand.DisplayMember = "name";
             cbBrand.ValueMember = "id";
+            categories = cateBUS.GetCategoryByParentID(parentId);
+            cbBrand.DataSource = categories;
         }
 
         public void LoadAvailableComboBox()
         {
+            cbAvailable.DisplayMember = "Key";
+            cbAvailable.ValueMember = "Value";
             Dictionary<string, bool> dict = new Dictionary<string, bool>();
             dict.Add("Yes", true);
             dict.Add("No", false);
             cbAvailable.DataSource = new BindingSource(dict, null);
-            cbAvailable.DisplayMember = "Key";
-            cbAvailable.ValueMember = "Value";
         }
 
         public void CreateProduct()

@@ -49,6 +49,7 @@ namespace Project2.UserControls
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pnlBlank = new System.Windows.Forms.Panel();
             this.pnlOperation = new System.Windows.Forms.Panel();
+            this.btnRefresh = new Project2.Utils.RoundedButton();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
@@ -309,6 +310,7 @@ namespace Project2.UserControls
             this.pnlOperation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlOperation.BackColor = System.Drawing.Color.White;
+            this.pnlOperation.Controls.Add(this.btnRefresh);
             this.pnlOperation.Controls.Add(this.btnSearch);
             this.pnlOperation.Controls.Add(this.txtSearch);
             this.pnlOperation.Controls.Add(this.pnlLineSearch);
@@ -318,6 +320,29 @@ namespace Project2.UserControls
             this.pnlOperation.Name = "pnlOperation";
             this.pnlOperation.Size = new System.Drawing.Size(1280, 40);
             this.pnlOperation.TabIndex = 9;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
+            this.btnRefresh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
+            this.btnRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
+            this.btnRefresh.BorderRadius = 3;
+            this.btnRefresh.BorderSize = 1;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = global::Project2.Properties.Resources.refresh_icon;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(510, 7);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.TabIndex = 14;
+            this.btnRefresh.Text = "        Refresh";
+            this.btnRefresh.TextColor = System.Drawing.Color.White;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnSearch
             // 
@@ -494,5 +519,6 @@ namespace Project2.UserControls
         private System.Windows.Forms.Panel pnlLineBrand;
         private System.Windows.Forms.Panel pnlLineType;
         private System.Windows.Forms.Panel pnlLineName;
+        private Utils.RoundedButton btnRefresh;
     }
 }

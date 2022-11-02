@@ -156,30 +156,30 @@ namespace Project2.Forms.Components
 
         public void LoadActiveComboBox()
         {
+            cbActive.DisplayMember = "Key";
+            cbActive.ValueMember = "Value";
             Dictionary<string, bool> dict = new Dictionary<string, bool>();
             dict.Add("Enable", true);
             dict.Add("Disable", false);
             cbActive.DataSource = new BindingSource(dict, null);
-            cbActive.DisplayMember = "Key";
-            cbActive.ValueMember = "Value";
         }
 
         public void LoadGenderComboBox()
         {
+            cbGender.DisplayMember = "Key";
+            cbGender.ValueMember = "Value";
             Dictionary<string, bool> dict = new Dictionary<string, bool>();
             dict.Add("Male", true);
             dict.Add("Female", false);
             cbGender.DataSource = new BindingSource(dict, null);
-            cbGender.DisplayMember = "Key";
-            cbGender.ValueMember = "Value";
         }
 
         public void LoadCityComboBox()
         {
-            cities = cityBUS.GetAll();
-            cbCity.DataSource = cities;
             cbCity.DisplayMember = "name";
             cbCity.ValueMember = "id";
+            cities = cityBUS.GetAll();
+            cbCity.DataSource = cities;
         }
 
         public void CreateCustomer()

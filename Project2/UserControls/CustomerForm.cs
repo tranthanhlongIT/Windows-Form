@@ -203,11 +203,5 @@ namespace Project2.UserControls
                 formBackground.Dispose();
             }
         }
-
-        public void RefreshForm()
-        {
-            LoadSearchTextBox();
-            RefreshDataGridView();
-        }
     }
 }

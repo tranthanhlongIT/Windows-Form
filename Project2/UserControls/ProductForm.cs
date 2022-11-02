@@ -268,18 +268,5 @@ namespace Project2.UserControls
                 default: return 0;
             }
         }
-
-        public void RefreshForm()
-        {
-            LoadSearchTextBox();
-            ResetTreeView();
-        }
-
-        private void ResetTreeView()
-        {
-            tvCategory.SelectedNode = tvCategory.Nodes[0].FirstNode.FirstNode;
-            tvCategory.SelectedNode.Expand();
-            tvCategory.Focus();
-        }
     }
 }

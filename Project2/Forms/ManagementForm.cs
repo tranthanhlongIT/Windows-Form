@@ -1,5 +1,4 @@
-﻿using Project2.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -36,8 +35,7 @@ namespace Project2
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            productForm.RefreshForm();
-            productForm.BringToFront();   
+            productForm.BringToFront();
             SlidePanel(btnProduct);
             ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory });
         }
@@ -56,7 +54,6 @@ namespace Project2
 
         private void btnSale_Click(object sender, EventArgs e)
         {
-            salesForm.RefreshForm();
             salesForm.BringToFront();
             SlidePanel(btnSale);
             ChangeButtonTextColor(5, btnSale, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnCustomer, btnHistory });
@@ -64,7 +61,6 @@ namespace Project2
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            customerForm.RefreshForm();
             customerForm.BringToFront();
             SlidePanel(btnCustomer);
             ChangeButtonTextColor(6, btnCustomer, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });

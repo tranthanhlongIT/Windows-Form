@@ -117,6 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAOtJREFUOE/V
+        lEsSwUAURWOAvRBLlaKiWIzPAkyxEQwMqDg3/VLp/EhUJk7VKe2911d1PoL/JUmSGS7xjHdT6wWGNvYd
+        hse4xhc28cQVjmxbPQwo7IBt2WNzKM1NOtaN2LYXoaFr5h/zgUe3LKCaehk6/tRicijqYvto4wCj9JtD
+        a9XKPxRZTA7Fi+sVyAL06a/LnCwmh+LV9SpkQU1h4moxOSq6XoWfA3s/cu83JUQ9AhldHpuJxRShodep
+        K0vbXoXmCHfpWDu2OLTt9TCg0Bj945dRT/9En8N8GJ6ibsIJb6bWc6y/Zn9AELwBP21P1wzAU7IAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="btnSell.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAATxJREFUOE/t
+        1L1KA0EUQOFFTBC18gkiQawEGwufIp2BvIBI0NJajEUIgTRCjI2NaLDRSnwAOxUrLQRREBELg0FBxJ/x
+        3MmNLruLegs7D3yQ3bszCcOSIJpz7hiW3lDU5fE6z5hr6PJ4+kC4so58XPfhxk++Mm34gMOQE0Qzbfib
+        /jcMxVDeK2t1XR6PYRENgzrGdfkfxrcMYgZ7OMIOcjr+jHuTOtvGCPLI6tg/kEUN90hqCb0YwireIS/3
+        Mlp4RQXzmJIN7/BTt9jFJqqQs5NOUcK1v3LuUjaUX2dJfqGsWYF8Qbdn5GXDDF7kTkIbWMM6ttQipnGF
+        bgcY01P059j0t+09YQEp3aoTNyZkSueQM7rwV9+3j1HdIh7DAvr1cxqziP7vSY+YQ49faIlFA5DX4Qxt
+        yBkO6zihIPgAP1wkaGS75qkAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="chId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -132,26 +154,4 @@
   <metadata name="chButton.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBack.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADrSURBVDhP1ZRLEsFAFEVjgL0QS5WioliMzwJMsREMDKg4N/1S6fxIVCZO1SntvddXdT6C/yVJ
-        khku8Yx3U+sFhjb2HYbHuMYXNvHEFY5sWz0MKOyAbdljcyjNTTrWjdi2F6Gha+Yf84FHtyygmnoZOv7U
-        YnIo6mL7aOMAo/SbQ2vVyj8UWUwOxYvrFcgC9Omvy5wsJofi1fUqZEFNYeJqMTkqul6FnwN7P3LvNyVE
-        PQIZXR6bicUUoaHXqStL216F5gh36Vg7tji07fUwoNAY/eOXUU//RJ/DfBieom7CCW+m1nOsv2Z/QBC8
-        AT9tT9cMwFOyAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSell.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAATxJREFUOE/t
-        1L1KA0EUQOFFTBC18gkiQawEGwufIp2BvIBI0NJajEUIgTRCjI2NaLDRSnwAOxUrLQRREBELg0FBxJ/x
-        3MmNLruLegs7D3yQ3bszCcOSIJpz7hiW3lDU5fE6z5hr6PJ4+kC4so58XPfhxk++Mm34gMOQE0Qzbfib
-        /jcMxVDeK2t1XR6PYRENgzrGdfkfxrcMYgZ7OMIOcjr+jHuTOtvGCPLI6tg/kEUN90hqCb0YwireIS/3
-        Mlp4RQXzmJIN7/BTt9jFJqqQs5NOUcK1v3LuUjaUX2dJfqGsWYF8Qbdn5GXDDF7kTkIbWMM6ttQipnGF
-        bgcY01P059j0t+09YQEp3aoTNyZkSueQM7rwV9+3j1HdIh7DAvr1cxqziP7vSY+YQ49faIlFA5DX4Qxt
-        yBkO6zihIPgAP1wkaGS75qkAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

@@ -29,17 +29,19 @@ namespace Project2.Forms.Components
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckoutForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.flatTextBox6 = new Project2.Utils.FlatTextBox();
             this.flatTextBox4 = new Project2.Utils.FlatTextBox();
@@ -49,6 +51,8 @@ namespace Project2.Forms.Components
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBack = new Project2.Utils.RoundedButton();
+            this.btnSell = new Project2.Utils.RoundedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flatTextBox7 = new Project2.Utils.FlatTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +60,9 @@ namespace Project2.Forms.Components
             this.label2 = new System.Windows.Forms.Label();
             this.flatTextBox1 = new Project2.Utils.FlatTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
@@ -67,19 +73,13 @@ namespace Project2.Forms.Components
             this.chPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblChooseCustomer = new System.Windows.Forms.Label();
-            this.btnBack = new Project2.Utils.RoundedButton();
-            this.btnSell = new Project2.Utils.RoundedButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -93,6 +93,20 @@ namespace Project2.Forms.Components
             this.pnlTop.Size = new System.Drawing.Size(700, 30);
             this.pnlTop.TabIndex = 0;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.White;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::Project2.Properties.Resources.close_2_icon;
+            this.btnClose.Location = new System.Drawing.Point(670, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.TabStop = false;
+            this.btnClose.UseVisualStyleBackColor = false;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -100,10 +114,21 @@ namespace Project2.Forms.Components
             this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblTitle.Location = new System.Drawing.Point(38, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(121, 18);
+            this.lblTitle.Size = new System.Drawing.Size(150, 23);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Checkout Form";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbIcon
+            // 
+            this.pbIcon.Image = global::Project2.Properties.Resources.information_icon;
+            this.pbIcon.Location = new System.Drawing.Point(17, 5);
+            this.pbIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.pbIcon.Name = "pbIcon";
+            this.pbIcon.Size = new System.Drawing.Size(18, 18);
+            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbIcon.TabIndex = 0;
+            this.pbIcon.TabStop = false;
             // 
             // pnlContainer
             // 
@@ -146,7 +171,7 @@ namespace Project2.Forms.Components
             this.flatTextBox6.MaxLength = 20;
             this.flatTextBox6.Name = "flatTextBox6";
             this.flatTextBox6.ReadOnly = true;
-            this.flatTextBox6.Size = new System.Drawing.Size(150, 29);
+            this.flatTextBox6.Size = new System.Drawing.Size(150, 34);
             this.flatTextBox6.TabIndex = 0;
             this.flatTextBox6.TabStop = false;
             this.flatTextBox6.Text = "$0";
@@ -166,7 +191,7 @@ namespace Project2.Forms.Components
             this.flatTextBox4.MaxLength = 20;
             this.flatTextBox4.Name = "flatTextBox4";
             this.flatTextBox4.ReadOnly = true;
-            this.flatTextBox4.Size = new System.Drawing.Size(150, 29);
+            this.flatTextBox4.Size = new System.Drawing.Size(150, 34);
             this.flatTextBox4.TabIndex = 0;
             this.flatTextBox4.TabStop = false;
             this.flatTextBox4.Text = "$0";
@@ -185,7 +210,7 @@ namespace Project2.Forms.Components
             this.flatTextBox2.Margin = new System.Windows.Forms.Padding(0);
             this.flatTextBox2.MaxLength = 20;
             this.flatTextBox2.Name = "flatTextBox2";
-            this.flatTextBox2.Size = new System.Drawing.Size(150, 29);
+            this.flatTextBox2.Size = new System.Drawing.Size(150, 34);
             this.flatTextBox2.TabIndex = 0;
             this.flatTextBox2.Text = "1";
             this.flatTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -201,7 +226,7 @@ namespace Project2.Forms.Components
             this.flatTextBox3.MaxLength = 20;
             this.flatTextBox3.Name = "flatTextBox3";
             this.flatTextBox3.ReadOnly = true;
-            this.flatTextBox3.Size = new System.Drawing.Size(150, 29);
+            this.flatTextBox3.Size = new System.Drawing.Size(150, 34);
             this.flatTextBox3.TabIndex = 0;
             this.flatTextBox3.TabStop = false;
             this.flatTextBox3.Text = "$0";
@@ -226,7 +251,7 @@ namespace Project2.Forms.Components
             this.lblTotal.Location = new System.Drawing.Point(390, 662);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(56, 22);
+            this.lblTotal.Size = new System.Drawing.Size(68, 26);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total:";
             // 
@@ -240,7 +265,7 @@ namespace Project2.Forms.Components
             this.txtQuantity.Location = new System.Drawing.Point(390, 609);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(93, 21);
+            this.txtQuantity.Size = new System.Drawing.Size(111, 25);
             this.txtQuantity.TabIndex = 0;
             this.txtQuantity.Text = "Quantity:";
             // 
@@ -253,6 +278,50 @@ namespace Project2.Forms.Components
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(700, 50);
             this.panel1.TabIndex = 45;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnBack.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnBack.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnBack.BorderRadius = 4;
+            this.btnBack.BorderSize = 1;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(580, 11);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(110, 30);
+            this.btnBack.TabIndex = 45;
+            this.btnBack.Text = "      Cancel";
+            this.btnBack.TextColor = System.Drawing.Color.White;
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // btnSell
+            // 
+            this.btnSell.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSell.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.btnSell.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnSell.BorderRadius = 4;
+            this.btnSell.BorderSize = 1;
+            this.btnSell.FlatAppearance.BorderSize = 0;
+            this.btnSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSell.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSell.ForeColor = System.Drawing.Color.White;
+            this.btnSell.Image = ((System.Drawing.Image)(resources.GetObject("btnSell.Image")));
+            this.btnSell.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSell.Location = new System.Drawing.Point(460, 11);
+            this.btnSell.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnSell.Name = "btnSell";
+            this.btnSell.Size = new System.Drawing.Size(110, 30);
+            this.btnSell.TabIndex = 44;
+            this.btnSell.Text = "    Sell";
+            this.btnSell.TextColor = System.Drawing.Color.White;
+            this.btnSell.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -288,7 +357,7 @@ namespace Project2.Forms.Components
             this.flatTextBox7.Location = new System.Drawing.Point(22, 157);
             this.flatTextBox7.Margin = new System.Windows.Forms.Padding(0);
             this.flatTextBox7.Name = "flatTextBox7";
-            this.flatTextBox7.Size = new System.Drawing.Size(325, 27);
+            this.flatTextBox7.Size = new System.Drawing.Size(325, 32);
             this.flatTextBox7.TabIndex = 47;
             this.flatTextBox7.Text = "Crosstrek 2022";
             // 
@@ -302,7 +371,7 @@ namespace Project2.Forms.Components
             this.label3.Location = new System.Drawing.Point(17, 133);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 21);
+            this.label3.Size = new System.Drawing.Size(67, 23);
             this.label3.TabIndex = 46;
             this.label3.Text = "Brand";
             // 
@@ -318,7 +387,7 @@ namespace Project2.Forms.Components
             this.flatTextBox5.Location = new System.Drawing.Point(22, 102);
             this.flatTextBox5.Margin = new System.Windows.Forms.Padding(0);
             this.flatTextBox5.Name = "flatTextBox5";
-            this.flatTextBox5.Size = new System.Drawing.Size(325, 27);
+            this.flatTextBox5.Size = new System.Drawing.Size(325, 32);
             this.flatTextBox5.TabIndex = 45;
             this.flatTextBox5.Text = "Crosstrek 2022";
             // 
@@ -332,7 +401,7 @@ namespace Project2.Forms.Components
             this.label2.Location = new System.Drawing.Point(15, 78);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 21);
+            this.label2.Size = new System.Drawing.Size(56, 23);
             this.label2.TabIndex = 44;
             this.label2.Text = "Type";
             // 
@@ -348,7 +417,7 @@ namespace Project2.Forms.Components
             this.flatTextBox1.Location = new System.Drawing.Point(22, 47);
             this.flatTextBox1.Margin = new System.Windows.Forms.Padding(0);
             this.flatTextBox1.Name = "flatTextBox1";
-            this.flatTextBox1.Size = new System.Drawing.Size(325, 27);
+            this.flatTextBox1.Size = new System.Drawing.Size(325, 32);
             this.flatTextBox1.TabIndex = 43;
             this.flatTextBox1.Text = "Crosstrek 2022";
             // 
@@ -362,9 +431,23 @@ namespace Project2.Forms.Components
             this.label1.Location = new System.Drawing.Point(15, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 21);
+            this.label1.Size = new System.Drawing.Size(71, 23);
             this.label1.TabIndex = 39;
             this.label1.Text = "Name";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.InitialImage = global::Project2.Properties.Resources.car_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(387, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(264, 176);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
             // 
             // label6
             // 
@@ -376,9 +459,26 @@ namespace Project2.Forms.Components
             this.label6.Location = new System.Drawing.Point(390, 554);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 21);
+            this.label6.Size = new System.Drawing.Size(109, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "Discount:";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.BackgroundImage = global::Project2.Properties.Resources.search_icon;
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(665, 14);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(18, 18);
+            this.btnSearch.TabIndex = 35;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -390,7 +490,7 @@ namespace Project2.Forms.Components
             this.label4.Location = new System.Drawing.Point(390, 499);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 21);
+            this.label4.Size = new System.Drawing.Size(70, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Price:";
             // 
@@ -403,7 +503,7 @@ namespace Project2.Forms.Components
             this.txtSearch.Location = new System.Drawing.Point(175, 14);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(486, 18);
+            this.txtSearch.Size = new System.Drawing.Size(486, 23);
             this.txtSearch.TabIndex = 1;
             // 
             // pnlLineSearch
@@ -422,14 +522,14 @@ namespace Project2.Forms.Components
             this.dgvCustomer.AllowUserToDeleteRows = false;
             this.dgvCustomer.AllowUserToResizeColumns = false;
             this.dgvCustomer.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvCustomer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvCustomer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -438,15 +538,15 @@ namespace Project2.Forms.Components
             this.dgvCustomer.BackgroundColor = System.Drawing.Color.White;
             this.dgvCustomer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvCustomer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chId,
@@ -463,19 +563,19 @@ namespace Project2.Forms.Components
             this.dgvCustomer.Name = "dgvCustomer";
             this.dgvCustomer.ReadOnly = true;
             this.dgvCustomer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvCustomer.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvCustomer.RowHeadersVisible = false;
             this.dgvCustomer.RowHeadersWidth = 50;
             this.dgvCustomer.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvCustomer.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvCustomer.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvCustomer.RowTemplate.Height = 24;
             this.dgvCustomer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -485,14 +585,14 @@ namespace Project2.Forms.Components
             // 
             // chId
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            this.chId.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.chId.DefaultCellStyle = dataGridViewCellStyle3;
             this.chId.FillWeight = 10F;
             this.chId.HeaderText = "ID";
             this.chId.MaxInputLength = 10;
@@ -503,14 +603,14 @@ namespace Project2.Forms.Components
             // chFName
             // 
             this.chFName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.chFName.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.chFName.DefaultCellStyle = dataGridViewCellStyle4;
             this.chFName.FillWeight = 50F;
             this.chFName.HeaderText = "First Name";
             this.chFName.MaxInputLength = 100;
@@ -521,12 +621,12 @@ namespace Project2.Forms.Components
             // chLName
             // 
             this.chLName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            this.chLName.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.chLName.DefaultCellStyle = dataGridViewCellStyle5;
             this.chLName.FillWeight = 50F;
             this.chLName.HeaderText = "Last Name";
             this.chLName.MaxInputLength = 100;
@@ -536,15 +636,15 @@ namespace Project2.Forms.Components
             // 
             // chPhone
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle22.NullValue = null;
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Black;
-            this.chPhone.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.NullValue = null;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(63)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            this.chPhone.DefaultCellStyle = dataGridViewCellStyle6;
             this.chPhone.FillWeight = 50F;
             this.chPhone.HeaderText = "Phone";
             this.chPhone.MaxInputLength = 10;
@@ -567,113 +667,13 @@ namespace Project2.Forms.Components
             this.lblChooseCustomer.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.lblChooseCustomer.Location = new System.Drawing.Point(7, 15);
             this.lblChooseCustomer.Name = "lblChooseCustomer";
-            this.lblChooseCustomer.Size = new System.Drawing.Size(144, 20);
+            this.lblChooseCustomer.Size = new System.Drawing.Size(178, 22);
             this.lblChooseCustomer.TabIndex = 30;
             this.lblChooseCustomer.Text = "Choose Customer:";
             // 
-            // btnBack
+            // CheckoutForm
             // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnBack.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnBack.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnBack.BorderRadius = 4;
-            this.btnBack.BorderSize = 1;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Location = new System.Drawing.Point(580, 11);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(110, 30);
-            this.btnBack.TabIndex = 45;
-            this.btnBack.Text = "      Cancel";
-            this.btnBack.TextColor = System.Drawing.Color.White;
-            this.btnBack.UseVisualStyleBackColor = false;
-            // 
-            // btnSell
-            // 
-            this.btnSell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnSell.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnSell.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnSell.BorderRadius = 4;
-            this.btnSell.BorderSize = 1;
-            this.btnSell.FlatAppearance.BorderSize = 0;
-            this.btnSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSell.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.btnSell.ForeColor = System.Drawing.Color.White;
-            this.btnSell.Image = ((System.Drawing.Image)(resources.GetObject("btnSell.Image")));
-            this.btnSell.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSell.Location = new System.Drawing.Point(460, 11);
-            this.btnSell.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(110, 30);
-            this.btnSell.TabIndex = 44;
-            this.btnSell.Text = "    Sell";
-            this.btnSell.TextColor = System.Drawing.Color.White;
-            this.btnSell.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.InitialImage = global::Project2.Properties.Resources.car_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(387, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(264, 176);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 38;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = global::Project2.Properties.Resources.search_icon;
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(665, 14);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(18, 18);
-            this.btnSearch.TabIndex = 35;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.White;
-            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::Project2.Properties.Resources.close_2_icon;
-            this.btnClose.Location = new System.Drawing.Point(670, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.TabStop = false;
-            this.btnClose.UseVisualStyleBackColor = false;
-            // 
-            // pbIcon
-            // 
-            this.pbIcon.Image = global::Project2.Properties.Resources.information_icon;
-            this.pbIcon.Location = new System.Drawing.Point(17, 5);
-            this.pbIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(18, 18);
-            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbIcon.TabIndex = 0;
-            this.pbIcon.TabStop = false;
-            // 
-            // SaleModalForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(700, 800);
@@ -682,21 +682,21 @@ namespace Project2.Forms.Components
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "SaleModalForm";
+            this.Name = "CheckoutForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ModalForm";
             this.TopMost = true;
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.pnlContainer.ResumeLayout(false);
             this.pnlContainer.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
