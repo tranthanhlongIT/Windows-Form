@@ -23,7 +23,6 @@ namespace Project2.UserControls
             if (!this.DesignMode)
             {
                 InitializeBUS();
-                RefreshDataGridView();
                 LoadSearchTextBox();
             }
         }
@@ -83,7 +82,7 @@ namespace Project2.UserControls
 
         private void btnDisable_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Are you sure want to disable?", "Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 id = Int32.Parse(dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value.ToString());

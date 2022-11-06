@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Project2.DAO;
 
 namespace Project2.BUS
 {
     class OrderBUS
     {
+        private OrderDAO orderDAO;
+
+        public OrderBUS()
+        {
+            orderDAO = new OrderDAO();
+        }
+
+        public List<Order> GetAll()
+        {
+            return orderDAO.SelectAll();
+        }
+
+        public bool AddNew(Order newOrder)
+        {
+            return orderDAO.Insert(newOrder);
+        }
     }
 }

@@ -46,10 +46,8 @@ namespace Project2
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.customerForm = new Project2.UserControls.CustomerForm();
-            this.salesForm = new Project2.UserControls.SalesForm();
-            this.productForm = new Project2.UserControls.ProductForm();
             this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
+            this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
@@ -359,45 +357,6 @@ namespace Project2
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
             // 
-            // customerForm
-            // 
-            this.customerForm.BackColor = System.Drawing.SystemColors.Control;
-            this.customerForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.customerForm.Location = new System.Drawing.Point(0, 90);
-            this.customerForm.Margin = new System.Windows.Forms.Padding(0);
-            this.customerForm.Name = "customerForm";
-            this.customerForm.Size = new System.Drawing.Size(1280, 630);
-            this.customerForm.TabIndex = 3;
-            this.customerForm.TabStop = false;
-            // 
-            // salesForm
-            // 
-            this.salesForm.BackColor = System.Drawing.SystemColors.Control;
-            this.salesForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.salesForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.salesForm.Location = new System.Drawing.Point(0, 90);
-            this.salesForm.Margin = new System.Windows.Forms.Padding(0);
-            this.salesForm.Name = "salesForm";
-            this.salesForm.Size = new System.Drawing.Size(1280, 630);
-            this.salesForm.TabIndex = 2;
-            this.salesForm.TabStop = false;
-            // 
-            // productForm
-            // 
-            this.productForm.BackColor = System.Drawing.SystemColors.Control;
-            this.productForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productForm.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.productForm.Location = new System.Drawing.Point(0, 90);
-            this.productForm.Margin = new System.Windows.Forms.Padding(0);
-            this.productForm.Name = "productForm";
-            this.productForm.Size = new System.Drawing.Size(1280, 630);
-            this.productForm.TabIndex = 1;
-            this.productForm.TabStop = false;
-            // 
             // pbUser
             // 
             this.pbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -411,14 +370,21 @@ namespace Project2
             this.pbUser.TabIndex = 11;
             this.pbUser.TabStop = false;
             // 
+            // pnlContainer
+            // 
+            this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContainer.Location = new System.Drawing.Point(0, 90);
+            this.pnlContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Size = new System.Drawing.Size(1280, 630);
+            this.pnlContainer.TabIndex = 23;
+            // 
             // ManagementForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.customerForm);
-            this.Controls.Add(this.salesForm);
-            this.Controls.Add(this.productForm);
+            this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlNavigation);
             this.Controls.Add(this.pnlTop);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -456,9 +422,7 @@ namespace Project2
         private System.Windows.Forms.Panel pnlLine;
         private Forms.Components.RoundedPictureBox pbUser;
         private System.Windows.Forms.Label lblRole;
-        private UserControls.ProductForm productForm;
-        private UserControls.SalesForm salesForm;
         private System.Windows.Forms.Button btnCustomer;
-        private UserControls.CustomerForm customerForm;
+        private System.Windows.Forms.Panel pnlContainer;
     }
 }

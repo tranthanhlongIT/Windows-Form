@@ -144,6 +144,10 @@ namespace Project2.Forms.Components
             txtCreatedAt.Enabled = false;
             txtUpdatedAt.Enabled = false;
             btnConfirm.Visible = false;
+            lblRequiredActive.Visible = false;
+            lblRequiredFName.Visible = false;
+            lblRequiredLName.Visible = false;
+            lblRequiredPhone.Visible = false;
         }
 
         public void SetVisibleForCreatedAtAndUpdatedAt()

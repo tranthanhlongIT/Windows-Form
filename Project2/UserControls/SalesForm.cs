@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
 using Project2.Utils;
+using Project2.Forms.Components;
 
 namespace Project2.UserControls
 {
@@ -12,11 +14,18 @@ namespace Project2.UserControls
         private ProductBUS prodBUS;
         private CategoryBUS cateBUS;
         private List<Product> products;
-
+        private Product product;
+        private Employee employee;
+        private bool isEnabled = false;
 
         public SalesForm()
         {
             InitializeComponent();
+        }
+
+        public void SetEmployee(Employee employee)
+        {
+            this.employee = employee;
         }
 
         private void SalesForm_Load(object sender, EventArgs e)
@@ -73,6 +82,7 @@ namespace Project2.UserControls
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            isEnabled = true;
             if (cbFilter.SelectedIndex == 0)
             {
                 products = new ProductBUS().GetAll();
@@ -92,10 +102,10 @@ namespace Project2.UserControls
 
         private void lvProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvProducts.SelectedItems.Count > 0)
+            if (lvProducts.SelectedItems.Count > 0 && isEnabled)
             {
                 ListViewItem item = lvProducts.SelectedItems[0];
-                Product product = prodBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));
+                product = prodBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));
                 SetDisplayField(product);
             }
         }
@@ -115,9 +125,9 @@ namespace Project2.UserControls
             lblName.Text = "Name: " + product.name;
             lblType.Text = "Type: " + product.Category.name;
             lblBrand.Text = "Brand: " + product.Category1.name;
-            lblPrice.Text = "Price: " + product.price;
-            lblDiscount.Text = "Discount: " + product.discount;
-            lblQuantity.Text = "Quantity: " + product.quantity;
+            lblPrice.Text = "Price: " + ((double)product.price).ToString("c0");
+            lblDiscount.Text = "Discount: " + ((double)product.discount).ToString("c0");
+            lblQuantity.Text = "Available stock: " + product.quantity;
             btnSell.Visible = true;
         }
 
@@ -129,7 +139,7 @@ namespace Project2.UserControls
             lblBrand.Text = "Brand: ";
             lblPrice.Text = "Price: ";
             lblDiscount.Text = "Discount: ";
-            lblQuantity.Text = "Quantity: ";
+            lblQuantity.Text = "Available stock: ";
             btnSell.Visible = false;
         }
 
@@ -152,7 +162,7 @@ namespace Project2.UserControls
         private void LoadListView(List<Product> products)
         {
             lvProducts.Clear();
-            if (products.Count > 0)
+            if (products.Count > 0 && products != null)
             {
                 int i = 0;
                 lvProducts.BeginUpdate();
@@ -187,6 +197,43 @@ namespace Project2.UserControls
                 else imgListProduct.Images.Add(pbImage.InitialImage);
             }
             return imgListProduct;
+        }
+
+        private void btnSell_Click(object sender, EventArgs e)
+        {
+            OpenModal(product, employee);
+        }
+
+        private void OpenModal(Product product, Employee employee)
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (CheckoutForm uu = new CheckoutForm(product, employee))
+                {
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .70d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Maximized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
         }
     }
 }

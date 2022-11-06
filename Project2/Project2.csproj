@@ -342,10 +342,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Utils\ConvertImage.cs" />
-    <Compile Include="Utils\Form_Alert.cs">
+    <Compile Include="Forms\Components\Form_Alert.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Utils\Form_Alert.Designer.cs">
+    <Compile Include="Forms\Components\Form_Alert.Designer.cs">
       <DependentUpon>Form_Alert.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\Components\CustomerModalForm.resx">

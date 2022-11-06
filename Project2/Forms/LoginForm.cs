@@ -40,13 +40,19 @@ namespace Project2.Forms
         private void txtEmail_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 btnLogin.PerformClick();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 btnLogin.PerformClick();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void chbShowPassword_CheckedChanged(object sender, EventArgs e)

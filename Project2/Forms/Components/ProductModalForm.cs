@@ -173,6 +173,14 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Enabled = false;
             btnConfirm.Visible = false;
             btnUploadImage.Visible = false;
+            btnClearImage.Visible = false;
+            lblRequiredAvailable.Visible = false;
+            lblRequiredBrand.Visible = false;
+            lblRequiredDiscount.Visible = false;
+            lblRequiredName.Visible = false;
+            lblRequiredPrice.Visible = false;
+            lblRequiredQuantity.Visible = false;
+            lblRequiredType.Visible = false;
         }
 
         public void SetVisibleForCreatedAtAndUpdatedAt()
@@ -311,7 +319,22 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Invalid Price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (Double.Parse(txtPrice.Text) < 0)
+            {
+                MessageBox.Show("Invalid Price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (txtDiscount.Text.Trim() == "" || txtDiscount.Text.Length < 1)
+            {
+                MessageBox.Show("Discount field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (!double.TryParse(txtDiscount.Text.Trim(), out double _))
+            {
+                MessageBox.Show("Invalid Discount", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (Double.Parse(txtDiscount.Text) < 0)
             {
                 MessageBox.Show("Invalid Discount", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -326,6 +349,11 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Invalid Quantity", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (Int32.Parse(txtQuantity.Text) < 0)
+            {
+                MessageBox.Show("Invalid Quantity", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }            
             return true;
         }
     }

@@ -62,28 +62,19 @@
       <Association Name="Role_Employee" Member="Role" ThisKey="role_id" OtherKey="id" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.OrderDetails" Member="OrderDetails">
-    <Type Name="OrderDetail">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="order_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="quantity" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="subtotal" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Order_OrderDetail" Member="Order" ThisKey="order_id" OtherKey="id" Type="Order" IsForeignKey="true" />
-      <Association Name="Product_OrderDetail" Member="Product" ThisKey="product_id" OtherKey="id" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Orders" Member="Orders">
     <Type Name="Order">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="employee_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="created_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="updated_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="order_id" Type="OrderDetail" />
       <Association Name="Customer_Order" Member="Customer" ThisKey="customer_id" OtherKey="id" Type="Customer" IsForeignKey="true" />
       <Association Name="Employee_Order" Member="Employee" ThisKey="employee_id" OtherKey="id" Type="Employee" IsForeignKey="true" />
+      <Association Name="Product_Order" Member="Product" ThisKey="product_id" OtherKey="id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Products" Member="Products">
@@ -100,7 +91,7 @@
       <Column Name="updated_at" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="brand_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Product_OrderDetail" Member="OrderDetails" ThisKey="id" OtherKey="product_id" Type="OrderDetail" />
+      <Association Name="Product_Order" Member="Orders" ThisKey="id" OtherKey="product_id" Type="Order" />
       <Association Name="Category_Product" Member="Category" ThisKey="type_id" OtherKey="id" Type="Category" IsForeignKey="true" />
       <Association Name="Category_Product1" Member="Category1" ThisKey="brand_id" OtherKey="id" Type="Category" IsForeignKey="true" />
     </Type>

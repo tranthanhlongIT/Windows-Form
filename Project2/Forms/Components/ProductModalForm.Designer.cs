@@ -35,13 +35,13 @@ namespace Project2.Forms.Components
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.btnClearImage = new Project2.Utils.RoundedButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblRequiredQuantity = new System.Windows.Forms.Label();
+            this.lblRequiredDiscount = new System.Windows.Forms.Label();
+            this.lblRequiredPrice = new System.Windows.Forms.Label();
+            this.lblRequiredAvailable = new System.Windows.Forms.Label();
+            this.lblRequiredBrand = new System.Windows.Forms.Label();
+            this.lblRequiredType = new System.Windows.Forms.Label();
+            this.lblRequiredName = new System.Windows.Forms.Label();
             this.txtUpdatedAt = new Project2.Utils.FlatTextBox();
             this.lblUpdatedAt = new System.Windows.Forms.Label();
             this.txtCreatedAt = new Project2.Utils.FlatTextBox();
@@ -110,7 +110,7 @@ namespace Project2.Forms.Components
             this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblTitle.Location = new System.Drawing.Point(38, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(120, 23);
+            this.lblTitle.Size = new System.Drawing.Size(96, 18);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Modal Form";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -130,13 +130,13 @@ namespace Project2.Forms.Components
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
             this.pnlContainer.Controls.Add(this.btnClearImage);
-            this.pnlContainer.Controls.Add(this.label7);
-            this.pnlContainer.Controls.Add(this.label6);
-            this.pnlContainer.Controls.Add(this.label5);
-            this.pnlContainer.Controls.Add(this.label3);
-            this.pnlContainer.Controls.Add(this.label2);
-            this.pnlContainer.Controls.Add(this.label1);
-            this.pnlContainer.Controls.Add(this.label4);
+            this.pnlContainer.Controls.Add(this.lblRequiredQuantity);
+            this.pnlContainer.Controls.Add(this.lblRequiredDiscount);
+            this.pnlContainer.Controls.Add(this.lblRequiredPrice);
+            this.pnlContainer.Controls.Add(this.lblRequiredAvailable);
+            this.pnlContainer.Controls.Add(this.lblRequiredBrand);
+            this.pnlContainer.Controls.Add(this.lblRequiredType);
+            this.pnlContainer.Controls.Add(this.lblRequiredName);
             this.pnlContainer.Controls.Add(this.txtUpdatedAt);
             this.pnlContainer.Controls.Add(this.lblUpdatedAt);
             this.pnlContainer.Controls.Add(this.txtCreatedAt);
@@ -195,82 +195,82 @@ namespace Project2.Forms.Components
             this.btnClearImage.UseVisualStyleBackColor = false;
             this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
             // 
-            // label7
+            // lblRequiredQuantity
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(534, 278);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 22);
-            this.label7.TabIndex = 48;
-            this.label7.Text = "*";
+            this.lblRequiredQuantity.AutoSize = true;
+            this.lblRequiredQuantity.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredQuantity.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredQuantity.Location = new System.Drawing.Point(534, 278);
+            this.lblRequiredQuantity.Name = "lblRequiredQuantity";
+            this.lblRequiredQuantity.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredQuantity.TabIndex = 48;
+            this.lblRequiredQuantity.Text = "*";
             // 
-            // label6
+            // lblRequiredDiscount
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(305, 278);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 22);
-            this.label6.TabIndex = 47;
-            this.label6.Text = "*";
+            this.lblRequiredDiscount.AutoSize = true;
+            this.lblRequiredDiscount.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredDiscount.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredDiscount.Location = new System.Drawing.Point(305, 278);
+            this.lblRequiredDiscount.Name = "lblRequiredDiscount";
+            this.lblRequiredDiscount.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredDiscount.TabIndex = 47;
+            this.lblRequiredDiscount.Text = "*";
             // 
-            // label5
+            // lblRequiredPrice
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(49, 278);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 22);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "*";
+            this.lblRequiredPrice.AutoSize = true;
+            this.lblRequiredPrice.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredPrice.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredPrice.Location = new System.Drawing.Point(49, 278);
+            this.lblRequiredPrice.Name = "lblRequiredPrice";
+            this.lblRequiredPrice.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredPrice.TabIndex = 46;
+            this.lblRequiredPrice.Text = "*";
             // 
-            // label3
+            // lblRequiredAvailable
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(542, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 22);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "*";
+            this.lblRequiredAvailable.AutoSize = true;
+            this.lblRequiredAvailable.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredAvailable.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredAvailable.Location = new System.Drawing.Point(542, 70);
+            this.lblRequiredAvailable.Name = "lblRequiredAvailable";
+            this.lblRequiredAvailable.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredAvailable.TabIndex = 45;
+            this.lblRequiredAvailable.Text = "*";
             // 
-            // label2
+            // lblRequiredBrand
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(284, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 22);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "*";
+            this.lblRequiredBrand.AutoSize = true;
+            this.lblRequiredBrand.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredBrand.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredBrand.Location = new System.Drawing.Point(284, 70);
+            this.lblRequiredBrand.Name = "lblRequiredBrand";
+            this.lblRequiredBrand.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredBrand.TabIndex = 44;
+            this.lblRequiredBrand.Text = "*";
             // 
-            // label1
+            // lblRequiredType
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(45, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 22);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "*";
+            this.lblRequiredType.AutoSize = true;
+            this.lblRequiredType.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredType.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredType.Location = new System.Drawing.Point(45, 70);
+            this.lblRequiredType.Name = "lblRequiredType";
+            this.lblRequiredType.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredType.TabIndex = 43;
+            this.lblRequiredType.Text = "*";
             // 
-            // label4
+            // lblRequiredName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(286, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 22);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "*";
+            this.lblRequiredName.AutoSize = true;
+            this.lblRequiredName.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredName.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredName.Location = new System.Drawing.Point(286, 15);
+            this.lblRequiredName.Name = "lblRequiredName";
+            this.lblRequiredName.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredName.TabIndex = 42;
+            this.lblRequiredName.Text = "*";
             // 
             // txtUpdatedAt
             // 
@@ -281,7 +281,7 @@ namespace Project2.Forms.Components
             this.txtUpdatedAt.Location = new System.Drawing.Point(355, 656);
             this.txtUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.txtUpdatedAt.Name = "txtUpdatedAt";
-            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 29);
+            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 25);
             this.txtUpdatedAt.TabIndex = 0;
             this.txtUpdatedAt.TabStop = false;
             this.txtUpdatedAt.Visible = false;
@@ -296,7 +296,7 @@ namespace Project2.Forms.Components
             this.lblUpdatedAt.Location = new System.Drawing.Point(352, 634);
             this.lblUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.lblUpdatedAt.Name = "lblUpdatedAt";
-            this.lblUpdatedAt.Size = new System.Drawing.Size(120, 22);
+            this.lblUpdatedAt.Size = new System.Drawing.Size(95, 20);
             this.lblUpdatedAt.TabIndex = 0;
             this.lblUpdatedAt.Text = "Updated At";
             this.lblUpdatedAt.Visible = false;
@@ -310,7 +310,7 @@ namespace Project2.Forms.Components
             this.txtCreatedAt.Location = new System.Drawing.Point(10, 656);
             this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(335, 29);
+            this.txtCreatedAt.Size = new System.Drawing.Size(335, 25);
             this.txtCreatedAt.TabIndex = 0;
             this.txtCreatedAt.TabStop = false;
             this.txtCreatedAt.Visible = false;
@@ -325,7 +325,7 @@ namespace Project2.Forms.Components
             this.lblCreatedAt.Location = new System.Drawing.Point(7, 634);
             this.lblCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.lblCreatedAt.Name = "lblCreatedAt";
-            this.lblCreatedAt.Size = new System.Drawing.Size(115, 22);
+            this.lblCreatedAt.Size = new System.Drawing.Size(91, 20);
             this.lblCreatedAt.TabIndex = 0;
             this.lblCreatedAt.Text = "Created At";
             this.lblCreatedAt.Visible = false;
@@ -339,7 +339,7 @@ namespace Project2.Forms.Components
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.txtQuantity.MaxLength = 20;
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(220, 30);
+            this.txtQuantity.Size = new System.Drawing.Size(220, 25);
             this.txtQuantity.TabIndex = 8;
             // 
             // txtDiscount
@@ -351,7 +351,7 @@ namespace Project2.Forms.Components
             this.txtDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.txtDiscount.MaxLength = 20;
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(220, 30);
+            this.txtDiscount.Size = new System.Drawing.Size(220, 25);
             this.txtDiscount.TabIndex = 7;
             // 
             // txtPrice
@@ -363,7 +363,7 @@ namespace Project2.Forms.Components
             this.txtPrice.Margin = new System.Windows.Forms.Padding(0);
             this.txtPrice.MaxLength = 20;
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(220, 30);
+            this.txtPrice.Size = new System.Drawing.Size(220, 25);
             this.txtPrice.TabIndex = 6;
             // 
             // txtDescription
@@ -388,7 +388,7 @@ namespace Project2.Forms.Components
             this.txtName.Margin = new System.Windows.Forms.Padding(0);
             this.txtName.MaxLength = 250;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(450, 30);
+            this.txtName.Size = new System.Drawing.Size(450, 25);
             this.txtName.TabIndex = 1;
             // 
             // txtId
@@ -401,7 +401,7 @@ namespace Project2.Forms.Components
             this.txtId.Margin = new System.Windows.Forms.Padding(0);
             this.txtId.MaxLength = 50;
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(220, 30);
+            this.txtId.Size = new System.Drawing.Size(220, 25);
             this.txtId.TabIndex = 0;
             this.txtId.TabStop = false;
             // 
@@ -415,7 +415,7 @@ namespace Project2.Forms.Components
             this.cbAvailable.Location = new System.Drawing.Point(470, 92);
             this.cbAvailable.Margin = new System.Windows.Forms.Padding(0);
             this.cbAvailable.Name = "cbAvailable";
-            this.cbAvailable.Size = new System.Drawing.Size(220, 29);
+            this.cbAvailable.Size = new System.Drawing.Size(220, 28);
             this.cbAvailable.TabIndex = 4;
             // 
             // cbBrand
@@ -428,7 +428,7 @@ namespace Project2.Forms.Components
             this.cbBrand.Location = new System.Drawing.Point(240, 92);
             this.cbBrand.Margin = new System.Windows.Forms.Padding(0);
             this.cbBrand.Name = "cbBrand";
-            this.cbBrand.Size = new System.Drawing.Size(220, 29);
+            this.cbBrand.Size = new System.Drawing.Size(220, 28);
             this.cbBrand.TabIndex = 3;
             // 
             // cbType
@@ -441,7 +441,7 @@ namespace Project2.Forms.Components
             this.cbType.Location = new System.Drawing.Point(10, 92);
             this.cbType.Margin = new System.Windows.Forms.Padding(0);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(220, 29);
+            this.cbType.Size = new System.Drawing.Size(220, 28);
             this.cbType.TabIndex = 2;
             this.cbType.SelectionChangeCommitted += new System.EventHandler(this.cbType_SelectionChangeCommitted);
             // 
@@ -523,7 +523,7 @@ namespace Project2.Forms.Components
             this.lblBrand.Location = new System.Drawing.Point(237, 70);
             this.lblBrand.Margin = new System.Windows.Forms.Padding(0);
             this.lblBrand.Name = "lblBrand";
-            this.lblBrand.Size = new System.Drawing.Size(65, 22);
+            this.lblBrand.Size = new System.Drawing.Size(52, 20);
             this.lblBrand.TabIndex = 0;
             this.lblBrand.Text = "Brand";
             // 
@@ -537,7 +537,7 @@ namespace Project2.Forms.Components
             this.lblType.Location = new System.Drawing.Point(7, 70);
             this.lblType.Margin = new System.Windows.Forms.Padding(0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(54, 22);
+            this.lblType.Size = new System.Drawing.Size(42, 20);
             this.lblType.TabIndex = 0;
             this.lblType.Text = "Type";
             // 
@@ -551,7 +551,7 @@ namespace Project2.Forms.Components
             this.lblImage.Location = new System.Drawing.Point(7, 333);
             this.lblImage.Margin = new System.Windows.Forms.Padding(0);
             this.lblImage.Name = "lblImage";
-            this.lblImage.Size = new System.Drawing.Size(70, 22);
+            this.lblImage.Size = new System.Drawing.Size(57, 20);
             this.lblImage.TabIndex = 0;
             this.lblImage.Text = "Image";
             // 
@@ -565,7 +565,7 @@ namespace Project2.Forms.Components
             this.lblAvailable.Location = new System.Drawing.Point(467, 70);
             this.lblAvailable.Margin = new System.Windows.Forms.Padding(0);
             this.lblAvailable.Name = "lblAvailable";
-            this.lblAvailable.Size = new System.Drawing.Size(98, 22);
+            this.lblAvailable.Size = new System.Drawing.Size(79, 20);
             this.lblAvailable.TabIndex = 0;
             this.lblAvailable.Text = "Available";
             // 
@@ -579,7 +579,7 @@ namespace Project2.Forms.Components
             this.lblQuantity.Location = new System.Drawing.Point(467, 278);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(92, 22);
+            this.lblQuantity.Size = new System.Drawing.Size(71, 20);
             this.lblQuantity.TabIndex = 0;
             this.lblQuantity.Text = "Quantity";
             // 
@@ -593,7 +593,7 @@ namespace Project2.Forms.Components
             this.lblDiscount.Location = new System.Drawing.Point(237, 278);
             this.lblDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(89, 22);
+            this.lblDiscount.Size = new System.Drawing.Size(72, 20);
             this.lblDiscount.TabIndex = 0;
             this.lblDiscount.Text = "Discount";
             // 
@@ -607,7 +607,7 @@ namespace Project2.Forms.Components
             this.lblPrice.Location = new System.Drawing.Point(7, 278);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(54, 22);
+            this.lblPrice.Size = new System.Drawing.Size(46, 20);
             this.lblPrice.TabIndex = 0;
             this.lblPrice.Text = "Price";
             // 
@@ -621,7 +621,7 @@ namespace Project2.Forms.Components
             this.lblDescription.Location = new System.Drawing.Point(7, 128);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(111, 22);
+            this.lblDescription.Size = new System.Drawing.Size(91, 20);
             this.lblDescription.TabIndex = 16;
             this.lblDescription.Text = "Description";
             // 
@@ -635,7 +635,7 @@ namespace Project2.Forms.Components
             this.lblName.Location = new System.Drawing.Point(237, 15);
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(66, 22);
+            this.lblName.Size = new System.Drawing.Size(53, 20);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Name";
             // 
@@ -649,7 +649,7 @@ namespace Project2.Forms.Components
             this.lblId.Location = new System.Drawing.Point(7, 15);
             this.lblId.Margin = new System.Windows.Forms.Padding(0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(29, 22);
+            this.lblId.Size = new System.Drawing.Size(25, 20);
             this.lblId.TabIndex = 0;
             this.lblId.Text = "ID";
             // 
@@ -691,7 +691,7 @@ namespace Project2.Forms.Components
             // 
             // ProductModalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 800);
             this.Controls.Add(this.pnlContainer);
@@ -752,13 +752,13 @@ namespace Project2.Forms.Components
         private System.Windows.Forms.Label lblUpdatedAt;
         private Utils.FlatTextBox txtCreatedAt;
         private System.Windows.Forms.Label lblCreatedAt;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblRequiredName;
+        private System.Windows.Forms.Label lblRequiredQuantity;
+        private System.Windows.Forms.Label lblRequiredDiscount;
+        private System.Windows.Forms.Label lblRequiredPrice;
+        private System.Windows.Forms.Label lblRequiredAvailable;
+        private System.Windows.Forms.Label lblRequiredBrand;
+        private System.Windows.Forms.Label lblRequiredType;
         private Utils.RoundedButton btnClearImage;
     }
 }

@@ -122,6 +122,7 @@ namespace Project2.UserControls
             this.btnSell.Text = "Sell";
             this.btnSell.TextColor = System.Drawing.Color.White;
             this.btnSell.UseVisualStyleBackColor = false;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // lblQuantity
             // 
@@ -133,9 +134,9 @@ namespace Project2.UserControls
             this.lblQuantity.MaximumSize = new System.Drawing.Size(250, 100);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.lblQuantity.Size = new System.Drawing.Size(103, 43);
+            this.lblQuantity.Size = new System.Drawing.Size(178, 43);
             this.lblQuantity.TabIndex = 7;
-            this.lblQuantity.Text = "Quantity";
+            this.lblQuantity.Text = "Available stock:";
             this.lblQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlLineFinalPrice
@@ -330,14 +331,14 @@ namespace Project2.UserControls
             this.btnRefresh.BorderSize = 1;
             this.btnRefresh.FlatAppearance.BorderSize = 0;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::Project2.Properties.Resources.refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(510, 7);
+            this.btnRefresh.Location = new System.Drawing.Point(510, 6);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.Size = new System.Drawing.Size(110, 29);
             this.btnRefresh.TabIndex = 14;
             this.btnRefresh.Text = "        Refresh";
             this.btnRefresh.TextColor = System.Drawing.Color.White;

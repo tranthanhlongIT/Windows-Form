@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Project2.UserControls;
 
 namespace Project2
 {
@@ -9,6 +10,7 @@ namespace Project2
     {
         private int activeBtn;
         private Employee employee;
+        private ProductForm productForm;
 
         public ManagementForm()
         {
@@ -35,9 +37,10 @@ namespace Project2
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            productForm.BringToFront();
             SlidePanel(btnProduct);
             ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory });
+            createTab();
+
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -54,14 +57,12 @@ namespace Project2
 
         private void btnSale_Click(object sender, EventArgs e)
         {
-            salesForm.BringToFront();
             SlidePanel(btnSale);
             ChangeButtonTextColor(5, btnSale, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnCustomer, btnHistory });
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            customerForm.BringToFront();
             SlidePanel(btnCustomer);
             ChangeButtonTextColor(6, btnCustomer, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });
         }
@@ -219,6 +220,21 @@ namespace Project2
             {
                 btnDashboard.Enabled = true;
                 btnHistory.Enabled = true;
+            }
+        }
+
+        private void createTab()
+        {
+            if (!pnlContainer.Controls.Contains(productForm))
+            {
+                productForm = new ProductForm();
+                pnlContainer.Controls.Add(productForm);
+                productForm.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                pnlContainer.Controls.Clear();
+                productForm.Dispose();    
             }
         }
     }
