@@ -15,23 +15,16 @@ namespace Project2.UserControls
         private List<Category> categories;
         private int id;
         private bool isEnabled = false;
-        private static ProductForm _instance;
-        public static ProductForm Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new ProductForm();
-                return _instance;
-            }
-        }
 
         public ProductForm()
         {
             InitializeComponent();
-            InitializeBUS();
-            LoadTreeView();
-            LoadSearchTextBox();
+            if (!this.DesignMode)
+            {
+                InitializeBUS();
+                LoadTreeView();
+                LoadSearchTextBox();
+            }
         }
 
         private void InitializeBUS()
@@ -97,15 +90,15 @@ namespace Project2.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            id = (Int32)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
-            if (!id.Equals(null))
+            id = (Int32?)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value ?? 0;
+            if (!id.Equals(0))
                 OpenModal("upd", id);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            id = (Int32)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
-            if (!id.Equals(null))
+            id = (Int32?)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value ?? 0;
+            if (!id.Equals(0))
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -134,6 +127,7 @@ namespace Project2.UserControls
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
+                id = (Int32)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
                 OpenModal("det", id);
             }
         }

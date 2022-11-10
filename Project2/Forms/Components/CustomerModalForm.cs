@@ -112,8 +112,8 @@ namespace Project2.Forms.Components
             cbActive.SelectedValue = customer.is_active;
             cbGender.SelectedValue = customer.gender;
             cbCity.SelectedValue = customer.city_id;
-            txtCreatedAt.Text = customer.created_at;
-            txtUpdatedAt.Text = customer.updated_at;
+            txtCreatedAt.Text = customer.created_at.ToString();
+            txtUpdatedAt.Text = customer.updated_at.ToString();
         }
 
         public void ResetField()
@@ -241,18 +241,18 @@ namespace Project2.Forms.Components
             }
         }
 
-        public string SetCreatedAt()
+        public DateTime SetCreatedAt()
         {
             if (action == "add")
-                return DateTime.Now.ToString();
-            else return txtCreatedAt.Text;
+                return DateTime.Now;
+            else return DateTime.Parse(txtCreatedAt.Text);
         }
 
-        public string SetUpdatedAt()
+        public DateTime SetUpdatedAt()
         {
             if (action == "add")
-                return txtUpdatedAt.Text;
-            else return DateTime.Now.ToString();
+                return DateTime.Parse(txtUpdatedAt.Text);
+            else return DateTime.Now;
         }
 
         public bool ValidateForm()

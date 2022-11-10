@@ -29,6 +29,7 @@ namespace Project2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagementForm));
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@ namespace Project2
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pnlNavigation = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
+            this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
             this.pnlLineActive = new System.Windows.Forms.Panel();
             this.pnlLine = new System.Windows.Forms.Panel();
             this.btnHistory = new System.Windows.Forms.Button();
@@ -46,12 +48,14 @@ namespace Project2
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.pbUser = new Project2.Forms.Components.RoundedPictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.historyForm1 = new Project2.UserControls.HistoryForm();
+            this.dashboardForm1 = new Project2.UserControls.DashboardForm();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
+            this.pnlContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -78,7 +82,7 @@ namespace Project2
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimize.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.Image = global::Project2.Properties.Resources.minimize_icon;
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
             this.btnMinimize.Location = new System.Drawing.Point(1190, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.btnMinimize.Name = "btnMinimize";
@@ -97,7 +101,7 @@ namespace Project2
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Nirmala UI Semilight", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = global::Project2.Properties.Resources.close_icon;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(1235, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
@@ -114,13 +118,13 @@ namespace Project2
             this.lblLogo.ForeColor = System.Drawing.Color.White;
             this.lblLogo.Location = new System.Drawing.Point(70, 10);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(306, 25);
+            this.lblLogo.Size = new System.Drawing.Size(233, 21);
             this.lblLogo.TabIndex = 3;
             this.lblLogo.Text = "Shop Management System";
             // 
             // pbLogo
             // 
-            this.pbLogo.Image = global::Project2.Properties.Resources.logo_icon;
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(10, -5);
             this.pbLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pbLogo.Name = "pbLogo";
@@ -159,9 +163,22 @@ namespace Project2
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblRole.Location = new System.Drawing.Point(1095, 25);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(45, 21);
+            this.lblRole.Size = new System.Drawing.Size(39, 19);
             this.lblRole.TabIndex = 12;
             this.lblRole.Text = "Role";
+            // 
+            // pbUser
+            // 
+            this.pbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbUser.BackColor = System.Drawing.Color.White;
+            this.pbUser.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbUser.InitialImage")));
+            this.pbUser.Location = new System.Drawing.Point(1050, 5);
+            this.pbUser.Margin = new System.Windows.Forms.Padding(0);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(40, 40);
+            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbUser.TabIndex = 11;
+            this.pbUser.TabStop = false;
             // 
             // pnlLineActive
             // 
@@ -353,31 +370,41 @@ namespace Project2
             this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblUsername.Location = new System.Drawing.Point(1095, 5);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(93, 21);
+            this.lblUsername.Size = new System.Drawing.Size(77, 19);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
             // 
-            // pbUser
-            // 
-            this.pbUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbUser.BackColor = System.Drawing.Color.White;
-            this.pbUser.InitialImage = global::Project2.Properties.Resources.user_icon_default;
-            this.pbUser.Location = new System.Drawing.Point(1050, 5);
-            this.pbUser.Margin = new System.Windows.Forms.Padding(0);
-            this.pbUser.Name = "pbUser";
-            this.pbUser.Size = new System.Drawing.Size(40, 40);
-            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbUser.TabIndex = 11;
-            this.pbUser.TabStop = false;
-            // 
             // pnlContainer
             // 
+            this.pnlContainer.Controls.Add(this.dashboardForm1);
+            this.pnlContainer.Controls.Add(this.historyForm1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 90);
             this.pnlContainer.Margin = new System.Windows.Forms.Padding(0);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(1280, 630);
             this.pnlContainer.TabIndex = 23;
+            // 
+            // historyForm1
+            // 
+            this.historyForm1.BackColor = System.Drawing.SystemColors.Control;
+            this.historyForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.historyForm1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historyForm1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.historyForm1.Location = new System.Drawing.Point(0, 0);
+            this.historyForm1.Margin = new System.Windows.Forms.Padding(5);
+            this.historyForm1.Name = "historyForm1";
+            this.historyForm1.Size = new System.Drawing.Size(1280, 630);
+            this.historyForm1.TabIndex = 0;
+            // 
+            // dashboardForm1
+            // 
+            this.dashboardForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardForm1.Location = new System.Drawing.Point(0, 0);
+            this.dashboardForm1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dashboardForm1.Name = "dashboardForm1";
+            this.dashboardForm1.Size = new System.Drawing.Size(1280, 630);
+            this.dashboardForm1.TabIndex = 1;
             // 
             // ManagementForm
             // 
@@ -399,6 +426,7 @@ namespace Project2
             this.pnlNavigation.ResumeLayout(false);
             this.pnlNavigation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
+            this.pnlContainer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -424,5 +452,7 @@ namespace Project2
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Panel pnlContainer;
+        private UserControls.HistoryForm historyForm1;
+        private UserControls.DashboardForm dashboardForm1;
     }
 }

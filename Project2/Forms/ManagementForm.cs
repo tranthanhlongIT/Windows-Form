@@ -37,10 +37,9 @@ namespace Project2
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
+            CreateTabProduct();
             SlidePanel(btnProduct);
             ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory });
-            createTab();
-
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -223,7 +222,7 @@ namespace Project2
             }
         }
 
-        private void createTab()
+        private void CreateTabProduct()
         {
             if (!pnlContainer.Controls.Contains(productForm))
             {

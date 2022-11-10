@@ -16,7 +16,6 @@ namespace Project2.UserControls
         private List<Product> products;
         private Product product;
         private Employee employee;
-        private bool isEnabled = false;
 
         public SalesForm()
         {
@@ -82,7 +81,6 @@ namespace Project2.UserControls
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            isEnabled = true;
             if (cbFilter.SelectedIndex == 0)
             {
                 products = new ProductBUS().GetAll();
@@ -102,7 +100,7 @@ namespace Project2.UserControls
 
         private void lvProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvProducts.SelectedItems.Count > 0 && isEnabled)
+            if (lvProducts.SelectedItems.Count > 0)
             {
                 ListViewItem item = lvProducts.SelectedItems[0];
                 product = prodBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));

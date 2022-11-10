@@ -604,9 +604,9 @@ namespace Project2
 		
 		private System.Nullable<bool> _is_active;
 		
-		private string _created_at;
+		private System.Nullable<System.DateTime> _created_at;
 		
-		private string _updated_at;
+		private System.Nullable<System.DateTime> _updated_at;
 		
 		private System.Nullable<int> _city_id;
 		
@@ -634,9 +634,9 @@ namespace Project2
     partial void OnzipcodeChanged();
     partial void Onis_activeChanging(System.Nullable<bool> value);
     partial void Onis_activeChanged();
-    partial void Oncreated_atChanging(string value);
+    partial void Oncreated_atChanging(System.Nullable<System.DateTime> value);
     partial void Oncreated_atChanged();
-    partial void Onupdated_atChanging(string value);
+    partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
     partial void Oncity_idChanging(System.Nullable<int> value);
     partial void Oncity_idChanged();
@@ -809,8 +809,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="NVarChar(50)")]
-		public string created_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> created_at
 		{
 			get
 			{
@@ -829,8 +829,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="NVarChar(50)")]
-		public string updated_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
 		{
 			get
 			{
@@ -981,9 +981,9 @@ namespace Project2
 		
 		private System.Nullable<bool> _is_active;
 		
-		private string _created_at;
+		private System.Nullable<System.DateTime> _created_at;
 		
-		private string _updated_at;
+		private System.Nullable<System.DateTime> _updated_at;
 		
 		private System.Nullable<int> _role_id;
 		
@@ -1017,9 +1017,9 @@ namespace Project2
     partial void OnimageChanged();
     partial void Onis_activeChanging(System.Nullable<bool> value);
     partial void Onis_activeChanged();
-    partial void Oncreated_atChanging(string value);
+    partial void Oncreated_atChanging(System.Nullable<System.DateTime> value);
     partial void Oncreated_atChanged();
-    partial void Onupdated_atChanging(string value);
+    partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
     partial void Onrole_idChanging(System.Nullable<int> value);
     partial void Onrole_idChanged();
@@ -1252,8 +1252,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="NVarChar(50)")]
-		public string created_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> created_at
 		{
 			get
 			{
@@ -1272,8 +1272,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="NVarChar(50)")]
-		public string updated_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
 		{
 			get
 			{
@@ -1414,9 +1414,9 @@ namespace Project2
 		
 		private System.Nullable<double> _total;
 		
-		private string _created_at;
+		private System.DateTime _created_at;
 		
-		private string _updated_at;
+		private System.Nullable<System.DateTime> _updated_at;
 		
 		private EntityRef<Customer> _Customer;
 		
@@ -1440,9 +1440,9 @@ namespace Project2
     partial void OnquantityChanged();
     partial void OntotalChanging(System.Nullable<double> value);
     partial void OntotalChanged();
-    partial void Oncreated_atChanging(string value);
+    partial void Oncreated_atChanging(System.DateTime value);
     partial void Oncreated_atChanged();
-    partial void Onupdated_atChanging(string value);
+    partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
     #endregion
 		
@@ -1586,8 +1586,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="NVarChar(50)")]
-		public string created_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime NOT NULL")]
+		public System.DateTime created_at
 		{
 			get
 			{
@@ -1606,8 +1606,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="NVarChar(50)")]
-		public string updated_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
 		{
 			get
 			{
@@ -1771,9 +1771,9 @@ namespace Project2
 		
 		private System.Data.Linq.Binary _image;
 		
-		private string _created_at;
+		private System.Nullable<System.DateTime> _created_at;
 		
-		private string _updated_at;
+		private System.Nullable<System.DateTime> _updated_at;
 		
 		private System.Nullable<int> _type_id;
 		
@@ -1805,9 +1805,9 @@ namespace Project2
     partial void OnavailableChanged();
     partial void OnimageChanging(System.Data.Linq.Binary value);
     partial void OnimageChanged();
-    partial void Oncreated_atChanging(string value);
+    partial void Oncreated_atChanging(System.Nullable<System.DateTime> value);
     partial void Oncreated_atChanged();
-    partial void Onupdated_atChanging(string value);
+    partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
     partial void Ontype_idChanging(System.Nullable<int> value);
     partial void Ontype_idChanged();
@@ -1983,8 +1983,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="NVarChar(50)")]
-		public string created_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_created_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> created_at
 		{
 			get
 			{
@@ -2003,8 +2003,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="NVarChar(50)")]
-		public string updated_at
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> updated_at
 		{
 			get
 			{

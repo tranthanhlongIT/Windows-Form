@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Configuration;
 
@@ -18,6 +19,20 @@ namespace Project2.DAO
             try
             {
                 return db.Orders.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public List<Order> SelectAllBetweenDate(DateTime dateStart, DateTime dateEnd)
+        {
+            try
+            {
+                if (dateStart.Date == dateEnd.Date)
+                    return db.Orders.Where(o => o.created_at >= dateStart && o.created_at <= dateEnd.AddDays(1)).ToList();
+                else return db.Orders.Where(o => o.created_at >= dateStart && o.created_at <= dateEnd).ToList();
             }
             catch
             {

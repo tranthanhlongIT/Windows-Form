@@ -76,24 +76,28 @@ namespace Project2.UserControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            id = (Int32)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
-            OpenModal("upd", id);
+            id = (Int32?)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value ?? 0;
+            if (!id.Equals(0))
+                OpenModal("upd", id);
         }
 
         private void btnDisable_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure want to disable?", "Confirmation", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            id = (Int32?)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value ?? 0;
+            if (!id.Equals(0))
             {
-                id = Int32.Parse(dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value.ToString());
-                bool result = custBUS.Disable(id);
-                if (result)
+                DialogResult dialogResult = MessageBox.Show("Are you sure want to disable?", "Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    RefreshDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("Disable Failed", "Error", MessageBoxButtons.OK);
+                    bool result = custBUS.Disable(id);
+                    if (result)
+                    {
+                        RefreshDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Disable Failed", "Error", MessageBoxButtons.OK);
+                    }
                 }
             }
         }
@@ -108,7 +112,7 @@ namespace Project2.UserControls
             var senderGrid = (DataGridView)sender;
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                id = (int)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
+                id = (Int32)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
                 OpenModal("det", id);
             }
         }

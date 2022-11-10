@@ -131,7 +131,7 @@ namespace Project2
                 email = txtEmail.Text.Trim(),
                 password = txtPassword.Text.Trim(),
                 is_active = true,
-                created_at = DateTime.Now.ToUniversalTime().ToString(),
+                created_at = DateTime.Now.ToUniversalTime(),
                 updated_at = null
             };
         }

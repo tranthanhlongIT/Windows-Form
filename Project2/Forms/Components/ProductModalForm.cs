@@ -135,8 +135,8 @@ namespace Project2.Forms.Components
             txtPrice.Text = product.price.ToString();
             txtDiscount.Text = product.discount.ToString();
             txtQuantity.Text = product.quantity.ToString();
-            txtCreatedAt.Text = product.created_at;
-            txtUpdatedAt.Text = product.updated_at;
+            txtCreatedAt.Text = product.created_at.ToString();
+            txtUpdatedAt.Text = product.updated_at.ToString();
             if (product.image != null)
                 pbUploadImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
             else pbUploadImage.Image = pbUploadImage.InitialImage;
@@ -273,18 +273,18 @@ namespace Project2.Forms.Components
             }
         }
 
-        public string SetCreatedAt()
+        public DateTime SetCreatedAt()
         {
             if (action == "add")
-                return DateTime.Now.ToString();
-            else return txtCreatedAt.Text;
+                return DateTime.Now;
+            else return DateTime.Parse(txtCreatedAt.Text);
         }
 
-        public string SetUpdatedAt()
+        public DateTime SetUpdatedAt()
         {
             if (action == "add")
-                return txtUpdatedAt.Text;
-            else return DateTime.Now.ToString();
+                return DateTime.Parse(txtUpdatedAt.Text);
+            else return DateTime.Now;
         }
 
         public bool ValidateForm()
