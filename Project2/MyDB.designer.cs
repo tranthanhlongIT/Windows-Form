@@ -20,6 +20,7 @@ namespace Project2
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
+	using System.ComponentModel.DataAnnotations;
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="longtt_ptpmud")]
@@ -583,7 +584,8 @@ namespace Project2
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Customers")]
-	public partial class Customer : INotifyPropertyChanging, INotifyPropertyChanged
+	[MetadataType(typeof(DTO.Customer))]
+	public partial class Customer : DTO.Customer, INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1750,7 +1752,8 @@ namespace Project2
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Products")]
-	public partial class Product : INotifyPropertyChanging, INotifyPropertyChanged
+	[MetadataType(typeof(DTO.Product))]
+	public partial class Product : DTO.Product, INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1761,13 +1764,13 @@ namespace Project2
 		
 		private string _description;
 		
-		private System.Nullable<double> _price;
+		private double _price;
 		
-		private System.Nullable<double> _discount;
+		private double _discount;
 		
-		private System.Nullable<int> _quantity;
+		private int _quantity;
 		
-		private System.Nullable<bool> _available;
+		private bool _available;
 		
 		private System.Data.Linq.Binary _image;
 		
@@ -1775,9 +1778,9 @@ namespace Project2
 		
 		private System.Nullable<System.DateTime> _updated_at;
 		
-		private System.Nullable<int> _type_id;
+		private int _type_id;
 		
-		private System.Nullable<int> _brand_id;
+		private int _brand_id;
 		
 		private EntitySet<Order> _Orders;
 		
@@ -1795,13 +1798,13 @@ namespace Project2
     partial void OnnameChanged();
     partial void OndescriptionChanging(string value);
     partial void OndescriptionChanged();
-    partial void OnpriceChanging(System.Nullable<double> value);
+    partial void OnpriceChanging(double value);
     partial void OnpriceChanged();
-    partial void OndiscountChanging(System.Nullable<double> value);
+    partial void OndiscountChanging(double value);
     partial void OndiscountChanged();
-    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanging(int value);
     partial void OnquantityChanged();
-    partial void OnavailableChanging(System.Nullable<bool> value);
+    partial void OnavailableChanging(bool value);
     partial void OnavailableChanged();
     partial void OnimageChanging(System.Data.Linq.Binary value);
     partial void OnimageChanged();
@@ -1809,9 +1812,9 @@ namespace Project2
     partial void Oncreated_atChanged();
     partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
-    partial void Ontype_idChanging(System.Nullable<int> value);
+    partial void Ontype_idChanging(int value);
     partial void Ontype_idChanged();
-    partial void Onbrand_idChanging(System.Nullable<int> value);
+    partial void Onbrand_idChanging(int value);
     partial void Onbrand_idChanged();
     #endregion
 		
@@ -1843,7 +1846,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -1883,8 +1886,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float")]
-		public System.Nullable<double> price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
 		{
 			get
 			{
@@ -1903,8 +1906,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
-		public System.Nullable<double> discount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float NOT NULL")]
+		public double discount
 		{
 			get
 			{
@@ -1923,8 +1926,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
 		{
 			get
 			{
@@ -1943,8 +1946,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Bit")]
-		public System.Nullable<bool> available
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Bit NOT NULL")]
+		public bool available
 		{
 			get
 			{
@@ -2023,8 +2026,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type_id", DbType="Int")]
-		public System.Nullable<int> type_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type_id", DbType="Int NOT NULL")]
+		public int type_id
 		{
 			get
 			{
@@ -2047,8 +2050,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_brand_id", DbType="Int")]
-		public System.Nullable<int> brand_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_brand_id", DbType="Int NOT NULL")]
+		public int brand_id
 		{
 			get
 			{
@@ -2111,7 +2114,7 @@ namespace Project2
 					}
 					else
 					{
-						this._type_id = default(Nullable<int>);
+						this._type_id = default(int);
 					}
 					this.SendPropertyChanged("Category");
 				}
@@ -2145,7 +2148,7 @@ namespace Project2
 					}
 					else
 					{
-						this._brand_id = default(Nullable<int>);
+						this._brand_id = default(int);
 					}
 					this.SendPropertyChanged("Category1");
 				}

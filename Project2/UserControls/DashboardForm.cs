@@ -24,6 +24,7 @@ namespace Project2.UserControls
 
         private void chartCustomer_Click(object sender, EventArgs e)
         {
+            chartCustomer.Series["Customer"].Points.Clear();
             OrderBUS orderBUS = new OrderBUS();
             var q = orderBUS.GetAll().GroupBy(i => i.created_at).Select(g => new { total = g.Count(), Day = g.Key.Day }).ToList();
 

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
-using Project2.Utils;
+using Project2.Ultils;
 using Project2.Forms.Components;
 
 namespace Project2.UserControls
@@ -167,7 +166,7 @@ namespace Project2.UserControls
                 lvProducts.LargeImageList = SetImageList(products);
                 foreach (var product in products)
                 {
-                    if (product.available ?? default(bool))
+                    if (product.available)
                     {
                         ListViewItem item = new ListViewItem(product.name);
                         item.ImageIndex = i;

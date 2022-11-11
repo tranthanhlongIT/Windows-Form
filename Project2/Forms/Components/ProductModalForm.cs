@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
-using Project2.Utils;
+using Project2.Ultils;
 
 namespace Project2.Forms.Components
 {
@@ -28,7 +28,7 @@ namespace Project2.Forms.Components
             this.id = id;
         }
 
-        public void InitializeBUS()
+        private void InitializeBUS()
         {
             prodBUS = new ProductBUS();
             cateBUS = new CategoryBUS();
@@ -38,6 +38,7 @@ namespace Project2.Forms.Components
         {
             InitializeBUS();
             SetForm();
+            SetBinding();
         }
 
         private void cbType_SelectionChangeCommitted(object sender, EventArgs e)
@@ -65,7 +66,6 @@ namespace Project2.Forms.Components
         {
             if (action == "add")
             {
-                CreateProduct();
                 BeginAdd();
             }
             else if (action == "upd")
@@ -84,29 +84,30 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        public void Alert(string msg, Form_Alert.enmType type)
+        private void Alert(string msg, Form_Alert.enmType type)
         {
             Form_Alert frm = new Form_Alert();
             frm.showAlert(msg, type);
         }
 
-        public void SetForm()
+        private void SetForm()
         {
             if (action == "add")
             {
                 lblTitle.Text = "Add Product";
-                pbUploadImage.Image = pbUploadImage.InitialImage;
+                CreateProduct();
                 LoadTypeComboBox();
                 LoadAvailableComboBox();
-                cbType.Text = "";
+                cbType.Text = string.Empty;
                 cbBrand.Enabled = false;
+                pbUploadImage.Image = pbUploadImage.InitialImage;
             }
             else if (action == "upd")
             {
                 lblTitle.Text = "Update Product";
                 product = prodBUS.GetProductByID(id);
                 LoadTypeComboBox();
-                LoadBrandComboBox(product.type_id ?? default(int));
+                LoadBrandComboBox(product.type_id);
                 LoadAvailableComboBox();
                 SetField();
                 SetVisibleForCreatedAtAndUpdatedAt();
@@ -116,7 +117,7 @@ namespace Project2.Forms.Components
                 lblTitle.Text = "View Product";
                 product = prodBUS.GetProductByID(id);
                 LoadTypeComboBox();
-                LoadBrandComboBox(product.type_id ?? default(int));
+                LoadBrandComboBox(product.type_id);
                 LoadAvailableComboBox();
                 SetField();
                 DisableField();
@@ -124,7 +125,26 @@ namespace Project2.Forms.Components
             }
         }
 
-        public void SetField()
+        private void SetBinding()
+        {
+            try
+            {
+                bindingSourceProduct.DataSource = product;
+                txtId.DataBindings.Add(new Binding("Text", bindingSourceProduct, "id"));
+                txtName.DataBindings.Add(new Binding("Text", bindingSourceProduct, "name"));
+                txtPrice.DataBindings.Add(new Binding("Text", bindingSourceProduct, "price"));
+                txtQuantity.DataBindings.Add(new Binding("Text", bindingSourceProduct, "quantity"));
+                cbType.DataBindings.Add(new Binding("SelectedValue", bindingSourceProduct, "type_id"));
+                cbBrand.DataBindings.Add(new Binding("SelectedValue", bindingSourceProduct, "brand_id"));
+                bindingSourceProduct.EndEdit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SetField()
         {
             txtId.Text = product.id.ToString();
             txtName.Text = product.name;
@@ -142,7 +162,7 @@ namespace Project2.Forms.Components
             else pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
-        public void ResetField()
+        private void ResetField()
         {
             txtId.Text = "";
             txtName.Text = "";
@@ -159,7 +179,7 @@ namespace Project2.Forms.Components
             pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
-        public void DisableField()
+        private void DisableField()
         {
             txtName.Enabled = false;
             txtDescription.Enabled = false;
@@ -174,16 +194,9 @@ namespace Project2.Forms.Components
             btnConfirm.Visible = false;
             btnUploadImage.Visible = false;
             btnClearImage.Visible = false;
-            lblRequiredAvailable.Visible = false;
-            lblRequiredBrand.Visible = false;
-            lblRequiredDiscount.Visible = false;
-            lblRequiredName.Visible = false;
-            lblRequiredPrice.Visible = false;
-            lblRequiredQuantity.Visible = false;
-            lblRequiredType.Visible = false;
         }
 
-        public void SetVisibleForCreatedAtAndUpdatedAt()
+        private void SetVisibleForCreatedAtAndUpdatedAt()
         {
             lblCreatedAt.Visible = true;
             lblUpdatedAt.Visible = true;
@@ -191,7 +204,7 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Visible = true;
         }
 
-        public void LoadTypeComboBox()
+        private void LoadTypeComboBox()
         {
             cbType.DisplayMember = "name";
             cbType.ValueMember = "id";
@@ -199,7 +212,7 @@ namespace Project2.Forms.Components
             cbType.DataSource = categories;
         }
 
-        public void LoadBrandComboBox(int parentId)
+        private void LoadBrandComboBox(int parentId)
         {
             cbBrand.DisplayMember = "name";
             cbBrand.ValueMember = "id";
@@ -207,7 +220,7 @@ namespace Project2.Forms.Components
             cbBrand.DataSource = categories;
         }
 
-        public void LoadAvailableComboBox()
+        private void LoadAvailableComboBox()
         {
             cbAvailable.DisplayMember = "Key";
             cbAvailable.ValueMember = "Value";
@@ -217,19 +230,19 @@ namespace Project2.Forms.Components
             cbAvailable.DataSource = new BindingSource(dict, null);
         }
 
-        public void CreateProduct()
+        private void CreateProduct()
         {
             this.product = new Product();
         }
 
-        public void SetProduct()
+        private void SetProduct()
         {
             product.name = txtName.Text.Trim();
             product.description = txtDescription.Text.Trim();
             product.price = Double.Parse(txtPrice.Text.Trim());
             product.discount = Double.Parse(txtDiscount.Text.Trim());
-            product.quantity = Int32.Parse(txtQuantity.Text.Trim());
-            product.available = (bool?)cbAvailable.SelectedValue;
+            product.quantity = SetQuantity();
+            product.available = (bool)cbAvailable.SelectedValue;
             product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
             product.created_at = SetCreatedAt();
             product.updated_at = SetUpdatedAt();
@@ -237,9 +250,9 @@ namespace Project2.Forms.Components
             product.brand_id = (Int32)cbBrand.SelectedValue;
         }
 
-        public void BeginAdd()
+        private void BeginAdd()
         {
-            if (ValidateForm())
+            if (product.IsValid)
             {
                 SetProduct();
                 bool result = prodBUS.AddNew(product);
@@ -254,11 +267,12 @@ namespace Project2.Forms.Components
                     this.Alert("Add Failed", Form_Alert.enmType.Error);
                 }
             }
+            else MessageBox.Show(product.Error);
         }
 
-        public void BeginUpdate()
+        private void BeginUpdate()
         {
-            if (ValidateForm())
+            if (product.IsValid)
             {
                 SetProduct();
                 bool result = prodBUS.Update(product);
@@ -273,88 +287,25 @@ namespace Project2.Forms.Components
             }
         }
 
-        public DateTime SetCreatedAt()
+        private int SetQuantity()
+        {
+            if (txtQuantity.Text.Trim() != "" || txtQuantity.Text.Length > 0)
+                return Int32.Parse(txtQuantity.Text.Trim());
+            return 0;
+        }
+
+        private DateTime SetCreatedAt()
         {
             if (action == "add")
                 return DateTime.Now;
             else return DateTime.Parse(txtCreatedAt.Text);
         }
 
-        public DateTime SetUpdatedAt()
+        private DateTime SetUpdatedAt()
         {
             if (action == "add")
                 return DateTime.Parse(txtUpdatedAt.Text);
             else return DateTime.Now;
-        }
-
-        public bool ValidateForm()
-        {
-            if (txtName.Text.Trim() == "" || txtName.Text.Length < 1)
-            {
-                MessageBox.Show("Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (cbType.SelectedValue == null)
-            {
-                MessageBox.Show("Type is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (cbBrand.SelectedValue == null)
-            {
-                MessageBox.Show("Brand is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (cbAvailable.SelectedValue == null)
-            {
-                MessageBox.Show("Available is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtPrice.Text.Trim() == "" || txtPrice.Text.Length < 1)
-            {
-                MessageBox.Show("Price field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (!double.TryParse(txtPrice.Text.Trim(), out double _))
-            {
-                MessageBox.Show("Invalid Price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (Double.Parse(txtPrice.Text) < 0)
-            {
-                MessageBox.Show("Invalid Price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtDiscount.Text.Trim() == "" || txtDiscount.Text.Length < 1)
-            {
-                MessageBox.Show("Discount field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (!double.TryParse(txtDiscount.Text.Trim(), out double _))
-            {
-                MessageBox.Show("Invalid Discount", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (Double.Parse(txtDiscount.Text) < 0)
-            {
-                MessageBox.Show("Invalid Discount", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtQuantity.Text.Trim() == "" || txtPrice.Text.Length < 1)
-            {
-                MessageBox.Show("Quantity field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (!int.TryParse(txtQuantity.Text.Trim(), out int _))
-            {
-                MessageBox.Show("Invalid Quantity", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (Int32.Parse(txtQuantity.Text) < 0)
-            {
-                MessageBox.Show("Invalid Quantity", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }            
-            return true;
         }
     }
 }

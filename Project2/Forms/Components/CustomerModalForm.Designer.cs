@@ -29,15 +29,12 @@ namespace Project2.Forms.Components
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.lblRequiredPhone = new System.Windows.Forms.Label();
-            this.lblRequiredLName = new System.Windows.Forms.Label();
-            this.lblRequiredFName = new System.Windows.Forms.Label();
-            this.lblRequiredActive = new System.Windows.Forms.Label();
             this.lblZipcode = new System.Windows.Forms.Label();
             this.txtPhone = new Project2.Utils.FlatTextBox();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -64,9 +61,13 @@ namespace Project2.Forms.Components
             this.lblFName = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
+            this.bindingSourceCustomer = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProviderCustomer = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCustomer)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -120,10 +121,6 @@ namespace Project2.Forms.Components
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
-            this.pnlContainer.Controls.Add(this.lblRequiredPhone);
-            this.pnlContainer.Controls.Add(this.lblRequiredLName);
-            this.pnlContainer.Controls.Add(this.lblRequiredFName);
-            this.pnlContainer.Controls.Add(this.lblRequiredActive);
             this.pnlContainer.Controls.Add(this.lblZipcode);
             this.pnlContainer.Controls.Add(this.txtPhone);
             this.pnlContainer.Controls.Add(this.lblPhone);
@@ -157,51 +154,6 @@ namespace Project2.Forms.Components
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(700, 770);
             this.pnlContainer.TabIndex = 1;
-            // 
-            // lblRequiredPhone
-            // 
-            this.lblRequiredPhone.AutoSize = true;
-            this.lblRequiredPhone.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredPhone.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredPhone.Location = new System.Drawing.Point(403, 125);
-            this.lblRequiredPhone.Name = "lblRequiredPhone";
-            this.lblRequiredPhone.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredPhone.TabIndex = 41;
-            this.lblRequiredPhone.Text = "*";
-            // 
-            // lblRequiredLName
-            // 
-            this.lblRequiredLName.AutoSize = true;
-            this.lblRequiredLName.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredLName.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredLName.Location = new System.Drawing.Point(432, 70);
-            this.lblRequiredLName.Name = "lblRequiredLName";
-            this.lblRequiredLName.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredLName.TabIndex = 40;
-            this.lblRequiredLName.Text = "*";
-            // 
-            // lblRequiredFName
-            // 
-            this.lblRequiredFName.AutoSize = true;
-            this.lblRequiredFName.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredFName.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredFName.Location = new System.Drawing.Point(85, 70);
-            this.lblRequiredFName.Name = "lblRequiredFName";
-            this.lblRequiredFName.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredFName.TabIndex = 39;
-            this.lblRequiredFName.Text = "*";
-            this.lblRequiredFName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblRequiredActive
-            // 
-            this.lblRequiredActive.AutoSize = true;
-            this.lblRequiredActive.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredActive.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredActive.Location = new System.Drawing.Point(405, 15);
-            this.lblRequiredActive.Name = "lblRequiredActive";
-            this.lblRequiredActive.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredActive.TabIndex = 38;
-            this.lblRequiredActive.Text = "*";
             // 
             // lblZipcode
             // 
@@ -572,6 +524,13 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine.Size = new System.Drawing.Size(700, 1);
             this.pnlVerticalLine.TabIndex = 28;
             // 
+            // errorProviderCustomer
+            // 
+            this.errorProviderCustomer.BlinkRate = 0;
+            this.errorProviderCustomer.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderCustomer.ContainerControl = this;
+            this.errorProviderCustomer.DataSource = this.bindingSourceCustomer;
+            // 
             // CustomerModalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -593,6 +552,8 @@ namespace Project2.Forms.Components
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();
             this.pnlContainer.ResumeLayout(false);
             this.pnlContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCustomer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -630,9 +591,7 @@ namespace Project2.Forms.Components
         private FlatComboBox cbCity;
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Label lblFName;
-        private System.Windows.Forms.Label lblRequiredPhone;
-        private System.Windows.Forms.Label lblRequiredLName;
-        private System.Windows.Forms.Label lblRequiredFName;
-        private System.Windows.Forms.Label lblRequiredActive;
+        private System.Windows.Forms.BindingSource bindingSourceCustomer;
+        private System.Windows.Forms.ErrorProvider errorProviderCustomer;
     }
 }

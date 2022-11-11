@@ -1,5 +1,5 @@
 ﻿
-namespace Project2.Utils
+namespace Project2.Forms.Components
 {
     partial class Form_Alert
     {

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Project2.Utils
+namespace Project2.Ultils
 {
     public static class ConvertImage
     {
@@ -36,26 +36,5 @@ namespace Project2.Utils
             }
             return null;
         }
-
-        //public string SetImagePath()
-        //{
-        //    if (txtImagePath.Text != "")
-        //    {
-        //        return Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
-        //                        Path.GetFileName(txtImagePath.Text));
-        //    }
-        //    else return null;
-        //}
-
-        //public void CopyImageToFolder()
-        //{
-        //    if (txtImagePath.Text.Trim() != "" || txtImagePath.Text.Length > 0)
-        //    {
-        //        File.Copy(txtImagePath.Text.Trim(),
-        //                Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
-        //                Path.GetFileName(txtImagePath.Text)),
-        //                false);
-        //    }
-        //}
     }
 }

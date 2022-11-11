@@ -29,19 +29,13 @@ namespace Project2.Forms.Components
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.btnClearImage = new Project2.Utils.RoundedButton();
-            this.lblRequiredQuantity = new System.Windows.Forms.Label();
-            this.lblRequiredDiscount = new System.Windows.Forms.Label();
-            this.lblRequiredPrice = new System.Windows.Forms.Label();
-            this.lblRequiredAvailable = new System.Windows.Forms.Label();
-            this.lblRequiredBrand = new System.Windows.Forms.Label();
-            this.lblRequiredType = new System.Windows.Forms.Label();
-            this.lblRequiredName = new System.Windows.Forms.Label();
             this.txtUpdatedAt = new Project2.Utils.FlatTextBox();
             this.lblUpdatedAt = new System.Windows.Forms.Label();
             this.txtCreatedAt = new Project2.Utils.FlatTextBox();
@@ -71,11 +65,15 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
             this.pnlUploadImage = new System.Windows.Forms.Panel();
             this.pbUploadImage = new System.Windows.Forms.PictureBox();
+            this.errorProviderProduct = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bindingSourceProduct = new System.Windows.Forms.BindingSource(this.components);
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlUploadImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUploadImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTop
@@ -130,13 +128,6 @@ namespace Project2.Forms.Components
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
             this.pnlContainer.Controls.Add(this.btnClearImage);
-            this.pnlContainer.Controls.Add(this.lblRequiredQuantity);
-            this.pnlContainer.Controls.Add(this.lblRequiredDiscount);
-            this.pnlContainer.Controls.Add(this.lblRequiredPrice);
-            this.pnlContainer.Controls.Add(this.lblRequiredAvailable);
-            this.pnlContainer.Controls.Add(this.lblRequiredBrand);
-            this.pnlContainer.Controls.Add(this.lblRequiredType);
-            this.pnlContainer.Controls.Add(this.lblRequiredName);
             this.pnlContainer.Controls.Add(this.txtUpdatedAt);
             this.pnlContainer.Controls.Add(this.lblUpdatedAt);
             this.pnlContainer.Controls.Add(this.txtCreatedAt);
@@ -194,83 +185,6 @@ namespace Project2.Forms.Components
             this.btnClearImage.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClearImage.UseVisualStyleBackColor = false;
             this.btnClearImage.Click += new System.EventHandler(this.btnClearImage_Click);
-            // 
-            // lblRequiredQuantity
-            // 
-            this.lblRequiredQuantity.AutoSize = true;
-            this.lblRequiredQuantity.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredQuantity.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredQuantity.Location = new System.Drawing.Point(534, 278);
-            this.lblRequiredQuantity.Name = "lblRequiredQuantity";
-            this.lblRequiredQuantity.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredQuantity.TabIndex = 48;
-            this.lblRequiredQuantity.Text = "*";
-            // 
-            // lblRequiredDiscount
-            // 
-            this.lblRequiredDiscount.AutoSize = true;
-            this.lblRequiredDiscount.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredDiscount.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredDiscount.Location = new System.Drawing.Point(305, 278);
-            this.lblRequiredDiscount.Name = "lblRequiredDiscount";
-            this.lblRequiredDiscount.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredDiscount.TabIndex = 47;
-            this.lblRequiredDiscount.Text = "*";
-            // 
-            // lblRequiredPrice
-            // 
-            this.lblRequiredPrice.AutoSize = true;
-            this.lblRequiredPrice.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredPrice.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredPrice.Location = new System.Drawing.Point(49, 278);
-            this.lblRequiredPrice.Name = "lblRequiredPrice";
-            this.lblRequiredPrice.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredPrice.TabIndex = 46;
-            this.lblRequiredPrice.Text = "*";
-            // 
-            // lblRequiredAvailable
-            // 
-            this.lblRequiredAvailable.AutoSize = true;
-            this.lblRequiredAvailable.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredAvailable.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredAvailable.Location = new System.Drawing.Point(542, 70);
-            this.lblRequiredAvailable.Name = "lblRequiredAvailable";
-            this.lblRequiredAvailable.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredAvailable.TabIndex = 45;
-            this.lblRequiredAvailable.Text = "*";
-            // 
-            // lblRequiredBrand
-            // 
-            this.lblRequiredBrand.AutoSize = true;
-            this.lblRequiredBrand.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredBrand.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredBrand.Location = new System.Drawing.Point(284, 70);
-            this.lblRequiredBrand.Name = "lblRequiredBrand";
-            this.lblRequiredBrand.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredBrand.TabIndex = 44;
-            this.lblRequiredBrand.Text = "*";
-            // 
-            // lblRequiredType
-            // 
-            this.lblRequiredType.AutoSize = true;
-            this.lblRequiredType.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredType.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredType.Location = new System.Drawing.Point(45, 70);
-            this.lblRequiredType.Name = "lblRequiredType";
-            this.lblRequiredType.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredType.TabIndex = 43;
-            this.lblRequiredType.Text = "*";
-            // 
-            // lblRequiredName
-            // 
-            this.lblRequiredName.AutoSize = true;
-            this.lblRequiredName.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredName.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredName.Location = new System.Drawing.Point(286, 15);
-            this.lblRequiredName.Name = "lblRequiredName";
-            this.lblRequiredName.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredName.TabIndex = 42;
-            this.lblRequiredName.Text = "*";
             // 
             // txtUpdatedAt
             // 
@@ -689,6 +603,12 @@ namespace Project2.Forms.Components
             this.pbUploadImage.TabIndex = 26;
             this.pbUploadImage.TabStop = false;
             // 
+            // errorProviderProduct
+            // 
+            this.errorProviderProduct.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProviderProduct.ContainerControl = this;
+            this.errorProviderProduct.DataSource = this.bindingSourceProduct;
+            // 
             // ProductModalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -712,6 +632,8 @@ namespace Project2.Forms.Components
             this.pnlContainer.PerformLayout();
             this.pnlUploadImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbUploadImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -752,13 +674,8 @@ namespace Project2.Forms.Components
         private System.Windows.Forms.Label lblUpdatedAt;
         private Utils.FlatTextBox txtCreatedAt;
         private System.Windows.Forms.Label lblCreatedAt;
-        private System.Windows.Forms.Label lblRequiredName;
-        private System.Windows.Forms.Label lblRequiredQuantity;
-        private System.Windows.Forms.Label lblRequiredDiscount;
-        private System.Windows.Forms.Label lblRequiredPrice;
-        private System.Windows.Forms.Label lblRequiredAvailable;
-        private System.Windows.Forms.Label lblRequiredBrand;
-        private System.Windows.Forms.Label lblRequiredType;
         private Utils.RoundedButton btnClearImage;
+        private System.Windows.Forms.ErrorProvider errorProviderProduct;
+        private System.Windows.Forms.BindingSource bindingSourceProduct;
     }
 }

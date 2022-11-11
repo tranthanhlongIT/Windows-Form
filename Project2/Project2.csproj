@@ -67,6 +67,7 @@
       <HintPath>..\packages\System.CodeDom.6.0.0\lib\net461\System.CodeDom.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
@@ -231,12 +232,15 @@
     <Compile Include="BUS\EmployeeBUS.cs" />
     <Compile Include="BUS\OrderBUS.cs" />
     <Compile Include="BUS\ProductBUS.cs" />
+    <Compile Include="DTO\Customer.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\CityDAO.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\EmployeeDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
+    <Compile Include="DTO\Product.cs" />
+    <Compile Include="Ultils\ObjectValidator.cs" />
     <Compile Include="Forms\Components\CustomerModalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,7 +346,7 @@
     <Compile Include="Forms\Components\FlatTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\ConvertImage.cs" />
+    <Compile Include="Ultils\ConvertImage.cs" />
     <Compile Include="Forms\Components\Form_Alert.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Project2.BUS;
 using Project2.Utils;
 using System.Text.RegularExpressions;
+using Project2.Ultils;
 
 namespace Project2.Forms.Components
 {
@@ -28,7 +29,7 @@ namespace Project2.Forms.Components
             this.id = id;
         }
 
-        public void InitializeBUS()
+        private void InitializeBUS()
         {
             custBUS = new CustomerBUS();
             cityBUS = new CityBUS();
@@ -38,13 +39,13 @@ namespace Project2.Forms.Components
         {
             InitializeBUS();
             SetForm();
+            SetBinding();
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (action == "add")
             {
-                CreateCustomer();
                 BeginAdd();
             }
             else if (action == "upd")
@@ -63,17 +64,18 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        public void Alert(string msg, Form_Alert.enmType type)
+        private void Alert(string msg, Form_Alert.enmType type)
         {
             Form_Alert frm = new Form_Alert();
             frm.showAlert(msg, type);
         }
 
-        public void SetForm()
+        private void SetForm()
         {
             if (action == "add")
             {
                 lblTitle.Text = "Add Customer";
+                CreateCustomer();
                 LoadGenderComboBox();
                 LoadActiveComboBox();
                 LoadCityComboBox();
@@ -101,7 +103,21 @@ namespace Project2.Forms.Components
             }
         }
 
-        public void SetField()
+        private void SetBinding()
+        {
+            try
+            {
+                txtFName.DataBindings.Add(new Binding("Text", bindingSourceCustomer, "fname"));
+                txtLName.DataBindings.Add(new Binding("Text", bindingSourceCustomer, "lname"));
+                txtPhone.DataBindings.Add(new Binding("Text", bindingSourceCustomer, "phone"));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void SetField()
         {
             txtId.Text = customer.id.ToString();
             txtFName.Text = customer.fname;
@@ -116,7 +132,7 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Text = customer.updated_at.ToString();
         }
 
-        public void ResetField()
+        private void ResetField()
         {
             txtId.Text = "";
             txtFName.Text = "";
@@ -131,7 +147,7 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Text = "";
         }
 
-        public void DisableField()
+        private void DisableField()
         {
             txtFName.Enabled = false;
             txtLName.Enabled = false;
@@ -144,13 +160,9 @@ namespace Project2.Forms.Components
             txtCreatedAt.Enabled = false;
             txtUpdatedAt.Enabled = false;
             btnConfirm.Visible = false;
-            lblRequiredActive.Visible = false;
-            lblRequiredFName.Visible = false;
-            lblRequiredLName.Visible = false;
-            lblRequiredPhone.Visible = false;
         }
 
-        public void SetVisibleForCreatedAtAndUpdatedAt()
+        private void SetVisibleForCreatedAtAndUpdatedAt()
         {
             lblCreatedAt.Visible = true;
             lblUpdatedAt.Visible = true;
@@ -158,7 +170,7 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Visible = true;
         }
 
-        public void LoadActiveComboBox()
+        private void LoadActiveComboBox()
         {
             cbActive.DisplayMember = "Key";
             cbActive.ValueMember = "Value";
@@ -168,7 +180,7 @@ namespace Project2.Forms.Components
             cbActive.DataSource = new BindingSource(dict, null);
         }
 
-        public void LoadGenderComboBox()
+        private void LoadGenderComboBox()
         {
             cbGender.DisplayMember = "Key";
             cbGender.ValueMember = "Value";
@@ -178,7 +190,7 @@ namespace Project2.Forms.Components
             cbGender.DataSource = new BindingSource(dict, null);
         }
 
-        public void LoadCityComboBox()
+        private void LoadCityComboBox()
         {
             cbCity.DisplayMember = "name";
             cbCity.ValueMember = "id";
@@ -186,12 +198,12 @@ namespace Project2.Forms.Components
             cbCity.DataSource = cities;
         }
 
-        public void CreateCustomer()
+        private void CreateCustomer()
         {
-            this.customer = new Customer();
+            customer = new Customer();
         }
 
-        public void SetCustomer()
+        private void SetCustomer()
         {
             customer.fname = txtFName.Text.Trim();
             customer.lname = txtLName.Text.Trim();
@@ -207,9 +219,8 @@ namespace Project2.Forms.Components
 
         public void BeginAdd()
         {
-            if (ValidateForm())
+            if (customer.IsValid)
             {
-                SetCustomer();
                 bool result = custBUS.AddNew(customer);
                 if (result)
                 {
@@ -224,9 +235,9 @@ namespace Project2.Forms.Components
             }
         }
 
-        public void BeginUpdate()
+        private void BeginUpdate()
         {
-            if (ValidateForm())
+            if (customer.IsValid)
             {
                 SetCustomer();
                 bool result = custBUS.Update(customer);
@@ -253,36 +264,6 @@ namespace Project2.Forms.Components
             if (action == "add")
                 return DateTime.Parse(txtUpdatedAt.Text);
             else return DateTime.Now;
-        }
-
-        public bool ValidateForm()
-        {
-            if (cbActive.SelectedValue == null)
-            {
-                MessageBox.Show("Active is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtFName.Text.Trim() == "" || txtFName.Text.Length < 1)
-            {
-                MessageBox.Show("First Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtLName.Text.Trim() == "" || txtLName.Text.Length < 1)
-            {
-                MessageBox.Show("Last Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtPhone.Text.Trim() == "" || txtFName.Text.Length < 1)
-            {
-                MessageBox.Show("Phone number field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (!Regex.IsMatch(txtPhone.Text.Trim(), @"^\d{10}$"))
-            {
-                MessageBox.Show("Invalid phone number", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
         }
     }
 }

@@ -2,8 +2,9 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Drawing;
-using Project2.Utils;
+using Project2.Ultils;
 using Project2.BUS;
+
 
 namespace Project2.Forms.Components
 {
