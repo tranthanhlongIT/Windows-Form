@@ -9,8 +9,6 @@ namespace Project2.Forms.Components
 {
     public partial class CheckoutForm : Form
     {
-        private OrderBUS orderBUS;
-        private ProductBUS prodBUS;
         private Product product;
         private List<Customer> customers;
         private Employee employee;
@@ -31,16 +29,9 @@ namespace Project2.Forms.Components
 
         private void CheckoutForm_Load(object sender, EventArgs e)
         {
-            InitializeBUS();
             LoadSearchTextBox();
             RefreshDataGridView();
             SetProductField(product);
-        }
-
-        private void InitializeBUS()
-        {
-            orderBUS = new OrderBUS();
-            prodBUS = new ProductBUS();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -149,7 +140,7 @@ namespace Project2.Forms.Components
 
         private List<Customer> GetCustomerList()
         {
-            return new CustomerBUS().GetAll();
+            return CustomerBUS.GetAll();
         }
 
         private void LoadDataGridView(List<Customer> customers)
@@ -185,7 +176,6 @@ namespace Project2.Forms.Components
             order.product_id = product.id;
             order.quantity = Int32.Parse(txtQuantity.Text);
             order.total = totalPrice;
-            order.created_at = DateTime.Now;
         }
 
         private void btnSell_Click(object sender, EventArgs e)
@@ -194,11 +184,11 @@ namespace Project2.Forms.Components
             {
                 CreateOrder();
                 SetOrder();
-                bool result = orderBUS.AddNew(order);
+                bool result = OrderBUS.AddNew(order);
                 if (result)
                 {
-                    product.quantity = product.quantity - Int32.Parse(txtQuantity.Text);
-                    result = prodBUS.Update(product);
+                    product.quantity -= Int32.Parse(txtQuantity.Text);
+                    result = ProductBUS.Update(product);
                     if (result)
                     {
                         this.DialogResult = DialogResult.Cancel;

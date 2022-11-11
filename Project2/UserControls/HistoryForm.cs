@@ -8,7 +8,6 @@ namespace Project2.UserControls
 {
     public partial class HistoryForm : UserControl
     {
-        private OrderBUS orderBUS;
         private List<Order> orders;
 
         public HistoryForm()
@@ -16,9 +15,9 @@ namespace Project2.UserControls
             InitializeComponent();
         }
 
-        private void InitializeBUS()
+        private void HistoryForm_Load(object sender, EventArgs e)
         {
-            orderBUS = new OrderBUS();
+            LoadSearchTextBox();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -75,12 +74,12 @@ namespace Project2.UserControls
 
         private List<Order> GetOrderList()
         {
-            return new OrderBUS().GetAll();
+            return OrderBUS.GetAll();
         }
 
         private List<Order> GetOrderListBetweenDate(DateTime dateStart, DateTime dateEnd)
         {
-            return new OrderBUS().GetAllBetweenDate(dateStart, dateEnd);
+            return OrderBUS.GetAllBetweenDate(dateStart, dateEnd);
         }
 
         private void LoadDataGridView(List<Order> Orders)

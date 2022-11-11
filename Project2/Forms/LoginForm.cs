@@ -6,8 +6,6 @@ namespace Project2.Forms
 {
     public partial class LoginForm : Form
     {
-        private EmployeeBUS empBUS;
-
         public LoginForm()
         {
             InitializeComponent();
@@ -18,13 +16,7 @@ namespace Project2.Forms
             if (!this.DesignMode)
             {
                 txtEmail.Focus();
-                InitializeBUS();
             }
-        }
-
-        private void InitializeBUS()
-        {
-            empBUS = new EmployeeBUS();
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -76,10 +68,10 @@ namespace Project2.Forms
                     email = txtEmail.Text.Trim(),
                     password = txtPassword.Text
                 };
-                bool result = empBUS.CheckEmployeeCredential(employee);
+                bool result = EmployeeBUS.CheckEmployeeCredential(employee);
                 if (result)
                 {
-                    employee = empBUS.GetEmployeeByEmail(txtEmail.Text.Trim());
+                    employee = EmployeeBUS.GetEmployeeByEmail(txtEmail.Text.Trim());
                     new ManagementForm(employee).Show();
                     this.Hide();
                 }
@@ -103,7 +95,7 @@ namespace Project2.Forms
                 MessageBox.Show("Password field is empty", "Login Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (empBUS.ValidateEmail(txtEmail.Text.Trim()) == false)
+            if (EmployeeBUS.ValidateEmail(txtEmail.Text.Trim()) == false)
             {
                 MessageBox.Show("Email doesn't exist", "Login Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

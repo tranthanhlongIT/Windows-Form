@@ -24,8 +24,7 @@ namespace Project2.UserControls
 
         private void chartCustomer_Click(object sender, EventArgs e)
         {
-            OrderBUS orderBUS = new OrderBUS();
-            var q = orderBUS.GetAll().GroupBy(i => i.created_at).Select(g => new { total = g.Count(), Day = g.Key.Day }).ToList();
+            var q = OrderBUS.GetAll().GroupBy(i => i.created_at).Select(g => new { total = g.Count(), day = g.Key.Day }).ToList();
 
             chartCustomer.ChartAreas.FirstOrDefault().AxisX.Interval = 1;
             List<DateTime> dates = new List<DateTime>();
@@ -37,7 +36,7 @@ namespace Project2.UserControls
                 int index = -1;
                 foreach (var i in q)
                 {
-                    if (i.Day == d.Day)
+                    if (i.day == d.Day)
                     {
                         index = q.IndexOf(i);
                         break;

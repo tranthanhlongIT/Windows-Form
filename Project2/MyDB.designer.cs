@@ -199,7 +199,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -382,7 +382,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -516,7 +516,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -594,7 +594,7 @@ namespace Project2
 		
 		private string _lname;
 		
-		private System.Nullable<bool> _gender;
+		private bool _gender;
 		
 		private string _address;
 		
@@ -602,7 +602,7 @@ namespace Project2
 		
 		private string _zipcode;
 		
-		private System.Nullable<bool> _is_active;
+		private bool _is_active;
 		
 		private System.Nullable<System.DateTime> _created_at;
 		
@@ -624,7 +624,7 @@ namespace Project2
     partial void OnfnameChanged();
     partial void OnlnameChanging(string value);
     partial void OnlnameChanged();
-    partial void OngenderChanging(System.Nullable<bool> value);
+    partial void OngenderChanging(bool value);
     partial void OngenderChanged();
     partial void OnaddressChanging(string value);
     partial void OnaddressChanged();
@@ -632,7 +632,7 @@ namespace Project2
     partial void OnphoneChanged();
     partial void OnzipcodeChanging(string value);
     partial void OnzipcodeChanged();
-    partial void Onis_activeChanging(System.Nullable<bool> value);
+    partial void Onis_activeChanging(bool value);
     partial void Onis_activeChanged();
     partial void Oncreated_atChanging(System.Nullable<System.DateTime> value);
     partial void Oncreated_atChanged();
@@ -669,7 +669,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fname", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string fname
 		{
 			get
@@ -689,7 +689,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lname", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string lname
 		{
 			get
@@ -709,8 +709,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit")]
-		public System.Nullable<bool> gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit NOT NULL")]
+		public bool gender
 		{
 			get
 			{
@@ -749,7 +749,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10) NOT NULL", CanBeNull=false)]
 		public string phone
 		{
 			get
@@ -789,8 +789,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_active", DbType="Bit")]
-		public System.Nullable<bool> is_active
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_active", DbType="Bit NOT NULL")]
+		public bool is_active
 		{
 			get
 			{
@@ -979,13 +979,13 @@ namespace Project2
 		
 		private string _image;
 		
-		private System.Nullable<bool> _is_active;
+		private bool _is_active;
 		
 		private System.Nullable<System.DateTime> _created_at;
 		
 		private System.Nullable<System.DateTime> _updated_at;
 		
-		private System.Nullable<int> _role_id;
+		private int _role_id;
 		
 		private EntitySet<Order> _Orders;
 		
@@ -1015,13 +1015,13 @@ namespace Project2
     partial void OnaddressChanged();
     partial void OnimageChanging(string value);
     partial void OnimageChanged();
-    partial void Onis_activeChanging(System.Nullable<bool> value);
+    partial void Onis_activeChanging(bool value);
     partial void Onis_activeChanged();
     partial void Oncreated_atChanging(System.Nullable<System.DateTime> value);
     partial void Oncreated_atChanged();
     partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
-    partial void Onrole_idChanging(System.Nullable<int> value);
+    partial void Onrole_idChanging(int value);
     partial void Onrole_idChanged();
     #endregion
 		
@@ -1072,7 +1072,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string email
 		{
 			get
@@ -1092,7 +1092,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string password
 		{
 			get
@@ -1112,7 +1112,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fname", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string fname
 		{
 			get
@@ -1132,7 +1132,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lname", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string lname
 		{
 			get
@@ -1152,7 +1152,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="NVarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
 		public string gender
 		{
 			get
@@ -1172,7 +1172,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NChar(10) NOT NULL", CanBeNull=false)]
 		public string phone
 		{
 			get
@@ -1232,8 +1232,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_active", DbType="Bit")]
-		public System.Nullable<bool> is_active
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_is_active", DbType="Bit NOT NULL")]
+		public bool is_active
 		{
 			get
 			{
@@ -1292,8 +1292,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int")]
-		public System.Nullable<int> role_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_role_id", DbType="Int NOT NULL")]
+		public int role_id
 		{
 			get
 			{
@@ -1356,7 +1356,7 @@ namespace Project2
 					}
 					else
 					{
-						this._role_id = default(Nullable<int>);
+						this._role_id = default(int);
 					}
 					this.SendPropertyChanged("Role");
 				}
@@ -1404,19 +1404,17 @@ namespace Project2
 		
 		private int _id;
 		
-		private System.Nullable<int> _employee_id;
+		private int _employee_id;
 		
-		private System.Nullable<int> _customer_id;
+		private int _customer_id;
 		
-		private System.Nullable<int> _product_id;
+		private int _product_id;
 		
-		private System.Nullable<int> _quantity;
+		private int _quantity;
 		
-		private System.Nullable<double> _total;
+		private double _total;
 		
 		private System.DateTime _created_at;
-		
-		private System.Nullable<System.DateTime> _updated_at;
 		
 		private EntityRef<Customer> _Customer;
 		
@@ -1430,20 +1428,18 @@ namespace Project2
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void Onemployee_idChanging(System.Nullable<int> value);
+    partial void Onemployee_idChanging(int value);
     partial void Onemployee_idChanged();
-    partial void Oncustomer_idChanging(System.Nullable<int> value);
+    partial void Oncustomer_idChanging(int value);
     partial void Oncustomer_idChanged();
-    partial void Onproduct_idChanging(System.Nullable<int> value);
+    partial void Onproduct_idChanging(int value);
     partial void Onproduct_idChanged();
-    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanging(int value);
     partial void OnquantityChanged();
-    partial void OntotalChanging(System.Nullable<double> value);
+    partial void OntotalChanging(double value);
     partial void OntotalChanged();
     partial void Oncreated_atChanging(System.DateTime value);
     partial void Oncreated_atChanged();
-    partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
-    partial void Onupdated_atChanged();
     #endregion
 		
 		public Order()
@@ -1474,8 +1470,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_employee_id", DbType="Int")]
-		public System.Nullable<int> employee_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_employee_id", DbType="Int NOT NULL")]
+		public int employee_id
 		{
 			get
 			{
@@ -1498,8 +1494,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer_id", DbType="Int")]
-		public System.Nullable<int> customer_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_customer_id", DbType="Int NOT NULL")]
+		public int customer_id
 		{
 			get
 			{
@@ -1522,8 +1518,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_product_id", DbType="Int")]
-		public System.Nullable<int> product_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_product_id", DbType="Int NOT NULL")]
+		public int product_id
 		{
 			get
 			{
@@ -1546,8 +1542,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
 		{
 			get
 			{
@@ -1566,8 +1562,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total", DbType="Float")]
-		public System.Nullable<double> total
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total", DbType="Float NOT NULL")]
+		public double total
 		{
 			get
 			{
@@ -1606,26 +1602,6 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_updated_at", DbType="DateTime")]
-		public System.Nullable<System.DateTime> updated_at
-		{
-			get
-			{
-				return this._updated_at;
-			}
-			set
-			{
-				if ((this._updated_at != value))
-				{
-					this.Onupdated_atChanging(value);
-					this.SendPropertyChanging();
-					this._updated_at = value;
-					this.SendPropertyChanged("updated_at");
-					this.Onupdated_atChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Order", Storage="_Customer", ThisKey="customer_id", OtherKey="id", IsForeignKey=true)]
 		public Customer Customer
 		{
@@ -1653,7 +1629,7 @@ namespace Project2
 					}
 					else
 					{
-						this._customer_id = default(Nullable<int>);
+						this._customer_id = default(int);
 					}
 					this.SendPropertyChanged("Customer");
 				}
@@ -1687,7 +1663,7 @@ namespace Project2
 					}
 					else
 					{
-						this._employee_id = default(Nullable<int>);
+						this._employee_id = default(int);
 					}
 					this.SendPropertyChanged("Employee");
 				}
@@ -1721,7 +1697,7 @@ namespace Project2
 					}
 					else
 					{
-						this._product_id = default(Nullable<int>);
+						this._product_id = default(int);
 					}
 					this.SendPropertyChanged("Product");
 				}
@@ -1761,13 +1737,13 @@ namespace Project2
 		
 		private string _description;
 		
-		private System.Nullable<double> _price;
+		private double _price;
 		
 		private System.Nullable<double> _discount;
 		
-		private System.Nullable<int> _quantity;
+		private int _quantity;
 		
-		private System.Nullable<bool> _available;
+		private bool _available;
 		
 		private System.Data.Linq.Binary _image;
 		
@@ -1775,9 +1751,9 @@ namespace Project2
 		
 		private System.Nullable<System.DateTime> _updated_at;
 		
-		private System.Nullable<int> _type_id;
+		private int _type_id;
 		
-		private System.Nullable<int> _brand_id;
+		private int _brand_id;
 		
 		private EntitySet<Order> _Orders;
 		
@@ -1795,13 +1771,13 @@ namespace Project2
     partial void OnnameChanged();
     partial void OndescriptionChanging(string value);
     partial void OndescriptionChanged();
-    partial void OnpriceChanging(System.Nullable<double> value);
+    partial void OnpriceChanging(double value);
     partial void OnpriceChanged();
     partial void OndiscountChanging(System.Nullable<double> value);
     partial void OndiscountChanged();
-    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanging(int value);
     partial void OnquantityChanged();
-    partial void OnavailableChanging(System.Nullable<bool> value);
+    partial void OnavailableChanging(bool value);
     partial void OnavailableChanged();
     partial void OnimageChanging(System.Data.Linq.Binary value);
     partial void OnimageChanged();
@@ -1809,9 +1785,9 @@ namespace Project2
     partial void Oncreated_atChanged();
     partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
-    partial void Ontype_idChanging(System.Nullable<int> value);
+    partial void Ontype_idChanging(int value);
     partial void Ontype_idChanged();
-    partial void Onbrand_idChanging(System.Nullable<int> value);
+    partial void Onbrand_idChanging(int value);
     partial void Onbrand_idChanged();
     #endregion
 		
@@ -1843,7 +1819,7 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string name
 		{
 			get
@@ -1883,8 +1859,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float")]
-		public System.Nullable<double> price
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Float NOT NULL")]
+		public double price
 		{
 			get
 			{
@@ -1923,8 +1899,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
-		public System.Nullable<int> quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int NOT NULL")]
+		public int quantity
 		{
 			get
 			{
@@ -1943,8 +1919,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Bit")]
-		public System.Nullable<bool> available
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available", DbType="Bit NOT NULL")]
+		public bool available
 		{
 			get
 			{
@@ -2023,8 +1999,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type_id", DbType="Int")]
-		public System.Nullable<int> type_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type_id", DbType="Int NOT NULL")]
+		public int type_id
 		{
 			get
 			{
@@ -2047,8 +2023,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_brand_id", DbType="Int")]
-		public System.Nullable<int> brand_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_brand_id", DbType="Int NOT NULL")]
+		public int brand_id
 		{
 			get
 			{
@@ -2111,7 +2087,7 @@ namespace Project2
 					}
 					else
 					{
-						this._type_id = default(Nullable<int>);
+						this._type_id = default(int);
 					}
 					this.SendPropertyChanged("Category");
 				}
@@ -2145,7 +2121,7 @@ namespace Project2
 					}
 					else
 					{
-						this._brand_id = default(Nullable<int>);
+						this._brand_id = default(int);
 					}
 					this.SendPropertyChanged("Category1");
 				}

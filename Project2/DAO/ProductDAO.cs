@@ -9,14 +9,9 @@ namespace Project2.DAO
 {
     class ProductDAO
     {
-        MyDBDataContext db;
+        private static readonly MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
 
-        public ProductDAO()
-        {
-            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
-        }
-
-        public List<Product> SelectAll()
+        public static List<Product> SelectAll()
         {
             try
             {
@@ -28,7 +23,7 @@ namespace Project2.DAO
             }
         }  
 
-        public Product SelectAllByID(int id)
+        public static Product SelectAllByID(int id)
         {
             try
             {
@@ -40,7 +35,7 @@ namespace Project2.DAO
             }
         }
 
-        public List<Product> SelectAllByTypeID(int typeId)
+        public static List<Product> SelectAllByTypeID(int typeId)
         {
             try
             {
@@ -52,7 +47,7 @@ namespace Project2.DAO
             }
         }
 
-        public List<Product> SelectAllByBrandID(int brandId)
+        public static List<Product> SelectAllByBrandID(int brandId)
         {
             try
             {
@@ -64,27 +59,7 @@ namespace Project2.DAO
             }
         }
 
-        //public string SelectTypeByID(int id)
-        //{
-        //    string type = (from p in db.Products
-        //                   join c in db.Categories
-        //                   on p.type_id equals c.id
-        //                   where p.id == id
-        //                   select c.name).SingleOrDefault();
-        //    return type;
-        //}
-
-        //public string SelectBrandByID(int id)
-        //{
-        //    string brand = (from p in db.Products
-        //                    join c in db.Categories
-        //                    on p.brand_id equals c.id
-        //                    where p.id == id
-        //                    select c.name).SingleOrDefault();
-        //    return brand;
-        //}
-
-        public bool Insert(Product newProduct)
+        public static bool Insert(Product newProduct)
         {
             try
             {
@@ -98,7 +73,7 @@ namespace Project2.DAO
             }
         }
 
-        public bool Update(Product newProduct)
+        public static bool Update(Product newProduct)
         {
             Product dbProduct = db.Products.SingleOrDefault(c => c.id == newProduct.id);
             if (dbProduct != null)
@@ -112,8 +87,6 @@ namespace Project2.DAO
                     dbProduct.quantity = newProduct.quantity;
                     dbProduct.available = newProduct.available;
                     dbProduct.image = newProduct.image;
-                    dbProduct.created_at = newProduct.created_at;
-                    dbProduct.updated_at = newProduct.updated_at;
                     dbProduct.type_id = newProduct.type_id;
                     dbProduct.brand_id = newProduct.brand_id;
                     db.SubmitChanges();
@@ -127,7 +100,7 @@ namespace Project2.DAO
             return false;
         }
 
-        public bool Delete(int id)
+        public static bool Delete(int id)
         {
             Product dbProduct = db.Products.SingleOrDefault(c => c.id == id);
             if (dbProduct != null)

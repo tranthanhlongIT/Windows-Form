@@ -1,44 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Project2.DAO;
 
 namespace Project2.BUS
 {
     class CustomerBUS
     {
-        private CustomerDAO custDAO;
-
-        public CustomerBUS()
+        public static List<Customer> GetAll()
         {
-            custDAO = new CustomerDAO();
+            return CustomerDAO.SelectAll();
         }
 
-        public List<Customer> GetAll()
+        public static Customer GetCustomerByID(int id)
         {
-            return custDAO.SelectAll();
+            return CustomerDAO.SelectAllByID(id);
         }
 
-        public Customer GetCustomerByID(int id)
+        public static bool AddNew(Customer newCustomer)
         {
-            return custDAO.SelectAllByID(id);
+            return CustomerDAO.Insert(newCustomer);
         }
 
-        public bool AddNew(Customer newCustomer)
+        public static bool Update(Customer newCustomer)
         {
-            return custDAO.Insert(newCustomer);
+            return CustomerDAO.Update(newCustomer);
         }
 
-        public bool Update(Customer newCustomer)
+        public static bool Disable(int id)
         {
-            return custDAO.Update(newCustomer);
-        }
-
-        public bool Disable(int id)
-        {
-            return custDAO.Disable(id);
+            return CustomerDAO.Disable(id);
         }
     }
 }

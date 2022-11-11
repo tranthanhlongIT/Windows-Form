@@ -1,32 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using Project2.DAO;
-using System.Linq;
 
 namespace Project2.BUS
 {
     class OrderBUS
     {
-        private OrderDAO orderDAO;
-
-        public OrderBUS()
+        public static List<Order> GetAll()
         {
-            orderDAO = new OrderDAO();
+            return OrderDAO.SelectAll();
         }
 
-        public List<Order> GetAll()
+        public static List<Order> GetAllBetweenDate(DateTime dateStart, DateTime dateEnd)
         {
-            return orderDAO.SelectAll();
+            return OrderDAO.SelectAllBetweenDate(dateStart, dateEnd);
         }
 
-        public List<Order> GetAllBetweenDate(DateTime dateStart, DateTime dateEnd)
+        public static bool AddNew(Order newOrder)
         {
-            return orderDAO.SelectAllBetweenDate(dateStart, dateEnd);
-        }
-
-        public bool AddNew(Order newOrder)
-        {
-            return orderDAO.Insert(newOrder);
+            return OrderDAO.Insert(newOrder);
         }
     }
 }

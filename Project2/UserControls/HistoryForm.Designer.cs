@@ -70,7 +70,7 @@ namespace Project2.UserControls
             this.txtSearch.Location = new System.Drawing.Point(932, 10);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 18);
+            this.txtSearch.Size = new System.Drawing.Size(300, 23);
             this.txtSearch.TabIndex = 1;
             // 
             // pnlOperation
@@ -123,7 +123,7 @@ namespace Project2.UserControls
             this.dtpDateEnd.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpDateEnd.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpDateEnd.Name = "dtpDateEnd";
-            this.dtpDateEnd.Size = new System.Drawing.Size(180, 25);
+            this.dtpDateEnd.Size = new System.Drawing.Size(180, 30);
             this.dtpDateEnd.TabIndex = 7;
             this.dtpDateEnd.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
             // 
@@ -160,7 +160,7 @@ namespace Project2.UserControls
             this.dtpDateStart.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpDateStart.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpDateStart.Name = "dtpDateStart";
-            this.dtpDateStart.Size = new System.Drawing.Size(180, 25);
+            this.dtpDateStart.Size = new System.Drawing.Size(180, 30);
             this.dtpDateStart.TabIndex = 6;
             this.dtpDateStart.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
             // 
@@ -357,7 +357,7 @@ namespace Project2.UserControls
             // 
             // HistoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvOrder);
             this.Controls.Add(this.pnlOperation);
@@ -366,6 +366,7 @@ namespace Project2.UserControls
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "HistoryForm";
             this.Size = new System.Drawing.Size(1280, 630);
+            this.Load += new System.EventHandler(this.HistoryForm_Load);
             this.pnlOperation.ResumeLayout(false);
             this.pnlOperation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();

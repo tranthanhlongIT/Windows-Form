@@ -6,14 +6,9 @@ namespace Project2.DAO
 {
     class CategoryDAO
     {
-        MyDBDataContext db;
+        private static readonly MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
 
-        public CategoryDAO()
-        {
-            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
-        }
-
-        public List<Category> SelectAll()
+        public static List<Category> SelectAll()
         {
             try
             {
@@ -25,7 +20,7 @@ namespace Project2.DAO
             }
         }
 
-        public List<Category> SelectAllByParentID(int parentId)
+        public static List<Category> SelectAllByParentID(int parentId)
         {
             try
             {
@@ -36,32 +31,5 @@ namespace Project2.DAO
                 return null;
             }
         }
-
-        //public Category SelectAllById(int id)
-        //{
-        //    try
-        //    {
-        //        return db.Categories.SingleOrDefault(c => c.id == id);
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-            
-        //}
-
-        //public List<Category> SelectSubCategory(int parentId)
-        //{
-        //    try
-        //    {
-        //        var mainCategoryList = db.Categories.Where(c => c.parent_id == parentId).Select(c => c.id).ToList();
-        //        List<Category> subCategories = db.Categories.Where(c => mainCategoryList.Contains(c.id)).ToList();
-        //        return subCategories;
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }   
-        //}
     }
 }

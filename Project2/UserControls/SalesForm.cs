@@ -11,8 +11,6 @@ namespace Project2.UserControls
 {
     public partial class SalesForm : UserControl
     {
-        private ProductBUS prodBUS;
-        private CategoryBUS cateBUS;
         private List<Product> products;
         private Product product;
         private Employee employee;
@@ -31,16 +29,9 @@ namespace Project2.UserControls
         {
             if (!DesignMode)
             {
-                InitializeBUS();
                 LoadFilterComboBox();
                 LoadSearchTextBox();
             }
-        }
-
-        private void InitializeBUS()
-        {
-            prodBUS = new ProductBUS();
-            cateBUS = new CategoryBUS();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -83,7 +74,7 @@ namespace Project2.UserControls
         {
             if (cbFilter.SelectedIndex == 0)
             {
-                products = new ProductBUS().GetAll();
+                products = ProductBUS.GetAll();
                 LoadListView(products);
                 ResetDisplayField();
             }
@@ -103,7 +94,7 @@ namespace Project2.UserControls
             if (lvProducts.SelectedItems.Count > 0)
             {
                 ListViewItem item = lvProducts.SelectedItems[0];
-                product = prodBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));
+                product = ProductBUS.GetProductByID(Int32.Parse(item.SubItems["ID"].Text));
                 SetDisplayField(product);
             }
         }
@@ -111,8 +102,8 @@ namespace Project2.UserControls
         private List<Product> GetProductList()
         {
             if (cbFilter.SelectedIndex == 0)
-                return new ProductBUS().GetAll();
-            else return new ProductBUS().GetProductByTypeID((int)cbFilter.SelectedValue);
+                return ProductBUS.GetAll();
+            else return ProductBUS.GetProductByTypeID((int)cbFilter.SelectedValue);
         }
 
         public void SetDisplayField(Product product)
@@ -149,7 +140,7 @@ namespace Project2.UserControls
 
         private void LoadFilterComboBox()
         {
-            List<Category> categories = cateBUS.GetCategoryByParentID(24);
+            List<Category> categories = CategoryBUS.GetCategoryByParentID(24);
             categories.Insert(0, new Category() { id = 0, name = "All" });
             cbFilter.DataSource = categories;
             cbFilter.DisplayMember = "name";
@@ -167,7 +158,7 @@ namespace Project2.UserControls
                 lvProducts.LargeImageList = SetImageList(products);
                 foreach (var product in products)
                 {
-                    if (product.available ?? default(bool))
+                    if (product.available)
                     {
                         ListViewItem item = new ListViewItem(product.name);
                         item.ImageIndex = i;

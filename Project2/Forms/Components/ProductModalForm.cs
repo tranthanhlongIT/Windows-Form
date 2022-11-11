@@ -9,8 +9,6 @@ namespace Project2.Forms.Components
 {
     public partial class ProductModalForm : Form
     {
-        private ProductBUS prodBUS;
-        private CategoryBUS cateBUS;
         private List<Category> categories;
         private Product product;
         private string action;
@@ -28,15 +26,8 @@ namespace Project2.Forms.Components
             this.id = id;
         }
 
-        public void InitializeBUS()
-        {
-            prodBUS = new ProductBUS();
-            cateBUS = new CategoryBUS();
-        }
-
         private void ProductModalForm_Load(object sender, EventArgs e)
         {
-            InitializeBUS();
             SetForm();
         }
 
@@ -104,9 +95,9 @@ namespace Project2.Forms.Components
             else if (action == "upd")
             {
                 lblTitle.Text = "Update Product";
-                product = prodBUS.GetProductByID(id);
+                product = ProductBUS.GetProductByID(id);
                 LoadTypeComboBox();
-                LoadBrandComboBox(product.type_id ?? default(int));
+                LoadBrandComboBox(product.type_id);
                 LoadAvailableComboBox();
                 SetField();
                 SetVisibleForCreatedAtAndUpdatedAt();
@@ -114,9 +105,9 @@ namespace Project2.Forms.Components
             else if (action == "det")
             {
                 lblTitle.Text = "View Product";
-                product = prodBUS.GetProductByID(id);
+                product = ProductBUS.GetProductByID(id);
                 LoadTypeComboBox();
-                LoadBrandComboBox(product.type_id ?? default(int));
+                LoadBrandComboBox(product.type_id);
                 LoadAvailableComboBox();
                 SetField();
                 DisableField();
@@ -195,7 +186,7 @@ namespace Project2.Forms.Components
         {
             cbType.DisplayMember = "name";
             cbType.ValueMember = "id";
-            categories = cateBUS.GetCategoryByParentID(24);
+            categories = CategoryBUS.GetCategoryByParentID(24);
             cbType.DataSource = categories;
         }
 
@@ -203,7 +194,7 @@ namespace Project2.Forms.Components
         {
             cbBrand.DisplayMember = "name";
             cbBrand.ValueMember = "id";
-            categories = cateBUS.GetCategoryByParentID(parentId);
+            categories = CategoryBUS.GetCategoryByParentID(parentId);
             cbBrand.DataSource = categories;
         }
 
@@ -229,10 +220,8 @@ namespace Project2.Forms.Components
             product.price = Double.Parse(txtPrice.Text.Trim());
             product.discount = Double.Parse(txtDiscount.Text.Trim());
             product.quantity = Int32.Parse(txtQuantity.Text.Trim());
-            product.available = (bool?)cbAvailable.SelectedValue;
+            product.available = (bool)cbAvailable.SelectedValue;
             product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
-            product.created_at = SetCreatedAt();
-            product.updated_at = SetUpdatedAt();
             product.type_id = (Int32)cbType.SelectedValue;
             product.brand_id = (Int32)cbBrand.SelectedValue;
         }
@@ -242,7 +231,7 @@ namespace Project2.Forms.Components
             if (ValidateForm())
             {
                 SetProduct();
-                bool result = prodBUS.AddNew(product);
+                bool result = ProductBUS.AddNew(product);
                 if (result)
                 {
                     CreateProduct();
@@ -261,7 +250,7 @@ namespace Project2.Forms.Components
             if (ValidateForm())
             {
                 SetProduct();
-                bool result = prodBUS.Update(product);
+                bool result = ProductBUS.Update(product);
                 if (result)
                 {
                     this.Alert("Update Successful", Form_Alert.enmType.Success);
@@ -271,20 +260,6 @@ namespace Project2.Forms.Components
                     this.Alert("Update Failed", Form_Alert.enmType.Error);
                 }
             }
-        }
-
-        public DateTime SetCreatedAt()
-        {
-            if (action == "add")
-                return DateTime.Now;
-            else return DateTime.Parse(txtCreatedAt.Text);
-        }
-
-        public DateTime SetUpdatedAt()
-        {
-            if (action == "add")
-                return DateTime.Parse(txtUpdatedAt.Text);
-            else return DateTime.Now;
         }
 
         public bool ValidateForm()

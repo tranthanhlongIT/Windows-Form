@@ -1,64 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Project2.DAO;
 
 namespace Project2.BUS
 {
     class ProductBUS
     {
-        private ProductDAO prodDAO;
-
-        public ProductBUS()
+        public static List<Product> GetAll()
         {
-            prodDAO = new ProductDAO();
+            return ProductDAO.SelectAll();
         }
 
-        public List<Product> GetAll()
+        public static bool AddNew(Product newProduct)
         {
-            return prodDAO.SelectAll();
+            return ProductDAO.Insert(newProduct);
         }
 
-        public bool AddNew(Product newProduct)
+        public static bool Update(Product newProduct)
         {
-            return prodDAO.Insert(newProduct);
+            return ProductDAO.Update(newProduct);
         }
 
-        public bool Update(Product newProduct)
+        public static Product GetProductByID(int id)
         {
-            return prodDAO.Update(newProduct);
+            return ProductDAO.SelectAllByID(id);
         }
 
-        //public string GetProductType(int id)
-        //{
-        //    string type = prodDAO.SelectTypeByID(id);
-        //    return type;
-        //}
-
-        //public string GetProductBrand(int id)
-        //{
-        //    string brand = prodDAO.SelectBrandByID(id);
-        //    return brand;
-        //}
-
-        public Product GetProductByID(int id)
+        public static List<Product> GetProductByBrandID(int categoryId)
         {
-            return prodDAO.SelectAllByID(id);
+            return ProductDAO.SelectAllByBrandID(categoryId);
         }
 
-        public List<Product> GetProductByBrandID(int categoryId)
+        public static List<Product> GetProductByTypeID(int categoryId)
         {
-            return prodDAO.SelectAllByBrandID(categoryId);
+            return ProductDAO.SelectAllByTypeID(categoryId);
         }
 
-        public List<Product> GetProductByTypeID(int categoryId)
-        {
-            return prodDAO.SelectAllByTypeID(categoryId);
-        }
-
-        public List<Product> GetProductByTreeLevel(int level, int categoryId)
+        public static List<Product> GetProductByTreeLevel(int level, int categoryId)
         {
             switch (level)
             {
@@ -69,9 +46,9 @@ namespace Project2.BUS
             }
         }
 
-        public bool Delete(int id)
+        public static bool Delete(int id)
         {
-            return prodDAO.Delete(id);
+            return ProductDAO.Delete(id);
         }
     }
 }

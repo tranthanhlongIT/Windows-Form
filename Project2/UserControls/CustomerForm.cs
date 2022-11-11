@@ -9,7 +9,6 @@ namespace Project2.UserControls
 {
     public partial class CustomerForm : UserControl
     {
-        private CustomerBUS custBUS;
         private List<Customer> customers;
         private int id;
 
@@ -22,14 +21,8 @@ namespace Project2.UserControls
         {
             if (!this.DesignMode)
             {
-                InitializeBUS();
                 LoadSearchTextBox();
             }
-        }
-
-        private void InitializeBUS()
-        {
-            custBUS = new CustomerBUS();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -89,7 +82,7 @@ namespace Project2.UserControls
                 DialogResult dialogResult = MessageBox.Show("Are you sure want to disable?", "Confirmation", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    bool result = custBUS.Disable(id);
+                    bool result = CustomerBUS.Disable(id);
                     if (result)
                     {
                         RefreshDataGridView();
@@ -125,7 +118,7 @@ namespace Project2.UserControls
 
         private List<Customer> GetCustomerList()
         {
-            return new CustomerBUS().GetAll();
+            return CustomerBUS.GetAll();
         }
 
         private void LoadDataGridView(List<Customer> customers)

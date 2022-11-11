@@ -6,14 +6,9 @@ namespace Project2.DAO
 {
     class EmployeeDAO
     {
-        MyDBDataContext db;
+        private static readonly MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
         
-        public EmployeeDAO()
-        {
-            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
-        }
-
-        public List<Employee> SelectAll()
+        public static List<Employee> SelectAll()
         {
             try 
             {
@@ -25,7 +20,7 @@ namespace Project2.DAO
             }
         }
 
-        public Employee SelectAllByEmail(string email)
+        public static Employee SelectAllByEmail(string email)
         {
             try
             {
@@ -37,7 +32,7 @@ namespace Project2.DAO
             }
         }
 
-        public string SelectPasswordByEmail(string email)
+        public static string SelectPasswordByEmail(string email)
         {
             try
             {
@@ -49,12 +44,12 @@ namespace Project2.DAO
             }
         }
 
-        public bool SelectIsActiveByEmail(string email)
+        public static bool SelectIsActiveByEmail(string email)
         {
             return (bool)db.Employees.Where(e => e.email == email).Select(e => e.is_active).SingleOrDefault();
         }
 
-        public bool Insert(Employee newEmployee)
+        public static bool Insert(Employee newEmployee)
         {
             try
             {
@@ -68,7 +63,7 @@ namespace Project2.DAO
             }
         }
 
-        public bool IsEmailExist(string email)
+        public static bool IsEmailExist(string email)
         {
             return db.Employees.Any(em => em.email == email);
         }

@@ -6,14 +6,9 @@ namespace Project2.DAO
 {
     class CustomerDAO
     {
-        MyDBDataContext db;
+        private static readonly MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
 
-        public CustomerDAO()
-        {
-            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
-        }
-
-        public List<Customer> SelectAll()
+        public static List<Customer> SelectAll()
         {
             try
             {
@@ -25,7 +20,7 @@ namespace Project2.DAO
             }
         }
 
-        public Customer SelectAllByID(int id)
+        public static Customer SelectAllByID(int id)
         {
             try
             {
@@ -37,7 +32,7 @@ namespace Project2.DAO
             }
         }
 
-        public bool Insert(Customer newCustomer)
+        public static bool Insert(Customer newCustomer)
         {
             try
             {
@@ -51,7 +46,7 @@ namespace Project2.DAO
             }
         }
 
-        public bool Update(Customer newCustomer)
+        public static bool Update(Customer newCustomer)
         {
             Customer dbCustomer = db.Customers.SingleOrDefault(c => c.id == newCustomer.id);
             if (dbCustomer != null)
@@ -65,8 +60,6 @@ namespace Project2.DAO
                     dbCustomer.phone = newCustomer.phone;
                     dbCustomer.zipcode = newCustomer.zipcode;
                     dbCustomer.is_active = newCustomer.is_active;
-                    dbCustomer.created_at = newCustomer.created_at;
-                    dbCustomer.updated_at = newCustomer.updated_at;
                     dbCustomer.city_id = newCustomer.city_id;
                     db.SubmitChanges();
                     return true;
@@ -79,7 +72,7 @@ namespace Project2.DAO
             return false;
         }
 
-        public bool Disable(int id)
+        public static bool Disable(int id)
         {
             Customer dbCustomer = db.Customers.SingleOrDefault(c => c.id == id);
             if (dbCustomer != null)

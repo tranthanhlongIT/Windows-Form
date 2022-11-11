@@ -9,8 +9,6 @@ namespace Project2.UserControls
 {
     public partial class ProductForm : UserControl
     {
-        private ProductBUS prodBUS;
-        private CategoryBUS cateBUS;
         private List<Product> products;
         private List<Category> categories;
         private int id;
@@ -21,16 +19,9 @@ namespace Project2.UserControls
             InitializeComponent();
             if (!this.DesignMode)
             {
-                InitializeBUS();
                 LoadTreeView();
                 LoadSearchTextBox();
             }
-        }
-
-        private void InitializeBUS()
-        {
-            prodBUS = new ProductBUS();
-            cateBUS = new CategoryBUS();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -103,7 +94,7 @@ namespace Project2.UserControls
                 DialogResult dialogResult = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 { 
-                    bool result = prodBUS.Delete(id);
+                    bool result = ProductBUS.Delete(id);
                     if (result)
                     {
                         RefreshDataGridView();
@@ -150,7 +141,7 @@ namespace Project2.UserControls
         {
             int level = tvCategory.SelectedNode.Level;
             int categoryId = (int)tvCategory.SelectedNode.Tag;
-            return new ProductBUS().GetProductByTreeLevel(level, categoryId);
+            return ProductBUS.GetProductByTreeLevel(level, categoryId);
         }
 
         private void LoadDataGridView(List<Product> products)
@@ -180,14 +171,14 @@ namespace Project2.UserControls
 
         private string SetAvailableField(Product product)
         {
-            if (product.available ?? default(bool))
+            if (product.available)
                 return "Yes";
             else return "No";
         }
 
         private void CreateParentNode(int parentId)
         {
-            categories = cateBUS.GetCategoryByParentID(parentId);
+            categories = CategoryBUS.GetCategoryByParentID(parentId);
             if (categories.Count > 0)
             {
                 foreach (var category in categories)
@@ -204,7 +195,7 @@ namespace Project2.UserControls
 
         private void CreateChildNode(TreeNode parentNode, int parentId)
         {
-            categories = cateBUS.GetCategoryByParentID(parentId);
+            categories = CategoryBUS.GetCategoryByParentID(parentId);
             if (categories.Count > 0)
             {
                 foreach (var category in categories)

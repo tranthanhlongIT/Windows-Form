@@ -9,8 +9,6 @@ namespace Project2.Forms.Components
 {
     public partial class CustomerModalForm : Form
     {
-        private CustomerBUS custBUS;
-        private CityBUS cityBUS;
         private List<City> cities;
         private Customer customer;
         private string action;
@@ -28,15 +26,8 @@ namespace Project2.Forms.Components
             this.id = id;
         }
 
-        public void InitializeBUS()
-        {
-            custBUS = new CustomerBUS();
-            cityBUS = new CityBUS();
-        }
-
         private void CustomerModalForm_Load(object sender, EventArgs e)
         {
-            InitializeBUS();
             SetForm();
         }
 
@@ -44,7 +35,6 @@ namespace Project2.Forms.Components
         {
             if (action == "add")
             {
-                CreateCustomer();
                 BeginAdd();
             }
             else if (action == "upd")
@@ -74,6 +64,7 @@ namespace Project2.Forms.Components
             if (action == "add")
             {
                 lblTitle.Text = "Add Customer";
+                CreateCustomer();
                 LoadGenderComboBox();
                 LoadActiveComboBox();
                 LoadCityComboBox();
@@ -81,7 +72,7 @@ namespace Project2.Forms.Components
             else if (action == "upd")
             {
                 lblTitle.Text = "Update Customer";
-                customer = custBUS.GetCustomerByID(id);
+                customer = CustomerBUS.GetCustomerByID(id);
                 LoadGenderComboBox();
                 LoadActiveComboBox();
                 LoadCityComboBox();
@@ -91,7 +82,7 @@ namespace Project2.Forms.Components
             else if (action == "det")
             {
                 lblTitle.Text = "View Customer";
-                customer = custBUS.GetCustomerByID(id);
+                customer = CustomerBUS.GetCustomerByID(id);
                 LoadGenderComboBox();
                 LoadActiveComboBox();
                 LoadCityComboBox();
@@ -182,7 +173,7 @@ namespace Project2.Forms.Components
         {
             cbCity.DisplayMember = "name";
             cbCity.ValueMember = "id";
-            cities = cityBUS.GetAll();
+            cities = CityBUS.GetAll();
             cbCity.DataSource = cities;
         }
 
@@ -198,11 +189,9 @@ namespace Project2.Forms.Components
             customer.address = txtAddress.Text.Trim();
             customer.phone = txtPhone.Text.Trim();
             customer.zipcode = txtZipcode.Text.Trim();
-            customer.gender = (bool?)cbGender.SelectedValue;
-            customer.is_active = (bool?)cbActive.SelectedValue;
+            customer.gender = (bool)cbGender.SelectedValue;
+            customer.is_active = (bool)cbActive.SelectedValue;
             customer.city_id = (Int32)cbCity.SelectedValue;
-            customer.created_at = SetCreatedAt();
-            customer.updated_at = SetUpdatedAt();
         }
 
         public void BeginAdd()
@@ -210,7 +199,7 @@ namespace Project2.Forms.Components
             if (ValidateForm())
             {
                 SetCustomer();
-                bool result = custBUS.AddNew(customer);
+                bool result = CustomerBUS.AddNew(customer);
                 if (result)
                 {
                     CreateCustomer();
@@ -229,7 +218,7 @@ namespace Project2.Forms.Components
             if (ValidateForm())
             {
                 SetCustomer();
-                bool result = custBUS.Update(customer);
+                bool result = CustomerBUS.Update(customer);
                 if (result)
                 {
                     this.Alert("Update Successful", Form_Alert.enmType.Success);
@@ -239,20 +228,6 @@ namespace Project2.Forms.Components
                     this.Alert("Update Failed", Form_Alert.enmType.Error);
                 }
             }
-        }
-
-        public DateTime SetCreatedAt()
-        {
-            if (action == "add")
-                return DateTime.Now;
-            else return DateTime.Parse(txtCreatedAt.Text);
-        }
-
-        public DateTime SetUpdatedAt()
-        {
-            if (action == "add")
-                return DateTime.Parse(txtUpdatedAt.Text);
-            else return DateTime.Now;
         }
 
         public bool ValidateForm()

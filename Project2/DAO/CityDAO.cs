@@ -6,14 +6,9 @@ namespace Project2.DAO
 {
     class CityDAO
     {
-        MyDBDataContext db;
+        private static readonly MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
 
-        public CityDAO()
-        {
-            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
-        }
-
-        public List<City> SelectAll()
+        public static List<City> SelectAll()
         {
             try
             {

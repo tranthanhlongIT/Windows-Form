@@ -1,29 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Project2.DAO;
 
 namespace Project2.BUS
 {
     class CategoryBUS
     {
-        private CategoryDAO cateDAO;
-
-        public CategoryBUS()
+        public static List<Category> GetAll()
         {
-            cateDAO = new CategoryDAO();
+            return CategoryDAO.SelectAll();
         }
 
-        public List<Category> GetAll()
+        public static List<Category> GetCategoryByParentID(int parentId)
         {
-            return cateDAO.SelectAll();
-        }
-
-        public List<Category> GetCategoryByParentID(int parentId)
-        {
-            return cateDAO.SelectAllByParentID(parentId); ;
+            return CategoryDAO.SelectAllByParentID(parentId);
         }
     }
 }

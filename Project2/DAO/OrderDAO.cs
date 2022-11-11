@@ -7,14 +7,9 @@ namespace Project2.DAO
 {
     class OrderDAO
     {
-        MyDBDataContext db;
+        private static readonly MyDBDataContext db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
 
-        public OrderDAO()
-        {
-            db = new MyDBDataContext(ConfigurationManager.ConnectionStrings["strCon"].ConnectionString);
-        }
-
-        public List<Order> SelectAll()
+        public static List<Order> SelectAll()
         {
             try
             {
@@ -26,7 +21,7 @@ namespace Project2.DAO
             }
         }
 
-        public List<Order> SelectAllBetweenDate(DateTime dateStart, DateTime dateEnd)
+        public static List<Order> SelectAllBetweenDate(DateTime dateStart, DateTime dateEnd)
         {
             try
             {
@@ -40,7 +35,7 @@ namespace Project2.DAO
             }
         }
 
-        public bool Insert(Order newOrder)
+        public static bool Insert(Order newOrder)
         {
             try
             {

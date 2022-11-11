@@ -10,7 +10,6 @@ namespace Project2
     {
         private bool mouseDown;
         private Point lastLocation;
-        private EmployeeBUS empBUS = new EmployeeBUS();
 
         public RegisterForm()
         {
@@ -88,7 +87,7 @@ namespace Project2
             if (ValidateRegister())
             {
                 Employee newEmployee = CreateEmployee();
-                bool result = new EmployeeBUS().AddNew(newEmployee);
+                bool result = EmployeeBUS.AddNew(newEmployee);
                 if (result)
                 {
                     ResetForm();
@@ -115,7 +114,6 @@ namespace Project2
         private void lbBackToLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //new LoginForm().Show();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -180,7 +178,7 @@ namespace Project2
                 ResetPassword();
                 return false;
             }
-            if (empBUS.ValidateEmail(txtEmail.Text.Trim()))
+            if (EmployeeBUS.ValidateEmail(txtEmail.Text.Trim()))
             {
                 MessageBox.Show("Email already existed", "Register Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetPassword();

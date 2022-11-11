@@ -5,37 +5,30 @@ namespace Project2.BUS
 {
     class EmployeeBUS
     {
-        private EmployeeDAO empDAO;
-
-        public EmployeeBUS()
-        {
-            empDAO = new EmployeeDAO();
-        }
-
-        public bool AddNew(Employee newEmployee)
+        public static bool AddNew(Employee newEmployee)
         {
             newEmployee.password = EncodePasswordToBase64(newEmployee.password);
-            return empDAO.Insert(newEmployee);
+            return EmployeeDAO.Insert(newEmployee);
         }
 
-        public Employee GetEmployeeByEmail(string email)
+        public static Employee GetEmployeeByEmail(string email)
         {
-            return empDAO.SelectAllByEmail(email); ;
+            return EmployeeDAO.SelectAllByEmail(email); ;
         }
 
-        public bool CheckEmployeeCredential(Employee employee)
+        public static bool CheckEmployeeCredential(Employee employee)
         {
-            string getPassword = empDAO.SelectPasswordByEmail(employee.email);
+            string getPassword = EmployeeDAO.SelectPasswordByEmail(employee.email);
             string password = DecodeFrom64(getPassword);
-            bool status = empDAO.SelectIsActiveByEmail(employee.email);
+            bool status = EmployeeDAO.SelectIsActiveByEmail(employee.email);
             if (employee.password == password && status)
                 return true;
             return false;
         }
 
-        public bool ValidateEmail(string email)
+        public static bool ValidateEmail(string email)
         {
-            return empDAO.IsEmailExist(email);
+            return EmployeeDAO.IsEmailExist(email);
         }
 
         //this function Convert to Encord your Password
@@ -55,7 +48,7 @@ namespace Project2.BUS
         }
 
         //this function Convert to Decord your Password
-        public string DecodeFrom64(string encodedData)
+        public static string DecodeFrom64(string encodedData)
         {
             System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
             System.Text.Decoder utf8Decode = encoder.GetDecoder();
