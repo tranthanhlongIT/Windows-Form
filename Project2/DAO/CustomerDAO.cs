@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Configuration;
 
@@ -61,6 +62,7 @@ namespace Project2.DAO
                     dbCustomer.zipcode = newCustomer.zipcode;
                     dbCustomer.is_active = newCustomer.is_active;
                     dbCustomer.city_id = newCustomer.city_id;
+                    dbCustomer.updated_at = DateTime.Now;
                     db.SubmitChanges();
                     return true;
                 }

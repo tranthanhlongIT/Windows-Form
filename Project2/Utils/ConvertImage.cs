@@ -4,7 +4,7 @@ using System.Drawing.Imaging;
 
 namespace Project2.Utils
 {
-    public static class ConvertImage
+    class ConvertImage
     {
         public static byte[] ConvertImageToBinary(Image img)
         {
@@ -15,7 +15,7 @@ namespace Project2.Utils
                 return ms.ToArray();
             }
         }
-        
+
         public static Image ConvertBinaryToImage(byte[] data)
         {
             using (MemoryStream ms = new MemoryStream(data))
@@ -34,28 +34,7 @@ namespace Project2.Utils
             {
                 return ImageFormat.Png;
             }
-            return null;
+            else return ImageFormat.Bmp;
         }
-
-        //public string SetImagePath()
-        //{
-        //    if (txtImagePath.Text != "")
-        //    {
-        //        return Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
-        //                        Path.GetFileName(txtImagePath.Text));
-        //    }
-        //    else return null;
-        //}
-
-        //public void CopyImageToFolder()
-        //{
-        //    if (txtImagePath.Text.Trim() != "" || txtImagePath.Text.Length > 0)
-        //    {
-        //        File.Copy(txtImagePath.Text.Trim(),
-        //                Path.Combine(@"G:\Tools\Visual Studio\Windows Form\Project2\Resources\Images\",
-        //                Path.GetFileName(txtImagePath.Text)),
-        //                false);
-        //    }
-        //}
     }
 }

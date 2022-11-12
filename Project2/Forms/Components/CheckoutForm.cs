@@ -29,6 +29,7 @@ namespace Project2.Forms.Components
 
         private void CheckoutForm_Load(object sender, EventArgs e)
         {
+            CreateOrder();
             LoadSearchTextBox();
             RefreshDataGridView();
             SetProductField(product);
@@ -176,13 +177,13 @@ namespace Project2.Forms.Components
             order.product_id = product.id;
             order.quantity = Int32.Parse(txtQuantity.Text);
             order.total = totalPrice;
+            order.created_at = DateTime.Now;
         }
 
         private void btnSell_Click(object sender, EventArgs e)
         {
             if (ValidateQuantity())
             {
-                CreateOrder();
                 SetOrder();
                 bool result = OrderBUS.AddNew(order);
                 if (result)

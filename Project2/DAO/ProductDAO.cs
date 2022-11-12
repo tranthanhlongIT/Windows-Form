@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 
 namespace Project2.DAO
@@ -89,6 +87,7 @@ namespace Project2.DAO
                     dbProduct.image = newProduct.image;
                     dbProduct.type_id = newProduct.type_id;
                     dbProduct.brand_id = newProduct.brand_id;
+                    dbProduct.updated_at = DateTime.Now;
                     db.SubmitChanges();
                     return true;
                 }

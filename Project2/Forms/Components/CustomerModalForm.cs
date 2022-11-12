@@ -192,6 +192,7 @@ namespace Project2.Forms.Components
             customer.gender = (bool)cbGender.SelectedValue;
             customer.is_active = (bool)cbActive.SelectedValue;
             customer.city_id = (Int32)cbCity.SelectedValue;
+            customer.created_at = DateTime.Now;
         }
 
         public void BeginAdd()

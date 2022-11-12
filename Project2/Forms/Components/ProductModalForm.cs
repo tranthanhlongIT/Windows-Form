@@ -56,7 +56,6 @@ namespace Project2.Forms.Components
         {
             if (action == "add")
             {
-                CreateProduct();
                 BeginAdd();
             }
             else if (action == "upd")
@@ -86,7 +85,7 @@ namespace Project2.Forms.Components
             if (action == "add")
             {
                 lblTitle.Text = "Add Product";
-                pbUploadImage.Image = pbUploadImage.InitialImage;
+                CreateProduct();
                 LoadTypeComboBox();
                 LoadAvailableComboBox();
                 cbType.Text = "";
@@ -100,7 +99,6 @@ namespace Project2.Forms.Components
                 LoadBrandComboBox(product.type_id);
                 LoadAvailableComboBox();
                 SetField();
-                SetVisibleForCreatedAtAndUpdatedAt();
             }
             else if (action == "det")
             {
@@ -130,7 +128,6 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Text = product.updated_at.ToString();
             if (product.image != null)
                 pbUploadImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
-            else pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
         public void ResetField()
@@ -210,7 +207,7 @@ namespace Project2.Forms.Components
 
         public void CreateProduct()
         {
-            this.product = new Product();
+            product = new Product();
         }
 
         public void SetProduct()
@@ -224,6 +221,7 @@ namespace Project2.Forms.Components
             product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
             product.type_id = (Int32)cbType.SelectedValue;
             product.brand_id = (Int32)cbBrand.SelectedValue;
+            product.created_at = DateTime.Now;
         }
 
         public void BeginAdd()
