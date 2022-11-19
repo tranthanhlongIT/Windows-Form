@@ -11,7 +11,6 @@ namespace Project2.Utils
             using (MemoryStream ms = new MemoryStream())
             {
                 img.Save(ms, GetImageFormat(img));
-                img.Dispose();
                 return ms.ToArray();
             }
         }

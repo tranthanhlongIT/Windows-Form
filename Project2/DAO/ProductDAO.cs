@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Configuration;
+using System.Windows.Forms;
 
 namespace Project2.DAO
 {
@@ -73,7 +74,7 @@ namespace Project2.DAO
 
         public static bool Update(Product newProduct)
         {
-            Product dbProduct = db.Products.SingleOrDefault(c => c.id == newProduct.id);
+            Product dbProduct = db.Products.SingleOrDefault(p => p.id == newProduct.id);
             if (dbProduct != null)
             {
                 try
@@ -85,9 +86,9 @@ namespace Project2.DAO
                     dbProduct.quantity = newProduct.quantity;
                     dbProduct.available = newProduct.available;
                     dbProduct.image = newProduct.image;
-                    dbProduct.type_id = newProduct.type_id;
-                    dbProduct.brand_id = newProduct.brand_id;
                     dbProduct.updated_at = DateTime.Now;
+                    dbProduct.Category = db.Categories.SingleOrDefault(c => c.id == newProduct.type_id);
+                    dbProduct.Category1 = db.Categories.SingleOrDefault(c => c.id == newProduct.brand_id);
                     db.SubmitChanges();
                     return true;
                 }

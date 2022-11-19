@@ -74,13 +74,13 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        public void Alert(string msg, Form_Alert.enmType type)
+        private void Alert(string msg, Form_Alert.enmType type)
         {
             Form_Alert frm = new Form_Alert();
             frm.showAlert(msg, type);
         }
 
-        public void SetForm()
+        private void SetForm()
         {
             if (action == "add")
             {
@@ -113,7 +113,7 @@ namespace Project2.Forms.Components
             }
         }
 
-        public void SetField()
+        private void SetField()
         {
             txtId.Text = product.id.ToString();
             txtName.Text = product.name;
@@ -130,7 +130,7 @@ namespace Project2.Forms.Components
                 pbUploadImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
         }
 
-        public void ResetField()
+        private void ResetField()
         {
             txtId.Text = "";
             txtName.Text = "";
@@ -147,7 +147,7 @@ namespace Project2.Forms.Components
             pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
-        public void DisableField()
+        private void DisableField()
         {
             txtName.Enabled = false;
             txtDescription.Enabled = false;
@@ -171,7 +171,7 @@ namespace Project2.Forms.Components
             lblRequiredType.Visible = false;
         }
 
-        public void SetVisibleForCreatedAtAndUpdatedAt()
+        private void SetVisibleForCreatedAtAndUpdatedAt()
         {
             lblCreatedAt.Visible = true;
             lblUpdatedAt.Visible = true;
@@ -179,7 +179,7 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Visible = true;
         }
 
-        public void LoadTypeComboBox()
+        private void LoadTypeComboBox()
         {
             cbType.DisplayMember = "name";
             cbType.ValueMember = "id";
@@ -187,7 +187,7 @@ namespace Project2.Forms.Components
             cbType.DataSource = categories;
         }
 
-        public void LoadBrandComboBox(int parentId)
+        private void LoadBrandComboBox(int parentId)
         {
             cbBrand.DisplayMember = "name";
             cbBrand.ValueMember = "id";
@@ -195,7 +195,7 @@ namespace Project2.Forms.Components
             cbBrand.DataSource = categories;
         }
 
-        public void LoadAvailableComboBox()
+        private void LoadAvailableComboBox()
         {
             cbAvailable.DisplayMember = "Key";
             cbAvailable.ValueMember = "Value";
@@ -205,12 +205,12 @@ namespace Project2.Forms.Components
             cbAvailable.DataSource = new BindingSource(dict, null);
         }
 
-        public void CreateProduct()
+        private void CreateProduct()
         {
             product = new Product();
         }
 
-        public void SetProduct()
+        private void SetProduct()
         {
             product.name = txtName.Text.Trim();
             product.description = txtDescription.Text.Trim();
@@ -224,7 +224,7 @@ namespace Project2.Forms.Components
             product.created_at = DateTime.Now;
         }
 
-        public void BeginAdd()
+        private void BeginAdd()
         {
             if (ValidateForm())
             {
@@ -243,7 +243,7 @@ namespace Project2.Forms.Components
             }
         }
 
-        public void BeginUpdate()
+        private void BeginUpdate()
         {
             if (ValidateForm())
             {
@@ -260,7 +260,7 @@ namespace Project2.Forms.Components
             }
         }
 
-        public bool ValidateForm()
+        private bool ValidateForm()
         {
             if (txtName.Text.Trim() == "" || txtName.Text.Length < 1)
             {
@@ -312,6 +312,11 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Invalid Discount", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (Int32.Parse(txtDiscount.Text) > Int32.Parse(txtPrice.Text))
+            {
+                MessageBox.Show("Discount cannot be higher than price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             if (txtQuantity.Text.Trim() == "" || txtPrice.Text.Length < 1)
             {
                 MessageBox.Show("Quantity field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -326,7 +331,7 @@ namespace Project2.Forms.Components
             {
                 MessageBox.Show("Invalid Quantity", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }            
+            }
             return true;
         }
     }

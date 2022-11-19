@@ -1739,7 +1739,7 @@ namespace Project2
 		
 		private double _price;
 		
-		private System.Nullable<double> _discount;
+		private double _discount;
 		
 		private int _quantity;
 		
@@ -1773,7 +1773,7 @@ namespace Project2
     partial void OndescriptionChanged();
     partial void OnpriceChanging(double value);
     partial void OnpriceChanged();
-    partial void OndiscountChanging(System.Nullable<double> value);
+    partial void OndiscountChanging(double value);
     partial void OndiscountChanged();
     partial void OnquantityChanging(int value);
     partial void OnquantityChanged();
@@ -1879,8 +1879,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float")]
-		public System.Nullable<double> discount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount", DbType="Float NOT NULL")]
+		public double discount
 		{
 			get
 			{
