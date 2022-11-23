@@ -10,7 +10,6 @@ namespace Project2
     {
         private int activeBtn;
         private Employee employee;
-        private ProductForm productForm;
 
         public ManagementForm()
         {
@@ -25,18 +24,23 @@ namespace Project2
 
         private void ManagementForm_Load(object sender, EventArgs e)
         {
+            ClearContainer();
+            CreateTabDashboard();
             SlidePanel(btnDashboard);
             ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            ClearContainer();
+            CreateTabDashboard();
             SlidePanel(btnDashboard);
             ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory});
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
+            ClearContainer();
             CreateTabProduct();
             SlidePanel(btnProduct);
             ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory });
@@ -56,18 +60,24 @@ namespace Project2
 
         private void btnSale_Click(object sender, EventArgs e)
         {
+            ClearContainer();
+            CreateTabSales();
             SlidePanel(btnSale);
             ChangeButtonTextColor(5, btnSale, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnCustomer, btnHistory });
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
+            ClearContainer();
+            CreateTabCustomer();
             SlidePanel(btnCustomer);
             ChangeButtonTextColor(6, btnCustomer, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
+            ClearContainer();
+            CreateTabHistory();
             SlidePanel(btnHistory);
             ChangeButtonTextColor(7, btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnCustomer });
         }
@@ -222,19 +232,48 @@ namespace Project2
             }
         }
 
+        private void CreateTabDashboard()
+        {
+            DashboardForm dashboardForm = new DashboardForm();
+            pnlContainer.Controls.Add(dashboardForm);
+            dashboardForm.Dock = DockStyle.Fill;
+        }
+
         private void CreateTabProduct()
         {
-            if (!pnlContainer.Controls.Contains(productForm))
-            {
-                productForm = new ProductForm();
-                pnlContainer.Controls.Add(productForm);
-                productForm.Dock = DockStyle.Fill;
-            }
-            else
-            {
-                pnlContainer.Controls.Clear();
-                productForm.Dispose();    
-            }
+            ProductForm productForm = new ProductForm();
+            pnlContainer.Controls.Add(productForm);
+            productForm.Dock = DockStyle.Fill;
+        }
+
+        private void CreateTabCustomer()
+        {
+            CustomerForm customerForm = new CustomerForm();
+            pnlContainer.Controls.Add(customerForm);
+            customerForm.Dock = DockStyle.Fill;
+        }
+
+        private void CreateTabHistory()
+        {
+            HistoryForm historyForm = new HistoryForm();
+            pnlContainer.Controls.Add(historyForm);
+            historyForm.Dock = DockStyle.Fill;
+        }
+
+        private void CreateTabSales()
+        {
+            SalesForm salesForm = new SalesForm();
+            salesForm.SetEmployee(employee);
+            pnlContainer.Controls.Add(salesForm);
+            salesForm.Dock = DockStyle.Fill;
+        }
+
+        private void ClearContainer()
+        {
+            List<Control> controls = new List<Control>();
+            pnlContainer.Controls.Clear();
+            foreach (Control c in controls)
+                c.Dispose();
         }
     }
 }

@@ -33,6 +33,7 @@ namespace Project2.Forms.Components
             LoadSearchTextBox();
             RefreshDataGridView();
             SetProductField(product);
+            SetTotalPrice();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -74,32 +75,14 @@ namespace Project2.Forms.Components
 
         private void txtQuantity_MouseLeave(object sender, EventArgs e)
         {
-            if (txtQuantity.Text.Length > 0)
-            {
-                totalPrice = (double)(product.price - product.discount) * Int32.Parse(txtQuantity.Text);
-                txtTotal.Text = totalPrice.ToString("c0");
-            }
-            else
-            {
-                txtQuantity.Text = "0";
-                txtTotal.Text = "$0";
-            }
+            SetTotalPrice();
         }
 
         private void txtQuantity_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (txtQuantity.Text.Length > 0)
-                {
-                    totalPrice = (double)(product.price - product.discount) * Int32.Parse(txtQuantity.Text);
-                    txtTotal.Text = totalPrice.ToString("c0");
-                }
-                else
-                {
-                    txtQuantity.Text = "0";
-                    txtTotal.Text = "$0";
-                }
+                SetTotalPrice();
                 e.SuppressKeyPress = true;
             }
         }
@@ -137,6 +120,20 @@ namespace Project2.Forms.Components
             if (product.image != null)
                 pbImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
             else pbImage.Image = pbImage.InitialImage;
+        }
+
+        private void SetTotalPrice()
+        {
+            if (txtQuantity.Text.Length > 0)
+            {
+                totalPrice = (double)(product.price - product.discount) * Int32.Parse(txtQuantity.Text);
+                txtTotal.Text = totalPrice.ToString("c0");
+            }
+            else
+            {
+                txtQuantity.Text = "0";
+                txtTotal.Text = "$0";
+            }
         }
 
         private List<Customer> GetCustomerList()

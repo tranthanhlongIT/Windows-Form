@@ -21,6 +21,18 @@ namespace Project2.DAO
             }
         }
 
+        public static List<Order> SelectAllByMonth(int month)
+        {
+            try
+            {
+                return db.Orders.Where(o => o.created_at.Month == month).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static List<Order> SelectAllBetweenDate(DateTime dateStart, DateTime dateEnd)
         {
             try

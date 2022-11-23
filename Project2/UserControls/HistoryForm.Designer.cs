@@ -45,7 +45,7 @@ namespace Project2.UserControls
             this.pnlOperation = new System.Windows.Forms.Panel();
             this.btnRefresh = new Project2.Utils.RoundedButton();
             this.dtpDateEnd = new System.Windows.Forms.DateTimePicker();
-            this.btnFilter = new Project2.Utils.RoundedButton();
+            this.btnApply = new Project2.Utils.RoundedButton();
             this.dtpDateStart = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
@@ -78,7 +78,7 @@ namespace Project2.UserControls
             this.pnlOperation.BackColor = System.Drawing.Color.White;
             this.pnlOperation.Controls.Add(this.btnRefresh);
             this.pnlOperation.Controls.Add(this.dtpDateEnd);
-            this.pnlOperation.Controls.Add(this.btnFilter);
+            this.pnlOperation.Controls.Add(this.btnApply);
             this.pnlOperation.Controls.Add(this.dtpDateStart);
             this.pnlOperation.Controls.Add(this.btnSearch);
             this.pnlOperation.Controls.Add(this.txtSearch);
@@ -127,28 +127,28 @@ namespace Project2.UserControls
             this.dtpDateEnd.TabIndex = 7;
             this.dtpDateEnd.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
             // 
-            // btnFilter
+            // btnApply
             // 
-            this.btnFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnFilter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnFilter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnFilter.BorderRadius = 3;
-            this.btnFilter.BorderSize = 1;
-            this.btnFilter.FlatAppearance.BorderSize = 0;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilter.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.btnFilter.ForeColor = System.Drawing.Color.White;
-            this.btnFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnFilter.Image")));
-            this.btnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFilter.Location = new System.Drawing.Point(400, 6);
-            this.btnFilter.Margin = new System.Windows.Forms.Padding(0);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(99, 25);
-            this.btnFilter.TabIndex = 12;
-            this.btnFilter.Text = "        Filter";
-            this.btnFilter.TextColor = System.Drawing.Color.White;
-            this.btnFilter.UseVisualStyleBackColor = false;
-            this.btnFilter.Click += new System.EventHandler(this.btnSort_Click);
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BorderRadius = 3;
+            this.btnApply.BorderSize = 1;
+            this.btnApply.FlatAppearance.BorderSize = 0;
+            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApply.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnApply.ForeColor = System.Drawing.Color.White;
+            this.btnApply.Image = ((System.Drawing.Image)(resources.GetObject("btnApply.Image")));
+            this.btnApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApply.Location = new System.Drawing.Point(400, 6);
+            this.btnApply.Margin = new System.Windows.Forms.Padding(0);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(99, 25);
+            this.btnApply.TabIndex = 12;
+            this.btnApply.Text = "        Apply";
+            this.btnApply.TextColor = System.Drawing.Color.White;
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // dtpDateStart
             // 
@@ -383,7 +383,7 @@ namespace Project2.UserControls
         private System.Windows.Forms.DateTimePicker dtpDateEnd;
         private System.Windows.Forms.DataGridView dgvOrder;
         private Utils.RoundedButton btnRefresh;
-        private Utils.RoundedButton btnFilter;
+        private Utils.RoundedButton btnApply;
         private System.Windows.Forms.DataGridViewTextBoxColumn chId;
         private System.Windows.Forms.DataGridViewTextBoxColumn chEmployee;
         private System.Windows.Forms.DataGridViewTextBoxColumn chCustomer;

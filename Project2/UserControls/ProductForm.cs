@@ -86,7 +86,7 @@ namespace Project2.UserControls
                 id = (Int32)dgvProduct.Rows[dgvProduct.CurrentRow.Index].Cells[0].Value;
                 OpenModal("upd", id);
             }
-            
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace Project2.UserControls
                                         product.Category1.name,
                                         SetAvailableField(product));
                 }
-            }   
+            }
         }
 
         private void RefreshDataGridView()

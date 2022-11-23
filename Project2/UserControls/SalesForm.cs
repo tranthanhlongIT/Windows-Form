@@ -18,20 +18,16 @@ namespace Project2.UserControls
         public SalesForm()
         {
             InitializeComponent();
-        }
-
-        public void SetEmployee(Employee employee)
-        {
-            this.employee = employee;
-        }
-
-        private void SalesForm_Load(object sender, EventArgs e)
-        {
             if (!DesignMode)
             {
                 LoadFilterComboBox();
                 LoadSearchTextBox();
             }
+        }
+
+        public void SetEmployee(Employee employee)
+        {
+            this.employee = employee;
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -106,7 +102,7 @@ namespace Project2.UserControls
             else return ProductBUS.GetProductByTypeID((int)cbFilter.SelectedValue);
         }
 
-        public void SetDisplayField(Product product)
+        private void SetDisplayField(Product product)
         {
             if (product.image != null)
                 pbImage.Image = ConvertImage.ConvertBinaryToImage(product.image.ToArray());
@@ -117,7 +113,26 @@ namespace Project2.UserControls
             lblPrice.Text = "Price: " + ((double)product.price).ToString("c0");
             lblDiscount.Text = "Discount: " + ((double)product.discount).ToString("c0");
             lblQuantity.Text = "Available stock: " + product.quantity;
+            SetSellButton(product);
+        }
+
+        private void SetSellButton(Product product)
+        {
             btnSell.Visible = true;
+            if (product.quantity > 0)
+            {
+                btnSell.BackColor = Color.FromArgb(40, 167, 69);
+                btnSell.BackgroundColor = Color.FromArgb(40, 167, 69);
+                btnSell.BorderColor = Color.FromArgb(40, 167, 69);
+                btnSell.Enabled = true;
+            }
+            else
+            {
+                btnSell.BackColor = Color.FromArgb(220, 53, 69);
+                btnSell.BackgroundColor = Color.FromArgb(220, 53, 69);
+                btnSell.BorderColor = Color.FromArgb(220, 53, 69);
+                btnSell.Enabled = false;
+            }
         }
 
         private void ResetDisplayField()
@@ -221,6 +236,7 @@ namespace Project2.UserControls
             }
             finally
             {
+                LoadFilterComboBox();
                 formBackground.Dispose();
             }
         }

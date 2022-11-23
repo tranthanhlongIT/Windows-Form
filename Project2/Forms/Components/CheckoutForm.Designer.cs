@@ -115,7 +115,7 @@ namespace Project2.Forms.Components
             this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblTitle.Location = new System.Drawing.Point(38, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(121, 18);
+            this.lblTitle.Size = new System.Drawing.Size(150, 23);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Checkout Form";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -173,7 +173,7 @@ namespace Project2.Forms.Components
             this.txtPrice.MaxLength = 20;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.ReadOnly = true;
-            this.txtPrice.Size = new System.Drawing.Size(150, 29);
+            this.txtPrice.Size = new System.Drawing.Size(150, 34);
             this.txtPrice.TabIndex = 0;
             this.txtPrice.TabStop = false;
             this.txtPrice.Text = "$0";
@@ -194,7 +194,7 @@ namespace Project2.Forms.Components
             this.txtDiscount.MaxLength = 20;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.ReadOnly = true;
-            this.txtDiscount.Size = new System.Drawing.Size(150, 29);
+            this.txtDiscount.Size = new System.Drawing.Size(150, 34);
             this.txtDiscount.TabIndex = 0;
             this.txtDiscount.TabStop = false;
             this.txtDiscount.Text = "$0";
@@ -213,7 +213,7 @@ namespace Project2.Forms.Components
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.txtQuantity.MaxLength = 20;
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(150, 29);
+            this.txtQuantity.Size = new System.Drawing.Size(150, 34);
             this.txtQuantity.TabIndex = 0;
             this.txtQuantity.Text = "1";
             this.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -231,7 +231,7 @@ namespace Project2.Forms.Components
             this.txtTotal.MaxLength = 20;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(150, 29);
+            this.txtTotal.Size = new System.Drawing.Size(150, 34);
             this.txtTotal.TabIndex = 0;
             this.txtTotal.TabStop = false;
             this.txtTotal.Text = "$0";
@@ -256,7 +256,7 @@ namespace Project2.Forms.Components
             this.lblTotal.Location = new System.Drawing.Point(390, 662);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(56, 22);
+            this.lblTotal.Size = new System.Drawing.Size(68, 26);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "Total:";
             // 
@@ -270,7 +270,7 @@ namespace Project2.Forms.Components
             this.lblQuantity.Location = new System.Drawing.Point(390, 609);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(93, 21);
+            this.lblQuantity.Size = new System.Drawing.Size(111, 25);
             this.lblQuantity.TabIndex = 0;
             this.lblQuantity.Text = "Quantity:";
             // 
@@ -284,7 +284,7 @@ namespace Project2.Forms.Components
             this.lblDiscount.Location = new System.Drawing.Point(390, 554);
             this.lblDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(91, 21);
+            this.lblDiscount.Size = new System.Drawing.Size(109, 25);
             this.lblDiscount.TabIndex = 0;
             this.lblDiscount.Text = "Discount:";
             // 
@@ -298,7 +298,7 @@ namespace Project2.Forms.Components
             this.lblPrice.Location = new System.Drawing.Point(390, 499);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(58, 21);
+            this.lblPrice.Size = new System.Drawing.Size(70, 25);
             this.lblPrice.TabIndex = 0;
             this.lblPrice.Text = "Price:";
             // 
@@ -392,7 +392,7 @@ namespace Project2.Forms.Components
             this.txtBrand.Location = new System.Drawing.Point(22, 157);
             this.txtBrand.Margin = new System.Windows.Forms.Padding(0);
             this.txtBrand.Name = "txtBrand";
-            this.txtBrand.Size = new System.Drawing.Size(325, 27);
+            this.txtBrand.Size = new System.Drawing.Size(325, 32);
             this.txtBrand.TabIndex = 47;
             this.txtBrand.Text = "Crosstrek 2022";
             // 
@@ -406,7 +406,7 @@ namespace Project2.Forms.Components
             this.lblBrand.Location = new System.Drawing.Point(17, 133);
             this.lblBrand.Margin = new System.Windows.Forms.Padding(0);
             this.lblBrand.Name = "lblBrand";
-            this.lblBrand.Size = new System.Drawing.Size(56, 21);
+            this.lblBrand.Size = new System.Drawing.Size(67, 23);
             this.lblBrand.TabIndex = 46;
             this.lblBrand.Text = "Brand";
             // 
@@ -422,7 +422,7 @@ namespace Project2.Forms.Components
             this.txtType.Location = new System.Drawing.Point(22, 102);
             this.txtType.Margin = new System.Windows.Forms.Padding(0);
             this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(325, 27);
+            this.txtType.Size = new System.Drawing.Size(325, 32);
             this.txtType.TabIndex = 45;
             this.txtType.Text = "Crosstrek 2022";
             // 
@@ -436,7 +436,7 @@ namespace Project2.Forms.Components
             this.lblType.Location = new System.Drawing.Point(15, 78);
             this.lblType.Margin = new System.Windows.Forms.Padding(0);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(47, 21);
+            this.lblType.Size = new System.Drawing.Size(56, 23);
             this.lblType.TabIndex = 44;
             this.lblType.Text = "Type";
             // 
@@ -452,7 +452,7 @@ namespace Project2.Forms.Components
             this.txtName.Location = new System.Drawing.Point(22, 47);
             this.txtName.Margin = new System.Windows.Forms.Padding(0);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(325, 27);
+            this.txtName.Size = new System.Drawing.Size(325, 32);
             this.txtName.TabIndex = 43;
             this.txtName.Text = "Crosstrek 2022";
             // 
@@ -466,7 +466,7 @@ namespace Project2.Forms.Components
             this.lblName.Location = new System.Drawing.Point(15, 23);
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(58, 21);
+            this.lblName.Size = new System.Drawing.Size(71, 23);
             this.lblName.TabIndex = 39;
             this.lblName.Text = "Name";
             // 
@@ -511,7 +511,7 @@ namespace Project2.Forms.Components
             this.txtSearch.Location = new System.Drawing.Point(175, 14);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(486, 18);
+            this.txtSearch.Size = new System.Drawing.Size(486, 23);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -526,7 +526,7 @@ namespace Project2.Forms.Components
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -678,13 +678,13 @@ namespace Project2.Forms.Components
             this.lblChooseCustomer.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.lblChooseCustomer.Location = new System.Drawing.Point(7, 15);
             this.lblChooseCustomer.Name = "lblChooseCustomer";
-            this.lblChooseCustomer.Size = new System.Drawing.Size(144, 20);
+            this.lblChooseCustomer.Size = new System.Drawing.Size(178, 22);
             this.lblChooseCustomer.TabIndex = 30;
             this.lblChooseCustomer.Text = "Choose Customer:";
             // 
             // CheckoutForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(700, 800);

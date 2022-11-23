@@ -478,7 +478,6 @@ namespace Project2.UserControls
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "SalesForm";
             this.Size = new System.Drawing.Size(1280, 630);
-            this.Load += new System.EventHandler(this.SalesForm_Load);
             this.pnlLeft.ResumeLayout(false);
             this.pnlLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
