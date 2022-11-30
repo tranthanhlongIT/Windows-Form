@@ -11,9 +11,9 @@ namespace Project2.BUS
             return OrderDAO.SelectAll();
         }
 
-        public static List<Order> GetAllByMonth(int month)
+        public static List<Order> GetAllByMonthYear(int month, int year)
         {
-            return OrderDAO.SelectAllByMonth(month);
+            return OrderDAO.SelectAllByMonthYear(month, year);
         }
 
         public static List<Order> GetAllBetweenDate(DateTime dateStart, DateTime dateEnd)

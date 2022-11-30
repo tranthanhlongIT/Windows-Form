@@ -14,9 +14,7 @@ namespace Project2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ManagementForm());
             Application.Run(new LoginForm());
-            //Application.Run(new CheckoutForm());
         }
     }
 }

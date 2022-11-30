@@ -971,13 +971,13 @@ namespace Project2
 		
 		private string _lname;
 		
-		private string _gender;
+		private bool _gender;
 		
 		private string _phone;
 		
 		private string _address;
 		
-		private string _image;
+		private System.Data.Linq.Binary _image;
 		
 		private bool _is_active;
 		
@@ -1007,13 +1007,13 @@ namespace Project2
     partial void OnfnameChanged();
     partial void OnlnameChanging(string value);
     partial void OnlnameChanged();
-    partial void OngenderChanging(string value);
+    partial void OngenderChanging(bool value);
     partial void OngenderChanged();
     partial void OnphoneChanging(string value);
     partial void OnphoneChanged();
     partial void OnaddressChanging(string value);
     partial void OnaddressChanged();
-    partial void OnimageChanging(string value);
+    partial void OnimageChanging(System.Data.Linq.Binary value);
     partial void OnimageChanged();
     partial void Onis_activeChanging(bool value);
     partial void Onis_activeChanged();
@@ -1152,8 +1152,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-		public string gender
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit NOT NULL")]
+		public bool gender
 		{
 			get
 			{
@@ -1212,8 +1212,8 @@ namespace Project2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="NVarChar(100)")]
-		public string image
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary image
 		{
 			get
 			{

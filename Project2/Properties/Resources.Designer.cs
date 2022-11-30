@@ -233,9 +233,29 @@ namespace Project2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap recovery_icon {
+            get {
+                object obj = ResourceManager.GetObject("recovery_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_icon {
             get {
                 object obj = ResourceManager.GetObject("refresh_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reset_password_icon {
+            get {
+                object obj = ResourceManager.GetObject("reset_password_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +296,16 @@ namespace Project2.Properties {
         internal static System.Drawing.Bitmap update_icon {
             get {
                 object obj = ResourceManager.GetObject("update_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_image_icon {
+            get {
+                object obj = ResourceManager.GetObject("upload_image_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

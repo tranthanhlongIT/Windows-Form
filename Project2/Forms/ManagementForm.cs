@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Project2.UserControls;
+using Project2.Utils;
 
 namespace Project2
 {
@@ -48,6 +49,8 @@ namespace Project2
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
+            ClearContainer();
+            CreateTabEmployee();
             SlidePanel(btnEmployee);
             ChangeButtonTextColor(3, btnEmployee, new List<Button> { btnDashboard, btnProduct, btnCategory, btnSale, btnCustomer, btnHistory });
         }
@@ -203,7 +206,7 @@ namespace Project2
             lblUsername.Text = employee.username;
             lblRole.Text = employee.Role.name;
             if (employee.image != null)
-                pbUser.Image = Image.FromFile(employee.image);
+                pbUser.Image = ConvertImage.ConvertBinaryToImage(employee.image.ToArray());
             else pbUser.Image = pbUser.InitialImage;
         }
 
@@ -260,6 +263,13 @@ namespace Project2
             historyForm.Dock = DockStyle.Fill;
         }
 
+        private void CreateTabEmployee()
+        {
+            EmployeeForm employeeForm = new EmployeeForm();
+            pnlContainer.Controls.Add(employeeForm);
+            employeeForm.Dock = DockStyle.Fill;
+        }
+
         private void CreateTabSales()
         {
             SalesForm salesForm = new SalesForm();
@@ -270,9 +280,8 @@ namespace Project2
 
         private void ClearContainer()
         {
-            List<Control> controls = new List<Control>();
             pnlContainer.Controls.Clear();
-            foreach (Control c in controls)
+            foreach (Control c in pnlContainer.Controls)
                 c.Dispose();
         }
     }

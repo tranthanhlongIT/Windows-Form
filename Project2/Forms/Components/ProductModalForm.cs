@@ -88,7 +88,7 @@ namespace Project2.Forms.Components
                 CreateProduct();
                 LoadTypeComboBox();
                 LoadAvailableComboBox();
-                cbType.Text = "";
+                cbType.Text = string.Empty;
                 cbBrand.Enabled = false;
             }
             else if (action == "upd")
@@ -132,18 +132,18 @@ namespace Project2.Forms.Components
 
         private void ResetField()
         {
-            txtId.Text = "";
-            txtName.Text = "";
-            txtDescription.Text = "";
-            cbType.Text = "";
-            cbBrand.Text = "";
+            txtId.Text = string.Empty;
+            txtName.Text = string.Empty;
+            txtDescription.Text = string.Empty;
+            cbType.Text = string.Empty;
+            cbBrand.Text = string.Empty;
             cbBrand.Enabled = false;
-            cbAvailable.Text = "";
-            txtPrice.Text = "";
-            txtDiscount.Text = "";
-            txtQuantity.Text = "";
-            txtCreatedAt.Text = "";
-            txtUpdatedAt.Text = "";
+            cbAvailable.Text = string.Empty;
+            txtPrice.Text = string.Empty;
+            txtDiscount.Text = string.Empty;
+            txtQuantity.Text = string.Empty;
+            txtCreatedAt.Text = string.Empty;
+            txtUpdatedAt.Text = string.Empty;
             pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
@@ -262,7 +262,7 @@ namespace Project2.Forms.Components
 
         private bool ValidateForm()
         {
-            if (txtName.Text.Trim() == "" || txtName.Text.Length < 1)
+            if (txtName.Text.Trim() == string.Empty || txtName.Text.Length < 1)
             {
                 MessageBox.Show("Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -282,7 +282,7 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Available is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtPrice.Text.Trim() == "" || txtPrice.Text.Length < 1)
+            if (txtPrice.Text.Trim() == string.Empty || txtPrice.Text.Length < 1)
             {
                 MessageBox.Show("Price field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -297,7 +297,7 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Invalid Price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtDiscount.Text.Trim() == "" || txtDiscount.Text.Length < 1)
+            if (txtDiscount.Text.Trim() == string.Empty || txtDiscount.Text.Length < 1)
             {
                 MessageBox.Show("Discount field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -317,7 +317,7 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Discount cannot be higher than price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtQuantity.Text.Trim() == "" || txtPrice.Text.Length < 1)
+            if (txtQuantity.Text.Trim() == string.Empty || txtPrice.Text.Length < 1)
             {
                 MessageBox.Show("Quantity field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

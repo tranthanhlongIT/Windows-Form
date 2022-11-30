@@ -102,6 +102,7 @@ namespace Project2.UserControls
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(250, 630);
             this.pnlLeft.TabIndex = 8;
+            this.pnlLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeft_Paint);
             // 
             // btnSell
             // 
@@ -338,7 +339,7 @@ namespace Project2.UserControls
             this.btnRefresh.Location = new System.Drawing.Point(510, 6);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(110, 29);
+            this.btnRefresh.Size = new System.Drawing.Size(110, 28);
             this.btnRefresh.TabIndex = 14;
             this.btnRefresh.Text = "        Refresh";
             this.btnRefresh.TextColor = System.Drawing.Color.White;

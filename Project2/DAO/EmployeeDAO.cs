@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Configuration;
+using System;
 
 namespace Project2.DAO
 {
@@ -20,11 +21,23 @@ namespace Project2.DAO
             }
         }
 
+        public static Employee SelectAllByID(int id)
+        {
+            try
+            {
+                return db.Employees.SingleOrDefault(e => e.id == id);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static Employee SelectAllByEmail(string email)
         {
             try
             {
-                return db.Employees.SingleOrDefault(em => em.email == email);
+                return db.Employees.SingleOrDefault(e => e.email == email);
             }
             catch
             {
@@ -63,9 +76,61 @@ namespace Project2.DAO
             }
         }
 
+        public static bool Update(Employee newEmployee)
+        {
+            Employee dbEmployee = db.Employees.SingleOrDefault(e => e.id == newEmployee.id);
+            if (dbEmployee != null)
+            {
+                try
+                {
+                    dbEmployee.fname = newEmployee.fname;
+                    dbEmployee.lname = newEmployee.lname;
+                    dbEmployee.gender = newEmployee.gender;
+                    dbEmployee.phone = newEmployee.phone;
+                    dbEmployee.address = newEmployee.address;
+                    dbEmployee.image = newEmployee.image;
+                    dbEmployee.is_active = newEmployee.is_active;
+                    dbEmployee.updated_at = DateTime.Now;
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool Disable(int id)
+        {
+            Employee dbEmployee = db.Employees.SingleOrDefault(e => e.id == id);
+            if (dbEmployee != null)
+            {
+                try
+                {
+                    dbEmployee.is_active = false;
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
         public static bool IsEmailExist(string email)
         {
-            return db.Employees.Any(em => em.email == email);
+            try
+            {
+                return db.Employees.Any(e => e.email == email);
+            }
+            catch 
+            {
+                return false;
+            }
         }
     }
 }

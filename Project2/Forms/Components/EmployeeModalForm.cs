@@ -7,25 +7,25 @@ using System.Text.RegularExpressions;
 
 namespace Project2.Forms.Components
 {
-    public partial class CustomerModalForm : Form
+    public partial class EmployeeModalForm : Form
     {
-        private Customer customer;
+        private Employee employee;
         private string action;
         private int id;
 
-        public CustomerModalForm()
+        public EmployeeModalForm()
         {
             InitializeComponent();
         }
 
-        public CustomerModalForm(string action, int id)
+        public EmployeeModalForm(string action, int id)
         {
             InitializeComponent();
             this.action = action;
             this.id = id;
         }
 
-        private void CustomerModalForm_Load(object sender, EventArgs e)
+        private void EmployeeModalForm_Load(object sender, EventArgs e)
         {
             SetForm();
         }
@@ -62,75 +62,79 @@ namespace Project2.Forms.Components
         {
             if (action == "add")
             {
-                lblTitle.Text = "Add Customer";
-                CreateCustomer();
+                lblTitle.Text = "Add Employee";
+                CreateEmployee();
                 LoadGenderComboBox();
                 LoadActiveComboBox();
-                LoadCityComboBox();
+                LoadRoleComboBox();
             }
             else if (action == "upd")
             {
-                lblTitle.Text = "Update Customer";
-                customer = CustomerBUS.GetCustomerByID(id);
+                lblTitle.Text = "Update Employee";
+                employee = EmployeeBUS.GetEmployeeByID(id);
                 LoadGenderComboBox();
                 LoadActiveComboBox();
-                LoadCityComboBox();
+                LoadRoleComboBox();
                 SetField();
             }
             else if (action == "det")
             {
-                lblTitle.Text = "View Customer";
-                customer = CustomerBUS.GetCustomerByID(id);
+                lblTitle.Text = "View Employee";
+                employee = EmployeeBUS.GetEmployeeByID(id);
                 LoadGenderComboBox();
                 LoadActiveComboBox();
-                LoadCityComboBox();
+                LoadRoleComboBox();
                 SetField();
                 DisableField();
-                InvisibleField();
                 VisibleField();
             }
         }
 
         public void SetField()
         {
-            txtId.Text = customer.id.ToString();
-            txtFName.Text = customer.fname;
-            txtLName.Text = customer.lname;
-            txtPhone.Text = customer.phone;
-            txtAddress.Text = customer.address;
-            txtZipcode.Text = customer.zipcode;
-            cbActive.SelectedValue = customer.is_active;
-            cbGender.SelectedValue = customer.gender;
-            cbCity.SelectedValue = customer.city_id;
-            txtCreatedAt.Text = customer.created_at.ToString();
-            txtUpdatedAt.Text = customer.updated_at.ToString();
+            txtEmail.Text = employee.email;
+            txtFName.Text = employee.fname;
+            txtLName.Text = employee.lname;
+            txtPhone.Text = employee.phone;
+            txtAddress.Text = employee.address;
+            cbRole.SelectedValue = employee.role_id;
+            cbActive.SelectedValue = employee.is_active;
+            cbGender.SelectedValue = employee.gender;
+            txtCreatedAt.Text = employee.created_at.ToString();
+            txtUpdatedAt.Text = employee.updated_at.ToString();
+            if (employee.image != null)
+                pbUploadImage.Image = ConvertImage.ConvertBinaryToImage(employee.image.ToArray());
+            else pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
         public void ResetField()
         {
-            txtId.Text = string.Empty;
-            txtFName.Text = string.Empty;
-            txtLName.Text = string.Empty;
-            txtPhone.Text = string.Empty;
-            txtAddress.Text = string.Empty;
-            txtZipcode.Text = string.Empty;
-            cbActive.SelectedIndex = 0;
-            cbGender.SelectedIndex = 0;
-            cbCity.SelectedIndex = 0;
+            txtEmail.Text = "";
+            txtPassword.Text = "";
+            txtConfirmPassword.Text = "";
+            txtFName.Text = "";
+            txtLName.Text = "";
+            txtPhone.Text = "";
+            txtAddress.Text = "";
+            cbRole.SelectedIndex = 1;
+            cbActive.SelectedIndex = 1;
+            cbGender.SelectedIndex = 1;
+            pbUploadImage.Image = pbUploadImage.InitialImage;
         }
 
         public void DisableField()
         {
+            txtEmail.Enabled = false;
+            txtPassword.Enabled = false;
+            txtConfirmPassword.Enabled = false;
             txtFName.Enabled = false;
             txtLName.Enabled = false;
             txtPhone.Enabled = false;
             txtAddress.Enabled = false;
-            txtZipcode.Enabled = false;
             cbActive.Enabled = false;
             cbGender.Enabled = false;
-            cbCity.Enabled = false;
-            txtCreatedAt.Enabled = false;
-            txtUpdatedAt.Enabled = false;
+            cbRole.Enabled = false;
+            pbUploadImage.Enabled = false;
         }
 
         private void InvisibleField()
@@ -148,6 +152,13 @@ namespace Project2.Forms.Components
             lblUpdatedAt.Visible = true;
             txtCreatedAt.Visible = true;
             txtUpdatedAt.Visible = true;
+        }
+
+        public void LoadRoleComboBox()
+        {
+            cbRole.DisplayMember = "name";
+            cbRole.ValueMember = "id";
+            cbRole.DataSource = RoleBUS.GetAll();
         }
 
         public void LoadActiveComboBox()
@@ -170,40 +181,31 @@ namespace Project2.Forms.Components
             cbGender.DataSource = new BindingSource(dict, null);
         }
 
-        public void LoadCityComboBox()
+        public void CreateEmployee()
         {
-            cbCity.DisplayMember = "name";
-            cbCity.ValueMember = "id";
-            cbCity.DataSource = CityBUS.GetAll();
+            this.employee = new Employee();
         }
 
-        public void CreateCustomer()
+        public void SetEmployee()
         {
-            this.customer = new Customer();
-        }
-
-        public void SetCustomer()
-        {
-            customer.fname = txtFName.Text.Trim();
-            customer.lname = txtLName.Text.Trim();
-            customer.address = txtAddress.Text.Trim();
-            customer.phone = txtPhone.Text.Trim();
-            customer.zipcode = txtZipcode.Text.Trim();
-            customer.gender = (bool)cbGender.SelectedValue;
-            customer.is_active = (bool)cbActive.SelectedValue;
-            customer.city_id = (Int32)cbCity.SelectedValue;
-            customer.created_at = DateTime.Now;
+            employee.fname = txtFName.Text.Trim();
+            employee.lname = txtLName.Text.Trim();
+            employee.address = txtAddress.Text.Trim();
+            employee.phone = txtPhone.Text.Trim();
+            employee.gender = (bool)cbGender.SelectedValue;
+            employee.is_active = (bool)cbActive.SelectedValue;
+            employee.created_at = DateTime.Now;
         }
 
         public void BeginAdd()
         {
             if (ValidateForm())
             {
-                SetCustomer();
-                bool result = CustomerBUS.AddNew(customer);
+                SetEmployee();
+                bool result = EmployeeBUS.AddNew(employee);
                 if (result)
                 {
-                    CreateCustomer();
+                    CreateEmployee();
                     ResetField();
                     this.Alert("Add Successful", Form_Alert.enmType.Success);
                 }
@@ -218,8 +220,8 @@ namespace Project2.Forms.Components
         {
             if (ValidateForm())
             {
-                SetCustomer();
-                bool result = CustomerBUS.Update(customer);
+                SetEmployee();
+                bool result = EmployeeBUS.Update(employee);
                 if (result)
                 {
                     this.Alert("Update Successful", Form_Alert.enmType.Success);
@@ -238,17 +240,17 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Active is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtFName.Text.Trim() == string.Empty || txtFName.Text.Length < 1)
+            if (txtFName.Text.Trim() == "" || txtFName.Text.Length < 1)
             {
                 MessageBox.Show("First Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtLName.Text.Trim() == string.Empty || txtLName.Text.Length < 1)
+            if (txtLName.Text.Trim() == "" || txtLName.Text.Length < 1)
             {
                 MessageBox.Show("Last Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtPhone.Text.Trim() == string.Empty || txtFName.Text.Length < 1)
+            if (txtPhone.Text.Trim() == "" || txtFName.Text.Length < 1)
             {
                 MessageBox.Show("Phone number field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

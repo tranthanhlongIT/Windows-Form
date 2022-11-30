@@ -29,7 +29,7 @@ namespace Project2.UserControls
         {
             if (txtSearch.Text.Equals("Search by customer name"))
             {
-                txtSearch.Text = "";
+                txtSearch.Text = string.Empty;
                 txtSearch.ForeColor = Color.FromArgb(128, 128, 128);
             }
         }

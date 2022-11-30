@@ -1,19 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
 using Project2.DAO;
 
 namespace Project2.BUS
 {
     class EmployeeBUS
     {
+        public static List<Employee> GetAll()
+        {
+            return EmployeeDAO.SelectAll();
+        }
+
         public static bool AddNew(Employee newEmployee)
         {
             newEmployee.password = EncodePasswordToBase64(newEmployee.password);
             return EmployeeDAO.Insert(newEmployee);
         }
 
+        public static bool Update(Employee newEmployee)
+        {
+            return EmployeeDAO.Update(newEmployee);
+        }
+
+        public static bool Disable(int id)
+        {
+            return CustomerDAO.Disable(id);
+        }
+
         public static Employee GetEmployeeByEmail(string email)
         {
             return EmployeeDAO.SelectAllByEmail(email); ;
+        }
+
+        public static Employee GetEmployeeByID(int id)
+        {
+            return EmployeeDAO.SelectAllByID(id);
         }
 
         public static bool CheckEmployeeCredential(Employee employee)
@@ -30,6 +51,7 @@ namespace Project2.BUS
         {
             return EmployeeDAO.IsEmailExist(email);
         }
+
 
         //this function Convert to Encord your Password
         public static string EncodePasswordToBase64(string password)

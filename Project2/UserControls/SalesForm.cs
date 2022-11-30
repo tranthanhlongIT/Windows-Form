@@ -34,7 +34,7 @@ namespace Project2.UserControls
         {
             if (txtSearch.Text.Equals("Search by car name"))
             {
-                txtSearch.Text = "";
+                txtSearch.Text = string.Empty;
                 txtSearch.ForeColor = Color.FromArgb(128, 128, 128);
             }
         }
@@ -239,6 +239,11 @@ namespace Project2.UserControls
                 LoadFilterComboBox();
                 formBackground.Dispose();
             }
+        }
+
+        private void pnlLeft_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -77,7 +77,7 @@ namespace Project2.Forms
                 }
                 else
                 {
-                    txtPassword.Text = "";
+                    txtPassword.Text = string.Empty;
                     MessageBox.Show("Login Failed", "Login Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -85,12 +85,12 @@ namespace Project2.Forms
 
         private bool ValidateLogin()
         {
-            if (txtEmail.Text.Trim() == "" || txtEmail.Text.Length < 1)
+            if (txtEmail.Text.Trim() == string.Empty || txtEmail.Text.Length < 1)
             {
                 MessageBox.Show("Email field is empty", "Login Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtPassword.Text.Trim() == "" || txtPassword.Text.Length < 1)
+            if (txtPassword.Text.Trim() == string.Empty || txtPassword.Text.Length < 1)
             {
                 MessageBox.Show("Password field is empty", "Login Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -107,22 +107,22 @@ namespace Project2.Forms
         //{
         //    private bool ValidateRegister()
         //    {
-        //        if (txtUsername.Text.Trim() == "" || txtUsername.Text.Length < 1)
+        //        if (txtUsername.Text.Trim() == string.Empty || txtUsername.Text.Length < 1)
         //        {
         //            MessageBox.Show("Username field is empty", "Register Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //            return false;
         //        }
-        //        if (txtEmail.Text.Trim() == "" || txtEmail.Text.Length < 1)
+        //        if (txtEmail.Text.Trim() == string.Empty || txtEmail.Text.Length < 1)
         //        {
         //            MessageBox.Show("Email field is empty", "Register Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //            return false;
         //        }
-        //        if (txtPassword.Text.Trim() == "" || txtPassword.Text.Length < 1)
+        //        if (txtPassword.Text.Trim() == string.Empty || txtPassword.Text.Length < 1)
         //        {
         //            MessageBox.Show("Password field is empty", "Register Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //            return false;
         //        }
-        //        if (txtConfirmPassword.Text.Trim() == "" || txtConfirmPassword.Text.Length < 1)
+        //        if (txtConfirmPassword.Text.Trim() == string.Empty || txtConfirmPassword.Text.Length < 1)
         //        {
         //            MessageBox.Show("Confirm Password is empty", "Register Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
         //            return false;

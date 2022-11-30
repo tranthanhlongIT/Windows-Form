@@ -21,11 +21,11 @@ namespace Project2.DAO
             }
         }
 
-        public static List<Order> SelectAllByMonth(int month)
+        public static List<Order> SelectAllByMonthYear(int month, int year)
         {
             try
             {
-                return db.Orders.Where(o => o.created_at.Month == month).ToList();
+                return db.Orders.Where(o => o.created_at.Month == month && o.created_at.Year == year).ToList();
             }
             catch
             {
