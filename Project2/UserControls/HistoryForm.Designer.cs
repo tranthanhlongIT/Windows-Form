@@ -29,7 +29,6 @@ namespace Project2.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,11 +40,10 @@ namespace Project2.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryForm));
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlOperation = new System.Windows.Forms.Panel();
-            this.btnRefresh = new Project2.Utils.RoundedButton();
             this.dtpDateEnd = new System.Windows.Forms.DateTimePicker();
-            this.btnApply = new Project2.Utils.RoundedButton();
             this.dtpDateStart = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
@@ -57,6 +55,10 @@ namespace Project2.UserControls
             this.chQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlVerticalLine = new System.Windows.Forms.Panel();
+            this.btnExport = new Project2.Utils.RoundedButton();
+            this.btnRefresh = new Project2.Utils.RoundedButton();
+            this.btnApply = new Project2.Utils.RoundedButton();
             this.pnlOperation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
@@ -71,11 +73,12 @@ namespace Project2.UserControls
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(300, 23);
-            this.txtSearch.TabIndex = 1;
+            this.txtSearch.TabIndex = 5;
             // 
             // pnlOperation
             // 
             this.pnlOperation.BackColor = System.Drawing.Color.White;
+            this.pnlOperation.Controls.Add(this.btnExport);
             this.pnlOperation.Controls.Add(this.btnRefresh);
             this.pnlOperation.Controls.Add(this.dtpDateEnd);
             this.pnlOperation.Controls.Add(this.btnApply);
@@ -90,78 +93,32 @@ namespace Project2.UserControls
             this.pnlOperation.Size = new System.Drawing.Size(1280, 40);
             this.pnlOperation.TabIndex = 5;
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
-            this.btnRefresh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
-            this.btnRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
-            this.btnRefresh.BorderRadius = 3;
-            this.btnRefresh.BorderSize = 1;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(501, 6);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
-            this.btnRefresh.TabIndex = 13;
-            this.btnRefresh.Text = "        Refresh";
-            this.btnRefresh.TextColor = System.Drawing.Color.White;
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // dtpDateEnd
             // 
             this.dtpDateEnd.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
             this.dtpDateEnd.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateEnd.Location = new System.Drawing.Point(200, 6);
+            this.dtpDateEnd.Location = new System.Drawing.Point(200, 8);
             this.dtpDateEnd.Margin = new System.Windows.Forms.Padding(0);
             this.dtpDateEnd.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpDateEnd.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpDateEnd.Name = "dtpDateEnd";
             this.dtpDateEnd.Size = new System.Drawing.Size(180, 30);
-            this.dtpDateEnd.TabIndex = 7;
+            this.dtpDateEnd.TabIndex = 2;
             this.dtpDateEnd.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
-            // 
-            // btnApply
-            // 
-            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnApply.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnApply.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnApply.BorderRadius = 3;
-            this.btnApply.BorderSize = 1;
-            this.btnApply.FlatAppearance.BorderSize = 0;
-            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApply.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.btnApply.ForeColor = System.Drawing.Color.White;
-            this.btnApply.Image = ((System.Drawing.Image)(resources.GetObject("btnApply.Image")));
-            this.btnApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApply.Location = new System.Drawing.Point(400, 6);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(0);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(99, 25);
-            this.btnApply.TabIndex = 12;
-            this.btnApply.Text = "        Apply";
-            this.btnApply.TextColor = System.Drawing.Color.White;
-            this.btnApply.UseVisualStyleBackColor = false;
-            this.btnApply.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // dtpDateStart
             // 
             this.dtpDateStart.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
             this.dtpDateStart.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateStart.Location = new System.Drawing.Point(10, 6);
+            this.dtpDateStart.Location = new System.Drawing.Point(10, 8);
             this.dtpDateStart.Margin = new System.Windows.Forms.Padding(0);
             this.dtpDateStart.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpDateStart.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpDateStart.Name = "dtpDateStart";
             this.dtpDateStart.Size = new System.Drawing.Size(180, 30);
-            this.dtpDateStart.TabIndex = 6;
+            this.dtpDateStart.TabIndex = 1;
             this.dtpDateStart.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
             // 
             // btnSearch
@@ -200,7 +157,7 @@ namespace Project2.UserControls
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -355,11 +312,92 @@ namespace Project2.UserControls
             this.chCreatedAt.Name = "chCreatedAt";
             this.chCreatedAt.ReadOnly = true;
             // 
+            // pnlVerticalLine
+            // 
+            this.pnlVerticalLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlVerticalLine.BackColor = System.Drawing.Color.Silver;
+            this.pnlVerticalLine.Location = new System.Drawing.Point(0, 40);
+            this.pnlVerticalLine.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlVerticalLine.Name = "pnlVerticalLine";
+            this.pnlVerticalLine.Size = new System.Drawing.Size(1280, 1);
+            this.pnlVerticalLine.TabIndex = 7;
+            // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(168)))), ((int)(((byte)(188)))));
+            this.btnExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(168)))), ((int)(((byte)(188)))));
+            this.btnExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(168)))), ((int)(((byte)(188)))));
+            this.btnExport.BorderRadius = 3;
+            this.btnExport.BorderSize = 1;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Image = global::Project2.Properties.Resources.export_excel_icon;
+            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExport.Location = new System.Drawing.Point(584, 8);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(90, 25);
+            this.btnExport.TabIndex = 13;
+            this.btnExport.Text = "        Export";
+            this.btnExport.TextColor = System.Drawing.Color.White;
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
+            this.btnRefresh.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
+            this.btnRefresh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(161)))), ((int)(((byte)(254)))));
+            this.btnRefresh.BorderRadius = 3;
+            this.btnRefresh.BorderSize = 1;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(492, 8);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "        Refresh";
+            this.btnRefresh.TextColor = System.Drawing.Color.White;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnApply
+            // 
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BorderRadius = 3;
+            this.btnApply.BorderSize = 1;
+            this.btnApply.FlatAppearance.BorderSize = 0;
+            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApply.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnApply.ForeColor = System.Drawing.Color.White;
+            this.btnApply.Image = ((System.Drawing.Image)(resources.GetObject("btnApply.Image")));
+            this.btnApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApply.Location = new System.Drawing.Point(400, 8);
+            this.btnApply.Margin = new System.Windows.Forms.Padding(0);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(90, 25);
+            this.btnApply.TabIndex = 3;
+            this.btnApply.Text = "        Apply";
+            this.btnApply.TextColor = System.Drawing.Color.White;
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnSort_Click);
+            // 
             // HistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvOrder);
+            this.Controls.Add(this.pnlVerticalLine);
             this.Controls.Add(this.pnlOperation);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -391,5 +429,7 @@ namespace Project2.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn chQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn chTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn chCreatedAt;
+        private System.Windows.Forms.Panel pnlVerticalLine;
+        private Utils.RoundedButton btnExport;
     }
 }

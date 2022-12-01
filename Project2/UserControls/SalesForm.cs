@@ -240,10 +240,5 @@ namespace Project2.UserControls
                 formBackground.Dispose();
             }
         }
-
-        private void pnlLeft_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

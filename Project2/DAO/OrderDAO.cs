@@ -37,9 +37,7 @@ namespace Project2.DAO
         {
             try
             {
-                if (dateStart.Date == dateEnd.Date)
-                    return db.Orders.Where(o => o.created_at >= dateStart && o.created_at <= dateEnd.AddDays(1)).ToList();
-                else return db.Orders.Where(o => o.created_at >= dateStart && o.created_at <= dateEnd).ToList();
+                return db.Orders.Where(o => o.created_at.Date >= dateStart.Date && o.created_at.Date <= dateEnd.Date).ToList();
             }
             catch
             {

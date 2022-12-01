@@ -39,11 +39,13 @@ namespace Project2.Forms.Components
 
         private void btnUploadImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png;)|*.jpg; *.jpeg; *.png;";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                pbUploadImage.Image = Image.FromFile(openFileDialog.FileName);
+                openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png;)|*.jpg; *.jpeg; *.png;";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbUploadImage.Image = Image.FromFile(openFileDialog.FileName);
+                }
             }
         }
 
@@ -109,7 +111,7 @@ namespace Project2.Forms.Components
                 LoadAvailableComboBox();
                 SetField();
                 DisableField();
-                SetVisibleForCreatedAtAndUpdatedAt();
+                VisibleTimestamp();
             }
         }
 
@@ -171,7 +173,7 @@ namespace Project2.Forms.Components
             lblRequiredType.Visible = false;
         }
 
-        private void SetVisibleForCreatedAtAndUpdatedAt()
+        private void VisibleTimestamp()
         {
             lblCreatedAt.Visible = true;
             lblUpdatedAt.Visible = true;
@@ -262,7 +264,7 @@ namespace Project2.Forms.Components
 
         private bool ValidateForm()
         {
-            if (txtName.Text.Trim() == string.Empty || txtName.Text.Length < 1)
+            if (txtName.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Name field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -282,7 +284,7 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Available is not selected yet", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtPrice.Text.Trim() == string.Empty || txtPrice.Text.Length < 1)
+            if (txtPrice.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Price field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -297,7 +299,7 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Invalid Price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtDiscount.Text.Trim() == string.Empty || txtDiscount.Text.Length < 1)
+            if (txtDiscount.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Discount field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -317,7 +319,7 @@ namespace Project2.Forms.Components
                 MessageBox.Show("Discount cannot be higher than price", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtQuantity.Text.Trim() == string.Empty || txtPrice.Text.Length < 1)
+            if (txtQuantity.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("Quantity field is empty", "Form Validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

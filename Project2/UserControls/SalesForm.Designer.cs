@@ -102,7 +102,6 @@ namespace Project2.UserControls
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(250, 630);
             this.pnlLeft.TabIndex = 8;
-            this.pnlLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLeft_Paint);
             // 
             // btnSell
             // 

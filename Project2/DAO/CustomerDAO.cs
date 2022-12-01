@@ -13,7 +13,7 @@ namespace Project2.DAO
         {
             try
             {
-                return db.Customers.ToList();
+                return db.Customers.OrderByDescending(c => c.is_active).ToList();
             }
             catch
             {

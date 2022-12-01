@@ -13,7 +13,7 @@ namespace Project2.DAO
         {
             try 
             {
-                return db.Employees.ToList();
+                return db.Employees.OrderByDescending(e => e.is_active).ToList();
             }
             catch
             {
@@ -91,6 +91,25 @@ namespace Project2.DAO
                     dbEmployee.image = newEmployee.image;
                     dbEmployee.is_active = newEmployee.is_active;
                     dbEmployee.updated_at = DateTime.Now;
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool UpdatePassword(Employee newEmployee)
+        {
+            Employee dbEmployee = db.Employees.SingleOrDefault(e => e.id == newEmployee.id);
+            if (dbEmployee != null)
+            {
+                try
+                {
+                    dbEmployee.password = newEmployee.password;
                     db.SubmitChanges();
                     return true;
                 }

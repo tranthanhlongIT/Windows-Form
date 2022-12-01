@@ -87,11 +87,34 @@ namespace Project2.UserControls
                     bool result = EmployeeBUS.Disable(id);
                     if (result)
                     {
+                        MessageBox.Show("Disable Successful");
                         RefreshDataGridView();
                     }
                     else
                     {
                         MessageBox.Show("Disable Failed", "Error", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+
+        private void btnRPassword_Click(object sender, EventArgs e)
+        {
+            id = (Int32)dgvEmployee.Rows[dgvEmployee.CurrentRow.Index].Cells[0].Value;
+            if (dgvEmployee.CurrentRow != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure want to reset password?", "Confirmation", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    bool result = EmployeeBUS.ResetPassword(id);
+                    if (result)
+                    {
+                        MessageBox.Show("Default password: Hahaha123", "Notification", MessageBoxButtons.OK);
+                        RefreshDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reset Password failed", "Error", MessageBoxButtons.OK);
                     }
                 }
             }

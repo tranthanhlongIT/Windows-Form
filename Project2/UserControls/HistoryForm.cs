@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using ClosedXML.Excel;
 using Project2.BUS;
+using Project2.Utils;
 
 namespace Project2.UserControls
 {
@@ -114,6 +117,41 @@ namespace Project2.UserControls
         {
             orders = GetOrderList();
             LoadDataGridView(orders);
+        }
+
+        private DataTable CreateDataTable()
+        {
+            DataTable dt = new DataTable();
+            foreach (DataGridViewColumn column in dgvOrder.Columns)
+                dt.Columns.Add(column.Name, column.CellType);
+            for (int i = 0; i < dgvOrder.Rows.Count; i++)
+            {
+                dt.Rows.Add();
+                for (int j = 0; j < dgvOrder.Columns.Count; j++)
+                {
+                    dt.Rows[i][j] = dgvOrder.Rows[i].Cells[j].Value;
+                }
+            }
+            return dt;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            DataTable dt = CreateDataTable();
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Excel Workbook|*.xlsx";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (XLWorkbook workbook = new XLWorkbook())
+                    {
+                        workbook.Worksheets.Add(dt, "Order History");
+                        workbook.SaveAs(saveFileDialog.FileName);
+                    }
+                    MessageBox.Show("You have successfully export your data.", "Notification", MessageBoxButtons.OK);
+                }
+            }
+
         }
     }
 }

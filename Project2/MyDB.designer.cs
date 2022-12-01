@@ -961,8 +961,6 @@ namespace Project2
 		
 		private int _id;
 		
-		private string _username;
-		
 		private string _email;
 		
 		private string _password;
@@ -997,8 +995,6 @@ namespace Project2
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
     partial void OnemailChanging(string value);
     partial void OnemailChanged();
     partial void OnpasswordChanging(string value);
@@ -1048,26 +1044,6 @@ namespace Project2
 					this._id = value;
 					this.SendPropertyChanged("id");
 					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
 				}
 			}
 		}
@@ -1751,6 +1727,8 @@ namespace Project2
 		
 		private System.Nullable<System.DateTime> _updated_at;
 		
+		private System.Nullable<System.DateTime> _deleted_at;
+		
 		private int _type_id;
 		
 		private int _brand_id;
@@ -1785,6 +1763,8 @@ namespace Project2
     partial void Oncreated_atChanged();
     partial void Onupdated_atChanging(System.Nullable<System.DateTime> value);
     partial void Onupdated_atChanged();
+    partial void Ondeleted_atChanging(System.Nullable<System.DateTime> value);
+    partial void Ondeleted_atChanged();
     partial void Ontype_idChanging(int value);
     partial void Ontype_idChanged();
     partial void Onbrand_idChanging(int value);
@@ -1995,6 +1975,26 @@ namespace Project2
 					this._updated_at = value;
 					this.SendPropertyChanged("updated_at");
 					this.Onupdated_atChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deleted_at", DbType="DateTime")]
+		public System.Nullable<System.DateTime> deleted_at
+		{
+			get
+			{
+				return this._deleted_at;
+			}
+			set
+			{
+				if ((this._deleted_at != value))
+				{
+					this.Ondeleted_atChanging(value);
+					this.SendPropertyChanging();
+					this._deleted_at = value;
+					this.SendPropertyChanged("deleted_at");
+					this.Ondeleted_atChanged();
 				}
 			}
 		}

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Project2.UserControls;
 using Project2.Utils;
+using Project2.Forms;
 
 namespace Project2
 {
@@ -11,6 +12,12 @@ namespace Project2
     {
         private int activeBtn;
         private Employee employee;
+        private CustomerForm customerForm;
+        private EmployeeForm employeeForm;
+        private ProductForm productForm;
+        private DashboardForm dashboardForm;
+        private HistoryForm historyForm;
+        private SalesForm salesForm;
 
         public ManagementForm()
         {
@@ -28,61 +35,73 @@ namespace Project2
             ClearContainer();
             CreateTabDashboard();
             SlidePanel(btnDashboard);
-            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });
+            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnSale, btnHistory });
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            ClearContainer();
-            CreateTabDashboard();
-            SlidePanel(btnDashboard);
-            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory});
+            if (!pnlContainer.Controls.Contains(dashboardForm))
+            {
+                ClearContainer();
+                CreateTabDashboard();
+                SlidePanel(btnDashboard);
+                ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnSale, btnCustomer, btnHistory });
+            }
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            ClearContainer();
-            CreateTabProduct();
-            SlidePanel(btnProduct);
-            ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnCategory, btnSale, btnCustomer, btnHistory });
+            if (!pnlContainer.Controls.Contains(productForm))
+            {
+                ClearContainer();
+                CreateTabProduct();
+                SlidePanel(btnProduct);
+                ChangeButtonTextColor(2, btnProduct, new List<Button> { btnDashboard, btnEmployee, btnSale, btnCustomer, btnHistory });
+            }
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            ClearContainer();
-            CreateTabEmployee();
-            SlidePanel(btnEmployee);
-            ChangeButtonTextColor(3, btnEmployee, new List<Button> { btnDashboard, btnProduct, btnCategory, btnSale, btnCustomer, btnHistory });
-        }
-
-        private void btnCategory_Click(object sender, EventArgs e)
-        {
-            SlidePanel(btnCategory);
-            ChangeButtonTextColor(4, btnCategory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSale, btnCustomer, btnHistory });
+            if (!pnlContainer.Controls.Contains(employeeForm))
+            {
+                ClearContainer();
+                CreateTabEmployee();
+                SlidePanel(btnEmployee);
+                ChangeButtonTextColor(3, btnEmployee, new List<Button> { btnDashboard, btnProduct, btnSale, btnCustomer, btnHistory });
+            }
         }
 
         private void btnSale_Click(object sender, EventArgs e)
         {
-            ClearContainer();
-            CreateTabSales();
-            SlidePanel(btnSale);
-            ChangeButtonTextColor(5, btnSale, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnCustomer, btnHistory });
+            if (!pnlContainer.Controls.Contains(salesForm))
+            {
+                ClearContainer();
+                CreateTabSales();
+                SlidePanel(btnSale);
+                ChangeButtonTextColor(5, btnSale, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCustomer, btnHistory });
+            }
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            ClearContainer();
-            CreateTabCustomer();
-            SlidePanel(btnCustomer);
-            ChangeButtonTextColor(6, btnCustomer, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnHistory });
+            if (!pnlContainer.Controls.Contains(customerForm))
+            {
+                ClearContainer();
+                CreateTabCustomer();
+                SlidePanel(btnCustomer);
+                ChangeButtonTextColor(6, btnCustomer, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSale, btnHistory });
+            }
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            ClearContainer();
-            CreateTabHistory();
-            SlidePanel(btnHistory);
-            ChangeButtonTextColor(7, btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnCategory, btnSale, btnCustomer });
+            if (!pnlContainer.Controls.Contains(historyForm))
+            {
+                ClearContainer();
+                CreateTabHistory();
+                SlidePanel(btnHistory);
+                ChangeButtonTextColor(7, btnHistory, new List<Button> { btnDashboard, btnProduct, btnEmployee, btnSale, btnCustomer });
+            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -127,17 +146,6 @@ namespace Project2
                 btnEmployee.ForeColor = Color.Black;
         }
 
-        private void btnCategory_MouseEnter(object sender, EventArgs e)
-        {
-            btnCategory.ForeColor = Color.SteelBlue;
-        }
-
-        private void btnCategory_MouseLeave(object sender, EventArgs e)
-        {
-            if (!IsButtonActive(activeBtn, 4))
-                btnCategory.ForeColor = Color.Black;
-        }
-
         private void btnSell_MouseEnter(object sender, EventArgs e)
         {
             btnSale.ForeColor = Color.SteelBlue;
@@ -169,6 +177,16 @@ namespace Project2
         {
             if (!IsButtonActive(activeBtn, 7))
                 btnHistory.ForeColor = Color.Black;
+        }
+
+        private void pbLogout_MouseEnter(object sender, EventArgs e)
+        {
+            pbLogout.Image = pbLogout.InitialImage;
+        }
+
+        private void pbLogout_MouseLeave(object sender, EventArgs e)
+        {
+            pbLogout.Image = pbLogout.ErrorImage;
         }
 
         private void SlidePanel(Button btn)
@@ -203,7 +221,7 @@ namespace Project2
 
         private void SetUserDisplay()
         {
-            lblUsername.Text = employee.username;
+            lblName.Text = employee.fname;
             lblRole.Text = employee.Role.name;
             if (employee.image != null)
                 pbUser.Image = ConvertImage.ConvertBinaryToImage(employee.image.ToArray());
@@ -217,7 +235,6 @@ namespace Project2
                 btnDashboard.Enabled = true;
                 btnProduct.Enabled = true;
                 btnEmployee.Enabled = true;
-                btnCategory.Enabled = true;
                 btnSale.Enabled = true;
                 btnCustomer.Enabled = true;
                 btnHistory.Enabled = true;
@@ -237,42 +254,42 @@ namespace Project2
 
         private void CreateTabDashboard()
         {
-            DashboardForm dashboardForm = new DashboardForm();
+            dashboardForm = new DashboardForm();
             pnlContainer.Controls.Add(dashboardForm);
             dashboardForm.Dock = DockStyle.Fill;
         }
 
         private void CreateTabProduct()
         {
-            ProductForm productForm = new ProductForm();
+            productForm = new ProductForm();
             pnlContainer.Controls.Add(productForm);
             productForm.Dock = DockStyle.Fill;
         }
 
         private void CreateTabCustomer()
         {
-            CustomerForm customerForm = new CustomerForm();
+            customerForm = new CustomerForm();
             pnlContainer.Controls.Add(customerForm);
             customerForm.Dock = DockStyle.Fill;
         }
 
         private void CreateTabHistory()
         {
-            HistoryForm historyForm = new HistoryForm();
+            historyForm = new HistoryForm();
             pnlContainer.Controls.Add(historyForm);
             historyForm.Dock = DockStyle.Fill;
         }
 
         private void CreateTabEmployee()
         {
-            EmployeeForm employeeForm = new EmployeeForm();
+            employeeForm = new EmployeeForm();
             pnlContainer.Controls.Add(employeeForm);
             employeeForm.Dock = DockStyle.Fill;
         }
 
         private void CreateTabSales()
         {
-            SalesForm salesForm = new SalesForm();
+            salesForm = new SalesForm();
             salesForm.SetEmployee(employee);
             pnlContainer.Controls.Add(salesForm);
             salesForm.Dock = DockStyle.Fill;
@@ -283,6 +300,12 @@ namespace Project2
             pnlContainer.Controls.Clear();
             foreach (Control c in pnlContainer.Controls)
                 c.Dispose();
+        }
+
+        private void pbLogout_Click(object sender, EventArgs e)
+        {
+            new LoginForm().Show();
+            this.Hide();
         }
     }
 }

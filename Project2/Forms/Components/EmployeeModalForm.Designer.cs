@@ -34,6 +34,15 @@ namespace Project2.Forms.Components
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.lblRequiredPhone = new System.Windows.Forms.Label();
+            this.lblRequiredLName = new System.Windows.Forms.Label();
+            this.lblRequiredFName = new System.Windows.Forms.Label();
+            this.lblRequiredConfirmPassword = new System.Windows.Forms.Label();
+            this.lblRequiredPassword = new System.Windows.Forms.Label();
+            this.lblRequiredEmail = new System.Windows.Forms.Label();
+            this.lblRequiredActive = new System.Windows.Forms.Label();
+            this.lblRequiredRole = new System.Windows.Forms.Label();
+            this.cbRole = new FlatComboBox();
             this.lblLName = new System.Windows.Forms.Label();
             this.txtLName = new Project2.Utils.FlatTextBox();
             this.lblFName = new System.Windows.Forms.Label();
@@ -44,7 +53,7 @@ namespace Project2.Forms.Components
             this.lblRole = new System.Windows.Forms.Label();
             this.pnlLine1 = new System.Windows.Forms.Panel();
             this.txtConfirmPassword = new Project2.Utils.FlatTextBox();
-            this.btnDPassword = new Project2.Utils.RoundedButton();
+            this.btnDefaultImage = new Project2.Utils.RoundedButton();
             this.btnUploadImage = new Project2.Utils.RoundedButton();
             this.txtAddress = new Project2.Utils.FlatTextBox();
             this.lblAdress = new System.Windows.Forms.Label();
@@ -67,7 +76,7 @@ namespace Project2.Forms.Components
             this.btnConfirm = new Project2.Utils.RoundedButton();
             this.lblGender = new System.Windows.Forms.Label();
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
-            this.cbRole = new FlatComboBox();
+            this.lblRequiredGender = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -106,7 +115,7 @@ namespace Project2.Forms.Components
             this.lblTitle.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblTitle.Location = new System.Drawing.Point(38, 5);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(120, 23);
+            this.lblTitle.Size = new System.Drawing.Size(96, 18);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Modal Form";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -125,6 +134,15 @@ namespace Project2.Forms.Components
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
+            this.pnlContainer.Controls.Add(this.lblRequiredGender);
+            this.pnlContainer.Controls.Add(this.lblRequiredPhone);
+            this.pnlContainer.Controls.Add(this.lblRequiredLName);
+            this.pnlContainer.Controls.Add(this.lblRequiredFName);
+            this.pnlContainer.Controls.Add(this.lblRequiredConfirmPassword);
+            this.pnlContainer.Controls.Add(this.lblRequiredPassword);
+            this.pnlContainer.Controls.Add(this.lblRequiredEmail);
+            this.pnlContainer.Controls.Add(this.lblRequiredActive);
+            this.pnlContainer.Controls.Add(this.lblRequiredRole);
             this.pnlContainer.Controls.Add(this.cbRole);
             this.pnlContainer.Controls.Add(this.lblLName);
             this.pnlContainer.Controls.Add(this.txtLName);
@@ -136,7 +154,7 @@ namespace Project2.Forms.Components
             this.pnlContainer.Controls.Add(this.lblRole);
             this.pnlContainer.Controls.Add(this.pnlLine1);
             this.pnlContainer.Controls.Add(this.txtConfirmPassword);
-            this.pnlContainer.Controls.Add(this.btnDPassword);
+            this.pnlContainer.Controls.Add(this.btnDefaultImage);
             this.pnlContainer.Controls.Add(this.btnUploadImage);
             this.pnlContainer.Controls.Add(this.txtAddress);
             this.pnlContainer.Controls.Add(this.lblAdress);
@@ -167,6 +185,107 @@ namespace Project2.Forms.Components
             this.pnlContainer.Size = new System.Drawing.Size(700, 770);
             this.pnlContainer.TabIndex = 1;
             // 
+            // lblRequiredPhone
+            // 
+            this.lblRequiredPhone.AutoSize = true;
+            this.lblRequiredPhone.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredPhone.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredPhone.Location = new System.Drawing.Point(403, 355);
+            this.lblRequiredPhone.Name = "lblRequiredPhone";
+            this.lblRequiredPhone.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredPhone.TabIndex = 74;
+            this.lblRequiredPhone.Text = "*";
+            // 
+            // lblRequiredLName
+            // 
+            this.lblRequiredLName.AutoSize = true;
+            this.lblRequiredLName.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredLName.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredLName.Location = new System.Drawing.Point(433, 297);
+            this.lblRequiredLName.Name = "lblRequiredLName";
+            this.lblRequiredLName.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredLName.TabIndex = 72;
+            this.lblRequiredLName.Text = "*";
+            // 
+            // lblRequiredFName
+            // 
+            this.lblRequiredFName.AutoSize = true;
+            this.lblRequiredFName.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredFName.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredFName.Location = new System.Drawing.Point(84, 297);
+            this.lblRequiredFName.Name = "lblRequiredFName";
+            this.lblRequiredFName.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredFName.TabIndex = 71;
+            this.lblRequiredFName.Text = "*";
+            // 
+            // lblRequiredConfirmPassword
+            // 
+            this.lblRequiredConfirmPassword.AutoSize = true;
+            this.lblRequiredConfirmPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredConfirmPassword.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredConfirmPassword.Location = new System.Drawing.Point(406, 206);
+            this.lblRequiredConfirmPassword.Name = "lblRequiredConfirmPassword";
+            this.lblRequiredConfirmPassword.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredConfirmPassword.TabIndex = 70;
+            this.lblRequiredConfirmPassword.Text = "*";
+            // 
+            // lblRequiredPassword
+            // 
+            this.lblRequiredPassword.AutoSize = true;
+            this.lblRequiredPassword.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredPassword.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredPassword.Location = new System.Drawing.Point(345, 148);
+            this.lblRequiredPassword.Name = "lblRequiredPassword";
+            this.lblRequiredPassword.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredPassword.TabIndex = 69;
+            this.lblRequiredPassword.Text = "*";
+            // 
+            // lblRequiredEmail
+            // 
+            this.lblRequiredEmail.AutoSize = true;
+            this.lblRequiredEmail.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredEmail.Location = new System.Drawing.Point(313, 91);
+            this.lblRequiredEmail.Name = "lblRequiredEmail";
+            this.lblRequiredEmail.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredEmail.TabIndex = 68;
+            this.lblRequiredEmail.Text = "*";
+            // 
+            // lblRequiredActive
+            // 
+            this.lblRequiredActive.AutoSize = true;
+            this.lblRequiredActive.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredActive.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredActive.Location = new System.Drawing.Point(542, 35);
+            this.lblRequiredActive.Name = "lblRequiredActive";
+            this.lblRequiredActive.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredActive.TabIndex = 67;
+            this.lblRequiredActive.Text = "*";
+            // 
+            // lblRequiredRole
+            // 
+            this.lblRequiredRole.AutoSize = true;
+            this.lblRequiredRole.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredRole.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredRole.Location = new System.Drawing.Point(307, 35);
+            this.lblRequiredRole.Name = "lblRequiredRole";
+            this.lblRequiredRole.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredRole.TabIndex = 39;
+            this.lblRequiredRole.Text = "*";
+            // 
+            // cbRole
+            // 
+            this.cbRole.BackColor = System.Drawing.Color.White;
+            this.cbRole.BorderColor = System.Drawing.Color.DarkGray;
+            this.cbRole.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.cbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Location = new System.Drawing.Point(277, 57);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(0);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(212, 25);
+            this.cbRole.TabIndex = 66;
+            // 
             // lblLName
             // 
             this.lblLName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -177,7 +296,7 @@ namespace Project2.Forms.Components
             this.lblLName.Location = new System.Drawing.Point(353, 297);
             this.lblLName.Margin = new System.Windows.Forms.Padding(0);
             this.lblLName.Name = "lblLName";
-            this.lblLName.Size = new System.Drawing.Size(107, 22);
+            this.lblLName.Size = new System.Drawing.Size(85, 20);
             this.lblLName.TabIndex = 65;
             this.lblLName.Text = "Last Name";
             // 
@@ -190,7 +309,7 @@ namespace Project2.Forms.Components
             this.txtLName.Margin = new System.Windows.Forms.Padding(0);
             this.txtLName.MaxLength = 50;
             this.txtLName.Name = "txtLName";
-            this.txtLName.Size = new System.Drawing.Size(335, 30);
+            this.txtLName.Size = new System.Drawing.Size(335, 25);
             this.txtLName.TabIndex = 64;
             // 
             // lblFName
@@ -203,7 +322,7 @@ namespace Project2.Forms.Components
             this.lblFName.Location = new System.Drawing.Point(7, 297);
             this.lblFName.Margin = new System.Windows.Forms.Padding(0);
             this.lblFName.Name = "lblFName";
-            this.lblFName.Size = new System.Drawing.Size(103, 22);
+            this.lblFName.Size = new System.Drawing.Size(83, 20);
             this.lblFName.TabIndex = 63;
             this.lblFName.Text = "First Name";
             // 
@@ -216,7 +335,7 @@ namespace Project2.Forms.Components
             this.txtFName.Margin = new System.Windows.Forms.Padding(0);
             this.txtFName.MaxLength = 50;
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(335, 30);
+            this.txtFName.Size = new System.Drawing.Size(335, 25);
             this.txtFName.TabIndex = 62;
             // 
             // pnlLine2
@@ -240,7 +359,7 @@ namespace Project2.Forms.Components
             this.lblEmpInfo.Location = new System.Drawing.Point(9, 267);
             this.lblEmpInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lblEmpInfo.Name = "lblEmpInfo";
-            this.lblEmpInfo.Size = new System.Drawing.Size(212, 23);
+            this.lblEmpInfo.Size = new System.Drawing.Size(170, 18);
             this.lblEmpInfo.TabIndex = 60;
             this.lblEmpInfo.Text = "Employee Information";
             // 
@@ -254,7 +373,7 @@ namespace Project2.Forms.Components
             this.lblConfirmPassword.Location = new System.Drawing.Point(271, 206);
             this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
-            this.lblConfirmPassword.Size = new System.Drawing.Size(171, 22);
+            this.lblConfirmPassword.Size = new System.Drawing.Size(140, 20);
             this.lblConfirmPassword.TabIndex = 59;
             this.lblConfirmPassword.Text = "Confirm Password";
             // 
@@ -268,7 +387,7 @@ namespace Project2.Forms.Components
             this.lblRole.Location = new System.Drawing.Point(271, 35);
             this.lblRole.Margin = new System.Windows.Forms.Padding(0);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(49, 22);
+            this.lblRole.Size = new System.Drawing.Size(41, 20);
             this.lblRole.TabIndex = 58;
             this.lblRole.Text = "Role";
             // 
@@ -291,30 +410,31 @@ namespace Project2.Forms.Components
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txtConfirmPassword.MaxLength = 50;
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(415, 30);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(415, 25);
             this.txtConfirmPassword.TabIndex = 56;
             // 
-            // btnDPassword
+            // btnDefaultImage
             // 
-            this.btnDPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnDPassword.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnDPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
-            this.btnDPassword.BorderRadius = 3;
-            this.btnDPassword.BorderSize = 1;
-            this.btnDPassword.FlatAppearance.BorderSize = 0;
-            this.btnDPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDPassword.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.btnDPassword.ForeColor = System.Drawing.Color.White;
-            this.btnDPassword.Image = global::Project2.Properties.Resources.reset_password_icon;
-            this.btnDPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDPassword.Location = new System.Drawing.Point(116, 227);
-            this.btnDPassword.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            this.btnDPassword.Name = "btnDPassword";
-            this.btnDPassword.Size = new System.Drawing.Size(130, 25);
-            this.btnDPassword.TabIndex = 54;
-            this.btnDPassword.Text = "        Reset Password";
-            this.btnDPassword.TextColor = System.Drawing.Color.White;
-            this.btnDPassword.UseVisualStyleBackColor = false;
+            this.btnDefaultImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnDefaultImage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnDefaultImage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnDefaultImage.BorderRadius = 3;
+            this.btnDefaultImage.BorderSize = 1;
+            this.btnDefaultImage.FlatAppearance.BorderSize = 0;
+            this.btnDefaultImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDefaultImage.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDefaultImage.ForeColor = System.Drawing.Color.White;
+            this.btnDefaultImage.Image = global::Project2.Properties.Resources.default_image_icon;
+            this.btnDefaultImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDefaultImage.Location = new System.Drawing.Point(138, 227);
+            this.btnDefaultImage.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.btnDefaultImage.Name = "btnDefaultImage";
+            this.btnDefaultImage.Size = new System.Drawing.Size(90, 25);
+            this.btnDefaultImage.TabIndex = 54;
+            this.btnDefaultImage.Text = "        Default";
+            this.btnDefaultImage.TextColor = System.Drawing.Color.White;
+            this.btnDefaultImage.UseVisualStyleBackColor = false;
+            this.btnDefaultImage.Click += new System.EventHandler(this.btnDefaultImage_Click);
             // 
             // btnUploadImage
             // 
@@ -329,7 +449,7 @@ namespace Project2.Forms.Components
             this.btnUploadImage.ForeColor = System.Drawing.Color.White;
             this.btnUploadImage.Image = global::Project2.Properties.Resources.upload_image_icon;
             this.btnUploadImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUploadImage.Location = new System.Drawing.Point(24, 227);
+            this.btnUploadImage.Location = new System.Drawing.Point(44, 227);
             this.btnUploadImage.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnUploadImage.Name = "btnUploadImage";
             this.btnUploadImage.Size = new System.Drawing.Size(90, 25);
@@ -337,6 +457,7 @@ namespace Project2.Forms.Components
             this.btnUploadImage.Text = "        Upload Image";
             this.btnUploadImage.TextColor = System.Drawing.Color.White;
             this.btnUploadImage.UseVisualStyleBackColor = false;
+            this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
             // txtAddress
             // 
@@ -361,7 +482,7 @@ namespace Project2.Forms.Components
             this.lblAdress.Location = new System.Drawing.Point(7, 413);
             this.lblAdress.Margin = new System.Windows.Forms.Padding(0);
             this.lblAdress.Name = "lblAdress";
-            this.lblAdress.Size = new System.Drawing.Size(83, 22);
+            this.lblAdress.Size = new System.Drawing.Size(67, 20);
             this.lblAdress.TabIndex = 52;
             this.lblAdress.Text = "Address";
             // 
@@ -375,16 +496,17 @@ namespace Project2.Forms.Components
             this.lblEmail.Location = new System.Drawing.Point(271, 91);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(56, 22);
+            this.lblEmail.Size = new System.Drawing.Size(46, 20);
             this.lblEmail.TabIndex = 48;
             this.lblEmail.Text = "Email";
             // 
             // pbUploadImage
             // 
+            this.pbUploadImage.Image = global::Project2.Properties.Resources.user_icon_default;
             this.pbUploadImage.InitialImage = global::Project2.Properties.Resources.user_icon_default;
             this.pbUploadImage.Location = new System.Drawing.Point(10, 37);
             this.pbUploadImage.Name = "pbUploadImage";
-            this.pbUploadImage.Size = new System.Drawing.Size(250, 175);
+            this.pbUploadImage.Size = new System.Drawing.Size(250, 180);
             this.pbUploadImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbUploadImage.TabIndex = 46;
             this.pbUploadImage.TabStop = false;
@@ -398,7 +520,7 @@ namespace Project2.Forms.Components
             this.txtPassword.Margin = new System.Windows.Forms.Padding(0);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(415, 30);
+            this.txtPassword.Size = new System.Drawing.Size(415, 25);
             this.txtPassword.TabIndex = 45;
             // 
             // lblPassword
@@ -411,7 +533,7 @@ namespace Project2.Forms.Components
             this.lblPassword.Location = new System.Drawing.Point(271, 148);
             this.lblPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(95, 22);
+            this.lblPassword.Size = new System.Drawing.Size(79, 20);
             this.lblPassword.TabIndex = 44;
             this.lblPassword.Text = "Password";
             // 
@@ -424,7 +546,7 @@ namespace Project2.Forms.Components
             this.txtEmail.Margin = new System.Windows.Forms.Padding(0);
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(415, 30);
+            this.txtEmail.Size = new System.Drawing.Size(415, 25);
             this.txtEmail.TabIndex = 43;
             // 
             // lblAccInfo
@@ -438,7 +560,7 @@ namespace Project2.Forms.Components
             this.lblAccInfo.Location = new System.Drawing.Point(10, 5);
             this.lblAccInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lblAccInfo.Name = "lblAccInfo";
-            this.lblAccInfo.Size = new System.Drawing.Size(197, 23);
+            this.lblAccInfo.Size = new System.Drawing.Size(158, 18);
             this.lblAccInfo.TabIndex = 42;
             this.lblAccInfo.Text = "Account Information";
             // 
@@ -452,7 +574,7 @@ namespace Project2.Forms.Components
             this.lblPhone.Location = new System.Drawing.Point(352, 355);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(69, 22);
+            this.lblPhone.Size = new System.Drawing.Size(56, 20);
             this.lblPhone.TabIndex = 37;
             this.lblPhone.Text = "Phone";
             // 
@@ -466,7 +588,7 @@ namespace Project2.Forms.Components
             this.cbActive.Location = new System.Drawing.Point(492, 57);
             this.cbActive.Margin = new System.Windows.Forms.Padding(0);
             this.cbActive.Name = "cbActive";
-            this.cbActive.Size = new System.Drawing.Size(199, 29);
+            this.cbActive.Size = new System.Drawing.Size(199, 25);
             this.cbActive.TabIndex = 1;
             // 
             // lblActive
@@ -479,7 +601,7 @@ namespace Project2.Forms.Components
             this.lblActive.Location = new System.Drawing.Point(489, 35);
             this.lblActive.Margin = new System.Windows.Forms.Padding(0);
             this.lblActive.Name = "lblActive";
-            this.lblActive.Size = new System.Drawing.Size(72, 22);
+            this.lblActive.Size = new System.Drawing.Size(58, 20);
             this.lblActive.TabIndex = 31;
             this.lblActive.Text = "Active";
             // 
@@ -493,7 +615,7 @@ namespace Project2.Forms.Components
             this.txtUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.txtUpdatedAt.MaxLength = 50;
             this.txtUpdatedAt.Name = "txtUpdatedAt";
-            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 29);
+            this.txtUpdatedAt.Size = new System.Drawing.Size(335, 25);
             this.txtUpdatedAt.TabIndex = 0;
             this.txtUpdatedAt.TabStop = false;
             this.txtUpdatedAt.Visible = false;
@@ -508,7 +630,7 @@ namespace Project2.Forms.Components
             this.lblUpdatedAt.Location = new System.Drawing.Point(352, 565);
             this.lblUpdatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.lblUpdatedAt.Name = "lblUpdatedAt";
-            this.lblUpdatedAt.Size = new System.Drawing.Size(120, 22);
+            this.lblUpdatedAt.Size = new System.Drawing.Size(95, 20);
             this.lblUpdatedAt.TabIndex = 0;
             this.lblUpdatedAt.Text = "Updated At";
             this.lblUpdatedAt.Visible = false;
@@ -523,7 +645,7 @@ namespace Project2.Forms.Components
             this.txtCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.txtCreatedAt.MaxLength = 50;
             this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(335, 29);
+            this.txtCreatedAt.Size = new System.Drawing.Size(335, 25);
             this.txtCreatedAt.TabIndex = 0;
             this.txtCreatedAt.TabStop = false;
             this.txtCreatedAt.Visible = false;
@@ -538,7 +660,7 @@ namespace Project2.Forms.Components
             this.lblCreatedAt.Location = new System.Drawing.Point(7, 565);
             this.lblCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.lblCreatedAt.Name = "lblCreatedAt";
-            this.lblCreatedAt.Size = new System.Drawing.Size(115, 22);
+            this.lblCreatedAt.Size = new System.Drawing.Size(91, 20);
             this.lblCreatedAt.TabIndex = 0;
             this.lblCreatedAt.Text = "Created At";
             this.lblCreatedAt.Visible = false;
@@ -552,7 +674,7 @@ namespace Project2.Forms.Components
             this.txtPhone.Margin = new System.Windows.Forms.Padding(0);
             this.txtPhone.MaxLength = 50;
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(335, 30);
+            this.txtPhone.Size = new System.Drawing.Size(335, 25);
             this.txtPhone.TabIndex = 8;
             // 
             // cbGender
@@ -565,7 +687,7 @@ namespace Project2.Forms.Components
             this.cbGender.Location = new System.Drawing.Point(10, 377);
             this.cbGender.Margin = new System.Windows.Forms.Padding(0);
             this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(335, 29);
+            this.cbGender.Size = new System.Drawing.Size(335, 25);
             this.cbGender.TabIndex = 7;
             // 
             // btnBack
@@ -624,7 +746,7 @@ namespace Project2.Forms.Components
             this.lblGender.Location = new System.Drawing.Point(7, 355);
             this.lblGender.Margin = new System.Windows.Forms.Padding(0);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(82, 22);
+            this.lblGender.Size = new System.Drawing.Size(66, 20);
             this.lblGender.TabIndex = 0;
             this.lblGender.Text = "Gender";
             // 
@@ -637,22 +759,20 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine.Size = new System.Drawing.Size(700, 1);
             this.pnlVerticalLine.TabIndex = 28;
             // 
-            // cbRole
+            // lblRequiredGender
             // 
-            this.cbRole.BackColor = System.Drawing.Color.White;
-            this.cbRole.BorderColor = System.Drawing.Color.DarkGray;
-            this.cbRole.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.cbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(277, 57);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(0);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(212, 29);
-            this.cbRole.TabIndex = 66;
+            this.lblRequiredGender.AutoSize = true;
+            this.lblRequiredGender.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredGender.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredGender.Location = new System.Drawing.Point(69, 355);
+            this.lblRequiredGender.Name = "lblRequiredGender";
+            this.lblRequiredGender.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredGender.TabIndex = 75;
+            this.lblRequiredGender.Text = "*";
             // 
             // EmployeeModalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 800);
             this.Controls.Add(this.pnlContainer);
@@ -705,7 +825,7 @@ namespace Project2.Forms.Components
         private Utils.FlatTextBox txtAddress;
         private System.Windows.Forms.Label lblAdress;
         private Utils.FlatTextBox txtConfirmPassword;
-        private Utils.RoundedButton btnDPassword;
+        private Utils.RoundedButton btnDefaultImage;
         private Utils.RoundedButton btnUploadImage;
         private System.Windows.Forms.Label lblLName;
         private Utils.FlatTextBox txtLName;
@@ -717,5 +837,14 @@ namespace Project2.Forms.Components
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Panel pnlLine1;
         private FlatComboBox cbRole;
+        private System.Windows.Forms.Label lblRequiredRole;
+        private System.Windows.Forms.Label lblRequiredActive;
+        private System.Windows.Forms.Label lblRequiredPhone;
+        private System.Windows.Forms.Label lblRequiredLName;
+        private System.Windows.Forms.Label lblRequiredFName;
+        private System.Windows.Forms.Label lblRequiredConfirmPassword;
+        private System.Windows.Forms.Label lblRequiredPassword;
+        private System.Windows.Forms.Label lblRequiredEmail;
+        private System.Windows.Forms.Label lblRequiredGender;
     }
 }

@@ -64,6 +64,7 @@ namespace Project2.Forms.Components
             this.lblFName = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
+            this.lblRequiredGender = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -120,6 +121,7 @@ namespace Project2.Forms.Components
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
+            this.pnlContainer.Controls.Add(this.lblRequiredGender);
             this.pnlContainer.Controls.Add(this.lblRequiredPhone);
             this.pnlContainer.Controls.Add(this.lblRequiredLName);
             this.pnlContainer.Controls.Add(this.lblRequiredFName);
@@ -572,6 +574,17 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine.Size = new System.Drawing.Size(700, 1);
             this.pnlVerticalLine.TabIndex = 28;
             // 
+            // lblRequiredGender
+            // 
+            this.lblRequiredGender.AutoSize = true;
+            this.lblRequiredGender.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredGender.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredGender.Location = new System.Drawing.Point(69, 125);
+            this.lblRequiredGender.Name = "lblRequiredGender";
+            this.lblRequiredGender.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredGender.TabIndex = 42;
+            this.lblRequiredGender.Text = "*";
+            // 
             // CustomerModalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -634,5 +647,6 @@ namespace Project2.Forms.Components
         private System.Windows.Forms.Label lblRequiredLName;
         private System.Windows.Forms.Label lblRequiredFName;
         private System.Windows.Forms.Label lblRequiredActive;
+        private System.Windows.Forms.Label lblRequiredGender;
     }
 }

@@ -198,7 +198,7 @@ namespace Project2.UserControls
         private void CreateChildNode(TreeNode parentNode, int parentId)
         {
             categories = CategoryBUS.GetCategoryByParentID(parentId);
-            if (categories.Count > 0)
+            if (categories != null)
             {
                 foreach (var category in categories)
                 {

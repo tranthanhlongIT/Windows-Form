@@ -97,7 +97,7 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        public void Alert(string msg, Form_Alert.enmType type)
+        private void Alert(string msg, Form_Alert.enmType type)
         {
             Form_Alert frm = new Form_Alert();
             frm.showAlert(msg, type);

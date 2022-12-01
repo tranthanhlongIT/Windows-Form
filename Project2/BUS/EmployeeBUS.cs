@@ -24,7 +24,7 @@ namespace Project2.BUS
 
         public static bool Disable(int id)
         {
-            return CustomerDAO.Disable(id);
+            return EmployeeDAO.Disable(id);
         }
 
         public static Employee GetEmployeeByEmail(string email)
@@ -50,6 +50,13 @@ namespace Project2.BUS
         public static bool ValidateEmail(string email)
         {
             return EmployeeDAO.IsEmailExist(email);
+        }
+
+        public static bool ResetPassword(int id)
+        {
+            Employee employee = GetEmployeeByID(id);
+            employee.password = EncodePasswordToBase64("Hahaha123");
+            return EmployeeDAO.UpdatePassword(employee);
         }
 
 

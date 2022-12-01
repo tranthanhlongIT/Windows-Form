@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Configuration;
-using System.Windows.Forms;
 
 namespace Project2.DAO
 {
@@ -14,7 +13,7 @@ namespace Project2.DAO
         {
             try
             {
-                return db.Products.ToList();
+                return db.Products.Where(p => p.deleted_at == null).ToList();
             }
             catch
             {
@@ -107,7 +106,7 @@ namespace Project2.DAO
             {
                 try
                 {
-                    db.Products.DeleteOnSubmit(dbProduct);
+                    dbProduct.deleted_at = DateTime.Now;
                     db.SubmitChanges();
                     return true;
                 }

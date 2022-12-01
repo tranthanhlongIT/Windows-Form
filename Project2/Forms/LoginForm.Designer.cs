@@ -215,7 +215,7 @@ namespace Project2.Forms
             this.chbShowPassword.Margin = new System.Windows.Forms.Padding(0);
             this.chbShowPassword.Name = "chbShowPassword";
             this.chbShowPassword.Size = new System.Drawing.Size(138, 25);
-            this.chbShowPassword.TabIndex = 24;
+            this.chbShowPassword.TabIndex = 3;
             this.chbShowPassword.Text = "Show Pasword";
             this.chbShowPassword.UseVisualStyleBackColor = true;
             this.chbShowPassword.CheckedChanged += new System.EventHandler(this.chbShowPassword_CheckedChanged);
@@ -234,7 +234,7 @@ namespace Project2.Forms
             this.btnLogin.Margin = new System.Windows.Forms.Padding(0);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(400, 35);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.TextColor = System.Drawing.Color.White;
             this.btnLogin.UseVisualStyleBackColor = false;
