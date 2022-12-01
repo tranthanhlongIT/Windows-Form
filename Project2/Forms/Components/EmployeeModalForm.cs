@@ -94,6 +94,7 @@ namespace Project2.Forms.Components
                 LoadActiveComboBox();
                 LoadRoleComboBox();
                 SetField();
+                DisableEmail();
                 DisablePassword();
             }
             else if (action == "det")
@@ -113,6 +114,7 @@ namespace Project2.Forms.Components
         private void SetField()
         {
             txtEmail.Text = employee.email;
+            txtPassword.Text = employee.password;
             txtFName.Text = employee.fname;
             txtLName.Text = employee.lname;
             txtPhone.Text = employee.phone;
@@ -124,6 +126,12 @@ namespace Project2.Forms.Components
             txtUpdatedAt.Text = employee.updated_at.ToString();
             if (employee.image != null)
                 pbUploadImage.Image = ConvertImage.ConvertBinaryToImage(employee.image.ToArray());
+        }
+
+        private void DisableEmail()
+        {
+            txtEmail.Enabled = false;
+            lblRequiredEmail.Visible = false;
         }
 
         private void ResetField()
@@ -143,8 +151,10 @@ namespace Project2.Forms.Components
 
         private void DisablePassword()
         {
+            txtPassword.PasswordChar = '•';
             txtPassword.Enabled = false;
-            txtConfirmPassword.Enabled = false;
+            txtConfirmPassword.Visible = false;
+            lblConfirmPassword.Visible = false;
             lblRequiredPassword.Visible = false;
             lblRequiredConfirmPassword.Visible = false;
         }

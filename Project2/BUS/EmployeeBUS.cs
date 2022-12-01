@@ -19,6 +19,7 @@ namespace Project2.BUS
 
         public static bool Update(Employee newEmployee)
         {
+            newEmployee.password = EncodePasswordToBase64(newEmployee.password);
             return EmployeeDAO.Update(newEmployee);
         }
 

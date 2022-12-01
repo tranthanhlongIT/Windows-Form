@@ -101,10 +101,10 @@
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::Project2.Properties.Resources.refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(526, 8);
+            this.btnRefresh.Location = new System.Drawing.Point(531, 8);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 25);
+            this.btnRefresh.Size = new System.Drawing.Size(95, 25);
             this.btnRefresh.TabIndex = 11;
             this.btnRefresh.Text = "        Refresh";
             this.btnRefresh.TextColor = System.Drawing.Color.White;
@@ -124,7 +124,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = global::Project2.Properties.Resources.delete_icon;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(434, 8);
+            this.btnDelete.Location = new System.Drawing.Point(439, 8);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(90, 25);
@@ -150,7 +150,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(342, 8);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(90, 25);
+            this.btnUpdate.Size = new System.Drawing.Size(95, 25);
             this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "        Update";
             this.btnUpdate.TextColor = System.Drawing.Color.White;
@@ -207,7 +207,7 @@
             this.txtSearch.Location = new System.Drawing.Point(932, 10);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 18);
+            this.txtSearch.Size = new System.Drawing.Size(300, 23);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -486,7 +486,7 @@
             // 
             // ProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.dgvProduct);

@@ -12,7 +12,6 @@ namespace Project2.UserControls
         private List<Product> products;
         private List<Category> categories;
         private int id;
-        private bool isEnabled = false;
 
         public ProductForm()
         {
@@ -62,8 +61,7 @@ namespace Project2.UserControls
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
             tvCategory.SelectedNode.SelectedImageIndex = tvCategory.SelectedNode.ImageIndex;
-            if (isEnabled)
-                RefreshDataGridView();
+            RefreshDataGridView();
         }
 
         private void tvCategory_KeyDown(object sender, KeyEventArgs e)
@@ -112,7 +110,6 @@ namespace Project2.UserControls
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            isEnabled = true;
             RefreshDataGridView();
         }
 
@@ -149,7 +146,7 @@ namespace Project2.UserControls
         private void LoadDataGridView(List<Product> products)
         {
             dgvProduct.Rows.Clear();
-            if (products.Count > 0)
+            if (products != null)
             {
                 foreach (var product in products)
                 {

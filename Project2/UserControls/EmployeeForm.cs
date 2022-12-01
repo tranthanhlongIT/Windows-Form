@@ -22,6 +22,7 @@ namespace Project2.UserControls
             if (!this.DesignMode)
             {
                 LoadSearchTextBox();
+                RefreshDataGridView();
             }
         }
 
@@ -195,15 +196,15 @@ namespace Project2.UserControls
             {
                 using (EmployeeModalForm uu = new EmployeeModalForm(action, id))
                 {
-                    //formBackground.StartPosition = FormStartPosition.Manual;
-                    //formBackground.FormBorderStyle = FormBorderStyle.None;
-                    //formBackground.Opacity = .70d;
-                    //formBackground.BackColor = Color.Black;
-                    //formBackground.WindowState = FormWindowState.Maximized;
-                    //formBackground.TopMost = true;
-                    //formBackground.Location = this.Location;
-                    //formBackground.ShowInTaskbar = false;
-                    //formBackground.Show();
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .70d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Maximized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
 
                     uu.Owner = formBackground;
                     uu.ShowDialog();

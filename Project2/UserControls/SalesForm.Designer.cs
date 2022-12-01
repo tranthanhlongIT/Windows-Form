@@ -335,10 +335,10 @@ namespace Project2.UserControls
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::Project2.Properties.Resources.refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(510, 6);
+            this.btnRefresh.Location = new System.Drawing.Point(510, 8);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(110, 28);
+            this.btnRefresh.Size = new System.Drawing.Size(110, 25);
             this.btnRefresh.TabIndex = 14;
             this.btnRefresh.Text = "        Refresh";
             this.btnRefresh.TextColor = System.Drawing.Color.White;
@@ -392,14 +392,14 @@ namespace Project2.UserControls
             // 
             this.cbFilter.BackColor = System.Drawing.Color.White;
             this.cbFilter.BorderColor = System.Drawing.Color.Silver;
-            this.cbFilter.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.cbFilter.Font = new System.Drawing.Font("Century Gothic", 8F);
             this.cbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbFilter.FormattingEnabled = true;
-            this.cbFilter.ItemHeight = 21;
-            this.cbFilter.Location = new System.Drawing.Point(266, 6);
+            this.cbFilter.ItemHeight = 17;
+            this.cbFilter.Location = new System.Drawing.Point(266, 8);
             this.cbFilter.Margin = new System.Windows.Forms.Padding(0);
             this.cbFilter.Name = "cbFilter";
-            this.cbFilter.Size = new System.Drawing.Size(240, 29);
+            this.cbFilter.Size = new System.Drawing.Size(240, 25);
             this.cbFilter.TabIndex = 10;
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 

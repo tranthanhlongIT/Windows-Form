@@ -21,6 +21,7 @@ namespace Project2.UserControls
         private void HistoryForm_Load(object sender, EventArgs e)
         {
             LoadSearchTextBox();
+            RefreshDataGridView();
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -123,13 +124,13 @@ namespace Project2.UserControls
         {
             DataTable dt = new DataTable();
             foreach (DataGridViewColumn column in dgvOrder.Columns)
-                dt.Columns.Add(column.Name, column.CellType);
+                dt.Columns.Add(column.HeaderText, column.ValueType);
             for (int i = 0; i < dgvOrder.Rows.Count; i++)
             {
                 dt.Rows.Add();
                 for (int j = 0; j < dgvOrder.Columns.Count; j++)
                 {
-                    dt.Rows[i][j] = dgvOrder.Rows[i].Cells[j].Value;
+                    dt.Rows[i][j] = dgvOrder.Rows[i].Cells[j].Value.ToString();
                 }
             }
             return dt;

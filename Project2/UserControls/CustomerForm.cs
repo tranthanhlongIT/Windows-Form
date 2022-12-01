@@ -22,6 +22,7 @@ namespace Project2.UserControls
             if (!this.DesignMode)
             {
                 LoadSearchTextBox();
+                RefreshDataGridView();
             }
         }
 
