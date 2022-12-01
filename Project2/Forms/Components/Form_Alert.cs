@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project2.Utils
+namespace Project2.Forms.Components
 {
     public partial class Form_Alert : Form
     {

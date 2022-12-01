@@ -37,7 +37,7 @@ namespace Project2.DAO
         {
             try
             {
-                return db.Products.Where(p => p.type_id == typeId).ToList();
+                return db.Products.Where(p => p.type_id == typeId && p.deleted_at == null).ToList();
             }
             catch
             {
@@ -49,7 +49,7 @@ namespace Project2.DAO
         {
             try
             {
-                return db.Products.Where(p => p.brand_id == brandId).ToList();
+                return db.Products.Where(p => p.brand_id == brandId && p.deleted_at == null).ToList();
             }
             catch
             {

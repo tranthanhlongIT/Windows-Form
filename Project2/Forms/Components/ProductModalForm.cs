@@ -76,18 +76,11 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void Alert(string msg, Form_Alert.enmType type)
-        {
-            Form_Alert frm = new Form_Alert();
-            frm.showAlert(msg, type);
-        }
-
         private void SetForm()
         {
             if (action == "add")
             {
                 lblTitle.Text = "Add Product";
-                CreateProduct();
                 LoadTypeComboBox();
                 LoadAvailableComboBox();
                 cbType.Text = string.Empty;
@@ -209,38 +202,63 @@ namespace Project2.Forms.Components
 
         private void CreateProduct()
         {
-            product = new Product();
+            product = new Product()
+            {
+                id = SetID(),
+                name = txtName.Text.Trim(),
+                description = txtDescription.Text.Trim(),
+                price = Double.Parse(txtPrice.Text.Trim()),
+                discount = Double.Parse(txtDiscount.Text.Trim()),
+                quantity = Int32.Parse(txtQuantity.Text.Trim()),
+                available = (bool)cbAvailable.SelectedValue,
+                image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image),
+                type_id = (Int32)cbType.SelectedValue,
+                brand_id = (Int32)cbBrand.SelectedValue,
+                created_at = DateTime.Now
+            };
         }
 
-        private void SetProduct()
+        private int SetID()
         {
-            product.name = txtName.Text.Trim();
-            product.description = txtDescription.Text.Trim();
-            product.price = Double.Parse(txtPrice.Text.Trim());
-            product.discount = Double.Parse(txtDiscount.Text.Trim());
-            product.quantity = Int32.Parse(txtQuantity.Text.Trim());
-            product.available = (bool)cbAvailable.SelectedValue;
-            product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
-            product.type_id = (Int32)cbType.SelectedValue;
-            product.brand_id = (Int32)cbBrand.SelectedValue;
-            product.created_at = DateTime.Now;
+            if (action == "add")
+                return 0;
+            return Int32.Parse(txtId.Text.Trim());
         }
+
+        //private void CreateProduct()
+        //{
+        //    this.product = new Product();
+        //}
+
+        //private void SetProduct()
+        //{
+        //    product.name = txtName.Text.Trim();
+        //    product.description = txtDescription.Text.Trim();
+        //    product.price = Double.Parse(txtPrice.Text.Trim());
+        //    product.discount = Double.Parse(txtDiscount.Text.Trim());
+        //    product.quantity = Int32.Parse(txtQuantity.Text.Trim());
+        //    product.available = (bool)cbAvailable.SelectedValue;
+        //    product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
+        //    product.type_id = (Int32)cbType.SelectedValue;
+        //    product.brand_id = (Int32)cbBrand.SelectedValue;
+        //    product.created_at = DateTime.Now;
+        //}
 
         private void BeginAdd()
         {
             if (ValidateForm())
             {
-                SetProduct();
+                CreateProduct();
                 bool result = ProductBUS.AddNew(product);
                 if (result)
                 {
                     CreateProduct();
                     ResetField();
-                    this.Alert("Add Successful", Form_Alert.enmType.Success);
+                    Alert.Show("Add Successful", Form_Alert.enmType.Success);
                 }
                 else
                 {
-                    this.Alert("Add Failed", Form_Alert.enmType.Error);
+                    Alert.Show("Add Failed", Form_Alert.enmType.Error);
                 }
             }
         }
@@ -249,15 +267,15 @@ namespace Project2.Forms.Components
         {
             if (ValidateForm())
             {
-                SetProduct();
+                CreateProduct();
                 bool result = ProductBUS.Update(product);
                 if (result)
                 {
-                    this.Alert("Update Successful", Form_Alert.enmType.Success);
+                    Alert.Show("Update Successful", Form_Alert.enmType.Success);
                 }
                 else
                 {
-                    this.Alert("Update Failed", Form_Alert.enmType.Error);
+                    Alert.Show("Update Failed", Form_Alert.enmType.Error);
                 }
             }
         }

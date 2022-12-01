@@ -29,21 +29,24 @@ namespace Project2.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pnlOperation = new System.Windows.Forms.Panel();
+            this.btnExport = new Project2.Utils.RoundedButton();
+            this.btnRefresh = new Project2.Utils.RoundedButton();
             this.dtpDateEnd = new System.Windows.Forms.DateTimePicker();
+            this.btnApply = new Project2.Utils.RoundedButton();
             this.dtpDateStart = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlLineSearch = new System.Windows.Forms.Panel();
@@ -56,9 +59,6 @@ namespace Project2.UserControls
             this.chTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chCreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
-            this.btnExport = new Project2.Utils.RoundedButton();
-            this.btnRefresh = new Project2.Utils.RoundedButton();
-            this.btnApply = new Project2.Utils.RoundedButton();
             this.pnlOperation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,9 @@ namespace Project2.UserControls
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(300, 23);
             this.txtSearch.TabIndex = 5;
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
             // pnlOperation
             // 
@@ -92,236 +95,6 @@ namespace Project2.UserControls
             this.pnlOperation.Name = "pnlOperation";
             this.pnlOperation.Size = new System.Drawing.Size(1280, 40);
             this.pnlOperation.TabIndex = 5;
-            // 
-            // dtpDateEnd
-            // 
-            this.dtpDateEnd.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            this.dtpDateEnd.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateEnd.Location = new System.Drawing.Point(200, 8);
-            this.dtpDateEnd.Margin = new System.Windows.Forms.Padding(0);
-            this.dtpDateEnd.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.dtpDateEnd.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dtpDateEnd.Name = "dtpDateEnd";
-            this.dtpDateEnd.Size = new System.Drawing.Size(180, 30);
-            this.dtpDateEnd.TabIndex = 2;
-            this.dtpDateEnd.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
-            // 
-            // dtpDateStart
-            // 
-            this.dtpDateStart.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            this.dtpDateStart.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateStart.Location = new System.Drawing.Point(10, 8);
-            this.dtpDateStart.Margin = new System.Windows.Forms.Padding(0);
-            this.dtpDateStart.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
-            this.dtpDateStart.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dtpDateStart.Name = "dtpDateStart";
-            this.dtpDateStart.Size = new System.Drawing.Size(180, 30);
-            this.dtpDateStart.TabIndex = 1;
-            this.dtpDateStart.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(1235, 10);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(18, 18);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
-            // pnlLineSearch
-            // 
-            this.pnlLineSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlLineSearch.BackColor = System.Drawing.Color.Silver;
-            this.pnlLineSearch.Location = new System.Drawing.Point(930, 32);
-            this.pnlLineSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlLineSearch.Name = "pnlLineSearch";
-            this.pnlLineSearch.Size = new System.Drawing.Size(325, 1);
-            this.pnlLineSearch.TabIndex = 4;
-            // 
-            // dgvOrder
-            // 
-            this.dgvOrder.AllowUserToAddRows = false;
-            this.dgvOrder.AllowUserToDeleteRows = false;
-            this.dgvOrder.AllowUserToResizeColumns = false;
-            this.dgvOrder.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrder.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
-            this.dgvOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chId,
-            this.chEmployee,
-            this.chCustomer,
-            this.chProduct,
-            this.chQuantity,
-            this.chTotal,
-            this.chCreatedAt});
-            this.dgvOrder.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvOrder.EnableHeadersVisualStyles = false;
-            this.dgvOrder.GridColor = System.Drawing.Color.White;
-            this.dgvOrder.Location = new System.Drawing.Point(10, 50);
-            this.dgvOrder.Margin = new System.Windows.Forms.Padding(10);
-            this.dgvOrder.MultiSelect = false;
-            this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.ReadOnly = true;
-            this.dgvOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvOrder.RowHeadersVisible = false;
-            this.dgvOrder.RowHeadersWidth = 50;
-            this.dgvOrder.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dgvOrder.RowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvOrder.RowTemplate.Height = 24;
-            this.dgvOrder.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrder.Size = new System.Drawing.Size(1260, 570);
-            this.dgvOrder.TabIndex = 6;
-            this.dgvOrder.TabStop = false;
-            // 
-            // chId
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-            this.chId.DefaultCellStyle = dataGridViewCellStyle3;
-            this.chId.FillWeight = 10F;
-            this.chId.HeaderText = "ID";
-            this.chId.MaxInputLength = 10;
-            this.chId.MinimumWidth = 50;
-            this.chId.Name = "chId";
-            this.chId.ReadOnly = true;
-            // 
-            // chEmployee
-            // 
-            this.chEmployee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            this.chEmployee.DefaultCellStyle = dataGridViewCellStyle4;
-            this.chEmployee.FillWeight = 50F;
-            this.chEmployee.HeaderText = "Employee";
-            this.chEmployee.MaxInputLength = 100;
-            this.chEmployee.MinimumWidth = 200;
-            this.chEmployee.Name = "chEmployee";
-            this.chEmployee.ReadOnly = true;
-            // 
-            // chCustomer
-            // 
-            this.chCustomer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            this.chCustomer.DefaultCellStyle = dataGridViewCellStyle5;
-            this.chCustomer.FillWeight = 50F;
-            this.chCustomer.HeaderText = "Customer";
-            this.chCustomer.MaxInputLength = 10;
-            this.chCustomer.MinimumWidth = 200;
-            this.chCustomer.Name = "chCustomer";
-            this.chCustomer.ReadOnly = true;
-            this.chCustomer.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // chProduct
-            // 
-            this.chProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
-            this.chProduct.DefaultCellStyle = dataGridViewCellStyle6;
-            this.chProduct.FillWeight = 50F;
-            this.chProduct.HeaderText = "Product";
-            this.chProduct.MaxInputLength = 250;
-            this.chProduct.MinimumWidth = 200;
-            this.chProduct.Name = "chProduct";
-            this.chProduct.ReadOnly = true;
-            // 
-            // chQuantity
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            this.chQuantity.DefaultCellStyle = dataGridViewCellStyle7;
-            this.chQuantity.FillWeight = 50F;
-            this.chQuantity.HeaderText = "Quantity";
-            this.chQuantity.MaxInputLength = 10;
-            this.chQuantity.MinimumWidth = 100;
-            this.chQuantity.Name = "chQuantity";
-            this.chQuantity.ReadOnly = true;
-            // 
-            // chTotal
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.Format = "C0";
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
-            this.chTotal.DefaultCellStyle = dataGridViewCellStyle8;
-            this.chTotal.FillWeight = 50F;
-            this.chTotal.HeaderText = "Total";
-            this.chTotal.MaxInputLength = 10;
-            this.chTotal.MinimumWidth = 100;
-            this.chTotal.Name = "chTotal";
-            this.chTotal.ReadOnly = true;
-            // 
-            // chCreatedAt
-            // 
-            this.chCreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Format = "g";
-            dataGridViewCellStyle9.NullValue = null;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
-            this.chCreatedAt.DefaultCellStyle = dataGridViewCellStyle9;
-            this.chCreatedAt.FillWeight = 50F;
-            this.chCreatedAt.HeaderText = "Created At";
-            this.chCreatedAt.MaxInputLength = 10;
-            this.chCreatedAt.MinimumWidth = 200;
-            this.chCreatedAt.Name = "chCreatedAt";
-            this.chCreatedAt.ReadOnly = true;
-            // 
-            // pnlVerticalLine
-            // 
-            this.pnlVerticalLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlVerticalLine.BackColor = System.Drawing.Color.Silver;
-            this.pnlVerticalLine.Location = new System.Drawing.Point(0, 40);
-            this.pnlVerticalLine.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlVerticalLine.Name = "pnlVerticalLine";
-            this.pnlVerticalLine.Size = new System.Drawing.Size(1280, 1);
-            this.pnlVerticalLine.TabIndex = 7;
             // 
             // btnExport
             // 
@@ -369,6 +142,20 @@ namespace Project2.UserControls
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // dtpDateEnd
+            // 
+            this.dtpDateEnd.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            this.dtpDateEnd.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.dtpDateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateEnd.Location = new System.Drawing.Point(200, 8);
+            this.dtpDateEnd.Margin = new System.Windows.Forms.Padding(0);
+            this.dtpDateEnd.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.dtpDateEnd.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtpDateEnd.Name = "dtpDateEnd";
+            this.dtpDateEnd.Size = new System.Drawing.Size(180, 30);
+            this.dtpDateEnd.TabIndex = 2;
+            this.dtpDateEnd.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
+            // 
             // btnApply
             // 
             this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
@@ -391,6 +178,223 @@ namespace Project2.UserControls
             this.btnApply.TextColor = System.Drawing.Color.White;
             this.btnApply.UseVisualStyleBackColor = false;
             this.btnApply.Click += new System.EventHandler(this.btnSort_Click);
+            // 
+            // dtpDateStart
+            // 
+            this.dtpDateStart.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            this.dtpDateStart.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.dtpDateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateStart.Location = new System.Drawing.Point(10, 8);
+            this.dtpDateStart.Margin = new System.Windows.Forms.Padding(0);
+            this.dtpDateStart.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
+            this.dtpDateStart.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtpDateStart.Name = "dtpDateStart";
+            this.dtpDateStart.Size = new System.Drawing.Size(180, 30);
+            this.dtpDateStart.TabIndex = 1;
+            this.dtpDateStart.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(1235, 10);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(18, 18);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // pnlLineSearch
+            // 
+            this.pnlLineSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlLineSearch.BackColor = System.Drawing.Color.Silver;
+            this.pnlLineSearch.Location = new System.Drawing.Point(930, 32);
+            this.pnlLineSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlLineSearch.Name = "pnlLineSearch";
+            this.pnlLineSearch.Size = new System.Drawing.Size(325, 1);
+            this.pnlLineSearch.TabIndex = 4;
+            // 
+            // dgvOrder
+            // 
+            this.dgvOrder.AllowUserToAddRows = false;
+            this.dgvOrder.AllowUserToDeleteRows = false;
+            this.dgvOrder.AllowUserToResizeColumns = false;
+            this.dgvOrder.AllowUserToResizeRows = false;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrder.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvOrder.BackgroundColor = System.Drawing.Color.White;
+            this.dgvOrder.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvOrder.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvOrder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(90)))), ((int)(((byte)(189)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chId,
+            this.chEmployee,
+            this.chCustomer,
+            this.chProduct,
+            this.chQuantity,
+            this.chTotal,
+            this.chCreatedAt});
+            this.dgvOrder.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dgvOrder.EnableHeadersVisualStyles = false;
+            this.dgvOrder.GridColor = System.Drawing.Color.White;
+            this.dgvOrder.Location = new System.Drawing.Point(10, 50);
+            this.dgvOrder.Margin = new System.Windows.Forms.Padding(10);
+            this.dgvOrder.MultiSelect = false;
+            this.dgvOrder.Name = "dgvOrder";
+            this.dgvOrder.ReadOnly = true;
+            this.dgvOrder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.dgvOrder.RowHeadersVisible = false;
+            this.dgvOrder.RowHeadersWidth = 50;
+            this.dgvOrder.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dgvOrder.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            this.dgvOrder.RowTemplate.Height = 24;
+            this.dgvOrder.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrder.Size = new System.Drawing.Size(1260, 570);
+            this.dgvOrder.TabIndex = 6;
+            this.dgvOrder.TabStop = false;
+            // 
+            // chId
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5);
+            this.chId.DefaultCellStyle = dataGridViewCellStyle14;
+            this.chId.FillWeight = 10F;
+            this.chId.HeaderText = "ID";
+            this.chId.MaxInputLength = 10;
+            this.chId.MinimumWidth = 50;
+            this.chId.Name = "chId";
+            this.chId.ReadOnly = true;
+            // 
+            // chEmployee
+            // 
+            this.chEmployee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(5);
+            this.chEmployee.DefaultCellStyle = dataGridViewCellStyle15;
+            this.chEmployee.FillWeight = 50F;
+            this.chEmployee.HeaderText = "Employee";
+            this.chEmployee.MaxInputLength = 100;
+            this.chEmployee.MinimumWidth = 200;
+            this.chEmployee.Name = "chEmployee";
+            this.chEmployee.ReadOnly = true;
+            // 
+            // chCustomer
+            // 
+            this.chCustomer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5);
+            this.chCustomer.DefaultCellStyle = dataGridViewCellStyle16;
+            this.chCustomer.FillWeight = 50F;
+            this.chCustomer.HeaderText = "Customer";
+            this.chCustomer.MaxInputLength = 10;
+            this.chCustomer.MinimumWidth = 200;
+            this.chCustomer.Name = "chCustomer";
+            this.chCustomer.ReadOnly = true;
+            this.chCustomer.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // chProduct
+            // 
+            this.chProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5);
+            this.chProduct.DefaultCellStyle = dataGridViewCellStyle17;
+            this.chProduct.FillWeight = 50F;
+            this.chProduct.HeaderText = "Product";
+            this.chProduct.MaxInputLength = 250;
+            this.chProduct.MinimumWidth = 200;
+            this.chProduct.Name = "chProduct";
+            this.chProduct.ReadOnly = true;
+            // 
+            // chQuantity
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.NullValue = null;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5);
+            this.chQuantity.DefaultCellStyle = dataGridViewCellStyle18;
+            this.chQuantity.FillWeight = 50F;
+            this.chQuantity.HeaderText = "Quantity";
+            this.chQuantity.MaxInputLength = 10;
+            this.chQuantity.MinimumWidth = 100;
+            this.chQuantity.Name = "chQuantity";
+            this.chQuantity.ReadOnly = true;
+            // 
+            // chTotal
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.Format = "C0";
+            dataGridViewCellStyle19.NullValue = null;
+            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(5);
+            this.chTotal.DefaultCellStyle = dataGridViewCellStyle19;
+            this.chTotal.FillWeight = 50F;
+            this.chTotal.HeaderText = "Total";
+            this.chTotal.MaxInputLength = 10;
+            this.chTotal.MinimumWidth = 100;
+            this.chTotal.Name = "chTotal";
+            this.chTotal.ReadOnly = true;
+            // 
+            // chCreatedAt
+            // 
+            this.chCreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.Format = "g";
+            dataGridViewCellStyle20.NullValue = null;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5);
+            this.chCreatedAt.DefaultCellStyle = dataGridViewCellStyle20;
+            this.chCreatedAt.FillWeight = 50F;
+            this.chCreatedAt.HeaderText = "Created At";
+            this.chCreatedAt.MaxInputLength = 10;
+            this.chCreatedAt.MinimumWidth = 200;
+            this.chCreatedAt.Name = "chCreatedAt";
+            this.chCreatedAt.ReadOnly = true;
+            // 
+            // pnlVerticalLine
+            // 
+            this.pnlVerticalLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlVerticalLine.BackColor = System.Drawing.Color.Silver;
+            this.pnlVerticalLine.Location = new System.Drawing.Point(0, 40);
+            this.pnlVerticalLine.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlVerticalLine.Name = "pnlVerticalLine";
+            this.pnlVerticalLine.Size = new System.Drawing.Size(1280, 1);
+            this.pnlVerticalLine.TabIndex = 7;
             // 
             // HistoryForm
             // 

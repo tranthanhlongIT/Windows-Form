@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
 using Project2.Forms.Components;
+using Project2.Utils;
 
 namespace Project2.UserControls
 {
@@ -99,10 +100,11 @@ namespace Project2.UserControls
                     if (result)
                     {
                         RefreshDataGridView();
+                        Alert.Show("Delete Successful", Form_Alert.enmType.Success);
                     }
                     else
                     {
-                        MessageBox.Show("Delete Failed", "Error", MessageBoxButtons.OK);
+                        Alert.Show("Delete Failed", Form_Alert.enmType.Warning);
                     }
                 }
             }
@@ -216,24 +218,24 @@ namespace Project2.UserControls
             {
                 using (ProductModalForm uu = new ProductModalForm(action, id))
                 {
-                    formBackground.StartPosition = FormStartPosition.Manual;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = .70d;
-                    formBackground.BackColor = Color.Black;
-                    formBackground.WindowState = FormWindowState.Maximized;
-                    formBackground.TopMost = true;
-                    formBackground.Location = this.Location;
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
+                    //formBackground.StartPosition = FormStartPosition.Manual;
+                    //formBackground.FormBorderStyle = FormBorderStyle.None;
+                    //formBackground.Opacity = .70d;
+                    //formBackground.BackColor = Color.Black;
+                    //formBackground.WindowState = FormWindowState.Maximized;
+                    //formBackground.TopMost = true;
+                    //formBackground.Location = this.Location;
+                    //formBackground.ShowInTaskbar = false;
+                    //formBackground.Show();
 
                     uu.Owner = formBackground;
                     uu.ShowDialog();
                     formBackground.Dispose();
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e.Message);
             }
             finally
             {

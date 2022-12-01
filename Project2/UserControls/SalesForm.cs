@@ -79,10 +79,10 @@ namespace Project2.UserControls
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblFilter.Text = cbFilter.Text;
             products = GetProductList();
             LoadListView(products);
             ResetDisplayField();
+            lblFilter.Text = cbFilter.Text;
         }
 
         private void lvProducts_SelectedIndexChanged(object sender, EventArgs e)

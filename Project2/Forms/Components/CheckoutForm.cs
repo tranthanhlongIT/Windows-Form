@@ -97,12 +97,6 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void Alert(string msg, Form_Alert.enmType type)
-        {
-            Form_Alert frm = new Form_Alert();
-            frm.showAlert(msg, type);
-        }
-
         private void LoadSearchTextBox()
         {
             txtSearch.Text = "Search by customer name";
@@ -190,16 +184,16 @@ namespace Project2.Forms.Components
                     if (result)
                     {
                         this.DialogResult = DialogResult.Cancel;
-                        this.Alert("Sell Successful", Form_Alert.enmType.Success);
+                        Alert.Show("Sell Successful", Form_Alert.enmType.Success);
                     }
                     else
                     {
-                        this.Alert("Sell Failed", Form_Alert.enmType.Error);
+                        Alert.Show("Sell Failed", Form_Alert.enmType.Error);
                     }
                 }
                 else
                 {
-                    this.Alert("Sell Failed", Form_Alert.enmType.Error);
+                    Alert.Show("Sell Failed", Form_Alert.enmType.Error);
                 }
             }
         }

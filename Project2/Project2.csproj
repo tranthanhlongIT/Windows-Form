@@ -375,6 +375,7 @@
     <Compile Include="Forms\Components\FlatTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\Alert.cs" />
     <Compile Include="Utils\ConvertImage.cs" />
     <Compile Include="Forms\Components\Form_Alert.cs">
       <SubType>Form</SubType>

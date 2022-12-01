@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
 using Project2.Forms.Components;
+using Project2.Utils;
 
 namespace Project2.UserControls
 {
@@ -88,11 +89,12 @@ namespace Project2.UserControls
                     bool result = CustomerBUS.Disable(id);
                     if (result)
                     {
+                        Alert.Show("Disable Successful", Form_Alert.enmType.Success);
                         RefreshDataGridView();
                     }
                     else
                     {
-                        MessageBox.Show("Disable Failed", "Error", MessageBoxButtons.OK);
+                        Alert.Show("Disable Failed", Form_Alert.enmType.Warning);
                     }
                 }
             }
@@ -188,9 +190,9 @@ namespace Project2.UserControls
                     formBackground.Dispose();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                Alert.Show("Open Failed", Form_Alert.enmType.Warning);
             }
             finally
             {

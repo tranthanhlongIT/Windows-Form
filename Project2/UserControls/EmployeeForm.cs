@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Project2.BUS;
 using Project2.Forms.Components;
+using Project2.Utils;
 
 namespace Project2.UserControls
 {
@@ -88,12 +89,12 @@ namespace Project2.UserControls
                     bool result = EmployeeBUS.Disable(id);
                     if (result)
                     {
-                        MessageBox.Show("Disable Successful");
+                        Alert.Show("Disable Successful", Form_Alert.enmType.Success);
                         RefreshDataGridView();
                     }
                     else
                     {
-                        MessageBox.Show("Disable Failed", "Error", MessageBoxButtons.OK);
+                        Alert.Show("Disable Failed", Form_Alert.enmType.Warning);
                     }
                 }
             }
@@ -110,12 +111,13 @@ namespace Project2.UserControls
                     bool result = EmployeeBUS.ResetPassword(id);
                     if (result)
                     {
-                        MessageBox.Show("Default password: Hahaha123", "Notification", MessageBoxButtons.OK);
+                        Alert.Show("Reset Password Successful", Form_Alert.enmType.Success);
                         RefreshDataGridView();
                     }
                     else
                     {
-                        MessageBox.Show("Reset Password failed", "Error", MessageBoxButtons.OK);
+                        Alert.Show("Reset Password Failed", Form_Alert.enmType.Warning);
+
                     }
                 }
             }
@@ -211,9 +213,9 @@ namespace Project2.UserControls
                     formBackground.Dispose();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                Alert.Show("Open Failed", Form_Alert.enmType.Warning);
             }
             finally
             {

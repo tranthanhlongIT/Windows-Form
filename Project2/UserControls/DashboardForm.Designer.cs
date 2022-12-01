@@ -43,7 +43,6 @@ namespace Project2.UserControls
             this.lblStatistic = new System.Windows.Forms.Label();
             this.chartCustomer = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartProduct = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -207,39 +206,27 @@ namespace Project2.UserControls
             title2.Text = "Product Sales Chart";
             this.chartProduct.Titles.Add(title2);
             // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.Pink;
-            this.panel4.Location = new System.Drawing.Point(420, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(420, 280);
-            this.panel4.TabIndex = 1;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Pink;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(410, 280);
+            this.panel3.Size = new System.Drawing.Size(610, 280);
             this.panel3.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Pink;
-            this.panel5.Location = new System.Drawing.Point(850, 0);
+            this.panel5.Location = new System.Drawing.Point(627, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(410, 280);
+            this.panel5.Size = new System.Drawing.Size(633, 280);
             this.panel5.TabIndex = 2;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -281,7 +268,6 @@ namespace Project2.UserControls
         private System.Windows.Forms.Label lblStatistic;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartCustomer;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProduct;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel1;

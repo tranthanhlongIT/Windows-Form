@@ -52,12 +52,6 @@ namespace Project2.Forms.Components
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void Alert(string msg, Form_Alert.enmType type)
-        {
-            Form_Alert frm = new Form_Alert();
-            frm.showAlert(msg, type);
-        }
-
         private void SetForm()
         {
             if (action == "add")
@@ -206,11 +200,11 @@ namespace Project2.Forms.Components
                 {
                     CreateCustomer();
                     ResetField();
-                    this.Alert("Add Successful", Form_Alert.enmType.Success);
+                    Alert.Show("Add Successful", Form_Alert.enmType.Success);
                 }
                 else
                 {
-                    this.Alert("Add Failed", Form_Alert.enmType.Error);
+                    Alert.Show("Add Failed", Form_Alert.enmType.Error);
                 }
             }
         }
@@ -223,11 +217,11 @@ namespace Project2.Forms.Components
                 bool result = CustomerBUS.Update(customer);
                 if (result)
                 {
-                    this.Alert("Update Successful", Form_Alert.enmType.Success);
+                    Alert.Show("Update Successful", Form_Alert.enmType.Success);
                 }
                 else
                 {
-                    this.Alert("Update Failed", Form_Alert.enmType.Error);
+                    Alert.Show("Update Failed", Form_Alert.enmType.Error);
                 }
             }
         }

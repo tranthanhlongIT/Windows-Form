@@ -120,39 +120,9 @@ namespace Project2.UserControls
             LoadDataGridView(orders);
         }
 
-        private DataTable CreateDataTable()
-        {
-            DataTable dt = new DataTable();
-            foreach (DataGridViewColumn column in dgvOrder.Columns)
-                dt.Columns.Add(column.HeaderText, column.ValueType);
-            for (int i = 0; i < dgvOrder.Rows.Count; i++)
-            {
-                dt.Rows.Add();
-                for (int j = 0; j < dgvOrder.Columns.Count; j++)
-                {
-                    dt.Rows[i][j] = dgvOrder.Rows[i].Cells[j].Value.ToString();
-                }
-            }
-            return dt;
-        }
-
         private void btnExport_Click(object sender, EventArgs e)
         {
-            DataTable dt = CreateDataTable();
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "Excel Workbook|*.xlsx";
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    using (XLWorkbook workbook = new XLWorkbook())
-                    {
-                        workbook.Worksheets.Add(dt, "Order History");
-                        workbook.SaveAs(saveFileDialog.FileName);
-                    }
-                    MessageBox.Show("You have successfully export your data.", "Notification", MessageBoxButtons.OK);
-                }
-            }
-
+            ExportExcel.CreateSheet("Order History", dgvOrder);
         }
     }
 }
