@@ -20,6 +20,7 @@ namespace Project2.UserControls
                 dtpMonth.Value = DateTime.Now;
                 SetCustomerChart();
                 SetProductChart();
+                SetStatisticInMonth();
             }
         }
 
@@ -91,9 +92,23 @@ namespace Project2.UserControls
             }
         }
 
-        private void StatisticInMonth()
+        private void SetStatisticInMonth()
         {
             double revenues = OrderBUS.GetRevenuesInMonth();
+            int totalOrder = OrderBUS.GetTotalOrderInMonth();
+            int totalCarSold = OrderBUS.GetTotalCarSoldInMonth();
+
+            var q = OrderBUS.GetAll()
+                .GroupBy(o => new { product_id = o.product_id })
+                .SelectMany(g => g
+                .Select(order => new { car = order.Product.name, total = g.Sum(c => c.quantity) })
+                .OrderBy(c => c.total))
+                .First();
+
+            lblRevenues.Text = "Revenues in month: " + revenues.ToString("c");
+            lblTotalOrder.Text = "Total Orders in month: " + totalOrder.ToString("N0") + " orders";
+            lblSold.Text = "Total Cars sold in month: " + totalCarSold.ToString("N0") + " cars";
+            lblBestSeller.Text = "Best seller car: " + q.car;
         }
     }
 }

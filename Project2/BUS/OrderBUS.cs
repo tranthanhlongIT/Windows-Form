@@ -30,5 +30,16 @@ namespace Project2.BUS
         {
             return OrderDAO.SelectSumRevenueInMonth();
         }
+
+        public static int GetTotalOrderInMonth()
+        {
+            return OrderDAO.SelectTotalOrderInMonth();
+        }
+
+        public static int GetTotalCarSoldInMonth()
+        {
+            return OrderDAO.SelectTotalCarSoldInMonth();
+        }
+
     }
 }

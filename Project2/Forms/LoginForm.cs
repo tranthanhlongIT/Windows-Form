@@ -70,6 +70,7 @@ namespace Project2.Forms
                 };
                 if (EmployeeBUS.CheckEmployeeCredential(employee))
                 {
+                    this.Hide();
                     employee = EmployeeBUS.GetEmployeeByEmail(txtEmail.Text.Trim());
                     ManagementForm managementForm = new ManagementForm();
                     managementForm.currentEmployee = employee;

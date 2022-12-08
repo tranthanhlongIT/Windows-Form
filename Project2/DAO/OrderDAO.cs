@@ -70,5 +70,29 @@ namespace Project2.DAO
                 return 0;
             }
         }
+
+        public static int SelectTotalOrderInMonth()
+        {
+            try
+            {
+                return db.Orders.Where(o => o.created_at.Month == DateTime.Now.Month).Count();
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public static int SelectTotalCarSoldInMonth()
+        {
+            try
+            {
+                return db.Orders.Where(o => o.created_at.Month == DateTime.Now.Month).Sum(o => o.quantity);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }
