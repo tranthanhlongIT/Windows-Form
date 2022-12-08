@@ -98,17 +98,26 @@ namespace Project2.UserControls
             int totalOrder = OrderBUS.GetTotalOrderInMonth();
             int totalCarSold = OrderBUS.GetTotalCarSoldInMonth();
 
+            //var q = OrderBUS.GetAll()
+            //    .GroupBy(o => new { product_id = o.product_id })
+            //    .SelectMany(g => g
+            //    .Select(order => new { car = order.Product.name, total = g.Sum(c => c.quantity) })
+            //    .OrderByDescending(c => c.total))
+            //    .First();
+
+
             var q = OrderBUS.GetAll()
                 .GroupBy(o => new { product_id = o.product_id })
-                .SelectMany(g => g
-                .Select(order => new { car = order.Product.name, total = g.Sum(c => c.quantity) })
-                .OrderBy(c => c.total))
-                .First();
+                .Select(g => new { product_id = g.Key.product_id, total = g.Sum(x => x.quantity) })
+                .OrderByDescending(g => g.total)
+                .FirstOrDefault();
+
+            var car = ProductBUS.GetAll().Where(p => p.id == q.product_id).FirstOrDefault();
 
             lblRevenues.Text = "Revenues in month: " + revenues.ToString("c");
             lblTotalOrder.Text = "Total Orders in month: " + totalOrder.ToString("N0") + " orders";
             lblSold.Text = "Total Cars sold in month: " + totalCarSold.ToString("N0") + " cars";
-            lblBestSeller.Text = "Best seller car: " + q.car;
+            lblBestSeller.Text = "Best seller car: " + car.name;
         }
     }
 }
