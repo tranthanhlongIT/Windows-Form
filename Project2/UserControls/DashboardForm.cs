@@ -98,14 +98,6 @@ namespace Project2.UserControls
             int totalOrder = OrderBUS.GetTotalOrderInMonth();
             int totalCarSold = OrderBUS.GetTotalCarSoldInMonth();
 
-            //var q = OrderBUS.GetAll()
-            //    .GroupBy(o => new { product_id = o.product_id })
-            //    .SelectMany(g => g
-            //    .Select(order => new { car = order.Product.name, total = g.Sum(c => c.quantity) })
-            //    .OrderByDescending(c => c.total))
-            //    .First();
-
-
             var q = OrderBUS.GetAll()
                 .GroupBy(o => new { product_id = o.product_id })
                 .Select(g => new { product_id = g.Key.product_id, total = g.Sum(x => x.quantity) })

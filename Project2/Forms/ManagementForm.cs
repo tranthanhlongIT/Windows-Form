@@ -22,15 +22,18 @@ namespace Project2
         public ManagementForm()
         {
             InitializeComponent();
+            if (!DesignMode)
+            {
+                CreateTabDashboard();
+                SlidePanel(btnDashboard);
+                ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnSale, btnHistory });
+            }
         }
 
         private void ManagementForm_Load(object sender, EventArgs e)
         {
             SetUserDisplay();
             EnableTabBaseOnRole();
-            CreateTabDashboard();
-            SlidePanel(btnDashboard);
-            ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnSale, btnHistory });
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -293,9 +296,13 @@ namespace Project2
 
         private void pbLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Logout", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
         }
     }
 }

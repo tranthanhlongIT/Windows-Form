@@ -119,7 +119,7 @@ namespace Project2
             this.lblLogo.ForeColor = System.Drawing.Color.White;
             this.lblLogo.Location = new System.Drawing.Point(70, 10);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(233, 21);
+            this.lblLogo.Size = new System.Drawing.Size(306, 25);
             this.lblLogo.TabIndex = 3;
             this.lblLogo.Text = "Shop Management System";
             // 
@@ -210,7 +210,7 @@ namespace Project2
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblName.Location = new System.Drawing.Point(64, 8);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(50, 17);
+            this.lblName.Size = new System.Drawing.Size(60, 19);
             this.lblName.TabIndex = 5;
             this.lblName.Text = "Name";
             // 
@@ -222,7 +222,7 @@ namespace Project2
             this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblRole.Location = new System.Drawing.Point(65, 26);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(34, 17);
+            this.lblRole.Size = new System.Drawing.Size(41, 20);
             this.lblRole.TabIndex = 12;
             this.lblRole.Text = "Role";
             // 
