@@ -225,25 +225,6 @@ namespace Project2.Forms.Components
             return Int32.Parse(txtId.Text.Trim());
         }
 
-        //private void CreateProduct()
-        //{
-        //    this.product = new Product();
-        //}
-
-        //private void SetProduct()
-        //{
-        //    product.name = txtName.Text.Trim();
-        //    product.description = txtDescription.Text.Trim();
-        //    product.price = Double.Parse(txtPrice.Text.Trim());
-        //    product.discount = Double.Parse(txtDiscount.Text.Trim());
-        //    product.quantity = Int32.Parse(txtQuantity.Text.Trim());
-        //    product.available = (bool)cbAvailable.SelectedValue;
-        //    product.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
-        //    product.type_id = (Int32)cbType.SelectedValue;
-        //    product.brand_id = (Int32)cbBrand.SelectedValue;
-        //    product.created_at = DateTime.Now;
-        //}
-
         private void BeginAdd()
         {
             if (ValidateForm())

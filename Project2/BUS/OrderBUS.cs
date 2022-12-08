@@ -25,5 +25,10 @@ namespace Project2.BUS
         {
             return OrderDAO.Insert(newOrder);
         }
+
+        public static double GetRevenuesInMonth()
+        {
+            return OrderDAO.SelectSumRevenueInMonth();
+        }
     }
 }

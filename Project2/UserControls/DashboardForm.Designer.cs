@@ -29,16 +29,15 @@ namespace Project2.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title12 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.pnlChartContainer = new System.Windows.Forms.Panel();
-            this.btnApply = new Project2.Utils.RoundedButton();
             this.dtpMonth = new System.Windows.Forms.DateTimePicker();
             this.lblStatistic = new System.Windows.Forms.Label();
             this.chartCustomer = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -51,6 +50,7 @@ namespace Project2.UserControls
             this.pnlRight = new System.Windows.Forms.Panel();
             this.lblInfo = new System.Windows.Forms.Label();
             this.pnlReportContainer = new System.Windows.Forms.Panel();
+            this.btnApply = new Project2.Utils.RoundedButton();
             this.pnlChartContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartProduct)).BeginInit();
@@ -72,30 +72,6 @@ namespace Project2.UserControls
             this.pnlChartContainer.Size = new System.Drawing.Size(1260, 50);
             this.pnlChartContainer.TabIndex = 18;
             // 
-            // btnApply
-            // 
-            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnApply.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnApply.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnApply.BorderRadius = 3;
-            this.btnApply.BorderSize = 1;
-            this.btnApply.FlatAppearance.BorderSize = 0;
-            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApply.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.btnApply.ForeColor = System.Drawing.Color.White;
-            this.btnApply.Image = global::Project2.Properties.Resources.check_2_icon;
-            this.btnApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnApply.Location = new System.Drawing.Point(351, 10);
-            this.btnApply.Margin = new System.Windows.Forms.Padding(5, 10, 0, 10);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnApply.Size = new System.Drawing.Size(90, 25);
-            this.btnApply.TabIndex = 16;
-            this.btnApply.Text = "        Apply";
-            this.btnApply.TextColor = System.Drawing.Color.White;
-            this.btnApply.UseVisualStyleBackColor = false;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
-            // 
             // dtpMonth
             // 
             this.dtpMonth.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(152)))), ((int)(((byte)(228)))));
@@ -103,13 +79,13 @@ namespace Project2.UserControls
             this.dtpMonth.Dock = System.Windows.Forms.DockStyle.Left;
             this.dtpMonth.Font = new System.Drawing.Font("Century Gothic", 11F);
             this.dtpMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMonth.Location = new System.Drawing.Point(166, 10);
+            this.dtpMonth.Location = new System.Drawing.Point(200, 10);
             this.dtpMonth.Margin = new System.Windows.Forms.Padding(0);
             this.dtpMonth.MaxDate = new System.DateTime(2100, 12, 31, 0, 0, 0, 0);
             this.dtpMonth.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpMonth.Name = "dtpMonth";
             this.dtpMonth.ShowUpDown = true;
-            this.dtpMonth.Size = new System.Drawing.Size(180, 25);
+            this.dtpMonth.Size = new System.Drawing.Size(180, 30);
             this.dtpMonth.TabIndex = 15;
             this.dtpMonth.Value = new System.DateTime(2022, 11, 6, 0, 0, 0, 0);
             this.dtpMonth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpMonth_KeyDown);
@@ -122,7 +98,7 @@ namespace Project2.UserControls
             this.lblStatistic.Location = new System.Drawing.Point(5, 10);
             this.lblStatistic.Margin = new System.Windows.Forms.Padding(0);
             this.lblStatistic.Name = "lblStatistic";
-            this.lblStatistic.Size = new System.Drawing.Size(161, 21);
+            this.lblStatistic.Size = new System.Drawing.Size(195, 23);
             this.lblStatistic.TabIndex = 14;
             this.lblStatistic.Text = "Statistics by month:";
             this.lblStatistic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,85 +107,85 @@ namespace Project2.UserControls
             // 
             this.chartCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            chartArea11.AxisX.IsLabelAutoFit = false;
-            chartArea11.AxisX.LabelStyle.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea11.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea11.AxisX.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisX.MinorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisX.Title = "Day in month";
-            chartArea11.AxisX.TitleFont = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea11.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea11.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea11.AxisY.IsLabelAutoFit = false;
-            chartArea11.AxisY.LabelStyle.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea11.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea11.AxisY.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisY.MinorGrid.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Silver;
-            chartArea11.AxisY.Title = "Total customers";
-            chartArea11.AxisY.TitleFont = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea11.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            chartArea11.BorderColor = System.Drawing.Color.Silver;
-            chartArea11.Name = "ChartArea1";
-            this.chartCustomer.ChartAreas.Add(chartArea11);
-            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            legend11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            legend11.IsTextAutoFit = false;
-            legend11.Name = "Legend1";
-            legend11.TitleFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chartCustomer.Legends.Add(legend11);
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisX.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.MinorTickMark.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisX.Title = "Day in month";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.AxisY.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.MinorGrid.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.MinorTickMark.LineColor = System.Drawing.Color.Silver;
+            chartArea1.AxisY.Title = "Total customers";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            chartArea1.BorderColor = System.Drawing.Color.Silver;
+            chartArea1.Name = "ChartArea1";
+            this.chartCustomer.ChartAreas.Add(chartArea1);
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            legend1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            legend1.TitleFont = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartCustomer.Legends.Add(legend1);
             this.chartCustomer.Location = new System.Drawing.Point(10, 343);
             this.chartCustomer.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.chartCustomer.Name = "chartCustomer";
-            series11.ChartArea = "ChartArea1";
-            series11.IsXValueIndexed = true;
-            series11.Legend = "Legend1";
-            series11.Name = "Customer";
-            this.chartCustomer.Series.Add(series11);
+            series1.ChartArea = "ChartArea1";
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Customer";
+            this.chartCustomer.Series.Add(series1);
             this.chartCustomer.Size = new System.Drawing.Size(867, 277);
             this.chartCustomer.TabIndex = 19;
             this.chartCustomer.TabStop = false;
-            title11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            title11.Name = "Title1";
-            title11.Text = "Customer Chart";
-            this.chartCustomer.Titles.Add(title11);
+            title1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            title1.Name = "Title1";
+            title1.Text = "Customer Chart";
+            this.chartCustomer.Titles.Add(title1);
             // 
             // chartProduct
             // 
             this.chartProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea12.Name = "ChartArea1";
-            this.chartProduct.ChartAreas.Add(chartArea12);
-            legend12.Font = new System.Drawing.Font("Century Gothic", 10F);
-            legend12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            legend12.IsTextAutoFit = false;
-            legend12.Name = "Legend1";
-            this.chartProduct.Legends.Add(legend12);
+            chartArea2.Name = "ChartArea1";
+            this.chartProduct.ChartAreas.Add(chartArea2);
+            legend2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartProduct.Legends.Add(legend2);
             this.chartProduct.Location = new System.Drawing.Point(887, 343);
             this.chartProduct.Margin = new System.Windows.Forms.Padding(0);
             this.chartProduct.Name = "chartProduct";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series12.IsValueShownAsLabel = true;
-            series12.Legend = "Legend1";
-            series12.Name = "Product";
-            this.chartProduct.Series.Add(series12);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.IsValueShownAsLabel = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Product";
+            this.chartProduct.Series.Add(series2);
             this.chartProduct.Size = new System.Drawing.Size(383, 277);
             this.chartProduct.TabIndex = 20;
             this.chartProduct.TabStop = false;
-            title12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            title12.Name = "Title1";
-            title12.Text = "Product Sales Chart";
-            this.chartProduct.Titles.Add(title12);
+            title2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            title2.Name = "Title1";
+            title2.Text = "Product Sales Chart";
+            this.chartProduct.Titles.Add(title2);
             // 
             // pnlLeft
             // 
@@ -234,7 +210,7 @@ namespace Project2.UserControls
             this.label4.Location = new System.Drawing.Point(20, 200);
             this.label4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 25);
+            this.label4.Size = new System.Drawing.Size(152, 34);
             this.label4.TabIndex = 3;
             this.label4.Text = "Best seller:";
             // 
@@ -246,7 +222,7 @@ namespace Project2.UserControls
             this.label3.Location = new System.Drawing.Point(20, 146);
             this.label3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 25);
+            this.label3.Size = new System.Drawing.Size(256, 34);
             this.label3.TabIndex = 2;
             this.label3.Text = "Cars sold: 200,000";
             // 
@@ -258,7 +234,7 @@ namespace Project2.UserControls
             this.label2.Location = new System.Drawing.Point(20, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 25);
+            this.label2.Size = new System.Drawing.Size(324, 34);
             this.label2.TabIndex = 1;
             this.label2.Text = "Total Customers: 20000";
             // 
@@ -270,7 +246,7 @@ namespace Project2.UserControls
             this.lbl.Location = new System.Drawing.Point(20, 38);
             this.lbl.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(217, 25);
+            this.lbl.Size = new System.Drawing.Size(282, 34);
             this.lbl.TabIndex = 0;
             this.lbl.Text = "Revenues: $100,100";
             // 
@@ -311,9 +287,33 @@ namespace Project2.UserControls
             this.pnlReportContainer.Size = new System.Drawing.Size(1260, 280);
             this.pnlReportContainer.TabIndex = 17;
             // 
+            // btnApply
+            // 
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnApply.BorderRadius = 3;
+            this.btnApply.BorderSize = 1;
+            this.btnApply.FlatAppearance.BorderSize = 0;
+            this.btnApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApply.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.btnApply.ForeColor = System.Drawing.Color.White;
+            this.btnApply.Image = global::Project2.Properties.Resources.check_2_icon;
+            this.btnApply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnApply.Location = new System.Drawing.Point(351, 10);
+            this.btnApply.Margin = new System.Windows.Forms.Padding(5, 10, 0, 10);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnApply.Size = new System.Drawing.Size(90, 25);
+            this.btnApply.TabIndex = 16;
+            this.btnApply.Text = "        Apply";
+            this.btnApply.TextColor = System.Drawing.Color.White;
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.chartProduct);
             this.Controls.Add(this.chartCustomer);

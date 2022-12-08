@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using ClosedXML.Excel;
 using Project2.BUS;
 using Project2.Utils;
 

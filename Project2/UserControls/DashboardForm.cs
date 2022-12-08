@@ -17,6 +17,7 @@ namespace Project2.UserControls
             InitializeComponent();
             if (!this.DesignMode)
             {
+                dtpMonth.Value = DateTime.Now;
                 SetCustomerChart();
                 SetProductChart();
             }
@@ -88,6 +89,11 @@ namespace Project2.UserControls
                 }
                 else chartCustomer.Series["Customer"].Points.AddXY(d.Day, 0);
             }
+        }
+
+        private void StatisticInMonth()
+        {
+            double revenues = OrderBUS.GetRevenuesInMonth();
         }
     }
 }

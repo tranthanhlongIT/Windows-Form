@@ -34,6 +34,7 @@ namespace Project2.Forms.Components
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.lblRequiredGender = new System.Windows.Forms.Label();
             this.lblRequiredPhone = new System.Windows.Forms.Label();
             this.lblRequiredLName = new System.Windows.Forms.Label();
             this.lblRequiredFName = new System.Windows.Forms.Label();
@@ -76,7 +77,7 @@ namespace Project2.Forms.Components
             this.btnConfirm = new Project2.Utils.RoundedButton();
             this.lblGender = new System.Windows.Forms.Label();
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
-            this.lblRequiredGender = new System.Windows.Forms.Label();
+            this.txtId = new Project2.Utils.FlatTextBox();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -134,6 +135,7 @@ namespace Project2.Forms.Components
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.White;
+            this.pnlContainer.Controls.Add(this.txtId);
             this.pnlContainer.Controls.Add(this.lblRequiredGender);
             this.pnlContainer.Controls.Add(this.lblRequiredPhone);
             this.pnlContainer.Controls.Add(this.lblRequiredLName);
@@ -184,6 +186,17 @@ namespace Project2.Forms.Components
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(700, 770);
             this.pnlContainer.TabIndex = 1;
+            // 
+            // lblRequiredGender
+            // 
+            this.lblRequiredGender.AutoSize = true;
+            this.lblRequiredGender.Font = new System.Drawing.Font("Century Gothic", 11F);
+            this.lblRequiredGender.ForeColor = System.Drawing.Color.Red;
+            this.lblRequiredGender.Location = new System.Drawing.Point(69, 355);
+            this.lblRequiredGender.Name = "lblRequiredGender";
+            this.lblRequiredGender.Size = new System.Drawing.Size(15, 20);
+            this.lblRequiredGender.TabIndex = 75;
+            this.lblRequiredGender.Text = "*";
             // 
             // lblRequiredPhone
             // 
@@ -759,16 +772,20 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine.Size = new System.Drawing.Size(700, 1);
             this.pnlVerticalLine.TabIndex = 28;
             // 
-            // lblRequiredGender
+            // txtId
             // 
-            this.lblRequiredGender.AutoSize = true;
-            this.lblRequiredGender.Font = new System.Drawing.Font("Century Gothic", 11F);
-            this.lblRequiredGender.ForeColor = System.Drawing.Color.Red;
-            this.lblRequiredGender.Location = new System.Drawing.Point(69, 355);
-            this.lblRequiredGender.Name = "lblRequiredGender";
-            this.lblRequiredGender.Size = new System.Drawing.Size(15, 20);
-            this.lblRequiredGender.TabIndex = 75;
-            this.lblRequiredGender.Text = "*";
+            this.txtId.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 10.5F);
+            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtId.Location = new System.Drawing.Point(9, 656);
+            this.txtId.Margin = new System.Windows.Forms.Padding(0);
+            this.txtId.MaxLength = 50;
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(335, 25);
+            this.txtId.TabIndex = 76;
+            this.txtId.TabStop = false;
+            this.txtId.Visible = false;
             // 
             // EmployeeModalForm
             // 
@@ -846,5 +863,6 @@ namespace Project2.Forms.Components
         private System.Windows.Forms.Label lblRequiredPassword;
         private System.Windows.Forms.Label lblRequiredEmail;
         private System.Windows.Forms.Label lblRequiredGender;
+        private Utils.FlatTextBox txtId;
     }
 }

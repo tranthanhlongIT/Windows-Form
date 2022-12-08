@@ -63,7 +63,7 @@ namespace Project2.UserControls
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            OpenModal("add", -99, currentEmployee);
+            OpenModal("add", -99);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace Project2.UserControls
             if (dgvEmployee.CurrentRow != null)
             {
                 id = (Int32)dgvEmployee.Rows[dgvEmployee.CurrentRow.Index].Cells[0].Value;
-                OpenModal("upd", id, currentEmployee);
+                OpenModal("upd", id);
             }
         }
 
@@ -130,7 +130,7 @@ namespace Project2.UserControls
             if (dgvEmployee.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 id = (Int32)dgvEmployee.Rows[dgvEmployee.CurrentRow.Index].Cells[0].Value;
-                OpenModal("det", id, currentEmployee);
+                OpenModal("det", id);
             }
         }
 
@@ -188,12 +188,12 @@ namespace Project2.UserControls
             else return "No";
         }
 
-        private void OpenModal(string action, int id, Employee currentEmployee)
+        private void OpenModal(string action, int id)
         {
             Form formBackground = new Form();
             try
             {
-                using (EmployeeModalForm uu = new EmployeeModalForm(action, id, currentEmployee))
+                using (EmployeeModalForm uu = new EmployeeModalForm(action, id))
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;

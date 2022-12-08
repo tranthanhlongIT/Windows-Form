@@ -10,7 +10,6 @@ namespace Project2.Forms.Components
 {
     public partial class EmployeeModalForm : Form
     {
-        private Employee currentEmployee;
         private Employee employee;
         private string action;
         private int id;
@@ -20,12 +19,11 @@ namespace Project2.Forms.Components
             InitializeComponent();
         }
 
-        public EmployeeModalForm(string action, int id, Employee employee)
+        public EmployeeModalForm(string action, int id)
         {
             InitializeComponent();
             this.action = action;
             this.id = id;
-            this.currentEmployee = employee;
         }
 
         private void EmployeeModalForm_Load(object sender, EventArgs e)
@@ -77,7 +75,6 @@ namespace Project2.Forms.Components
             if (action == "add")
             {
                 lblTitle.Text = "Add Employee";
-                CreateEmployee();
                 LoadGenderComboBox();
                 LoadActiveComboBox();
                 LoadRoleComboBox();
@@ -109,6 +106,7 @@ namespace Project2.Forms.Components
 
         private void SetField()
         {
+            txtId.Text = employee.id.ToString();
             txtEmail.Text = employee.email;
             txtPassword.Text = employee.password;
             txtFName.Text = employee.fname;
@@ -132,6 +130,7 @@ namespace Project2.Forms.Components
 
         private void ResetField()
         {
+            txtId.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtConfirmPassword.Text = string.Empty;
@@ -223,33 +222,38 @@ namespace Project2.Forms.Components
 
         private void CreateEmployee()
         {
-            this.employee = new Employee();
+            employee = new Employee()
+            {
+                id = SetID(),
+                email = txtEmail.Text.Trim(),
+                password = txtPassword.Text.Trim(),
+                fname = txtFName.Text.Trim(),
+                lname = txtLName.Text.Trim(),
+                gender = (bool)cbGender.SelectedValue,
+                phone = txtPhone.Text.Trim(),
+                address = txtAddress.Text.Trim(),
+                image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image),
+                is_active = (bool)cbActive.SelectedValue,
+                role_id = (Int32)cbRole.SelectedValue,
+                created_at = DateTime.Now
+            };
         }
 
-        private void SetEmployee()
+        private int SetID()
         {
-            employee.email = txtEmail.Text.Trim();
-            employee.password = txtPassword.Text.Trim();
-            employee.fname = txtFName.Text.Trim();
-            employee.lname = txtLName.Text.Trim();
-            employee.gender = (bool)cbGender.SelectedValue;
-            employee.phone = txtPhone.Text.Trim();
-            employee.address = txtAddress.Text.Trim();
-            employee.image = ConvertImage.ConvertImageToBinary(pbUploadImage.Image);
-            employee.is_active = (bool)cbActive.SelectedValue;
-            employee.role_id = (Int32)cbRole.SelectedValue;
-            employee.created_at = DateTime.Now;
+            if (action == "add")
+                return 0;
+            return Int32.Parse(txtId.Text.Trim());
         }
 
         private void BeginAdd()
         {
             if (ValidateForm())
             {
-                SetEmployee();
+                CreateEmployee();
                 bool result = EmployeeBUS.AddNew(employee);
                 if (result)
                 {
-                    CreateEmployee();
                     ResetField();
                     Alert.Show("Add Successful", Form_Alert.enmType.Success);
                 }
@@ -264,7 +268,7 @@ namespace Project2.Forms.Components
         {
             if (ValidateForm())
             {
-                SetEmployee();
+                CreateEmployee();
                 bool result = EmployeeBUS.Update(employee);
                 if (result)
                 {

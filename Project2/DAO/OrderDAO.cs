@@ -58,5 +58,17 @@ namespace Project2.DAO
                 return false;
             }
         }
+
+        public static double SelectSumRevenueInMonth()
+        {
+            try
+            {
+                return db.Orders.Where(o => o.created_at.Month == DateTime.Now.Month).Sum(o => o.total);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }
