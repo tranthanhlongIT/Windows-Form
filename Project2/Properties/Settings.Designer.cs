@@ -44,5 +44,15 @@ namespace Project2.Properties {
                 return ((string)(this["longtt_ptpmudConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=longtt_ptpmud;Integrated Security=True")]
+        public string longtt_ptpmudConnectionString2 {
+            get {
+                return ((string)(this["longtt_ptpmudConnectionString2"]));
+            }
+        }
     }
 }

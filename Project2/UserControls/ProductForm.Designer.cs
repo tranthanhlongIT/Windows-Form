@@ -207,7 +207,7 @@
             this.txtSearch.Location = new System.Drawing.Point(932, 10);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 23);
+            this.txtSearch.Size = new System.Drawing.Size(300, 18);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
@@ -363,6 +363,9 @@
             this.dgvProduct.RowTemplate.Height = 24;
             this.dgvProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProduct.ShowCellErrors = false;
+            this.dgvProduct.ShowCellToolTips = false;
+            this.dgvProduct.ShowEditingIcon = false;
             this.dgvProduct.Size = new System.Drawing.Size(1010, 572);
             this.dgvProduct.TabIndex = 4;
             this.dgvProduct.TabStop = false;
@@ -486,7 +489,7 @@
             // 
             // ProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.dgvProduct);

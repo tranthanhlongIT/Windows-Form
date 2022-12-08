@@ -16,10 +16,6 @@ namespace Project2.UserControls
         public CustomerForm()
         {
             InitializeComponent();
-        }
-
-        private void CustomerForm_Load(object sender, EventArgs e)
-        {
             if (!this.DesignMode)
             {
                 LoadSearchTextBox();
@@ -94,7 +90,7 @@ namespace Project2.UserControls
                     }
                     else
                     {
-                        Alert.Show("Disable Failed", Form_Alert.enmType.Warning);
+                        Alert.Show("Disable Failed", Form_Alert.enmType.Error);
                     }
                 }
             }
@@ -192,7 +188,7 @@ namespace Project2.UserControls
             }
             catch
             {
-                Alert.Show("Open Failed", Form_Alert.enmType.Warning);
+                Alert.Show("Open Failed", Form_Alert.enmType.Error);
             }
             finally
             {

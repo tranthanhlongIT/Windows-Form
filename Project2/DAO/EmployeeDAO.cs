@@ -92,6 +92,7 @@ namespace Project2.DAO
                     dbEmployee.image = newEmployee.image;
                     dbEmployee.is_active = newEmployee.is_active;
                     dbEmployee.updated_at = DateTime.Now;
+                    dbEmployee.Role = db.Roles.SingleOrDefault(r => r.id == newEmployee.role_id);
                     db.SubmitChanges();
                     return true;
                 }

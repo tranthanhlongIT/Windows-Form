@@ -2,7 +2,7 @@
 
 namespace Project2.Utils
 {
-    public class Alert
+    class Alert
     {
         public static void Show(string msg, Form_Alert.enmType type)
         {

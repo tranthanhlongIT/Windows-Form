@@ -9,22 +9,15 @@ namespace Project2.Forms.Components
 {
     public partial class CheckoutForm : Form
     {
-        private Product product;
+        public Product product { get; set; }
+        public Employee currentEmployee { get; set; }
         private List<Customer> customers;
-        private Employee employee;
         private Order order;
         private double totalPrice;
 
         public CheckoutForm()
         {
             InitializeComponent();
-        }
-
-        public CheckoutForm(Product product, Employee employee)
-        {
-            InitializeComponent();
-            this.product = product;
-            this.employee = employee;
         }
 
         private void CheckoutForm_Load(object sender, EventArgs e)
@@ -138,7 +131,7 @@ namespace Project2.Forms.Components
         private void LoadDataGridView(List<Customer> customers)
         {
             dgvCustomer.Rows.Clear();
-            if (customers.Count > 0)
+            if (customers != null)
             {
                 foreach (var customer in customers)
                 {
@@ -163,7 +156,7 @@ namespace Project2.Forms.Components
 
         private void SetOrder()
         {
-            order.employee_id = employee.id;
+            order.employee_id = currentEmployee.id;
             order.customer_id = (Int32)dgvCustomer.Rows[dgvCustomer.CurrentRow.Index].Cells[0].Value;
             order.product_id = product.id;
             order.quantity = Int32.Parse(txtQuantity.Text);

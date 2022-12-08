@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project2.BUS;
 
@@ -19,27 +15,17 @@ namespace Project2.UserControls
         public DashboardForm()
         {
             InitializeComponent();
-        }
-
-        private void DashboardForm_Load(object sender, EventArgs e)
-        {
-            SetCustomerChart();
-            SetProductChart();
-        }
-        
-        private void SetProductChart()
-        {
-            date = dtpMonth.Value;
-            var q = OrderBUS.GetAllByMonthYear(date.Month, date.Year).GroupBy(o => new { Type = o.Product.Category.name }).Select(g => new { type = g.Key.Type, total = g.Count() }).ToList();
-            foreach (var item in q)
+            if (!this.DesignMode)
             {
-                chartProduct.Series["Product"].Points.AddXY(item.type, item.total);
+                SetCustomerChart();
+                SetProductChart();
             }
         }
 
         private void btnApply_Click(object sender, EventArgs e)
         {
             SetCustomerChart();
+            SetProductChart();
         }
 
         private void dtpMonth_KeyDown(object sender, KeyEventArgs e)
@@ -47,7 +33,22 @@ namespace Project2.UserControls
             if (e.KeyCode == Keys.Enter)
             {
                 SetCustomerChart();
+                SetProductChart();
                 e.SuppressKeyPress = true;
+            }
+        }
+
+        private void SetProductChart()
+        {
+            chartProduct.Series["Product"].Points.Clear();
+
+            date = dtpMonth.Value;
+            var q = OrderBUS.GetAllByMonthYear(date.Month, date.Year)
+                .GroupBy(o => new { Type = o.Product.Category.name })
+                .Select(g => new { type = g.Key.Type, total = g.Count() }).ToList();
+            foreach (var item in q)
+            {
+                chartProduct.Series["Product"].Points.AddXY(item.type, item.total);
             }
         }
 
@@ -58,20 +59,15 @@ namespace Project2.UserControls
 
             dates = new List<DateTime>();
             date = dtpMonth.Value;
+            int daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
 
-            // Trả về tổng khách hàng của từng ngày trong tháng
-            var q = OrderBUS.GetAllByMonthYear(date.Month, date.Year).GroupBy(o => new { Day = o.created_at.Day }).Select(g => new { day = g.Key.Day, total = g.Count() }).ToList();
+            var q = OrderBUS.GetAllByMonthYear(date.Month, date.Year)
+                .GroupBy(o => new { Day = o.created_at.Day })
+                .Select(g => new { day = g.Key.Day, total = g.Count() }).ToList();
 
-            for (int i = 1; i <= 31; i++)
+            for (int i = 1; i <= daysInMonth; i++)
             {
-                try
-                {
-                    dates.Add(new DateTime(date.Year, date.Month, i));
-                }
-                catch
-                {
-                    break;
-                };
+                dates.Add(new DateTime(date.Year, date.Month, i));
             }
 
             foreach (DateTime d in dates)
@@ -81,14 +77,14 @@ namespace Project2.UserControls
                 {
                     if (item.day == d.Day)
                     {
-                        index = q.IndexOf(item); // Lấy được dòng dữ liệu có ngày trùng với ngày d
+                        index = q.IndexOf(item);
                         break;
                     }
                 }
 
                 if (index != -1)
                 {
-                    chartCustomer.Series["Customer"].Points.AddXY(d.Day, q[index].total); // Truyền vào chart tổng khách hàng trong ngày đó
+                    chartCustomer.Series["Customer"].Points.AddXY(d.Day, q[index].total);
                 }
                 else chartCustomer.Series["Customer"].Points.AddXY(d.Day, 0);
             }

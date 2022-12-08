@@ -10,6 +10,7 @@ namespace Project2.Forms.Components
 {
     public partial class EmployeeModalForm : Form
     {
+        private Employee currentEmployee;
         private Employee employee;
         private string action;
         private int id;
@@ -19,11 +20,12 @@ namespace Project2.Forms.Components
             InitializeComponent();
         }
 
-        public EmployeeModalForm(string action, int id)
+        public EmployeeModalForm(string action, int id, Employee employee)
         {
             InitializeComponent();
             this.action = action;
             this.id = id;
+            this.currentEmployee = employee;
         }
 
         private void EmployeeModalForm_Load(object sender, EventArgs e)

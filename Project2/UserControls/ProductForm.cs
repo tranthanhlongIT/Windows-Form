@@ -104,7 +104,7 @@ namespace Project2.UserControls
                     }
                     else
                     {
-                        Alert.Show("Delete Failed", Form_Alert.enmType.Warning);
+                        Alert.Show("Delete Failed", Form_Alert.enmType.Error);
                     }
                 }
             }
@@ -180,7 +180,7 @@ namespace Project2.UserControls
         private void CreateParentNode(int parentId)
         {
             categories = CategoryBUS.GetCategoryByParentID(parentId);
-            if (categories.Count > 0)
+            if (categories != null)
             {
                 foreach (var category in categories)
                 {
@@ -218,15 +218,15 @@ namespace Project2.UserControls
             {
                 using (ProductModalForm uu = new ProductModalForm(action, id))
                 {
-                    //formBackground.StartPosition = FormStartPosition.Manual;
-                    //formBackground.FormBorderStyle = FormBorderStyle.None;
-                    //formBackground.Opacity = .70d;
-                    //formBackground.BackColor = Color.Black;
-                    //formBackground.WindowState = FormWindowState.Maximized;
-                    //formBackground.TopMost = true;
-                    //formBackground.Location = this.Location;
-                    //formBackground.ShowInTaskbar = false;
-                    //formBackground.Show();
+                    formBackground.StartPosition = FormStartPosition.Manual;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = .70d;
+                    formBackground.BackColor = Color.Black;
+                    formBackground.WindowState = FormWindowState.Maximized;
+                    formBackground.TopMost = true;
+                    formBackground.Location = this.Location;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
 
                     uu.Owner = formBackground;
                     uu.ShowDialog();

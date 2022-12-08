@@ -11,9 +11,9 @@ namespace Project2.UserControls
 {
     public partial class SalesForm : UserControl
     {
+        public Employee currentEmployee { get; set; }
         private List<Product> products;
         private Product product;
-        private Employee employee;
 
         public SalesForm()
         {
@@ -23,11 +23,6 @@ namespace Project2.UserControls
                 LoadFilterComboBox();
                 LoadSearchTextBox();
             }
-        }
-
-        public void SetEmployee(Employee employee)
-        {
-            this.employee = employee;
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -82,7 +77,6 @@ namespace Project2.UserControls
             products = GetProductList();
             LoadListView(products);
             ResetDisplayField();
-            lblFilter.Text = cbFilter.Text;
         }
 
         private void lvProducts_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,11 +89,16 @@ namespace Project2.UserControls
             }
         }
 
+        private void btnSell_Click(object sender, EventArgs e)
+        {
+            OpenModal(product, currentEmployee);
+        }
+
         private List<Product> GetProductList()
         {
             if (cbFilter.SelectedIndex == 0)
-                return ProductBUS.GetAll();
-            else return ProductBUS.GetProductByTypeID((int)cbFilter.SelectedValue);
+                return ProductBUS.GetAvailableProduct();
+            else return ProductBUS.GetAvailableProductByTypeID((int)cbFilter.SelectedValue);
         }
 
         private void SetDisplayField(Product product)
@@ -166,26 +165,23 @@ namespace Project2.UserControls
         private void LoadListView(List<Product> products)
         {
             lvProducts.Clear();
-            if (products.Count > 0 && products != null)
+            if (products != null)
             {
                 int i = 0;
                 lvProducts.BeginUpdate();
                 lvProducts.LargeImageList = SetImageList(products);
                 foreach (var product in products)
                 {
-                    if (product.available)
-                    {
-                        ListViewItem item = new ListViewItem(product.name);
-                        item.ImageIndex = i;
+                    ListViewItem item = new ListViewItem(product.name);
+                    item.ImageIndex = i;
 
-                        ListViewItem.ListViewSubItem subItemID = new ListViewItem.ListViewSubItem();
-                        subItemID.Name = "ID";
-                        subItemID.Text = product.id.ToString();
-                        item.SubItems.Add(subItemID);
+                    ListViewItem.ListViewSubItem subItemID = new ListViewItem.ListViewSubItem();
+                    subItemID.Name = "ID";
+                    subItemID.Text = product.id.ToString();
+                    item.SubItems.Add(subItemID);
 
-                        lvProducts.Items.Add(item);
-                        i++;
-                    }
+                    lvProducts.Items.Add(item);
+                    i++;
                 }
                 lvProducts.EndUpdate();
             }
@@ -203,17 +199,12 @@ namespace Project2.UserControls
             return imgListProduct;
         }
 
-        private void btnSell_Click(object sender, EventArgs e)
-        {
-            OpenModal(product, employee);
-        }
-
         private void OpenModal(Product product, Employee employee)
         {
             Form formBackground = new Form();
             try
             {
-                using (CheckoutForm uu = new CheckoutForm(product, employee))
+                using (CheckoutForm uu = new CheckoutForm())
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;
@@ -225,14 +216,16 @@ namespace Project2.UserControls
                     formBackground.ShowInTaskbar = false;
                     formBackground.Show();
 
+                    uu.product = product;
+                    uu.currentEmployee = employee;
                     uu.Owner = formBackground;
                     uu.ShowDialog();
                     formBackground.Dispose();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                Alert.Show("Open Failed", Form_Alert.enmType.Error);
             }
             finally
             {

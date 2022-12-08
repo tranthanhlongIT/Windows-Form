@@ -29,11 +29,11 @@ namespace Project2.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblLogo = new System.Windows.Forms.Label();
+            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.lblLogo = new System.Windows.Forms.Label();
-            this.pnlTop = new System.Windows.Forms.Panel();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlShadow = new System.Windows.Forms.Panel();
             this.pnlLogin = new System.Windows.Forms.Panel();
@@ -45,13 +45,39 @@ namespace Project2.Forms
             this.pbLogin = new System.Windows.Forms.PictureBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlShadow.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblLogo
+            // 
+            this.lblLogo.AutoSize = true;
+            this.lblLogo.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogo.ForeColor = System.Drawing.Color.White;
+            this.lblLogo.Location = new System.Drawing.Point(70, 10);
+            this.lblLogo.Name = "lblLogo";
+            this.lblLogo.Size = new System.Drawing.Size(233, 21);
+            this.lblLogo.TabIndex = 3;
+            this.lblLogo.Text = "Shop Management System";
+            // 
+            // pnlTop
+            // 
+            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
+            this.pnlTop.Controls.Add(this.btnMinimize);
+            this.pnlTop.Controls.Add(this.btnClose);
+            this.pnlTop.Controls.Add(this.lblLogo);
+            this.pnlTop.Controls.Add(this.pbLogo);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.ForeColor = System.Drawing.Color.Transparent;
+            this.pnlTop.Location = new System.Drawing.Point(0, 0);
+            this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlTop.Name = "pnlTop";
+            this.pnlTop.Size = new System.Drawing.Size(1280, 40);
+            this.pnlTop.TabIndex = 27;
             // 
             // btnMinimize
             // 
@@ -101,32 +127,6 @@ namespace Project2.Forms
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 2;
             this.pbLogo.TabStop = false;
-            // 
-            // lblLogo
-            // 
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogo.ForeColor = System.Drawing.Color.White;
-            this.lblLogo.Location = new System.Drawing.Point(70, 10);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(233, 21);
-            this.lblLogo.TabIndex = 3;
-            this.lblLogo.Text = "Shop Management System";
-            // 
-            // pnlTop
-            // 
-            this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(60)))));
-            this.pnlTop.Controls.Add(this.btnMinimize);
-            this.pnlTop.Controls.Add(this.btnClose);
-            this.pnlTop.Controls.Add(this.lblLogo);
-            this.pnlTop.Controls.Add(this.pbLogo);
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTop.ForeColor = System.Drawing.Color.Transparent;
-            this.pnlTop.Location = new System.Drawing.Point(0, 0);
-            this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1280, 40);
-            this.pnlTop.TabIndex = 27;
             // 
             // pnlContainer
             // 
@@ -191,7 +191,7 @@ namespace Project2.Forms
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(400, 27);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "Hahaha123@";
+            this.txtPassword.Text = "Hahaha123";
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // txtEmail
@@ -242,11 +242,11 @@ namespace Project2.Forms
             // 
             // pbLogin
             // 
-            this.pbLogin.Image = global::Project2.Properties.Resources.user_icon_default;
-            this.pbLogin.Location = new System.Drawing.Point(161, 10);
+            this.pbLogin.Image = global::Project2.Properties.Resources.logo_2_icon;
+            this.pbLogin.Location = new System.Drawing.Point(101, 17);
             this.pbLogin.Margin = new System.Windows.Forms.Padding(0);
             this.pbLogin.Name = "pbLogin";
-            this.pbLogin.Size = new System.Drawing.Size(150, 150);
+            this.pbLogin.Size = new System.Drawing.Size(250, 150);
             this.pbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogin.TabIndex = 4;
             this.pbLogin.TabStop = false;
@@ -288,9 +288,9 @@ namespace Project2.Forms
             this.Name = "LoginForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LoginForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.pnlContainer.ResumeLayout(false);
             this.pnlShadow.ResumeLayout(false);
             this.pnlLogin.ResumeLayout(false);

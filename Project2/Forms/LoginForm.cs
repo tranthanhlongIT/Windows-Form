@@ -68,12 +68,12 @@ namespace Project2.Forms
                     email = txtEmail.Text.Trim(),
                     password = txtPassword.Text
                 };
-                bool result = EmployeeBUS.CheckEmployeeCredential(employee);
-                if (result)
+                if (EmployeeBUS.CheckEmployeeCredential(employee))
                 {
                     employee = EmployeeBUS.GetEmployeeByEmail(txtEmail.Text.Trim());
-                    new ManagementForm(employee).Show();
-                    this.Hide();
+                    ManagementForm managementForm = new ManagementForm();
+                    managementForm.currentEmployee = employee;
+                    managementForm.Show();
                 }
                 else
                 {

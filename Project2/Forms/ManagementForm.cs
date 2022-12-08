@@ -11,28 +11,23 @@ namespace Project2
     public partial class ManagementForm : Form
     {
         private int activeBtn;
-        private Employee employee;
         private CustomerForm customerForm;
         private EmployeeForm employeeForm;
         private ProductForm productForm;
         private DashboardForm dashboardForm;
         private HistoryForm historyForm;
         private SalesForm salesForm;
+        public Employee currentEmployee { get; set; }
 
         public ManagementForm()
         {
             InitializeComponent();
         }
 
-        public ManagementForm(Employee emp)
-        {
-            InitializeComponent();
-            SetUserPrivilege(emp);
-        }
-
         private void ManagementForm_Load(object sender, EventArgs e)
         {
-            ClearContainer();
+            SetUserDisplay();
+            EnableTabBaseOnRole();
             CreateTabDashboard();
             SlidePanel(btnDashboard);
             ChangeButtonTextColor(1, btnDashboard, new List<Button> { btnProduct, btnEmployee, btnSale, btnHistory });
@@ -212,25 +207,18 @@ namespace Project2
             return false;
         }
 
-        private void SetUserPrivilege(Employee emp)
-        {
-            this.employee = emp;
-            SetUserDisplay();
-            EnableTabBaseOnRole();
-        }
-
         private void SetUserDisplay()
         {
-            lblName.Text = employee.fname;
-            lblRole.Text = employee.Role.name;
-            if (employee.image != null)
-                pbUser.Image = ConvertImage.ConvertBinaryToImage(employee.image.ToArray());
+            lblName.Text = currentEmployee.fname;
+            lblRole.Text = currentEmployee.Role.name;
+            if (currentEmployee.image != null)
+                pbUser.Image = ConvertImage.ConvertBinaryToImage(currentEmployee.image.ToArray());
             else pbUser.Image = pbUser.InitialImage;
         }
 
         private void EnableTabBaseOnRole()
         {
-            if (employee.Role.name == "Manager")
+            if (currentEmployee.Role.name == "Manager")
             {
                 btnDashboard.Enabled = true;
                 btnProduct.Enabled = true;
@@ -239,13 +227,13 @@ namespace Project2
                 btnCustomer.Enabled = true;
                 btnHistory.Enabled = true;
             }
-            else if (employee.Role.name == "Salesman")
+            else if (currentEmployee.Role.name == "Salesman")
             {
                 btnDashboard.Enabled = true;
                 btnSale.Enabled = true;
                 btnCustomer.Enabled = true;
             }
-            else if (employee.Role.name == "Accountant")
+            else if (currentEmployee.Role.name == "Accountant")
             {
                 btnDashboard.Enabled = true;
                 btnHistory.Enabled = true;
@@ -283,6 +271,7 @@ namespace Project2
         private void CreateTabEmployee()
         {
             employeeForm = new EmployeeForm();
+            employeeForm.currentEmployee = currentEmployee;
             pnlContainer.Controls.Add(employeeForm);
             employeeForm.Dock = DockStyle.Fill;
         }
@@ -290,7 +279,7 @@ namespace Project2
         private void CreateTabSales()
         {
             salesForm = new SalesForm();
-            salesForm.SetEmployee(employee);
+            salesForm.currentEmployee = currentEmployee;
             pnlContainer.Controls.Add(salesForm);
             salesForm.Dock = DockStyle.Fill;
         }
@@ -304,8 +293,9 @@ namespace Project2
 
         private void pbLogout_Click(object sender, EventArgs e)
         {
-            new LoginForm().Show();
-            this.Hide();
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }

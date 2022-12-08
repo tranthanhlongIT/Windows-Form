@@ -16,12 +16,11 @@ namespace Project2.UserControls
         public HistoryForm()
         {
             InitializeComponent();
-        }
-
-        private void HistoryForm_Load(object sender, EventArgs e)
-        {
-            LoadSearchTextBox();
-            RefreshDataGridView();
+            if (!this.DesignMode)
+            {
+                LoadSearchTextBox();
+                RefreshDataGridView();
+            }
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)

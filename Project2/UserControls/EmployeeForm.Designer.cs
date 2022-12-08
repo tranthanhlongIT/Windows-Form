@@ -425,7 +425,6 @@ namespace Project2.UserControls
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "EmployeeForm";
             this.Size = new System.Drawing.Size(1280, 630);
-            this.Load += new System.EventHandler(this.EmployeeForm_Load);
             this.pnlOperation.ResumeLayout(false);
             this.pnlOperation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();

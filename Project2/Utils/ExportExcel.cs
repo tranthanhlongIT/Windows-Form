@@ -5,14 +5,8 @@ using System.Windows.Forms;
 
 namespace Project2.Utils
 {
-    public static class ExportExcel
+    class ExportExcel
     {
-        private static void Alert(string msg, Form_Alert.enmType type)
-        {
-            Form_Alert frm = new Form_Alert();
-            frm.showAlert(msg, type);
-        }
-
         private static DataTable CreateDataTable(DataGridView dgv)
        {
             DataTable dt = new DataTable();
@@ -44,11 +38,11 @@ namespace Project2.Utils
                             workbook.Worksheets.Add(dt, sheetName);
                             workbook.SaveAs(saveFileDialog.FileName);
                         }
-                        Alert("Export Successful", Form_Alert.enmType.Success);
+                        Alert.Show("Export Successful", Form_Alert.enmType.Success);
                     }
                     catch
                     {
-                        Alert("Export Failed", Form_Alert.enmType.Warning);
+                        Alert.Show("Export Failed", Form_Alert.enmType.Error);
                     }
                 }
             }

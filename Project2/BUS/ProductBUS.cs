@@ -10,14 +10,14 @@ namespace Project2.BUS
             return ProductDAO.SelectAll();
         }
 
-        public static bool AddNew(Product newProduct)
+        public static List<Product> GetAvailableProduct()
         {
-            return ProductDAO.Insert(newProduct);
+            return ProductDAO.SelectAllAvailableProduct();
         }
 
-        public static bool Update(Product newProduct)
+        public static List<Product> GetAvailableProductByTypeID(int categoryId)
         {
-            return ProductDAO.Update(newProduct);
+            return ProductDAO.SelectAllAvailableProductByTypeID(categoryId);
         }
 
         public static Product GetProductByID(int id)
@@ -44,6 +44,16 @@ namespace Project2.BUS
                 case 2: return GetProductByBrandID(categoryId);
                 default: return null;
             }
+        }
+
+        public static bool AddNew(Product newProduct)
+        {
+            return ProductDAO.Insert(newProduct);
+        }
+
+        public static bool Update(Product newProduct)
+        {
+            return ProductDAO.Update(newProduct);
         }
 
         public static bool Delete(int id)

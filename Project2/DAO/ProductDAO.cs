@@ -21,6 +21,30 @@ namespace Project2.DAO
             }
         }  
 
+        public static List<Product> SelectAllAvailableProduct()
+        {
+            try
+            {
+                return db.Products.Where(p => p.available && p.deleted_at == null).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static List<Product> SelectAllAvailableProductByTypeID(int categoryId)
+        {
+            try
+            {
+                return db.Products.Where(p => p.available && p.deleted_at == null && p.type_id == categoryId).ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public static Product SelectAllByID(int id)
         {
             try

@@ -10,16 +10,13 @@ namespace Project2.UserControls
 {
     public partial class EmployeeForm : UserControl
     {
+        public Employee currentEmployee { get; set; }
         private List<Employee> employees;
         private int id;
 
         public EmployeeForm()
         {
             InitializeComponent();
-        }
-
-        private void EmployeeForm_Load(object sender, EventArgs e)
-        {
             if (!this.DesignMode)
             {
                 LoadSearchTextBox();
@@ -66,7 +63,7 @@ namespace Project2.UserControls
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            OpenModal("add", -99);
+            OpenModal("add", -99, currentEmployee);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -74,7 +71,7 @@ namespace Project2.UserControls
             if (dgvEmployee.CurrentRow != null)
             {
                 id = (Int32)dgvEmployee.Rows[dgvEmployee.CurrentRow.Index].Cells[0].Value;
-                OpenModal("upd", id);
+                OpenModal("upd", id, currentEmployee);
             }
         }
 
@@ -94,7 +91,7 @@ namespace Project2.UserControls
                     }
                     else
                     {
-                        Alert.Show("Disable Failed", Form_Alert.enmType.Warning);
+                        Alert.Show("Disable Failed", Form_Alert.enmType.Error);
                     }
                 }
             }
@@ -116,7 +113,7 @@ namespace Project2.UserControls
                     }
                     else
                     {
-                        Alert.Show("Reset Password Failed", Form_Alert.enmType.Warning);
+                        Alert.Show("Reset Password Failed", Form_Alert.enmType.Error);
 
                     }
                 }
@@ -133,7 +130,7 @@ namespace Project2.UserControls
             if (dgvEmployee.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 id = (Int32)dgvEmployee.Rows[dgvEmployee.CurrentRow.Index].Cells[0].Value;
-                OpenModal("det", id);
+                OpenModal("det", id, currentEmployee);
             }
         }
 
@@ -151,7 +148,7 @@ namespace Project2.UserControls
         private void LoadDataGridView(List<Employee> employees)
         {
             dgvEmployee.Rows.Clear();
-            if (employees.Count > 0)
+            if (employees != null)
             {
                 foreach (var employee in employees)
                 {                    
@@ -191,12 +188,12 @@ namespace Project2.UserControls
             else return "No";
         }
 
-        private void OpenModal(string action, int id)
+        private void OpenModal(string action, int id, Employee currentEmployee)
         {
             Form formBackground = new Form();
             try
             {
-                using (EmployeeModalForm uu = new EmployeeModalForm(action, id))
+                using (EmployeeModalForm uu = new EmployeeModalForm(action, id, currentEmployee))
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;
@@ -215,7 +212,7 @@ namespace Project2.UserControls
             }
             catch
             {
-                Alert.Show("Open Failed", Form_Alert.enmType.Warning);
+                Alert.Show("Open Failed", Form_Alert.enmType.Error);
             }
             finally
             {
