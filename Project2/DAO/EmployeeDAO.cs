@@ -83,7 +83,6 @@ namespace Project2.DAO
             {
                 try
                 {
-                    dbEmployee.password = newEmployee.password;
                     dbEmployee.fname = newEmployee.fname;
                     dbEmployee.lname = newEmployee.lname;
                     dbEmployee.gender = newEmployee.gender;

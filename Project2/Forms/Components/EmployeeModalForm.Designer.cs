@@ -34,6 +34,7 @@ namespace Project2.Forms.Components
             this.lblTitle = new System.Windows.Forms.Label();
             this.pbIcon = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.txtId = new Project2.Utils.FlatTextBox();
             this.lblRequiredGender = new System.Windows.Forms.Label();
             this.lblRequiredPhone = new System.Windows.Forms.Label();
             this.lblRequiredLName = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@ namespace Project2.Forms.Components
             this.btnConfirm = new Project2.Utils.RoundedButton();
             this.lblGender = new System.Windows.Forms.Label();
             this.pnlVerticalLine = new System.Windows.Forms.Panel();
-            this.txtId = new Project2.Utils.FlatTextBox();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -186,6 +186,21 @@ namespace Project2.Forms.Components
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(700, 770);
             this.pnlContainer.TabIndex = 1;
+            // 
+            // txtId
+            // 
+            this.txtId.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtId.Enabled = false;
+            this.txtId.Font = new System.Drawing.Font("Century Gothic", 10.5F);
+            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtId.Location = new System.Drawing.Point(9, 656);
+            this.txtId.Margin = new System.Windows.Forms.Padding(0);
+            this.txtId.MaxLength = 50;
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(335, 25);
+            this.txtId.TabIndex = 76;
+            this.txtId.TabStop = false;
+            this.txtId.Visible = false;
             // 
             // lblRequiredGender
             // 
@@ -297,7 +312,7 @@ namespace Project2.Forms.Components
             this.cbRole.Margin = new System.Windows.Forms.Padding(0);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(212, 25);
-            this.cbRole.TabIndex = 66;
+            this.cbRole.TabIndex = 1;
             // 
             // lblLName
             // 
@@ -323,7 +338,7 @@ namespace Project2.Forms.Components
             this.txtLName.MaxLength = 50;
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(335, 25);
-            this.txtLName.TabIndex = 64;
+            this.txtLName.TabIndex = 7;
             // 
             // lblFName
             // 
@@ -349,7 +364,7 @@ namespace Project2.Forms.Components
             this.txtFName.MaxLength = 50;
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(335, 25);
-            this.txtFName.TabIndex = 62;
+            this.txtFName.TabIndex = 6;
             // 
             // pnlLine2
             // 
@@ -424,7 +439,7 @@ namespace Project2.Forms.Components
             this.txtConfirmPassword.MaxLength = 50;
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(415, 25);
-            this.txtConfirmPassword.TabIndex = 56;
+            this.txtConfirmPassword.TabIndex = 5;
             // 
             // btnDefaultImage
             // 
@@ -483,7 +498,7 @@ namespace Project2.Forms.Components
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(680, 120);
-            this.txtAddress.TabIndex = 51;
+            this.txtAddress.TabIndex = 10;
             // 
             // lblAdress
             // 
@@ -534,7 +549,7 @@ namespace Project2.Forms.Components
             this.txtPassword.MaxLength = 50;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(415, 25);
-            this.txtPassword.TabIndex = 45;
+            this.txtPassword.TabIndex = 4;
             // 
             // lblPassword
             // 
@@ -560,7 +575,7 @@ namespace Project2.Forms.Components
             this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(415, 25);
-            this.txtEmail.TabIndex = 43;
+            this.txtEmail.TabIndex = 3;
             // 
             // lblAccInfo
             // 
@@ -602,7 +617,7 @@ namespace Project2.Forms.Components
             this.cbActive.Margin = new System.Windows.Forms.Padding(0);
             this.cbActive.Name = "cbActive";
             this.cbActive.Size = new System.Drawing.Size(199, 25);
-            this.cbActive.TabIndex = 1;
+            this.cbActive.TabIndex = 2;
             // 
             // lblActive
             // 
@@ -688,7 +703,7 @@ namespace Project2.Forms.Components
             this.txtPhone.MaxLength = 50;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(335, 25);
-            this.txtPhone.TabIndex = 8;
+            this.txtPhone.TabIndex = 9;
             // 
             // cbGender
             // 
@@ -701,7 +716,7 @@ namespace Project2.Forms.Components
             this.cbGender.Margin = new System.Windows.Forms.Padding(0);
             this.cbGender.Name = "cbGender";
             this.cbGender.Size = new System.Drawing.Size(335, 25);
-            this.cbGender.TabIndex = 7;
+            this.cbGender.TabIndex = 8;
             // 
             // btnBack
             // 
@@ -721,6 +736,7 @@ namespace Project2.Forms.Components
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(79, 30);
             this.btnBack.TabIndex = 11;
+            this.btnBack.TabStop = false;
             this.btnBack.Text = "      Back";
             this.btnBack.TextColor = System.Drawing.Color.White;
             this.btnBack.UseVisualStyleBackColor = false;
@@ -744,6 +760,7 @@ namespace Project2.Forms.Components
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(100, 30);
             this.btnConfirm.TabIndex = 10;
+            this.btnConfirm.TabStop = false;
             this.btnConfirm.Text = "    Confirm";
             this.btnConfirm.TextColor = System.Drawing.Color.White;
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -771,21 +788,6 @@ namespace Project2.Forms.Components
             this.pnlVerticalLine.Name = "pnlVerticalLine";
             this.pnlVerticalLine.Size = new System.Drawing.Size(700, 1);
             this.pnlVerticalLine.TabIndex = 28;
-            // 
-            // txtId
-            // 
-            this.txtId.BorderColor = System.Drawing.Color.DarkGray;
-            this.txtId.Enabled = false;
-            this.txtId.Font = new System.Drawing.Font("Century Gothic", 10.5F);
-            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtId.Location = new System.Drawing.Point(9, 656);
-            this.txtId.Margin = new System.Windows.Forms.Padding(0);
-            this.txtId.MaxLength = 50;
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(335, 25);
-            this.txtId.TabIndex = 76;
-            this.txtId.TabStop = false;
-            this.txtId.Visible = false;
             // 
             // EmployeeModalForm
             // 

@@ -102,14 +102,25 @@ namespace Project2
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void pbLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Logout", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+            }
         }
 
         private void btnDashboard_MouseEnter(object sender, EventArgs e)
@@ -292,17 +303,6 @@ namespace Project2
             pnlContainer.Controls.Clear();
             foreach (Control c in pnlContainer.Controls)
                 c.Dispose();
-        }
-
-        private void pbLogout_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Are you sure want to logout?", "Logout", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Close();
-                LoginForm loginForm = new LoginForm();
-                loginForm.Show();
-            }
         }
     }
 }

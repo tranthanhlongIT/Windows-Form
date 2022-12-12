@@ -30,7 +30,7 @@ namespace Project2.BUS
 
         public static Employee GetEmployeeByEmail(string email)
         {
-            return EmployeeDAO.SelectAllByEmail(email); ;
+            return EmployeeDAO.SelectAllByEmail(email);
         }
 
         public static Employee GetEmployeeByID(int id)
